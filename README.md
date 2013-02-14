@@ -1,8 +1,6 @@
 # Website for OpenSeadragon
 
-http://openseadragon.github.com
-
-This repository is a Github Organization Page; everything that's checked in to the master branch is automatically published to http://openseadragon.github.com. 
+This repository is a Github Organization Page; everything that's checked in to the master branch is automatically published to http://openseadragon.github.com/. 
 
 The files that are checked in here (with the exception of this readme) are all generated from the site-build repository.
 
