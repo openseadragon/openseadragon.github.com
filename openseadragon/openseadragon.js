@@ -1,8 +1,8 @@
-/*globals OpenSeadragon*/
-
 /**
  * @version  OpenSeadragon 0.9.120
- *
+ */
+
+/**
  * @fileOverview 
  * <h2>
  * <strong>
@@ -1881,7 +1881,6 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
     }
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function($){
 
@@ -1997,7 +1996,6 @@ $.EventHandler.prototype = {
 };
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
         
@@ -3057,7 +3055,6 @@ $.EventHandler.prototype = {
     })();
     
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -3163,7 +3160,6 @@ $.Control.prototype = {
 };
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
@@ -3348,8 +3344,7 @@ $.Control.prototype = {
         return -1;
     }
 
-}( OpenSeadragon ));/*globals OpenSeadragon */
-
+}( OpenSeadragon ));
 (function( $ ){
      
 // dictionary from hash to private properties
@@ -4829,7 +4824,6 @@ function onNext(){
 
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -5133,6 +5127,7 @@ function onCanvasScroll( tracker, position, scroll, shift ) {
 
 }( OpenSeadragon ));
 
+
 (function( $ ){
     
 //TODO: I guess this is where the i18n needs to be reimplemented.  I'll look 
@@ -5223,7 +5218,6 @@ $.extend( $, {
 });
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
@@ -5366,7 +5360,6 @@ $.Point.prototype = {
 };
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
@@ -5775,6 +5768,7 @@ $.TileSource.determineType = function( tileSource, data, url ){
 
 }( OpenSeadragon ));
 
+
 (function( $ ){
     
 /**
@@ -6107,6 +6101,7 @@ function configureFromObject( tileSource, configuration ){
 }
 
 }( OpenSeadragon ));
+
 (function( $ ){
     
 /**
@@ -6395,7 +6390,8 @@ function configureFromObject( tileSource, configuration ){
     return configuration;
 }
 
-}( OpenSeadragon ));(function( $ ){
+}( OpenSeadragon ));
+(function( $ ){
     
 /**
  * A tilesource implementation for OpenStreetMap. Adopted from Rainer Simon
@@ -6501,6 +6497,7 @@ $.extend( $.OsmTileSource.prototype, $.TileSource.prototype, {
 
 
 }( OpenSeadragon ));
+
 (function( $ ){
     
 /**
@@ -6598,8 +6595,7 @@ $.extend( $.TmsTileSource.prototype, $.TileSource.prototype, {
 });
 
 
-}( OpenSeadragon ));/*globals OpenSeadragon */
-
+}( OpenSeadragon ));
 (function( $ ){
 
 
@@ -6860,7 +6856,6 @@ function configureFromObject( tileSource, configuration ){
 }
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -6972,7 +6967,6 @@ $.extend( $.TileSourceCollection.prototype, $.TileSource.prototype, {
 
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
@@ -7322,7 +7316,6 @@ function outTo( button, newState ) {
 
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 /**
@@ -7433,7 +7426,6 @@ $.ButtonGroup.prototype = {
 
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -7551,6 +7543,7 @@ $.Rect.prototype = {
 
 
 }( OpenSeadragon ));
+
 
 (function( $ ){
     
@@ -8068,8 +8061,7 @@ function onKeyPress( tracker, keyCode, shiftKey ){
 
 
 
-}( OpenSeadragon ));/*globals OpenSeadragon */
-
+}( OpenSeadragon ));
 (function( $ ){
 
 /**
@@ -8097,7 +8089,6 @@ $.DisplayRect = function( x, y, width, height, minLevel, maxLevel ) {
 $.extend( $.DisplayRect.prototype, $.Rect.prototype );
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -8216,7 +8207,6 @@ function transform( stiffness, x ) {
 }
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -8411,7 +8401,6 @@ $.Tile.prototype = {
 };
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
@@ -8598,7 +8587,6 @@ $.Tile.prototype = {
     };
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
     
@@ -9812,7 +9800,6 @@ function drawDebugInfo( drawer, tile, count, i ){
 
 
 }( OpenSeadragon ));
-/*globals OpenSeadragon */
 
 (function( $ ){
 
