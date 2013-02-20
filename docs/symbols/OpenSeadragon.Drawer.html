@@ -1,0 +1,1503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>OpenSeadragon.Drawer | JsDoc Reference</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="mobileoptimized" content="0" />
+	
+		<link rel="stylesheet" href="../css/all.css" media="all" />
+		<link rel="stylesheet" href="../css/handheld.css" media="only screen and (max-width: 660px)" />
+		<link rel="stylesheet" href="../css/handheld.css" media="handheld" />
+		<link rel="stylesheet" href="../css/screen.css" media="screen and (min-width: 661px)" />
+
+		<script src="../javascript/all.js"></script>
+		<!--[if lt IE 9]>
+			<script src="../javascript/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="index">
+	<div class="menu">
+		<div class="indexLinks">
+			<a href="../index.html">Classes</a>
+			<a href="../files.html">Files</a>
+		</div>
+	
+		<h2 class="heading1">Classes</h2>
+		
+		<input type="text" name="classFilter" class="classFilter" id="ClassFilter" placeholder="Filter"></input>
+		
+		<nav>
+			<ul class="classList" id="ClassList">
+				
+					<li><a href="../symbols/_global_.html">_global_</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.html">OpenSeadragon</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Button.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Button</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.ButtonGroup.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>ButtonGroup</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Control.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Control</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.ControlDock.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>ControlDock</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.DisplayRect.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>DisplayRect</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Drawer</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.DziTileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>DziTileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.EventHandler.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>EventHandler</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.IIIFTileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>IIIFTileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.LegacyTileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>LegacyTileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.MouseTracker.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>MouseTracker</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Navigator.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Navigator</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.OsmTileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>OsmTileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Overlay.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Overlay</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Point</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Rect</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Spring.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Spring</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Tile.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Tile</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.TileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>TileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.TileSourceCollection.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>TileSourceCollection</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.TmsTileSource.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>TmsTileSource</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Viewer</a></li>
+				
+					<li><a href="../symbols/OpenSeadragon.Viewport.html">OpenSeadragon<span class='break'> </span>.<span class='break'> </span>Viewport</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	<div class="fineprint" style="clear:both">
+		<footer>
+			
+			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
+			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
+			Generated on:
+			<time datetime='2013-1-19' pubdate>2013-1-19 22:04</time>
+		</footer>
+	</div>
+</div>
+
+<div class="index indexStatic"></div>
+
+<div class="content">
+	<div class="innerContent">
+		<article>
+			<header>
+				<h1 class="classTitle">
+					
+					Class <span>OpenSeadragon.Drawer</span>
+				</h1>
+				
+				<div class="intro">
+					<p class="description summary">
+						
+					</p>
+						
+					
+						<ul class="summary">
+							
+							
+							
+								<li>Defined in: <a href="../symbols/src/openseadragon_openseadragon.js.html">openseadragon.js</a></li>
+							
+							
+						</ul>
+					
+				</div>
+			</header>
+			
+			
+				<section>
+					<div class="props">
+						<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class OpenSeadragon.Drawer.">
+							<caption class="sectionTitle">Class Summary</caption>
+							<thead>
+								<tr>
+									<th scope="col">Constructor Attributes</th>
+									<th scope="col">Constructor Name and Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="attributes">&nbsp;</td>
+									<td class="nameDescription" >
+										<div class="fixedFont">
+											<b><a href="../symbols/OpenSeadragon.Drawer.html#constructor">OpenSeadragon.Drawer</a></b>(source, viewport, element)
+										</div>
+										<div class="description"></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			
+			
+			
+				
+				<section>
+					
+						<nav>
+							<div class="props">
+								<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class OpenSeadragon.Drawer.">
+									<caption class="sectionTitle">Field Summary</caption>
+									
+									<thead>
+										<tr>
+											<th scope="col">Field Attributes</th>
+											<th scope="col">Field Name and Description</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#canvas">canvas</a></b>
+													</div>
+													<div class="description">- TODO</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#config">config</a></b>
+													</div>
+													<div class="description">- Reference to Viewer config.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#container">container</a></b>
+													</div>
+													<div class="description">- Reference to Viewer 'canvas'.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#context">context</a></b>
+													</div>
+													<div class="description">- TODO</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#coverage">coverage</a></b>
+													</div>
+													<div class="description">- A '3d' dictionary [level][x][y] --> Boolean.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#downloading">downloading</a></b>
+													</div>
+													<div class="description">- How many images are currently being loaded in parallel.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#element">element</a></b>
+													</div>
+													<div class="description">- DEPRECATED Alias for container.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#lastDrawn">lastDrawn</a></b>
+													</div>
+													<div class="description">- An unordered list of Tiles drawn last frame.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#lastResetTime">lastResetTime</a></b>
+													</div>
+													<div class="description">- Last time for which the drawer was reset.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#midUpdate">midUpdate</a></b>
+													</div>
+													<div class="description">- Is the drawer currently updating the viewport?</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#normHeight">normHeight</a></b>
+													</div>
+													<div class="description">- Ratio of zoomable image height to width.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#overlays">overlays</a></b>
+													</div>
+													<div class="description">- An unordered list of Overlays added.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#source">source</a></b>
+													</div>
+													<div class="description">- Reference to Viewer tile source.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#tilesLoaded">tilesLoaded</a></b>
+													</div>
+													<div class="description">- An unordered list of Tiles with loaded images.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#tilesMatrix">tilesMatrix</a></b>
+													</div>
+													<div class="description">- A '3d' dictionary [level][x][y] --> Tile.</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#updateAgain">updateAgain</a></b>
+													</div>
+													<div class="description">- Does the drawer need to update the viewort again?</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													<b><a href="../symbols/OpenSeadragon.Drawer.html#viewport">viewport</a></b>
+													</div>
+													<div class="description">- Reference to Viewer viewport.</div>
+												</td>
+											</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</nav>
+					
+					
+					
+				</section>
+			
+	<!--
+	#### METHODS SUMMARY
+	-->
+			
+				<section>
+					
+					
+					<div class="props">
+						<h2 class="sectionTitle">Method Summary</h2>
+						
+						
+							<nav>
+								<table class="summaryTable" id="MethodsList" cellspacing="0" summary="A summary of the methods documented in the class OpenSeadragon.Drawer.">
+									<thead>
+										<tr>
+											<th scope="col">Method Attributes</th>
+											<th scope="col">Method Name and Description</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										
+										
+											<tr
+												 class='item0'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#addOverlay">addOverlay</a></b>(element, location, placement)
+													</div>
+													<div class="description">Adds an html element as an overlay to the current viewport.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item1'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#clearOverlays">clearOverlays</a></b>()
+													</div>
+													<div class="description">Removes all currently configured Overlays from this Drawer and schedules
+     and update.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item2'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#loadImage">loadImage</a></b>(src, callback)
+													</div>
+													<div class="description">Used internally to load images when required.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item3'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#needsUpdate">needsUpdate</a></b>()
+													</div>
+													<div class="description">Returns whether the Drawer is scheduled for an update at the 
+     soonest possible opportunity.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item4'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#numTilesLoaded">numTilesLoaded</a></b>()
+													</div>
+													<div class="description">Returns the total number of tiles that have been loaded by this Drawer.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item5'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#removeOverlay">removeOverlay</a></b>(element)
+													</div>
+													<div class="description">Removes and overlay identified by the reference element or element id 
+     and schedules and update.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item6'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#reset">reset</a></b>()
+													</div>
+													<div class="description">Clears all tiles and triggers an update on the next call to 
+Drawer.prototype.update().</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item7'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#update">update</a></b>()
+													</div>
+													<div class="description">Forces the Drawer to update.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item8'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#updateOverlay">updateOverlay</a></b>(location, placement, placement)
+													</div>
+													<div class="description">Updates the overlay represented by the reference to the element or  
+element id moving it to the new location, relative to the new placement.</div>
+												</td>
+											</tr>
+										
+									</tbody>
+								</table>
+							</nav>
+						
+					
+						
+					</div>
+				</section>
+			
+			
+	<!--
+	#### EVENTS SUMMARY
+	-->
+			
+	<!--
+	#### CONSTRUCTOR DETAILS
+	-->
+			
+				<section>
+					<div class="details props">
+						<div class="innerProps">
+							<h2 class="sectionTitle" id="constructor">
+								Class Detail
+							</h2>
+							
+							<div class="fixedFont">
+								<b>OpenSeadragon.Drawer</b>(source, viewport, element)
+							</div>
+							
+							<div class="description">
+								
+								
+							</div>
+							
+							
+						
+							
+								<dl class="detailList params">
+									<dt class="heading">Parameters:</dt>
+									
+										<dt>
+											<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a>}</span>  <b>source</b>
+											
+										</dt>
+										<dd>- Reference to Viewer tile source.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a>}</span>  <b>viewport</b>
+											
+										</dt>
+										<dd>- Reference to Viewer viewport.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{Element}</span>  <b>element</b>
+											
+										</dt>
+										<dd>- Reference to Viewer 'canvas'.</dd>
+									
+								</dl>
+							
+							
+							
+						</div>
+					</div>
+				</section>
+			
+	<!--
+	#### FIELD DETAILS
+	-->
+			
+				<section>
+					<div class="details props">
+						<div class="innerProps">
+							<h2 class="sectionTitle">
+								Field Detail
+							</h2>
+							
+							
+								<div class="fixedFont heading" id="canvas">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Element|Canvas}</span>
+									
+									<b>canvas</b>							
+								</div>
+								
+								<div class="description">
+									- TODO
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="config">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<b>config</b>							
+								</div>
+								
+								<div class="description">
+									- Reference to Viewer config.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="container">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Element}</span>
+									
+									<b>container</b>							
+								</div>
+								
+								<div class="description">
+									- Reference to Viewer 'canvas'.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="context">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{CanvasContext}</span>
+									
+									<b>context</b>							
+								</div>
+								
+								<div class="description">
+									- TODO
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="coverage">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<b>coverage</b>							
+								</div>
+								
+								<div class="description">
+									- A '3d' dictionary [level][x][y] --> Boolean.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="downloading">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Number}</span>
+									
+									<b>downloading</b>							
+								</div>
+								
+								<div class="description">
+									- How many images are currently being loaded in parallel.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="element">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Element}</span>
+									
+									<b>element</b>							
+								</div>
+								
+								<div class="description">
+									- DEPRECATED Alias for container.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="lastDrawn">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Array}</span>
+									
+									<b>lastDrawn</b>							
+								</div>
+								
+								<div class="description">
+									- An unordered list of Tiles drawn last frame.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="lastResetTime">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Number}</span>
+									
+									<b>lastResetTime</b>							
+								</div>
+								
+								<div class="description">
+									- Last time for which the drawer was reset.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="midUpdate">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Boolean}</span>
+									
+									<b>midUpdate</b>							
+								</div>
+								
+								<div class="description">
+									- Is the drawer currently updating the viewport?
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="normHeight">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Number}</span>
+									
+									<b>normHeight</b>							
+								</div>
+								
+								<div class="description">
+									- Ratio of zoomable image height to width.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="overlays">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Array}</span>
+									
+									<b>overlays</b>							
+								</div>
+								
+								<div class="description">
+									- An unordered list of Overlays added.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="source">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{<a href="../symbols/OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a>}</span>
+									
+									<b>source</b>							
+								</div>
+								
+								<div class="description">
+									- Reference to Viewer tile source.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="tilesLoaded">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Array}</span>
+									
+									<b>tilesLoaded</b>							
+								</div>
+								
+								<div class="description">
+									- An unordered list of Tiles with loaded images.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="tilesMatrix">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<b>tilesMatrix</b>							
+								</div>
+								
+								<div class="description">
+									- A '3d' dictionary [level][x][y] --> Tile.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="updateAgain">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{Boolean}</span>
+									
+									<b>updateAgain</b>							
+								</div>
+								
+								<div class="description">
+									- Does the drawer need to update the viewort again?
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="viewport">
+									<span class='lighter'>
+									
+									</span>
+									
+									<span class="light">{<a href="../symbols/OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a>}</span>
+									
+									<b>viewport</b>							
+								</div>
+								
+								<div class="description">
+									- Reference to Viewer viewport.
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								
+							
+						</div>
+					</div>
+				</section>
+			
+	<!--
+	#### METHOD DETAILS
+	-->		
+			
+				<section>
+					<div class="details props">
+						<div class="innerProps">
+							<h2 class="sectionTitle">
+								Method Detail
+							</h2>
+							
+							<ul class="methodDetail" id="MethodDetail">
+								
+								
+									<li 
+										 class='item0'
+									>
+										<div class="fixedFont heading" id="addOverlay">
+											<span class='lighter'>
+											
+											</span>
+											
+											
+											
+											<b>addOverlay</b>(element, location, placement)
+										</div>
+										
+										<div class="description">
+											Adds an html element as an overlay to the current viewport.  Useful for
+highlighting words or areas of interest on an image or other zoomable
+interface.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Element|String}</span> <b>element</b>
+														
+													</dt>
+													<dd>- A reference to an element or an id for
+     the element which will overlayed.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>|<a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span> <b>location</b>
+														
+													</dt>
+													<dd>- The point or 
+     rectangle which will be overlayed.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.html#.OverlayPlacement">OpenSeadragon.OverlayPlacement</a>}</span> <b>placement</b>
+														
+													</dt>
+													<dd>- The position of the 
+     viewport which the location coordinates will be treated as relative 
+     to.</dd>
+												
+											</dl>
+										
+										
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item1'
+									>
+										<div class="fixedFont heading" id="clearOverlays">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span>
+											
+											<b>clearOverlays</b>()
+										</div>
+										
+										<div class="description">
+											Removes all currently configured Overlays from this Drawer and schedules
+     and update.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item2'
+									>
+										<div class="fixedFont heading" id="loadImage">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{Boolean}</span>
+											
+											<b>loadImage</b>(src, callback)
+										</div>
+										
+										<div class="description">
+											Used internally to load images when required.  May also be used to 
+preload a set of images so the browser will have them available in 
+the local cache to optimize user experience in certain cases. Because
+the number of parallel image loads is configurable, if too many images
+are currently being loaded, the request will be ignored.  Since by 
+default drawer.imageLoaderLimit is 0, the native browser parallel 
+image loading policy will be used.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{String}</span> <b>src</b>
+														
+													</dt>
+													<dd>- The url of the image to load.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Function}</span> <b>callback</b>
+														
+													</dt>
+													<dd>- The function that will be called with the
+     Image object as the only parameter if it was loaded successfully.
+     If an error occured, or the request timed out or was aborted,
+     the parameter is null instead.</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Boolean}</span> loading - Whether the request was submitted or ignored
+     based on OpenSeadragon.DEFAULT_SETTINGS.imageLoaderLimit.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item3'
+									>
+										<div class="fixedFont heading" id="needsUpdate">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{Boolean}</span>
+											
+											<b>needsUpdate</b>()
+										</div>
+										
+										<div class="description">
+											Returns whether the Drawer is scheduled for an update at the 
+     soonest possible opportunity.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Boolean}</span> - Whether the Drawer is scheduled for an update at the 
+     soonest possible opportunity.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item4'
+									>
+										<div class="fixedFont heading" id="numTilesLoaded">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{Number}</span>
+											
+											<b>numTilesLoaded</b>()
+										</div>
+										
+										<div class="description">
+											Returns the total number of tiles that have been loaded by this Drawer.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Number}</span> - The total number of tiles that have been loaded by 
+     this Drawer.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item5'
+									>
+										<div class="fixedFont heading" id="removeOverlay">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span>
+											
+											<b>removeOverlay</b>(element)
+										</div>
+										
+										<div class="description">
+											Removes and overlay identified by the reference element or element id 
+     and schedules and update.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Element|String}</span> <b>element</b>
+														
+													</dt>
+													<dd>- A reference to the element or an 
+     element id which represent the ovelay content to be removed.</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item6'
+									>
+										<div class="fixedFont heading" id="reset">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span>
+											
+											<b>reset</b>()
+										</div>
+										
+										<div class="description">
+											Clears all tiles and triggers an update on the next call to 
+Drawer.prototype.update().
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item7'
+									>
+										<div class="fixedFont heading" id="update">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span>
+											
+											<b>update</b>()
+										</div>
+										
+										<div class="description">
+											Forces the Drawer to update.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item8'
+									>
+										<div class="fixedFont heading" id="updateOverlay">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span>
+											
+											<b>updateOverlay</b>(location, placement, placement)
+										</div>
+										
+										<div class="description">
+											Updates the overlay represented by the reference to the element or  
+element id moving it to the new location, relative to the new placement.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>|<a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span> <b>location</b>
+														
+													</dt>
+													<dd>- The point or 
+     rectangle which will be overlayed.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.html#.OverlayPlacement">OpenSeadragon.OverlayPlacement</a>}</span> <b>placement</b>
+														
+													</dt>
+													<dd>- The position of the 
+     viewport which the location coordinates will be treated as relative 
+     to.</dd>
+												
+													<dt>
+														<b>placement</b>
+														
+													</dt>
+													<dd></dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										
+									</li>
+								
+							</ul>
+						</div>
+					</div>
+				</section>
+			
+			
+	<!--
+	#### EVENT DETAILS
+	-->		
+			
+		</article>
+	</div>
+</div>
+
+		<script type="text/javascript">
+			wbos.CssTools.MediaQueryFallBack.LoadCss('../css/screen.css', '../css/handheld.css', 660)
+			codeview.classFilter.Init()
+		</script>
+	</body>
+</html>
+
