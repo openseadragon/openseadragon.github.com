@@ -6014,7 +6014,7 @@ function configureFromXML( tileSource, xmlDoc ){
                         Y: parseInt( rectNode.getAttribute( "Y" ), 10 ),
                         Width: parseInt( rectNode.getAttribute( "Width" ), 10 ),
                         Height: parseInt( rectNode.getAttribute( "Height" ), 10 ),
-                        MinLevel: 0,  // ignore MinLevel attribute, bug in Deep Zoom Composer
+                        MinLevel: parseInt( dispRectNode.getAttribute( "MinLevel" ), 10 ),
                         MaxLevel: parseInt( dispRectNode.getAttribute( "MaxLevel" ), 10 )
                     }
                 });
@@ -6080,7 +6080,7 @@ function configureFromObject( tileSource, configuration ){
             parseInt( rectData.Y, 10 ),
             parseInt( rectData.Width, 10 ),
             parseInt( rectData.Height, 10 ),
-            0,  // ignore MinLevel attribute, bug in Deep Zoom Composer
+            parseInt( rectData.MinLevel, 10 ),
             parseInt( rectData.MaxLevel, 10 )
         ));
     }
@@ -6113,7 +6113,7 @@ function configureFromObject( tileSource, configuration ){
  * https://gist.github.com/jpstroop/4624253
  *
  * @class
- * @name OpenSeadragon.IIIFTileSource
+ * @extends OpenSeadragon.TileSource
  * @see http://library.stanford.edu/iiif/image-api/
  */
 $.IIIFTileSource = function( options ){
@@ -6139,8 +6139,6 @@ $.IIIFTileSource = function( options ){
 };
 
 $.extend( $.IIIFTileSource.prototype, $.TileSource.prototype, {
-    
-
     /**
      * Determine if the data and/or url imply the image service is supported by
      * this tile source.
@@ -6458,7 +6456,7 @@ $.extend( $.OsmTileSource.prototype, $.TileSource.prototype, {
      * Determine if the data and/or url imply the image service is supported by
      * this tile source.
      * @function
-     * @name OpenSeadragon.DziTileSource.prototype.supports
+     * @name OpenSeadragon.OsmTileSource.prototype.supports
      * @param {Object|Array} data
      * @param {String} optional - url
      */
@@ -6598,7 +6596,6 @@ $.extend( $.TmsTileSource.prototype, $.TileSource.prototype, {
 }( OpenSeadragon ));
 (function( $ ){
 
-
 /**
  * The LegacyTileSource allows simple, traditional image pyramids to be loaded
  * into an OpenSeadragon Viewer.  Basically, this translates to the historically
@@ -6607,6 +6604,7 @@ $.extend( $.TmsTileSource.prototype, $.TileSource.prototype, {
  * resolution image and a high resolution image in standard web formats like
  * png or jpg.
  * @class
+ * @extends OpenSeadragon.TileSource
  * @param {Array} levels An array of file descriptions, each is an object with
  *      a 'url', a 'width', and a 'height'.  Overriding classes can expect more
  *      properties but these properties are sufficient for this implementation.
@@ -6657,7 +6655,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
      * Determine if the data and/or url imply the image service is supported by
      * this tile source.
      * @function
-     * @name OpenSeadragon.DziTileSource.prototype.supports
+     * @name OpenSeadragon.LegacyTileSource.prototype.supports
      * @param {Object|Array} data
      * @param {String} optional - url
      */
@@ -6675,7 +6673,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
     /**
      * 
      * @function
-     * @name OpenSeadragon.DziTileSource.prototype.configure
+     * @name OpenSeadragon.LegacyTileSource.prototype.configure
      * @param {Object|XMLDocument} configuration - the raw configuration
      * @param {String} dataUrl - the url the data was retreived from if any.
      * @return {Object} options - A dictionary of keyword arguments sufficient 
@@ -6700,6 +6698,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
     
     /**
      * @function
+     * @name OpenSeadragon.LegacyTileSource.prototype.getLevelScale
      * @param {Number} level
      */
     getLevelScale: function( level ) {
@@ -6714,6 +6713,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
 
     /**
      * @function
+     * @name OpenSeadragon.LegacyTileSource.prototype.getNumTiles
      * @param {Number} level
      */
     getNumTiles: function( level ) {
@@ -6727,6 +6727,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
 
     /**
      * @function
+     * @name OpenSeadragon.LegacyTileSource.prototype.getTileAtPoint
      * @param {Number} level
      * @param {OpenSeadragon.Point} point
      */
@@ -6741,6 +6742,7 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
      * server technologies, and various specifications for building image
      * pyramids, this method is here to allow easy integration.
      * @function
+     * @name OpenSeadragon.LegacyTileSource.prototype.getTileUrl
      * @param {Number} level
      * @param {Number} x
      * @param {Number} y
@@ -6861,7 +6863,7 @@ function configureFromObject( tileSource, configuration ){
     
 /**
  * @class
- * @extends OpenSeadragon.TileSourceCollection
+ * @extends OpenSeadragon.TileSource
  */ 
 $.TileSourceCollection = function( tileSize, tileSources, rows, layout  ) {
     
@@ -6921,6 +6923,7 @@ $.extend( $.TileSourceCollection.prototype, $.TileSource.prototype, {
 
     /**
      * @function
+     * @name OpenSeadragon.TileSourceCollection.prototype.getTileBounds
      * @param {Number} level
      * @param {Number} x
      * @param {Number} y
@@ -7784,7 +7787,7 @@ $.extend( $.ReferenceStrip.prototype, $.EventHandler.prototype, $.Viewer.prototy
     },
     /**
      * @function
-     * @name OpenSeadragon.Navigator.prototype.update
+     * @name OpenSeadragon.ReferenceStrip.prototype.update
      */
     update: function( viewport ){
 
