@@ -1,5 +1,5 @@
 /**
- * @version  OpenSeadragon 0.9.120
+ * @version  OpenSeadragon 0.9.121
  */
 
 /**
@@ -492,7 +492,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             zoomPerScroll:          1.2,
             zoomPerSecond:          2.0,
             animationTime:          1.5,
-            blendTime:              0.5,
+            blendTime:              1.5,
             alwaysBlend:            false,
             autoHideControls:       true,
             immediateRender:        false,
@@ -2694,6 +2694,10 @@ $.EventHandler.prototype = {
             THIS[ tracker.hash ].lastPinchDelta = 
                 Math.abs( touchA.x - touchB.x ) +
                 Math.abs( touchA.y - touchB.y );
+            THIS[ tracker.hash ].pinchMidpoint = new $.Point(
+                ( touchA.x + touchB.x ) / 2 ,
+                ( touchA.y + touchB.y ) / 2
+            );
             //$.console.debug("pinch start : "+THIS[ tracker.hash ].lastPinchDelta);
         }
 
@@ -2755,6 +2759,7 @@ $.EventHandler.prototype = {
         }
         if( event.touches.length + event.changedTouches.length == 2 ){
             THIS[ tracker.hash ].lastPinchDelta = null;
+            THIS[ tracker.hash ].pinchMidpoint  = null;
             //$.console.debug("pinch end");
         }
         event.preventDefault();
@@ -2942,7 +2947,7 @@ $.EventHandler.prototype = {
         if( event.touches.length === 1 &&
             event.targetTouches.length === 1 && 
             event.changedTouches.length === 1 && 
-            THIS[ tracker.hash ].lastTouch === event.touches[ 0 ]){
+            THIS[ tracker.hash ].lastTouch.identifier === event.touches[ 0 ].identifier){
 
             onMouseMove( tracker, event.touches[ 0 ] );
 
@@ -2960,8 +2965,8 @@ $.EventHandler.prototype = {
 
                 onMouseWheelSpin( tracker, {
                     shift: false,
-                    pageX: ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX ) / 2,
-                    pageY: ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY ) / 2,
+                    pageX: THIS[ tracker.hash ].pinchMidpoint.x,
+                    pageY: THIS[ tracker.hash ].pinchMidpoint.y,
                     detail:( 
                         THIS[ tracker.hash ].lastPinchDelta > pinchDelta 
                     ) ? 1 : -1
