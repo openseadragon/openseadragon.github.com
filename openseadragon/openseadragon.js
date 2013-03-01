@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
  * @version  OpenSeadragon 0.9.122
-=======
- * @version  OpenSeadragon 0.9.121
->>>>>>> b8d6de796974f0faf63e9d45139136b620f69542
  */
 
 /**
