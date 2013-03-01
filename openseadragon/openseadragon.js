@@ -1,5 +1,5 @@
 /**
- * @version  OpenSeadragon 0.9.120
+ * @version  OpenSeadragon 0.9.122
  */
 
 /**
@@ -492,7 +492,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             zoomPerScroll:          1.2,
             zoomPerSecond:          2.0,
             animationTime:          1.5,
-            blendTime:              0.5,
+            blendTime:              1.5,
             alwaysBlend:            false,
             autoHideControls:       true,
             immediateRender:        false,
@@ -504,7 +504,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             controlsFadeDelay:      2000,  //ZOOM/HOME/FULL/SEQUENCE
             controlsFadeLength:     1500,  //ZOOM/HOME/FULL/SEQUENCE
             mouseNavEnabled:        true,  //GENERAL MOUSE INTERACTIVITY
-
+            
             //VIEWPORT NAVIGATOR SETTINGS
             showNavigator:          true, //promoted to default in 0.9.64
             navigatorElement:       null,
@@ -1683,6 +1683,71 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
     };
         
 
+    // Adding support for HTML5's requestAnimationFrame as suggested by acdha
+    // implementation taken from matt synders post here:s
+    // http://mattsnider.com/cross-browser-and-legacy-supported-requestframeanimation/
+    (function( w ) {
+
+        // most browsers have an implementation
+        w.requestAnimationFrame = w.requestAnimationFrame ||
+            w.mozRequestAnimationFrame || 
+            w.webkitRequestAnimationFrame ||
+            w.msRequestAnimationFrame;
+
+        w.cancelAnimationFrame = w.cancelAnimationFrame ||
+            w.mozCancelAnimationFrame || 
+            w.webkitCancelAnimationFrame ||
+            w.msCancelAnimationFrame;
+
+
+        // polyfill, when necessary
+        if ( w.requestAnimationFrame ) {
+            //we cant assign window.requestAnimationFrame directly to $.requestAnimationFrame
+            //without getting Illegal Invocation errors in webkit so call in a
+            //wrapper
+            $.requestAnimationFrame = function( callback ){ 
+                return w.requestAnimationFrame( callback );
+            };
+            $.cancelAnimationFrame = function( requestId ){ 
+                return w.cancelAnimationFrame( requestId );
+            };
+        } else {
+            var aAnimQueue = [],
+                iRequestId = 0,
+                iIntervalId;
+
+            // create a mock requestAnimationFrame function
+            $.requestAnimationFrame = function( callback ) {
+                aAnimQueue.push( [ ++iRequestId, callback ] );
+
+                if ( !iIntervalId ) {
+                    iIntervalId = setInterval( function() {
+                        if ( aAnimQueue.length ) {
+                            aAnimQueue.shift( )[ 1 ](+new Date());
+                        } else {
+                            // don't continue the interval, if unnecessary
+                            clearInterval( iIntervalId );
+                            iIntervalId = undefined;
+                        }
+                    }, 1000 / 50);  // estimating support for 50 frames per second
+                }
+
+                return iRequestId;
+            };
+
+            // create a mock cancelAnimationFrame function
+            $.cancelAnimationFrame = function( requestId ) {
+                // find the request ID and remove it
+                for ( var i = 0, j = aAnimQueue.length; i < j; i += 1 ) {
+                    if ( aAnimQueue[ i ][ 0 ] === requestId ) {
+                        aAnimQueue.splice( i, 1 );
+                        return;
+                    }
+                }
+            };
+        }
+    })( window );
+
     /**
      * @private
      * @inner
@@ -2694,6 +2759,10 @@ $.EventHandler.prototype = {
             THIS[ tracker.hash ].lastPinchDelta = 
                 Math.abs( touchA.x - touchB.x ) +
                 Math.abs( touchA.y - touchB.y );
+            THIS[ tracker.hash ].pinchMidpoint = new $.Point(
+                ( touchA.x + touchB.x ) / 2 ,
+                ( touchA.y + touchB.y ) / 2
+            );
             //$.console.debug("pinch start : "+THIS[ tracker.hash ].lastPinchDelta);
         }
 
@@ -2755,6 +2824,7 @@ $.EventHandler.prototype = {
         }
         if( event.touches.length + event.changedTouches.length == 2 ){
             THIS[ tracker.hash ].lastPinchDelta = null;
+            THIS[ tracker.hash ].pinchMidpoint  = null;
             //$.console.debug("pinch end");
         }
         event.preventDefault();
@@ -2942,7 +3012,7 @@ $.EventHandler.prototype = {
         if( event.touches.length === 1 &&
             event.targetTouches.length === 1 && 
             event.changedTouches.length === 1 && 
-            THIS[ tracker.hash ].lastTouch === event.touches[ 0 ]){
+            THIS[ tracker.hash ].lastTouch.identifier === event.touches[ 0 ].identifier){
 
             onMouseMove( tracker, event.touches[ 0 ] );
 
@@ -2960,8 +3030,8 @@ $.EventHandler.prototype = {
 
                 onMouseWheelSpin( tracker, {
                     shift: false,
-                    pageX: ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX ) / 2,
-                    pageY: ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY ) / 2,
+                    pageX: THIS[ tracker.hash ].pinchMidpoint.x,
+                    pageY: THIS[ tracker.hash ].pinchMidpoint.y,
                     detail:( 
                         THIS[ tracker.hash ].lastPinchDelta > pinchDelta 
                     ) ? 1 : -1
@@ -3581,9 +3651,9 @@ $.Viewer = function( options ) {
         );
     }
 
-    window.setTimeout( function(){
+    $.requestAnimationFrame( function(){
         beginControlsAutoHide( _this );
-    }, 1 );    // initial fade out
+    } );    // initial fade out
 
 };
 
@@ -4426,9 +4496,9 @@ function scheduleUpdate( viewer, updateFunc, prevUpdateTime ){
         deltaTime;
 
     if ( THIS[ viewer.hash ].animating ) {
-        return window.setTimeout( function(){
+        return $.requestAnimationFrame( function(){
             updateFunc( viewer );
-        }, 1 );
+        } );
     }
 
     currentTime     = +new Date();
@@ -4437,17 +4507,17 @@ function scheduleUpdate( viewer, updateFunc, prevUpdateTime ){
     targetTime      = prevUpdateTime + 1000 / 60;
     deltaTime       = Math.max( 1, targetTime - currentTime );
     
-    return window.setTimeout( function(){
+    return $.requestAnimationFrame( function(){
         updateFunc( viewer );
-    }, deltaTime );
+    } );
 }
 
 
 //provides a sequence in the fade animation
 function scheduleControlsFade( viewer ) {
-    window.setTimeout( function(){
+    $.requestAnimationFrame( function(){
         updateControlsFade( viewer );
-    }, 20);
+    });
 }
 
 
@@ -4741,7 +4811,7 @@ function endZooming() {
 
 
 function scheduleZoom( viewer ) {
-    window.setTimeout( $.delegate( viewer, doZoom ), 10 );
+    $.requestAnimationFrame( $.delegate( viewer, doZoom ) );
 }
 
 
@@ -5504,7 +5574,19 @@ $.TileSource.prototype = {
      * @param {Number} level
      */
     getLevelScale: function( level ) {
-        return 1 / ( 1 << ( this.maxLevel - level ) );
+
+        // see https://github.com/openseadragon/openseadragon/issues/22
+        // we use the tilesources implementation of getLevelScale to generate
+        // a memoized re-implementation
+        var levelScaleCache = {},
+            i;
+        for( i = 0; i <= this.maxLevel; i++ ){
+            levelScaleCache[ i ] = 1 / Math.pow(2, this.maxLevel - i);
+        }
+        this.getLevelScale = function( _level ){
+            return levelScaleCache[ _level ];
+        };
+        return this.getLevelScale( level );
     },
 
     /**
@@ -7215,9 +7297,9 @@ $.extend( $.Button.prototype, $.EventHandler.prototype, {
 
 
 function scheduleFade( button ) {
-    window.setTimeout(function(){
+    $.requestAnimationFrame(function(){
         updateFade( button );
-    }, 20 );
+    });
 }
 
 function updateFade( button ) {
@@ -7616,7 +7698,7 @@ $.ReferenceStrip = function( options ){
 
     this.minPixelRatio = this.viewer.minPixelRatio;
 
-    style               = thie.element.style;
+    style               = this.element.style;
     style.marginTop     = '0px';
     style.marginRight   = '0px';
     style.marginBottom  = '0px';
@@ -9611,9 +9693,9 @@ function finishLoadingImage( image, callback, successful, jobid ){
     if ( jobid ) {
         window.clearTimeout( jobid );
     }
-    window.setTimeout( function() {
+    $.requestAnimationFrame( function() {
         callback( image.src, successful ? image : null);
-    }, 1 );
+    });
 
 }
 
