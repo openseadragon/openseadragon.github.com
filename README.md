@@ -6,6 +6,6 @@ The files that are checked in here (with the exception of this readme) are all g
 
 The website also makes use of the example-images repository, which is a Github Project Page, published automatically to http://openseadragon.github.com/example-images. If you want to test the site locally, you'll need to include that repository as example-images inside your openseadragon.github.com folder. This repository's .gitignore excludes that folder, so you can leave it there without accidentally checking it in.
 
-If you have grunt installed to build the openseadragon javascript from source, grunt can also be used here to run a local server ( at localhost:8989 ) by running:
+If you have grunt installed to build the openseadragon javascript from source, grunt can also be used here to run a local server ( at localhost:9000 ) by running:
 
 > grunt server watch

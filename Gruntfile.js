@@ -7,11 +7,14 @@ module.exports = function(grunt) {
     grunt.initConfig({
         connect: {
             server: {
-                base: "."
+                options: {
+                    port: 9000,
+                    base: '.'
+                }
             }
         },
         watch: {
-            files: [ "openseadragon/openseadragon.js" ],
+            files: [ "openseadragon/openseadragon.min.js" ],
             tasks: "default"
         }
     });
