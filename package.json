@@ -1,13 +1,10 @@
 {
-  "name": "OpenSeadragon Web Site",
-  "version": "0.9.122",
-  "description": "Provides a smooth, zoomable user interface for HTML/Javascript.",
+  "name": "openseadragon.github.com",
+  "version": "0.0.1",
+  "description": "Website for OpenSeadragon. The version listed here is just to keep NPM happy, but it's not the current OpenSeadragon version (so we don't have to try to keep them in sync).",
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-connect": "~0.1.2",
-    "grunt-contrib-watch": "~0.2.0",
-  },
-  "scripts": {
-    "test": "grunt test"
+    "grunt-contrib-watch": "~0.2.0"
   }
 }
