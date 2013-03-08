@@ -8,4 +8,4 @@ The website also makes use of the example-images repository, which is a Github P
 
 If you have grunt installed to build the openseadragon javascript from source, grunt can also be used here to run a local server ( at localhost:9000 ) by running:
 
-> grunt server watch
+> grunt 
