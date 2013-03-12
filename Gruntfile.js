@@ -14,14 +14,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: [ "openseadragon/openseadragon.min.js" ],
-            tasks: "default"
         }
     });
 
-
     // Default task.
     grunt.registerTask("default", ["connect", "watch"]);
-
 
 };
