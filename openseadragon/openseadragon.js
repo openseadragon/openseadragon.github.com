@@ -1,8 +1,10 @@
-/**
- * @version  OpenSeadragon 0.9.123
- */
+//! OpenSeadragon 0.9.124
+//! Built on 2013-03-14
+//! http://openseadragon.github.com
 
 /**
+ * @version  OpenSeadragon 0.9.124
+ * 
  * @fileOverview 
  * <h2>
  * <strong>
@@ -476,26 +478,26 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             constrainDuringPan:     false,
             wrapHorizontal:         false,
             wrapVertical:           false,
-            visibilityRatio:        0.5,
-            minPixelRatio:          0.5,
-            minZoomImageRatio:      0.8,
-            maxZoomPixelRatio:      2,
+            visibilityRatio:        0.5, //-> how much of the viewer can be negative space
+            minPixelRatio:          1, //->closer to 0 draws tiles meant for a higher zoom at this zoom
             defaultZoomLevel:       0,
             minZoomLevel:           null,
             maxZoomLevel:           null, 
 
             //UI RESPONSIVENESS AND FEEL
-            springStiffness:        5.0,
+            springStiffness:        7.0,
             clickTimeThreshold:     300,
             clickDistThreshold:     5,
-            zoomPerClick:           2.0,
+            zoomPerClick:           2,
             zoomPerScroll:          1.2,
-            zoomPerSecond:          2.0,
-            animationTime:          1.5,
-            blendTime:              1.5,
+            zoomPerSecond:          1.0,
+            animationTime:          1.2,
+            blendTime:              0,
             alwaysBlend:            false,
             autoHideControls:       true,
             immediateRender:        false,
+            minZoomImageRatio:      0.9, //-> closer to 0 allows zoom out to infinity
+            maxZoomPixelRatio:      1.1, //-> higher allows 'over zoom' into pixels
 
             //DEFAULT CONTROL SETTINGS
             showSequenceControl:    true,  //SEQUENCE
@@ -534,7 +536,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             //PERFORMANCE SETTINGS
             imageLoaderLimit:       0,
             maxImageCacheCount:     200,
-            timeout:                5000,
+            timeout:                30000,
 
             //INTERFACE RESOURCE SETTINGS
             prefixUrl:              "/images/",
@@ -5047,7 +5049,10 @@ $.Navigator = function( options ){
         showNavigator:          false,
         mouseNavEnabled:        false,
         showNavigationControl:  false,
-        showSequenceControl:    false
+        showSequenceControl:    false,
+        immediateRender:        true,
+        blendTime:              0,
+        animationTime:          0
     });
 
     options.minPixelRatio = this.minPixelRatio = viewer.minPixelRatio;
@@ -5238,6 +5243,20 @@ $.extend( $.Navigator.prototype, $.EventHandler.prototype, $.Viewer.prototype, {
             }( this.displayRegion.style ));  
         } 
 
+    },
+
+    open: function( source ){
+        var containerSize = this.viewer.viewport.containerSize.times( this.sizeRatio );
+        if( source.tileSize > containerSize.x || 
+            source.tileSize > containerSize.y ){
+            this.minPixelRatio = Math.min( 
+                containerSize.x, 
+                containerSize.y 
+            ) / source.tileSize;
+        } else {
+            this.minPixelRatio = thie.viewer.minPixelRatio;
+        }
+        return $.Viewer.prototype.open.apply( this, [ source ] );
     }
 
 });
@@ -5611,7 +5630,7 @@ $.TileSource = function( width, height, tileSize, tileOverlap, minLevel, maxLeve
             height: args[1],
             tileSize: args[2],
             tileOverlap: args[3],
-            minlevel: args[4],
+            minLevel: args[4],
             maxLevel: args[5]
         };
     }
@@ -5724,6 +5743,24 @@ $.TileSource.prototype = {
             ry = 1.0 / imageSizeScaled.y;
 
         return new $.Point(rx, ry);
+    },
+
+
+    /**
+     * @function
+     * @param {Number} level
+     */
+    getClosestLevel: function( rect ) {
+        var i,
+            tilesPerSide = Math.floor( Math.max( rect.x, rect.y ) / this.tileSize ),
+            tiles;
+        for( i = this.minLevel; i < this.maxLevel; i++ ){
+            tiles = this.getNumTiles( i );
+            if( Math.max( tiles.x, tiles.y ) + 1 >= tilesPerSide ){
+                break;
+            }
+        }
+        return Math.max( 0, i - 1 );
     },
 
     /**
@@ -8121,11 +8158,13 @@ function loadPanels(strip, viewerSize, scroll){
                 tileSources:            [ strip.viewer.tileSources[ i ] ],
                 element:                element,
                 navigatorSizeRatio:     strip.sizeRatio,
-                minPixelRatio:          strip.minPixelRatio, 
                 showNavigator:          false,
                 mouseNavEnabled:        false,
                 showNavigationControl:  false,
-                showSequenceControl:    false
+                showSequenceControl:    false,
+                immediateRender:        true,
+                blendTime:              0,
+                animationTime:          0
             } ); 
 
             miniViewer.displayRegion           = $.makeNeutralElement( "textarea" );
@@ -8407,7 +8446,7 @@ function transform( stiffness, x ) {
 }( OpenSeadragon ));
 
 (function( $ ){
-    
+    var TILE_CACHE       = {};
 /**
  * @class
  * @param {Number} level The zoom level this tile belongs to.
@@ -8548,9 +8587,11 @@ $.Tile.prototype = {
     drawCanvas: function( context ) {
 
         var position = this.position,
-            size     = this.size;
+            size     = this.size,
+            rendered,
+            canvas;
 
-        if ( !this.loaded || !this.image ) {
+        if ( !this.loaded || !( this.image || TILE_CACHE[ this.url ] ) ){
             $.console.warn(
                 "Attempting to draw tile %s when it's not yet loaded.",
                 this.toString()
@@ -8559,13 +8600,13 @@ $.Tile.prototype = {
         }
         context.globalAlpha = this.opacity;
 
-        context.save();
+        //context.save();
 
-        //if we are supposed to b rendering fully opaque rectangle,
+        //if we are supposed to be rendering fully opaque rectangle,
         //ie its done fading or fading is turned off, and if we are drawing
         //an image with an alpha channel, then the only way
         //to avoid seeing the tile underneath is to clear the rectangle
-        if( context.globalAlpha == 1 && this.image.src.match('.png') ){
+        if( context.globalAlpha == 1 && this.url.match('.png') ){
             //clearing only the inside of the rectangle occupied
             //by the png prevents edge flikering
             context.clearRect( 
@@ -8576,10 +8617,36 @@ $.Tile.prototype = {
             );
 
         }
-        
-        context.drawImage( this.image, position.x, position.y, size.x, size.y );
 
-        context.restore();
+        if( !TILE_CACHE[ this.url ] ){
+            canvas = document.createElement( 'canvas' );
+            canvas.width = this.image.width;
+            canvas.height = this.image.height;
+            rendered = canvas.getContext('2d');
+            rendered.drawImage( this.image, 0, 0 );
+            TILE_CACHE[ this.url ] = rendered;
+            //since we are caching the prerendered image on a canvas
+            //allow the image to not be held in memory
+            this.image = null;
+        }
+
+        rendered = TILE_CACHE[ this.url ];
+        
+        //rendered.save();
+        context.drawImage( 
+            rendered.canvas, 
+            0,
+            0, 
+            rendered.canvas.width, 
+            rendered.canvas.height, 
+            position.x, 
+            position.y, 
+            size.x, 
+            size.y 
+        );
+        //rendered.restore();
+
+        //context.restore();
     },
 
     /**
@@ -8589,9 +8656,12 @@ $.Tile.prototype = {
     unload: function() {
         if ( this.element && this.element.parentNode ) {
             this.element.parentNode.removeChild( this.element );
+        } 
+        if ( TILE_CACHE[ this.url ]){
+            delete TILE_CACHE[ this.url ];
         }
 
-        this.element    = null;
+        this.element = null;
         this.image   = null;
         this.loaded  = false;
         this.loading = false;
@@ -9303,7 +9373,12 @@ function updateViewport( drawer ) {
         ).x;
 
         zeroRatioT      = drawer.viewport.deltaPixelsFromPoints( 
-            drawer.source.getPixelRatio( 0 ), 
+            drawer.source.getPixelRatio( 
+                Math.max(
+                    drawer.source.getClosestLevel( drawer.viewport.containerSize ) - 1,
+                    0
+                )
+            ), 
             false
         ).x;
         
@@ -9638,7 +9713,7 @@ function blendTile( drawer, tile, x, y, level, levelOpacity, currentTime ){
     }
 
     deltaTime   = currentTime - tile.blendStart;
-    opacity     = Math.min( 1, deltaTime / ( blendTimeMillis || 1 ) );
+    opacity     = blendTimeMillis ? Math.min( 1, deltaTime / ( blendTimeMillis ) ) : 1;
     
     if ( drawer.alwaysBlend ) {
         opacity *= levelOpacity;
@@ -9868,14 +9943,11 @@ function drawTiles( drawer, lastDrawn ){
                 //$.console.log("Rendering collection tile %s | %s | %s", tile.y, tile.y, position);
                 if( tileSource ){
                     drawer.collectionOverlays[ tileKey ] = viewer = new $.Viewer({
-                        element:               $.makeNeutralElement( "div" ),
-                        mouseNavEnabled:       false,
-                        showNavigator:         false,
-                        showSequenceControl:   false,
-                        showNavigationControl: false,
-                        //visibilityRatio:       1,
-                        //debugMode:             true,
-                        //debugGridColor:        'red',
+                        element:                $.makeNeutralElement( "div" ),
+                        mouseNavEnabled:        false,
+                        showNavigator:          false,
+                        showSequenceControl:    false,
+                        showNavigationControl:  false,
                         tileSources: [
                             tileSource
                         ]
@@ -9941,6 +10013,7 @@ function drawTiles( drawer, lastDrawn ){
 function drawDebugInfo( drawer, tile, count, i ){
 
     if ( USE_CANVAS ) {
+        drawer.context.save();
         drawer.context.lineWidth = 2;
         drawer.context.font = 'small-caps bold 13px ariel';
         drawer.context.strokeStyle = drawer.debugGridColor;
@@ -9993,6 +10066,7 @@ function drawDebugInfo( drawer, tile, count, i ){
             tile.position.x + 10, 
             tile.position.y + 70
         );
+        drawer.context.restore();
     }
 }
 
