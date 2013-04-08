@@ -1,6 +1,6 @@
 //! OpenSeadragon 0.9.124
 //! Built on 2013-03-14
-//! http://openseadragon.github.com
+//! http://openseadragon.github.io
 
 /**
  * @version  OpenSeadragon 0.9.124
