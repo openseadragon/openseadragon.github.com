@@ -30,6 +30,15 @@ noscript p{
 h1 { font-size: 3.8em; color: #700; margin: 0 3px 0.5em 3px; }
 h1 .small { font-size: 0.4em; }
 h1 a { text-decoration: none }
+h1 .version {
+    font-size: 16px;
+    margin-left: 4px;
+}
+h1 .tagline {
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+}
 h2 { 
     font-size: 1.5em; 
     color: #437AB2; 
@@ -69,6 +78,9 @@ p { padding: 0.5em 1.5em; }
 }
 .navigation ul li{
     margin-bottom: 5px;
+}
+.demoarea{
+    clear: both;
 }
 pre { 
     background-color: #F8F8F8;
