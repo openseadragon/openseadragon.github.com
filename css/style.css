@@ -37,6 +37,7 @@ h1 .version {
 h1 .tagline {
     font-size: 12px;
     float: left;
+    margin-top: 5px;
     margin-left: 10px;
 }
 h2 { 
@@ -57,10 +58,25 @@ ul h3 { text-align: left;}
 ul { list-style: none; padding: 0px 4em; }
 ul ul{ list-style: square}
 a { color: #800; }
-p { padding: 0.5em 1.5em; }
-.description { font-size: 1.2em; margin: 2em 5em; font-style: italic;}
-.description p { 
+p { padding: 0 1.5em; }
+.elevator {
+    font-size: 1.2em;
+    margin: 2em 5em;
+    font-style: italic;
+}
+.description {
+    font-size: 1.2em;
+    margin: 2em 5em;
+    font-style: italic;
+    padding-bottom: 1em;
     border-bottom: 1px dotted #999;
+    clear: both;
+}
+.description h3 {
+    margin-bottom: 0;
+}
+.description p {
+    margin-bottom: 0;
 }
 .download { float: right; }
 .navigation{
@@ -82,6 +98,26 @@ p { padding: 0.5em 1.5em; }
 .demoarea{
     clear: both;
 }
+.footer{
+    margin: 25px 0 0 0;
+    border-top: 2px dotted #aaa;
+    padding: 15px 0 0 0;
+    text-align: center;
+    clear: both;
+}
+.footer li{
+    font-size: 12px;
+    display: inline;
+}
+.footer li:before{
+    content: "| ";
+    color: #bbb;
+    margin: 0 4px;
+}
+.footer li:first-child:before{
+    content: "";
+    margin: 0;
+}
 pre { 
     background-color: #F8F8F8;
     border: 1px solid #CCC;
@@ -94,7 +130,6 @@ pre {
     width: auto;
 }
 hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-.footer { text-align:center; padding-top:30px; font-style: italic; }
 
 /*
  from openseadragon demos
@@ -117,7 +152,7 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 }
 .demoheading {
     color: #437AB2; 
-    padding: 0 0 0 1em;
+    padding: 0 0 0.2em 1em;
 }
 .toolbar
 {
