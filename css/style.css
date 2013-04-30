@@ -98,6 +98,22 @@ p { padding: 0 1.5em; }
 .demoarea{
     clear: both;
 }
+.releases{
+    margin-left: 60px;
+    border-collapse: collapse;
+}
+.releases tr:nth-child(2n){
+    background-color: #ddd;
+}
+.releases th, .releases td{
+    padding: 5px 25px;
+}
+.releases th.first-binary,
+.releases th.first-source,
+.releases td.first-binary,
+.releases td.first-source{
+    border-left: 1px solid black;
+}
 .footer{
     margin: 25px 0 0 0;
     border-top: 2px dotted #aaa;

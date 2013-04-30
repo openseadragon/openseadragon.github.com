@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Developer Tools - Debug Mode | OpenSeadragon</title>
+    <title>Releases | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,54 +53,22 @@
         </ul>
     </div>
 
-    <h2>developer: debug mode</h2>
+    <h2>releases</h2>
 
-<p>
-Enabling debug mode provides some in-context information about the tiles
-being drawn in a given viewport.
-</p>
+<table class="releases">
+    <tr>
+        <th></th>
+        <th class="first-binary" colspan="2">Binaries</th>
+        <th class="first-source" colspan="2">Source</th>
+    </tr>
+    <tr><th>0.9.124</th>
+<td class="first-binary"><a href="openseadragon-bin-0.9.124.zip">zip</a></td>
+<td><a href="openseadragon-bin-0.9.124.tar.gz">tar.gz</a></td>
+<td class="first-source"><a href="https://github.com/openseadragon/openseadragon/archive/v0.9.124.zip">zip</a></td>
+<td><a href="https://github.com/openseadragon/openseadragon/archive/v0.9.124.tar.gz">tar.gz</a></td>
+</tr>
 
-<p>
-Currently this is only implemented for browsers supporting HTML Canvas.
-</p>
-
-<div class="description">
-    <h3>Example</h3>
-</div>
-
-<div class="demoarea">
-    <div class="demoheading">
-        OpenSeadragon in debug mode
-        <span id='consolelog'></span>
-    </div>
-    <div id="contentDiv" class="openseadragon"></div>
-</div>
-
-<script type="text/javascript">
-    // Example
-    OpenSeadragon({
-        id:              "contentDiv",
-        prefixUrl:       "/openseadragon/images/",
-        tileSources:     "/example-images/highsmith/highsmith.js",
-        showNavigator:   false, 
-        debugMode:       true,
-        //debugGridColor:  "#f9276f",
-        //minZoomImageRatio: 0,
-        //maxZoomPixelRatio: 10000
-    });
-</script>
-
-<p>
-The relevant configuration options are shown below.
-</p>
-
-<pre>
-OpenSeadragon({
-    ...
-    debugMode:  true,
-    ...
-});
-</pre>
+</table>
 
 
     <ul class="footer">
