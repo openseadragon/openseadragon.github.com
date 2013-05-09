@@ -5,13 +5,13 @@
 	.STRN {color: #393;}
 	.REGX {color: #339;}
 	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
-	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">//! OpenSeadragon 0.9.125</span><span class="WHIT">
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">//! OpenSeadragon 0.9.126</span><span class="WHIT">
 <span class='line'>  2</span> </span><span class="COMM">//! Built on 2013-05-09</span><span class="WHIT">
-<span class='line'>  3</span> </span><span class="COMM">//! Git commit: v0.9.125-0-g1ef5666</span><span class="WHIT">
+<span class='line'>  3</span> </span><span class="COMM">//! Git commit: v0.9.126-0-g8f20f3d</span><span class="WHIT">
 <span class='line'>  4</span> </span><span class="COMM">//! http://openseadragon.github.io</span><span class="WHIT">
 <span class='line'>  5</span> 
 <span class='line'>  6</span> </span><span class="COMM">/**
-<span class='line'>  7</span>  * @version  OpenSeadragon 0.9.125
+<span class='line'>  7</span>  * @version  OpenSeadragon 0.9.126
 <span class='line'>  8</span>  * 
 <span class='line'>  9</span>  * @fileOverview 
 <span class='line'> 10</span>  * &lt;h2>
@@ -6035,7 +6035,7 @@
 <span class='line'>6028</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>6029</span> 
 <span class='line'>6030</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">options.tilesUrl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>6031</span> </span><span class="WHIT">            </span><span class="NAME">options.tilesUrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">url.replace</span><span class="PUNC">(</span><span class="REGX">/([^\/]+)\.dzi$/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'$1_files/'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>6031</span> </span><span class="WHIT">            </span><span class="NAME">options.tilesUrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">url.replace</span><span class="PUNC">(</span><span class="REGX">/([^\/]+)\.(dzi|xml|js)$/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'$1_files/'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>6032</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>6033</span> 
 <span class='line'>6034</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">;</span><span class="WHIT">

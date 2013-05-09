@@ -1,10 +1,10 @@
-//! OpenSeadragon 0.9.125
+//! OpenSeadragon 0.9.126
 //! Built on 2013-05-09
-//! Git commit: v0.9.125-0-g1ef5666
+//! Git commit: v0.9.126-0-g8f20f3d
 //! http://openseadragon.github.io
 
 /**
- * @version  OpenSeadragon 0.9.125
+ * @version  OpenSeadragon 0.9.126
  * 
  * @fileOverview 
  * <h2>
@@ -6028,7 +6028,7 @@ $.extend( $.DziTileSource.prototype, $.TileSource.prototype, {
         }
 
         if (url && !options.tilesUrl) {
-            options.tilesUrl = url.replace(/([^\/]+)\.dzi$/, '$1_files/');
+            options.tilesUrl = url.replace(/([^\/]+)\.(dzi|xml|js)$/, '$1_files/');
         }
 
         return options;

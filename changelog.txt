@@ -1,6 +1,10 @@
 OPENSEADRAGON CHANGELOG
 =======================
 
+0.9.126:
+
+* DZI JSONp was broken; fixed.
+
 0.9.125:
 
 * Fully deprecated OpenSeadragon.createFromDZI, safely deprecated Viewer.openTileSource and 
