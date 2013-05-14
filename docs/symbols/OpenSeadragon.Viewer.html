@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-4-14' pubdate>2013-4-14 9:47</time>
+			<time datetime='2013-4-14' pubdate>2013-4-14 10:40</time>
 		</footer>
 	</div>
 </div>
@@ -329,10 +329,9 @@
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#openDzi">openDzi</a></b>(dzi)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#open">open</a></b>()
 													</div>
-													<div class="description">A deprecated function, renamed to 'open' to match event name and 
-match current 'close' method.</div>
+													<div class="description">Open a TileSource object into the viewer.</div>
 												</td>
 											</tr>
 										
@@ -341,7 +340,7 @@ match current 'close' method.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#openTileSource">openTileSource</a></b>(See)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#openDzi">openDzi</a></b>(dzi)
 													</div>
 													<div class="description">A deprecated function, renamed to 'open' to match event name and 
 match current 'close' method.</div>
@@ -353,6 +352,18 @@ match current 'close' method.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#openTileSource">openTileSource</a></b>(See)
+													</div>
+													<div class="description">A deprecated function, renamed to 'open' to match event name and 
+match current 'close' method.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item12'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
 													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewer.html#setDashboardEnabled">setDashboardEnabled</a></b>()
 													</div>
 													<div class="description"></div>
@@ -360,7 +371,7 @@ match current 'close' method.</div>
 											</tr>
 										
 											<tr
-												 class='item12'
+												 class='item13'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -371,7 +382,7 @@ match current 'close' method.</div>
 											</tr>
 										
 											<tr
-												 class='item13'
+												 class='item14'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -382,7 +393,7 @@ match current 'close' method.</div>
 											</tr>
 										
 											<tr
-												 class='item14'
+												 class='item15'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -1002,6 +1013,80 @@ as arguments and we translate a positional call into an idiomatic call.
 									<li 
 										 class='item9'
 									>
+										<div class="fixedFont heading" id="open">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>}</span>
+											
+											<b>open</b>()
+										</div>
+										
+										<div class="description">
+											Open a TileSource object into the viewer.
+
+tileSources is a complex option...
+
+It can be a string, object, function, or an array of any of these:
+
+- A String implies a url used to determine the tileSource implementation
+     based on the file extension of url. JSONP is implied by *.js,
+     otherwise the url is retrieved as text and the resulting text is
+     introspected to determine if its json, xml, or text and parsed. 
+- An Object implies an inline configuration which has a single 
+     property sufficient for being able to determine tileSource 
+     implementation. If the object has a property which is a function
+     named 'getTileUrl', it is treated as a custom TileSource.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{String|Object|Function}</span> <b></b>
+														
+													</dt>
+													<dd></dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item10'
+									>
 										<div class="fixedFont heading" id="openDzi">
 											<span class='lighter'>
 											
@@ -1067,7 +1152,7 @@ match current 'close' method.
 									</li>
 								
 									<li 
-										 class='item10'
+										 class='item11'
 									>
 										<div class="fixedFont heading" id="openTileSource">
 											<span class='lighter'>
@@ -1134,7 +1219,7 @@ match current 'close' method.
 									</li>
 								
 									<li 
-										 class='item11'
+										 class='item12'
 									>
 										<div class="fixedFont heading" id="setDashboardEnabled">
 											<span class='lighter'>
@@ -1184,7 +1269,7 @@ match current 'close' method.
 									</li>
 								
 									<li 
-										 class='item12'
+										 class='item13'
 									>
 										<div class="fixedFont heading" id="setFullPage">
 											<span class='lighter'>
@@ -1245,7 +1330,7 @@ match current 'close' method.
 									</li>
 								
 									<li 
-										 class='item13'
+										 class='item14'
 									>
 										<div class="fixedFont heading" id="setMouseNavEnabled">
 											<span class='lighter'>
@@ -1295,7 +1380,7 @@ match current 'close' method.
 									</li>
 								
 									<li 
-										 class='item14'
+										 class='item15'
 									>
 										<div class="fixedFont heading" id="setVisible">
 											<span class='lighter'>

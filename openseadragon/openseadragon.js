@@ -1,6 +1,6 @@
 //! OpenSeadragon 0.9.127
 //! Built on 2013-05-14
-//! Git commit: v0.9.127-0-g1118d41
+//! Git commit: v0.9.127-3-gc78f3ef
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -104,7 +104,9 @@
   * zoom for large resolution images, and complex examples include
   * zoomable map interfaces driven by SVG files.
   * </p>
-  * 
+  */
+
+ /**
   * The root namespace for OpenSeadragon, this function also serves as a single
   * point of instantiation for an {@link OpenSeadragon.Viewer}, including all 
   * combinations of out-of-the-box configurable features.  All utility methods 
@@ -3992,7 +3994,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
      *      implementation. If the object has a property which is a function
      *      named 'getTileUrl', it is treated as a custom TileSource.
      * @function
-     * @name OpenSeadragon.Viewer.prototype.openTileSource
+     * @name OpenSeadragon.Viewer.prototype.open
      * @param {String|Object|Function}
      * @return {OpenSeadragon.Viewer} Chainable.
      */
