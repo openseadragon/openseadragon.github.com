@@ -1,6 +1,14 @@
 OPENSEADRAGON CHANGELOG
 =======================
 
+0.9.127:
+
+* Fixed a problem with getString when the string property is a sub-property. (#64)
+* Fixed: Tooltips for Navigation Controls not displaying (#63)
+* Cleaned up some diagnostic code that was broken.
+* Added fullpage class to viewer element when in fullpage mode (#61)
+* Reverted to original New BSD license; cleaned up license declarations (#89)
+
 0.9.126:
 
 * DZI JSONp was broken; fixed.
