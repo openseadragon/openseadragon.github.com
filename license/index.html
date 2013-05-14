@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>OpenStreetMap Tile Source | OpenSeadragon</title>
+    <title>License | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,69 +53,55 @@
             </ul>
         </div>
 
-        <h2>
-    example: openstreetmap tile support
-</h2>
-<p>
-    OpenStreetMap is a popular tile source used in many online geographic
-    mapping specifications.  You can read more about it
-    <a href="http://openstreetmap.org/">here</a> and details about
-    the tile set <a 
-    href="http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Zoom_levels"
-    >here</a>.
-</p>
-<p>
-    OpenSeadragon supports OpenStreetMap tiles thanks to
-    <a href="http://github.com/rsimon">Rainer Simon</a>.
-</p>
+        <h2>license</h2>
 
+<div class="license">
+    <ul class="copyrights">
+        <li>Copyright &copy; 2009 CodePlex Foundation</li>
+        <li>Copyright &copy; 2010-2013 OpenSeadragon contributors</li>
+    </ul>
 
-<div class="description">
-    <h3>Inline Configuration for OSM</h3>
     <p>
-        Inline configuration couldn't be much simpler for using OpenStreetMaps as a tile source.
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions
+        are met:
+    </p>
+
+    <ul class="conditions">
+        <li>
+            Redistributions of source code must retain the above copyright
+            notice, this list of conditions and the following disclaimer.
+        </li>
+
+        <li>
+            Redistributions in binary form must reproduce the above
+            copyright notice, this list of conditions and the following
+            disclaimer in the documentation and/or other materials provided
+            with the distribution.
+        </li>
+
+        <li>
+            Neither the name of CodePlex Foundation nor the names of its
+            contributors may be used to endorse or promote products derived
+            from this software without specific prior written permission.
+        </li>
+    </ul>
+
+    <p>
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+        FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+        COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+        INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+        BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+        LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+        ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
     </p>
 </div>
-<div class="demoarea">
-    <div class="demoheading">
-        Example Inline Configuration for OSM
-    </div>
-    <div id="example-inline-configuration-for-osm" 
-         class="openseadragon">
-    </div>
-    <p>
-        Configuration is done via the <code>tileSources</code> option
-        (or programmatically). Because of its rich levels and depth, we slow
-        down the <code>zoomPerScroll</code> option a little, wrap horizontally,
-        and hide the navigator. Also we set a lower minimum zoom image ratio to
-        allow the user to pull back just a little further.
-    </p>
-<pre>
-OpenSeadragon({
-    ...
-    showNavigator:      false,
-    wrapHorizontal:     true,
-    zoomPerScroll:      1.2,
-    minZoomImageRatio:  0.5,
-    tileSources:   [{
-        type: 'openstreetmaps'
-    }]
-    ...
-});</pre>
-</div>
-<script type="text/javascript">
-    OpenSeadragon({
-        id:                 "example-inline-configuration-for-osm",
-        prefixUrl:          "/openseadragon/images/",
-        showNavigator:      false,
-        wrapHorizontal:     true,
-        zoomPerScroll:      1.2,
-        minZoomImageRatio:  0.5,
-        tileSources:   [{
-            type: 'openstreetmaps'
-        }]
-    });
-</script>
 
 
         <ul class="footer">

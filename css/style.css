@@ -114,6 +114,12 @@ p { padding: 0 1.5em; }
 .releases td.first-source{
     border-left: 1px solid black;
 }
+.license ul.copyrights{
+    padding: 0 1.5em;
+}
+.license ul.conditions{
+    list-style: square;
+}
 .footer{
     margin: 25px 0 0 0;
     border-top: 2px dotted #aaa;
