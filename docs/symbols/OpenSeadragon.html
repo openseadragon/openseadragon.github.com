@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-4-16' pubdate>2013-4-16 9:37</time>
+			<time datetime='2013-5-17' pubdate>2013-5-17 10:07</time>
 		</footer>
 	</div>
 </div>
@@ -312,7 +312,7 @@ from the browser.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">OpenSeadragon.<b>cancelAnimationFrame</b>(requestId)
+													<div class="fixedFont">OpenSeadragon.<b>cancelAnimationFrame</b>()
 													</div>
 													<div class="description"></div>
 												</td>
@@ -676,7 +676,7 @@ handler.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">OpenSeadragon.<b>requestAnimationFrame</b>(callback)
+													<div class="fixedFont">OpenSeadragon.<b>requestAnimationFrame</b>()
 													</div>
 													<div class="description"></div>
 												</td>
@@ -935,6 +935,19 @@ and classes are defined on or below this namespace.
 										<dd>Set to false to prevent the appearance of the default navigation controls.</dd>
 									
 										<dt>
+											<span class="light fixedFont">{Boolean}</span>  <b>options.showNavigator</b>
+											<i>Optional, Default: false</i>
+										</dt>
+										<dd>Set to true to make the navigator minimap appear.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{Boolean}</span>  <b>options.navigatorId</b>
+											<i>Optional, Default: navigator-GENERATED DATE</i>
+										</dt>
+										<dd>Set the ID of a div to hold the navigator minimap.  If one is not specified,
+    one will be generated and placed on top of the main image</dd>
+									
+										<dt>
 											<span class="light fixedFont">{Number}</span>  <b>options.controlsFadeDelay</b>
 											<i>Optional, Default: 2000</i>
 										</dt>
@@ -1000,6 +1013,14 @@ and classes are defined on or below this namespace.
     called '/images', eg '/images/zoomin_rest.png'.  If you need to adjust
     these paths, prefer setting the option.prefixUrl rather than overriding 
     every image path directly through this setting.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{Boolean}</span>  <b>options.navPrevNextWrap</b>
+											<i>Optional, Default: false</i>
+										</dt>
+										<dd>If the 'previous' button will wrap to the last image when viewing the first
+    image and if the 'next' button will wrap to the first image when viewing
+    the last image.</dd>
 									
 								</dl>
 							
@@ -1360,7 +1381,7 @@ from the browser.
 											
 											
 											
-											<span class="light">OpenSeadragon.</span><b>cancelAnimationFrame</b>(requestId)
+											<span class="light">OpenSeadragon.</span><b>cancelAnimationFrame</b>()
 										</div>
 										
 										<div class="description">
@@ -1373,17 +1394,6 @@ from the browser.
 										
 										
 										
-										
-											<dl class="detailList params">
-												<dt class="heading">Parameters:</dt>
-												
-													<dt>
-														<b>requestId</b>
-														
-													</dt>
-													<dd></dd>
-												
-											</dl>
 										
 										
 										
@@ -3168,7 +3178,7 @@ handler.
 											
 											
 											
-											<span class="light">OpenSeadragon.</span><b>requestAnimationFrame</b>(callback)
+											<span class="light">OpenSeadragon.</span><b>requestAnimationFrame</b>()
 										</div>
 										
 										<div class="description">
@@ -3181,17 +3191,6 @@ handler.
 										
 										
 										
-										
-											<dl class="detailList params">
-												<dt class="heading">Parameters:</dt>
-												
-													<dt>
-														<b>callback</b>
-														
-													</dt>
-													<dd></dd>
-												
-											</dl>
 										
 										
 										

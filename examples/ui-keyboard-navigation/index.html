@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Viewport Navigator | OpenSeadragon</title>
+    <title>Keyboard Navigation | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,33 +53,45 @@
             </ul>
         </div>
 
-        <h2>example: viewport navigator</h2>
+        <style type="text/css">
 
+       <!-- Changed the background color to make the focus highlighting
+            easier to see for this example -->
+      .openseadragon
+      {
+      background-color: lightgrey;
+      }
+      
+    </style>
+
+<h2>example: keyboard navigation</h2>
+
+<p>The viewer supports keyboard operations to complement the drag and scroll 
+(zoom) mouse interactions.</p>
+
+<p>To interact via the keyboard, just tab until the main viewer is in focus.
+Then you can use the following keys:
+</p>
+<ul>
+    <li><strong>[ w, up arrow ]</strong> - move viewport <strong>up</strong></li>
+    <li><strong>[ s, down arrow ]</strong> - move viewport <strong>down</strong></li>
+    <li><strong>[ a, left arrow ]</strong> - move viewport <strong>left</strong></li>
+    <li><strong>[ f, right arrow ]</strong> - move viewport <strong>right</strong></li>
+    <li><strong>[ 0 ]</strong> - zoom / move viewport <strong>home</strong></li>
+    <li><strong>[ - / _, shift+W, shift+up arrow ]</strong> - zoom viewport <strong>out</strong></li>
+    <li><strong>[ = / +, shift+S, shift+down arrow ]</strong> - zoom viewport <strong>in</strong></li>
+</ul>
 <p>
-    A viewport navigator shows the source image displayed
-    as a reference, with a highlighted area showing which portion of
-    the image the user is currently viewing.  The navigator reuses the
-    configured image sources so no additional image derivatives are
-    required.  Set the <code>showNavigator</code> to <code>true</code>
-    to activate the navigator feature.
+<em>Note that Chrome and Safari do not support the arrow keys for these operations.</em>
 </p>
 
-<pre>
-    OpenSeadragon({
-        ...
-        showNavigator:  true,
-        ...
-    });
-
-</pre>
-
 <div class="description">
-    <h3>Navigator Example</h3>
+    <h3>Keyboard Navigation</h3>
 </div>
 
 <div class="demoarea">
     <div class="demoheading">
-        Viewport Navigator
+        Keyboard Navigation
     </div>
     <div id="contentDiv" class="openseadragon"></div>
 </div>
@@ -88,54 +100,16 @@
     OpenSeadragon({
         id:            "contentDiv",
         prefixUrl:     "/openseadragon/images/",
-        tileSources:   "/example-images/highsmith/highsmith.dzi",
-        showNavigator:  true
+        tileSources:   "/example-images/highsmith/highsmith.dzi"
     });
 </script>
 
-<div class="description">
-    <h3>Custom Navigator Location</h3>
-    <p>Instead of placing the navigator overtop of the main image, the navigator
-    may be placed elsewhere in the web page as illustrated in the example below.
-    The navigator can be placed in a jQuery UI dialog or other widget.</p>
-
-</div>
 
 
-<div class="demoarea2">
-    <div class="demoheading">
-        Viewport With Custom Navigator Location 
-        <div id="navigatorDiv" class="openseadragon-small"></div>
-    </div>
-    <div id="contentDiv2" class="openseadragon"></div>
-</div>
 
-<script type="text/javascript">
-    OpenSeadragon({
-        id:            "contentDiv2",
-        navigatorId:   "navigatorDiv",
-        prefixUrl:     "/openseadragon/images/",
-        tileSources:   "/example-images/highsmith/highsmith.dzi",
-        showNavigator:  true
-    });
-</script>
 
-<p>
-The relevant configuration options are shown below. The
-<code>navigatorId</code> attribute identifies the div into
-which the navigator is placed.  When using this variation the navigator
-does not autofade.
-</p>
 
-<pre>
-    OpenSeadragon({
-        ...
-        showNavigator:  true,
-        navigatorId:   "navigatorDiv",
-        ...
-    });
 
-</pre>
 
 
         <ul class="footer">
