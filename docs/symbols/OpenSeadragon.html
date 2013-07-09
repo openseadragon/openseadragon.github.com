@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-5-17' pubdate>2013-5-17 10:07</time>
+			<time datetime='2013-6-9' pubdate>2013-6-9 9:19</time>
 		</footer>
 	</div>
 </div>
@@ -148,7 +148,7 @@
 											<b><a href="../symbols/OpenSeadragon.html#constructor">OpenSeadragon</a></b>(options)
 										</div>
 										<div class="description">The root namespace for OpenSeadragon, this function also serves as a single
-point of instantiation for an <a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>, including all 
+point of instantiation for an <a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>, including all
 combinations of out-of-the-box configurable features.</div>
 									</td>
 								</tr>
@@ -248,7 +248,7 @@ RIGHT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, and LEFT.</div>
 													<div class="fixedFont">
 													OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.supportsFullScreen">supportsFullScreen</a></b>
 													</div>
-													<div class="description">Determines the appropriate level of native full screen support we can get 
+													<div class="description">Determines the appropriate level of native full screen support we can get
 from the browser.</div>
 												</td>
 											</tr>
@@ -348,7 +348,7 @@ the way up the DOM to the window object.</div>
 												<td class="nameDescription">
 													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.createCallback">createCallback</a></b>(object, method, args)
 													</div>
-													<div class="description">Similar to OpenSeadragon.delegate, but it does not immediately call 
+													<div class="description">Similar to OpenSeadragon.delegate, but it does not immediately call
 the method on the object, returning a function which can be called
 repeatedly to delegate the method.</div>
 												</td>
@@ -359,7 +359,7 @@ repeatedly to delegate the method.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.createFromDZI">createFromDZI</a></b>(xmlUrl, xmlString, callback)
+													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.createFromDZI">createFromDZI</a></b>()
 													</div>
 													<div class="description">Fully deprecated.</div>
 												</td>
@@ -438,7 +438,7 @@ repeatedly to delegate the method.</div>
 												<td class="nameDescription">
 													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.getEvent">getEvent</a></b>(event)
 													</div>
-													<div class="description">Gets the latest event, really only useful internally since its 
+													<div class="description">Gets the latest event, really only useful internally since its
 specific to IE behavior.</div>
 												</td>
 											</tr>
@@ -581,7 +581,7 @@ version.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.makeAjaxRequest">makeAjaxRequest</a></b>(url, callback)
+													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.makeAjaxRequest">makeAjaxRequest</a></b>(url, onSuccess, onError)
 													</div>
 													<div class="description">Makes an AJAX request.</div>
 												</td>
@@ -595,7 +595,7 @@ version.</div>
 													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.makeCenteredNode">makeCenteredNode</a></b>(element)
 													</div>
 													<div class="description">Wraps the given element in a nest of divs so that the element can
-be easily centered.</div>
+be easily centered using CSS tables</div>
 												</td>
 											</tr>
 										
@@ -627,9 +627,9 @@ serves as an excellent container element.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.parseXml">parseXml</a></b>(string)
+													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.now">now</a></b>()
 													</div>
-													<div class="description">Parses an XML string into a DOM Document.</div>
+													<div class="description">Returns the current milliseconds, using Date.now() if available</div>
 												</td>
 											</tr>
 										
@@ -638,10 +638,21 @@ serves as an excellent container element.</div>
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
+													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.parseXml">parseXml</a></b>(string)
+													</div>
+													<div class="description">Parses an XML string into a DOM Document.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item32'
+											>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
 													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.ReferenceStrip">ReferenceStrip</a></b>(options)
 													</div>
 													<div class="description">The CollectionDrawer is a reimplementation if the Drawer API that
- focuses on allowing a viewport to be redefined as a collection 
+ focuses on allowing a viewport to be redefined as a collection
  of smaller viewports, defined by a clear number of rows and / or
  columns of which each item in the matrix of viewports has its own
  source.</div>
@@ -649,7 +660,7 @@ serves as an excellent container element.</div>
 											</tr>
 										
 											<tr
-												 class='item32'
+												 class='item33'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -660,19 +671,19 @@ serves as an excellent container element.</div>
 											</tr>
 										
 											<tr
-												 class='item33'
+												 class='item34'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
 													<div class="fixedFont">OpenSeadragon.<b><a href="../symbols/OpenSeadragon.html#.removeEvent">removeEvent</a></b>(element, eventName, handler, useCapture)
 													</div>
-													<div class="description">Remove a given event listener for the given element, event type and 
+													<div class="description">Remove a given event listener for the given element, event type and
 handler.</div>
 												</td>
 											</tr>
 										
 											<tr
-												 class='item34'
+												 class='item35'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -683,7 +694,7 @@ handler.</div>
 											</tr>
 										
 											<tr
-												 class='item35'
+												 class='item36'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -694,7 +705,7 @@ handler.</div>
 											</tr>
 										
 											<tr
-												 class='item36'
+												 class='item37'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -705,7 +716,7 @@ handler.</div>
 											</tr>
 										
 											<tr
-												 class='item37'
+												 class='item38'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -716,7 +727,7 @@ handler.</div>
 											</tr>
 										
 											<tr
-												 class='item38'
+												 class='item39'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -757,8 +768,8 @@ handler.</div>
 							
 							<div class="description">
 								The root namespace for OpenSeadragon, this function also serves as a single
-point of instantiation for an <a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>, including all 
-combinations of out-of-the-box configurable features.  All utility methods 
+point of instantiation for an <a href="../symbols/OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a>, including all
+combinations of out-of-the-box configurable features.  All utility methods
 and classes are defined on or below this namespace.
 								
 							</div>
@@ -780,20 +791,20 @@ and classes are defined on or below this namespace.
 											<span class="light fixedFont">{String}</span>  <b>options.xmlPath</b>
 											
 										</dt>
-										<dd>DEPRECATED. A relative path to load a DZI file from the server. 
+										<dd>DEPRECATED. A relative path to load a DZI file from the server.
     Prefer the newer options.tileSources.</dd>
 									
 										<dt>
 											<span class="light fixedFont">{Array|String|Function|Object[]|Array[]|String[]|Function[]}</span>  <b>options.tileSources</b>
 											
 										</dt>
-										<dd>As an Array, the tileSource can hold either be all Objects or mixed 
-    types of Arrays of Objects, String, Function. When a value is a String, 
-    the tileSource is used to create a <a href="../symbols/OpenSeadragon.DziTileSource.html">OpenSeadragon.DziTileSource</a>.  
-    When a value is a Function, the function is used to create a new 
-    <a href="../symbols/OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a> whose abstract method 
-    getUrl( level, x, y ) is implemented by the function. Finally, when it 
-    is an Array of objects, it is used to create a 
+										<dd>As an Array, the tileSource can hold either be all Objects or mixed
+    types of Arrays of Objects, String, Function. When a value is a String,
+    the tileSource is used to create a <a href="../symbols/OpenSeadragon.DziTileSource.html">OpenSeadragon.DziTileSource</a>.
+    When a value is a Function, the function is used to create a new
+    <a href="../symbols/OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a> whose abstract method
+    getUrl( level, x, y ) is implemented by the function. Finally, when it
+    is an Array of objects, it is used to create a
     <a href="../symbols/OpenSeadragon.LegacyTileSource.html">OpenSeadragon.LegacyTileSource</a>.</dd>
 									
 										<dt>
@@ -829,7 +840,7 @@ and classes are defined on or below this namespace.
 											<span class="light fixedFont">{Boolean}</span>  <b>options.autoHideControls</b>
 											<i>Optional, Default: true</i>
 										</dt>
-										<dd>If the user stops interacting with the viewport, fade the navigation 
+										<dd>If the user stops interacting with the viewport, fade the navigation
     controls.  Useful for presentation since the controls are by default
     floated on top of the image the user is viewing.</dd>
 									
@@ -838,7 +849,7 @@ and classes are defined on or below this namespace.
 											<i>Optional, Default: false</i>
 										</dt>
 										<dd>Render the best closest level first, ignoring the lowering levels which
-    provide the effect of very blurry to sharp. It is recommended to change 
+    provide the effect of very blurry to sharp. It is recommended to change
     setting to true for mobile devices.</dd>
 									
 										<dt>
@@ -859,7 +870,7 @@ and classes are defined on or below this namespace.
 											<span class="light fixedFont">{Number}</span>  <b>options.minZoomImageRatio</b>
 											<i>Optional, Default: 0.8</i>
 										</dt>
-										<dd>The minimum percentage ( expressed as a number between 0 and 1 ) of 
+										<dd>The minimum percentage ( expressed as a number between 0 and 1 ) of
     the viewport height or width at which the zoom out will be constrained.
     Setting it to 0, for example will allow you to zoom out infinitly.</dd>
 									
@@ -869,7 +880,7 @@ and classes are defined on or below this namespace.
 										</dt>
 										<dd>The maximum ratio to allow a zoom-in to affect the highest level pixel
     ratio. This can be set to Infinity to allow 'infinite' zooming into the
-    image though it is less effective visually if the HTML5 Canvas is not 
+    image though it is less effective visually if the HTML5 Canvas is not
     availble on the viewing device.</dd>
 									
 										<dt>
@@ -878,7 +889,7 @@ and classes are defined on or below this namespace.
 										</dt>
 										<dd>The percentage ( as a number from 0 to 1 ) of the source image which
     must be kept within the viewport.  If the image is dragged beyond that
-    limit, it will 'bounce' back until the minimum visibility ration is 
+    limit, it will 'bounce' back until the minimum visibility ration is
     achieved.  Setting this to 0 and wrapHorizontal ( or wrapVertical ) to
     true will provide the effect of an infinitely scrolling viewport.</dd>
 									
@@ -900,7 +911,7 @@ and classes are defined on or below this namespace.
 											<span class="light fixedFont">{Number}</span>  <b>options.clickTimeThreshold</b>
 											<i>Optional, Default: 200</i>
 										</dt>
-										<dd>If multiple mouse clicks occurs within less than this number of 
+										<dd>If multiple mouse clicks occurs within less than this number of
     milliseconds, treat them as a single click.</dd>
 									
 										<dt>
@@ -973,14 +984,14 @@ and classes are defined on or below this namespace.
 										</dt>
 										<dd>The higher the minPixelRatio, the lower the quality of the image that
     is considered sufficient to stop rendering a given zoom level.  For
-    example, if you are targeting mobile devices with less bandwith you may 
+    example, if you are targeting mobile devices with less bandwith you may
     try setting this to 1.5 or higher.</dd>
 									
 										<dt>
 											<span class="light fixedFont">{Boolean}</span>  <b>options.mouseNavEnabled</b>
 											<i>Optional, Default: true</i>
 										</dt>
-										<dd>Is the user able to interact with the image via mouse or touch. Default 
+										<dd>Is the user able to interact with the image via mouse or touch. Default
     interactions include draging the image in a plane, and zooming in toward
     and away from the image.</dd>
 									
@@ -1011,7 +1022,7 @@ and classes are defined on or below this namespace.
     or navigation control, eg 'REST', 'GROUP', 'HOVER', 'PRESS'. Finally the
     image paths, by default assume there is a folder on the servers root path
     called '/images', eg '/images/zoomin_rest.png'.  If you need to adjust
-    these paths, prefer setting the option.prefixUrl rather than overriding 
+    these paths, prefer setting the option.prefixUrl rather than overriding
     every image path directly through this setting.</dd>
 									
 										<dt>
@@ -1074,7 +1085,7 @@ and classes are defined on or below this namespace.
 								<div class="description">
 									The current browser vendor, version, and related information regarding
 detected features.  Features include <br/>
- <strong>'alpha'</strong> - Does the browser support image alpha 
+ <strong>'alpha'</strong> - Does the browser support image alpha
  transparency.<br/>
 									
 									
@@ -1213,7 +1224,7 @@ RIGHT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, and LEFT.
 								</div>
 								
 								<div class="description">
-									Determines the appropriate level of native full screen support we can get 
+									Determines the appropriate level of native full screen support we can get
 from the browser.
 									
 									
@@ -1484,7 +1495,7 @@ the way up the DOM to the window object.
 										</div>
 										
 										<div class="description">
-											Similar to OpenSeadragon.delegate, but it does not immediately call 
+											Similar to OpenSeadragon.delegate, but it does not immediately call
 the method on the object, returning a function which can be called
 repeatedly to delegate the method. It also allows additonal arguments
 to be passed during construction which will be added during each
@@ -1517,7 +1528,7 @@ invocation, and each invocation can add additional arguments as well.
 														<b>args</b>
 														<i>Optional</i>
 													</dt>
-													<dd>any additional arguments are passed as arguments to the 
+													<dd>any additional arguments are passed as arguments to the
  created callback</dd>
 												
 											</dl>
@@ -1558,7 +1569,7 @@ invocation, and each invocation can add additional arguments as well.
 											
 											
 											
-											<span class="light">OpenSeadragon.</span><b>createFromDZI</b>(xmlUrl, xmlString, callback)
+											<span class="light">OpenSeadragon.</span><b>createFromDZI</b>()
 										</div>
 										
 										<div class="description">
@@ -1571,29 +1582,6 @@ invocation, and each invocation can add additional arguments as well.
 										
 										
 										
-										
-											<dl class="detailList params">
-												<dt class="heading">Parameters:</dt>
-												
-													<dt>
-														<span class="light fixedFont">{String}</span> <b>xmlUrl</b>
-														
-													</dt>
-													<dd></dd>
-												
-													<dt>
-														<span class="light fixedFont">{String}</span> <b>xmlString</b>
-														
-													</dt>
-													<dd></dd>
-												
-													<dt>
-														<span class="light fixedFont">{Function}</span> <b>callback</b>
-														
-													</dt>
-													<dd></dd>
-												
-											</dl>
 										
 										
 										
@@ -1975,7 +1963,7 @@ invocation, and each invocation can add additional arguments as well.
 										</div>
 										
 										<div class="description">
-											Gets the latest event, really only useful internally since its 
+											Gets the latest event, really only useful internally since its
 specific to IE behavior.  TODO: Deprecate this from the api and
 use it internally.
 											
@@ -2675,7 +2663,7 @@ Taken from jQuery 1.6.1
 											
 											
 											
-											<span class="light">OpenSeadragon.</span><b>makeAjaxRequest</b>(url, callback)
+											<span class="light">OpenSeadragon.</span><b>makeAjaxRequest</b>(url, onSuccess, onError)
 										</div>
 										
 										<div class="description">
@@ -2699,10 +2687,16 @@ Taken from jQuery 1.6.1
 													<dd>- the url to request</dd>
 												
 													<dt>
-														<span class="light fixedFont">{Function}</span> <b>callback</b>
-														<i>Optional</i>
+														<span class="light fixedFont">{Function}</span> <b>onSuccess</b>
+														
 													</dt>
-													<dd>- a function to call when complete</dd>
+													<dd>- a function to call on a successful response</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Function}</span> <b>onError</b>
+														
+													</dt>
+													<dd>- a function to call on when an error occurs</dd>
 												
 											</dl>
 										
@@ -2750,7 +2744,7 @@ Taken from jQuery 1.6.1
 										
 										<div class="description">
 											Wraps the given element in a nest of divs so that the element can
-be easily centered.
+be easily centered using CSS tables
 											
 											
 											
@@ -2784,7 +2778,7 @@ be easily centered.
 												
 													<dt class="heading">Returns:</dt>
 													
-														<dd><span class="light fixedFont">{Element}</span> </dd>
+														<dd><span class="light fixedFont">{Element}</span> outermost wrapper element</dd>
 													
 												
 												
@@ -2874,7 +2868,7 @@ serves as an excellent container element.
 										
 										<div class="description">
 											Ensures an image is loaded correctly to support alpha transparency.
-Generally only IE has issues doing this correctly for formats like 
+Generally only IE has issues doing this correctly for formats like
 png.
 											
 											
@@ -2924,6 +2918,35 @@ png.
 								
 									<li 
 										 class='item30'
+									>
+										<div class="fixedFont heading" id=".now">
+											<span class='lighter'>
+											&lt;static&gt; 
+											</span>
+											
+											
+											
+											<span class="light">OpenSeadragon.</span><b>now</b>()
+										</div>
+										
+										<div class="description">
+											Returns the current milliseconds, using Date.now() if available
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item31'
 									>
 										<div class="fixedFont heading" id=".parseXml">
 											<span class='lighter'>
@@ -2984,7 +3007,7 @@ png.
 									</li>
 								
 									<li 
-										 class='item31'
+										 class='item32'
 									>
 										<div class="fixedFont heading" id=".ReferenceStrip">
 											<span class='lighter'>
@@ -2998,10 +3021,10 @@ png.
 										
 										<div class="description">
 											The CollectionDrawer is a reimplementation if the Drawer API that
- focuses on allowing a viewport to be redefined as a collection 
+ focuses on allowing a viewport to be redefined as a collection
  of smaller viewports, defined by a clear number of rows and / or
  columns of which each item in the matrix of viewports has its own
- source.  
+ source.
 
  This idea is a reexpression of the idea of dzi collections
  which allows a clearer algorithm to reuse the tile sources already
@@ -3010,8 +3033,8 @@ png.
  for the purpose of image sequnces.
 
  TODO:   The difficult part of this feature is figuring out how to express
-         this functionality as a combination of the functionality already 
-         provided by Drawer, Viewport, TileSource, and Navigator.  It may 
+         this functionality as a combination of the functionality already
+         provided by Drawer, Viewport, TileSource, and Navigator.  It may
          require better abstraction at those points in order to effeciently
          reuse those paradigms.
 											
@@ -3040,7 +3063,7 @@ png.
 									</li>
 								
 									<li 
-										 class='item32'
+										 class='item33'
 									>
 										<div class="fixedFont heading" id=".removeClass">
 											<span class='lighter'>
@@ -3086,7 +3109,7 @@ png.
 									</li>
 								
 									<li 
-										 class='item33'
+										 class='item34'
 									>
 										<div class="fixedFont heading" id=".removeEvent">
 											<span class='lighter'>
@@ -3099,7 +3122,7 @@ png.
 										</div>
 										
 										<div class="description">
-											Remove a given event listener for the given element, event type and 
+											Remove a given event listener for the given element, event type and
 handler.
 											
 											
@@ -3169,7 +3192,7 @@ handler.
 									</li>
 								
 									<li 
-										 class='item34'
+										 class='item35'
 									>
 										<div class="fixedFont heading" id=".requestAnimationFrame">
 											<span class='lighter'>
@@ -3198,7 +3221,7 @@ handler.
 									</li>
 								
 									<li 
-										 class='item35'
+										 class='item36'
 									>
 										<div class="fixedFont heading" id=".setElementOpacity">
 											<span class='lighter'>
@@ -3250,7 +3273,7 @@ handler.
 									</li>
 								
 									<li 
-										 class='item36'
+										 class='item37'
 									>
 										<div class="fixedFont heading" id=".setString">
 											<span class='lighter'>
@@ -3296,7 +3319,7 @@ handler.
 									</li>
 								
 									<li 
-										 class='item37'
+										 class='item38'
 									>
 										<div class="fixedFont heading" id=".stopEvent">
 											<span class='lighter'>
@@ -3336,7 +3359,7 @@ handler.
 									</li>
 								
 									<li 
-										 class='item38'
+										 class='item39'
 									>
 										<div class="fixedFont heading" id=".type">
 											<span class='lighter'>

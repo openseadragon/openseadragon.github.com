@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-5-17' pubdate>2013-5-17 10:07</time>
+			<time datetime='2013-6-9' pubdate>2013-6-9 9:19</time>
 		</footer>
 	</div>
 </div>
@@ -372,7 +372,7 @@ image metadata pertinent to this TileSources implementation.</div>
 												<td class="nameDescription">
 													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.TileSource.html#getTileUrl">getTileUrl</a></b>(level, x, y)
 													</div>
-													<div class="description">Responsible for retriving the url which will return an image for the 
+													<div class="description">Responsible for retriving the url which will return an image for the
 region speified by the given x, y, and level components.</div>
 												</td>
 											</tr>
@@ -438,16 +438,16 @@ loaded from, if any ).</div>
 							
 							<div class="description">
 								The TileSource contains the most basic implementation required to create a
-smooth transition between layer in an image pyramid. It has only a single key 
-interface that must be implemented to complete it key functionality: 
-'getTileUrl'.  It also has several optional interfaces that can be 
+smooth transition between layer in an image pyramid. It has only a single key
+interface that must be implemented to complete it key functionality:
+'getTileUrl'.  It also has several optional interfaces that can be
 implemented if a new TileSource wishes to support configuration via a simple
-object or array ('configure') and if the tile source supports or requires 
-configuration via retreival of a document on the network ala AJAX or JSONP, 
+object or array ('configure') and if the tile source supports or requires
+configuration via retreival of a document on the network ala AJAX or JSONP,
 ('getImageInfo').
 <br/>
 By default the image pyramid is split into N layers where the images longest
-side in M (in pixels), where N is the smallest integer which satisfies 
+side in M (in pixels), where N is the smallest integer which satisfies
      <strong>2^(N+1) >= M</strong>.
 								
 							</div>
@@ -462,8 +462,8 @@ side in M (in pixels), where N is the smallest integer which satisfies
 											<span class="light fixedFont">{Number|Object|Array|String}</span>  <b>width</b>
 											
 										</dt>
-										<dd>If more than a single argument is supplied, the traditional use of 
-     positional parameters is supplied and width is expected to be the width 
+										<dd>If more than a single argument is supplied, the traditional use of
+     positional parameters is supplied and width is expected to be the width
      source image at it's max resolution in pixels.  If a single argument is supplied and
      it is an Object or Array, the construction is assumed to occur through
      the extending classes implementation of 'configure'.  Finally if only a
@@ -481,7 +481,7 @@ side in M (in pixels), where N is the smallest integer which satisfies
 											
 										</dt>
 										<dd>The size of the tiles to assumed to make up each pyramid layer in pixels.
-     Tile size determines the point at which the image pyramid must be 
+     Tile size determines the point at which the image pyramid must be
      divided into a matrix of smaller images.</dd>
 									
 										<dt>
@@ -689,7 +689,7 @@ side in M (in pixels), where N is the smallest integer which satisfies
 											Responsible for parsing and configuring the
 image metadata pertinent to this TileSources implementation.
 This method is not implemented by this class other than to throw an Error
-announcing you have to implement it.  Because of the variety of tile 
+announcing you have to implement it.  Because of the variety of tile
 server technologies, and various specifications for building image
 pyramids, this method is here to allow easy integration.
 											
@@ -714,7 +714,7 @@ pyramids, this method is here to allow easy integration.
 														<span class="light fixedFont">{String}</span> <b>url</b>
 														
 													</dt>
-													<dd>- the url the data was loaded 
+													<dd>- the url the data was loaded
      from if any.</dd>
 												
 											</dl>
@@ -740,7 +740,7 @@ pyramids, this method is here to allow easy integration.
 												
 													<dt class="heading">Returns:</dt>
 													
-														<dd><span class="light fixedFont">{Object}</span> options - A dictionary of keyword arguments sufficient 
+														<dd><span class="light fixedFont">{Object}</span> options - A dictionary of keyword arguments sufficient
      to configure this tile sources constructor.</dd>
 													
 												
@@ -1091,10 +1091,10 @@ image metadata pertinent to this TileSources implementation.
 										</div>
 										
 										<div class="description">
-											Responsible for retriving the url which will return an image for the 
+											Responsible for retriving the url which will return an image for the
 region speified by the given x, y, and level components.
 This method is not implemented by this class other than to throw an Error
-announcing you have to implement it.  Because of the variety of tile 
+announcing you have to implement it.  Because of the variety of tile
 server technologies, and various specifications for building image
 pyramids, this method is here to allow easy integration.
 											
@@ -1201,7 +1201,7 @@ and sufficient mechanisim for clear determination.
 														<span class="light fixedFont">{String}</span> <b>url</b>
 														
 													</dt>
-													<dd>- the url the data was loaded 
+													<dd>- the url the data was loaded
      from if any.</dd>
 												
 											</dl>
