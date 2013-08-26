@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-7-1' pubdate>2013-7-1 10:42</time>
+			<time datetime='2013-7-26' pubdate>2013-7-26 14:05</time>
 		</footer>
 	</div>
 </div>
@@ -196,7 +196,7 @@
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#deltaPixelsFromPoints">deltaPixelsFromPoints</a></b>(deltaPoints, current)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#deltaPixelsFromPoints">deltaPixelsFromPoints</a></b>(current, current)
 													</div>
 													<div class="description"></div>
 												</td>
@@ -207,7 +207,7 @@
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#deltaPointsFromPixels">deltaPointsFromPixels</a></b>(deltaPixels, current)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#deltaPointsFromPixels">deltaPointsFromPixels</a></b>(current, current)
 													</div>
 													<div class="description"></div>
 												</td>
@@ -419,7 +419,7 @@ rectangle coordinates.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#pixelFromPoint">pixelFromPoint</a></b>(point, current)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#pixelFromPoint">pixelFromPoint</a></b>(current, current)
 													</div>
 													<div class="description"></div>
 												</td>
@@ -430,7 +430,7 @@ rectangle coordinates.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#pointFromPixel">pointFromPixel</a></b>(pixel, current)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#pointFromPixel">pointFromPixel</a></b>(current, current)
 													</div>
 													<div class="description"></div>
 												</td>
@@ -463,6 +463,18 @@ rectangle coordinates.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#setRotation">setRotation</a></b>()
+													</div>
+													<div class="description">Currently only 90 degree rotation is supported and it only works
+with the canvas.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item26'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
 													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#update">update</a></b>()
 													</div>
 													<div class="description"></div>
@@ -470,7 +482,7 @@ rectangle coordinates.</div>
 											</tr>
 										
 											<tr
-												 class='item26'
+												 class='item27'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -482,7 +494,7 @@ system to image coordinate system</div>
 											</tr>
 										
 											<tr
-												 class='item27'
+												 class='item28'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -493,7 +505,7 @@ system to image coordinate system</div>
 											</tr>
 										
 											<tr
-												 class='item28'
+												 class='item29'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -646,7 +658,7 @@ system to image coordinate system</div>
 											
 											
 											
-											<b>deltaPixelsFromPoints</b>(deltaPoints, current)
+											<b>deltaPixelsFromPoints</b>(current, current)
 										</div>
 										
 										<div class="description">
@@ -664,10 +676,10 @@ system to image coordinate system</div>
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>deltaPoints</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 													<dt>
 														<b>current</b>
@@ -692,7 +704,7 @@ system to image coordinate system</div>
 											
 											
 											
-											<b>deltaPointsFromPixels</b>(deltaPixels, current)
+											<b>deltaPointsFromPixels</b>(current, current)
 										</div>
 										
 										<div class="description">
@@ -710,10 +722,10 @@ system to image coordinate system</div>
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>deltaPixels</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 													<dt>
 														<b>current</b>
@@ -1014,10 +1026,10 @@ system to image coordinate system</div>
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>current</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 											</dl>
 										
@@ -1054,10 +1066,10 @@ system to image coordinate system</div>
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>current</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 											</dl>
 										
@@ -1239,10 +1251,10 @@ system to image coordinate system</div>
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>current</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 											</dl>
 										
@@ -1542,7 +1554,7 @@ rectangle coordinates.
 											
 											
 											
-											<b>pixelFromPoint</b>(point, current)
+											<b>pixelFromPoint</b>(current, current)
 										</div>
 										
 										<div class="description">
@@ -1560,10 +1572,10 @@ rectangle coordinates.
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>point</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 													<dt>
 														<b>current</b>
@@ -1588,7 +1600,7 @@ rectangle coordinates.
 											
 											
 											
-											<b>pointFromPixel</b>(pixel, current)
+											<b>pointFromPixel</b>(current, current)
 										</div>
 										
 										<div class="description">
@@ -1606,10 +1618,10 @@ rectangle coordinates.
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>pixel</b>
+														<span class="light fixedFont">{Boolean}</span> <b>current</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>- Pass true for the current location; defaults to false (target location).</dd>
 												
 													<dt>
 														<b>current</b>
@@ -1755,6 +1767,59 @@ rectangle coordinates.
 									<li 
 										 class='item25'
 									>
+										<div class="fixedFont heading" id="setRotation">
+											<span class='lighter'>
+											
+											</span>
+											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a>}</span>
+											
+											<b>setRotation</b>()
+										</div>
+										
+										<div class="description">
+											Currently only 90 degree rotation is supported and it only works
+with the canvas. Additionally, the navigator does not rotate yet,
+debug mode doesn't rotate yet, and overlay rotation is only
+partially supported.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a>}</span> Chainable.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item26'
+									>
 										<div class="fixedFont heading" id="update">
 											<span class='lighter'>
 											
@@ -1782,7 +1847,7 @@ rectangle coordinates.
 									</li>
 								
 									<li 
-										 class='item26'
+										 class='item27'
 									>
 										<div class="fixedFont heading" id="viewportToImageCoordinates">
 											<span class='lighter'>
@@ -1829,7 +1894,7 @@ system to image coordinate system
 									</li>
 								
 									<li 
-										 class='item27'
+										 class='item28'
 									>
 										<div class="fixedFont heading" id="zoomBy">
 											<span class='lighter'>
@@ -1902,7 +1967,7 @@ system to image coordinate system
 									</li>
 								
 									<li 
-										 class='item28'
+										 class='item29'
 									>
 										<div class="fixedFont heading" id="zoomTo">
 											<span class='lighter'>

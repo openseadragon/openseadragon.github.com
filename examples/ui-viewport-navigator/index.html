@@ -20,14 +20,14 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v0.9.129/openseadragon-bin-0.9.129.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v0.9.130/openseadragon-bin-0.9.130.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v0.9.129/openseadragon-bin-0.9.129.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v0.9.130/openseadragon-bin-0.9.130.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                0.9.129
+                0.9.130
             </span>
             <span class="tagline">
                 Try it on the iPad! (new since 0.9)
@@ -92,6 +92,52 @@
         showNavigator:  true
     });
 </script>
+
+<!--==================================================================-->
+
+<div class="description">
+    <h3>Navigator Overlay Position</h3>
+    <p>By default the navigator is positioned in the upper right corner,
+        though it is possible to position it through configuration into any 
+        corner.</p>
+
+</div>
+
+
+<div class="demoarea">
+    <div class="demoheading">
+        Viewport with Navigator in BOTTOM_LEFT
+    </div>
+    <div id="contentDiv3" class="openseadragon"></div>
+</div>
+
+<script type="text/javascript">
+    OpenSeadragon({
+        id:            "contentDiv3",
+        prefixUrl:     "/openseadragon/images/",
+        tileSources:   "/example-images/highsmith/highsmith.dzi",
+        showNavigator:  true,
+        navigatorPosition: 'BOTTOM_LEFT'
+    });
+</script>
+
+<p>
+The relevant configuration options are shown below. The
+<code>navigatorPosition</code> attribute identifies the corner
+into which the navigator should be overlayed.
+</p>
+
+<pre>
+    OpenSeadragon({
+        ...
+        showNavigator:  true,
+        navigatorPosition:   "BOTTOM_LEFT",
+        ...
+    });
+
+</pre>
+
+<!--==================================================================-->
 
 <div class="description">
     <h3>Custom Navigator Location</h3>

@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-7-1' pubdate>2013-7-1 10:42</time>
+			<time datetime='2013-7-26' pubdate>2013-7-26 14:05</time>
 		</footer>
 	</div>
 </div>
@@ -381,7 +381,7 @@
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#addOverlay">addOverlay</a></b>(element, location, placement)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Drawer.html#addOverlay">addOverlay</a></b>(element, location, placement, onDraw)
 													</div>
 													<div class="description">Adds an html element as an overlay to the current viewport.</div>
 												</td>
@@ -960,7 +960,7 @@ element id moving it to the new location, relative to the new placement.</div>
 											
 											
 											
-											<b>addOverlay</b>(element, location, placement)
+											<b>addOverlay</b>(element, location, placement, onDraw)
 										</div>
 										
 										<div class="description">
@@ -980,11 +980,11 @@ interface.
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<span class="light fixedFont">{Element|String}</span> <b>element</b>
+														<span class="light fixedFont">{Element|String|Object}</span> <b>element</b>
 														
 													</dt>
 													<dd>- A reference to an element or an id for
-     the element which will overlayed.</dd>
+     the element which will overlayed. Or an Object specifying the configuration for the overlay</dd>
 												
 													<dt>
 														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>|<a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span> <b>location</b>
@@ -1000,6 +1000,14 @@ interface.
 													<dd>- The position of the
      viewport which the location coordinates will be treated as relative
      to.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{function}</span> <b>onDraw</b>
+														
+													</dt>
+													<dd>- If supplied the callback is called when the overlay 
+     needs to be drawn. It it the responsibility of the callback to do any drawing/positioning.
+     It is passed position, size and element.</dd>
 												
 											</dl>
 										
