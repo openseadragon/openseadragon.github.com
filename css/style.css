@@ -56,7 +56,12 @@ h3 {
 }
 ul h3 { text-align: left;}
 ul { list-style: none; padding: 0px 4em; }
-ul ul{ list-style: square}
+
+ul ul, 
+.square-list {
+    list-style: square
+}
+
 a { color: #800; }
 p { padding: 0 1.5em; }
 .elevator {
