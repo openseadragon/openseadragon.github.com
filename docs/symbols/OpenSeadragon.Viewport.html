@@ -95,7 +95,7 @@
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
 			Generated on:
-			<time datetime='2013-8-16' pubdate>2013-8-16 16:14</time>
+			<time datetime='2013-8-23' pubdate>2013-8-23 10:06</time>
 		</footer>
 	</div>
 </div>
@@ -372,10 +372,11 @@
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#imageToViewportCoordinates">imageToViewportCoordinates</a></b>(imageX, imageY)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#imageToViewportCoordinates">imageToViewportCoordinates</a></b>(imageX, imageX, imageY)
 													</div>
-													<div class="description">Translates from image coordinate system to
-Seajax viewer coordinate system</div>
+													<div class="description">Translates from image coordinate system to OpenSeadragon viewer coordinate system
+This method can be called either by passing X,Y coordinates or an
+OpenSeadragon.Point</div>
 												</td>
 											</tr>
 										
@@ -384,11 +385,10 @@ Seajax viewer coordinate system</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#imageToViewportRectangle">imageToViewportRectangle</a></b>(imageX, imageY, pixelWidth, pixelHeight)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#imageToViewportRectangle">imageToViewportRectangle</a></b>(imageX, imageX, imageY, pixelWidth, pixelHeight)
 													</div>
-													<div class="description">Translates from a rectangle which describes a portion of
-the image in pixel coordinates to OpenSeadragon viewport
-rectangle coordinates.</div>
+													<div class="description">Translates from a rectangle which describes a portion of the image in
+pixel coordinates to OpenSeadragon viewport rectangle coordinates.</div>
 												</td>
 											</tr>
 										
@@ -486,15 +486,26 @@ with the canvas.</div>
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#viewportToImageCoordinates">viewportToImageCoordinates</a></b>(viewerX, viewerY)
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#viewportToImageCoordinates">viewportToImageCoordinates</a></b>(viewerX, viewerX, viewerY)
 													</div>
-													<div class="description">Translates from Seajax viewer coordinate
-system to image coordinate system</div>
+													<div class="description">Translates from OpenSeadragon viewer coordinate system to image coordinate system.</div>
 												</td>
 											</tr>
 										
 											<tr
 												 class='item28'
+											>
+												<td class="attributes">&nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont"><b><a href="../symbols/OpenSeadragon.Viewport.html#viewportToImageRectangle">viewportToImageRectangle</a></b>(viewerX, viewerX, imageY, pointWidth, pointHeight)
+													</div>
+													<div class="description">Translates from a rectangle which describes a portion of
+the viewport in point coordinates to image rectangle coordinates.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item29'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -505,7 +516,7 @@ system to image coordinate system</div>
 											</tr>
 										
 											<tr
-												 class='item29'
+												 class='item30'
 											>
 												<td class="attributes">&nbsp;</td>
 												<td class="nameDescription">
@@ -1311,14 +1322,15 @@ system to image coordinate system</div>
 											
 											</span>
 											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span>
 											
-											
-											<b>imageToViewportCoordinates</b>(imageX, imageY)
+											<b>imageToViewportCoordinates</b>(imageX, imageX, imageY)
 										</div>
 										
 										<div class="description">
-											Translates from image coordinate system to
-Seajax viewer coordinate system
+											Translates from image coordinate system to OpenSeadragon viewer coordinate system
+This method can be called either by passing X,Y coordinates or an
+OpenSeadragon.Point
 											
 											
 											
@@ -1332,20 +1344,47 @@ Seajax viewer coordinate system
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>imageX</b>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span> <b>imageX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the point in image coordinate system.</dd>
 												
 													<dt>
-														<b>imageY</b>
+														<span class="light fixedFont">{Number}</span> <b>imageX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>X coordinate in image coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>imageY</b>
+														
+													</dt>
+													<dd>Y coordinate in image coordinate system.</dd>
 												
 											</dl>
 										
 										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span> a point representing the coordinates in the viewport.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
 										
 										<div class="hr"></div>
 									</li>
@@ -1360,13 +1399,14 @@ Seajax viewer coordinate system
 											
 											
 											
-											<b>imageToViewportRectangle</b>(imageX, imageY, pixelWidth, pixelHeight)
+											<b>imageToViewportRectangle</b>(imageX, imageX, imageY, pixelWidth, pixelHeight)
 										</div>
 										
 										<div class="description">
-											Translates from a rectangle which describes a portion of
-the image in pixel coordinates to OpenSeadragon viewport
-rectangle coordinates.
+											Translates from a rectangle which describes a portion of the image in
+pixel coordinates to OpenSeadragon viewport rectangle coordinates.
+This method can be called either by passing X,Y,width,height or an
+OpenSeadragon.Rect
 											
 											
 											
@@ -1380,28 +1420,36 @@ rectangle coordinates.
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>imageX</b>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span> <b>imageX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the rectangle in image coordinate system.</dd>
 												
 													<dt>
-														<b>imageY</b>
+														<span class="light fixedFont">{Number}</span> <b>imageX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the X coordinate of the top left corner of the rectangle
+in image coordinate system.</dd>
 												
 													<dt>
-														<b>pixelWidth</b>
+														<span class="light fixedFont">{Number}</span> <b>imageY</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the Y coordinate of the top left corner of the rectangle
+in image coordinate system.</dd>
 												
 													<dt>
-														<b>pixelHeight</b>
+														<span class="light fixedFont">{Number}</span> <b>pixelWidth</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the width in pixel of the rectangle.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>pixelHeight</b>
+														
+													</dt>
+													<dd>the height in pixel of the rectangle.</dd>
 												
 											</dl>
 										
@@ -1854,14 +1902,15 @@ partially supported.
 											
 											</span>
 											
+											<span class="light">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span>
 											
-											
-											<b>viewportToImageCoordinates</b>(viewerX, viewerY)
+											<b>viewportToImageCoordinates</b>(viewerX, viewerX, viewerY)
 										</div>
 										
 										<div class="description">
-											Translates from Seajax viewer coordinate
-system to image coordinate system
+											Translates from OpenSeadragon viewer coordinate system to image coordinate system.
+This method can be called either by passing X,Y coordinates or an
+OpenSeadragon.Point
 											
 											
 											
@@ -1875,16 +1924,112 @@ system to image coordinate system
 												<dt class="heading">Parameters:</dt>
 												
 													<dt>
-														<b>viewerX</b>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span> <b>viewerX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>the point in viewport coordinate system.</dd>
 												
 													<dt>
-														<b>viewerY</b>
+														<span class="light fixedFont">{Number}</span> <b>viewerX</b>
 														
 													</dt>
-													<dd></dd>
+													<dd>X coordinate in viewport coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>viewerY</b>
+														
+													</dt>
+													<dd>Y coordinate in viewport coordinate system.</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span> a point representing the coordinates in the image.</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item28'
+									>
+										<div class="fixedFont heading" id="viewportToImageRectangle">
+											<span class='lighter'>
+											
+											</span>
+											
+											
+											
+											<b>viewportToImageRectangle</b>(viewerX, viewerX, imageY, pointWidth, pointHeight)
+										</div>
+										
+										<div class="description">
+											Translates from a rectangle which describes a portion of
+the viewport in point coordinates to image rectangle coordinates.
+This method can be called either by passing X,Y,width,height or an
+OpenSeadragon.Rect
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{<a href="../symbols/OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span> <b>viewerX</b>
+														
+													</dt>
+													<dd>the rectangle in viewport coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>viewerX</b>
+														
+													</dt>
+													<dd>the X coordinate of the top left corner of the rectangle
+in viewport coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>imageY</b>
+														
+													</dt>
+													<dd>the Y coordinate of the top left corner of the rectangle
+in viewport coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>pointWidth</b>
+														
+													</dt>
+													<dd>the width of the rectangle in viewport coordinate system.</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Number}</span> <b>pointHeight</b>
+														
+													</dt>
+													<dd>the height of the rectangle in viewport coordinate system.</dd>
 												
 											</dl>
 										
@@ -1894,7 +2039,7 @@ system to image coordinate system
 									</li>
 								
 									<li 
-										 class='item28'
+										 class='item29'
 									>
 										<div class="fixedFont heading" id="zoomBy">
 											<span class='lighter'>
@@ -1967,7 +2112,7 @@ system to image coordinate system
 									</li>
 								
 									<li 
-										 class='item29'
+										 class='item30'
 									>
 										<div class="fixedFont heading" id="zoomTo">
 											<span class='lighter'>

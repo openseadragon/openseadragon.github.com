@@ -1,6 +1,6 @@
-//! OpenSeadragon 0.9.130
-//! Built on 2013-08-26
-//! Git commit: v0.9.130-0-g4d006d6
+//! OpenSeadragon 0.9.131
+//! Built on 2013-09-23
+//! Git commit: v0.9.131-0-g13249cc
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -90,7 +90,7 @@
 
 
  /**
-  * @version  OpenSeadragon 0.9.130
+  * @version  OpenSeadragon 0.9.131
   *
   * @fileOverview
   * <h2>
@@ -1351,7 +1351,25 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
                 request.open( "GET", url, true );
                 request.send( null );
             } catch (e) {
-                $.console.log( "%s while making AJAX request: %s", e.name, e.message );
+                var msg = e.message;
+
+                /*
+                    IE < 10 does not support CORS and an XHR request to a different origin will fail as soon
+                    as send() is called. This is particularly easy to miss during development and appear in
+                    production if you use a CDN or domain sharding and the security policy is likely to break
+                    exception handlers since any attempt to access a property of the request object will
+                    raise an access denied TypeError inside the catch block.
+
+                    To be friendlier, we'll check for this specific error and add a documentation pointer
+                    to point developers in the right direction. We test the exception number because IE's
+                    error messages are localized.
+                */
+                var oldIE = $.Browser.vendor == $.BROWSERS.IE && $.Browser.version < 10;
+                if ( oldIE && typeof( e.number ) != "undefined" && e.number == -2147024891 ) {
+                    msg += "\nSee http://msdn.microsoft.com/en-us/library/ms537505(v=vs.85).aspx#xdomain";
+                }
+
+                $.console.log( "%s while making AJAX request: %s", e.name, msg );
 
                 request.onreadystatechange = function(){};
 
@@ -2111,7 +2129,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
 
 /**
  * For use by classes which want to support custom, non-browser events.
- * TODO: This is an aweful name!  This thing represents an "event source",
+ * TODO: This is an awful name!  This thing represents an "event source",
  *       not an "event handler".  PLEASE change the to EventSource. Also please
  *       change 'addHandler', 'removeHandler' and 'raiseEvent' to 'bind',
  *       'unbind', and 'trigger' respectively.  Finally add a method 'one' which
@@ -2130,14 +2148,15 @@ $.EventHandler.prototype = {
      * @function
      * @param {String} eventName - Name of event to register.
      * @param {Function} handler - Function to call when event is triggered.
+     * @param {Object} optional userData - Arbitrary object to be passed to the handler.
      */
-    addHandler: function( eventName, handler ) {
+    addHandler: function ( eventName, handler, userData ) {
         var events = this.events[ eventName ];
-        if( !events ){
+        if ( !events ) {
             this.events[ eventName ] = events = [];
         }
-        if( handler && $.isFunction( handler ) ){
-            events[ events.length ] = handler;
+        if ( handler && $.isFunction( handler ) ) {
+            events[ events.length ] = { handler: handler, userData: userData || null };
         }
     },
 
@@ -2147,16 +2166,16 @@ $.EventHandler.prototype = {
      * @param {String} eventName - Name of event for which the handler is to be removed.
      * @param {Function} handler - Function to be removed.
      */
-    removeHandler: function( eventName, handler ) {
+    removeHandler: function ( eventName, handler ) {
         var events = this.events[ eventName ],
             handlers = [],
             i;
-        if ( !events ){
+        if ( !events ) {
             return;
         }
-        if( $.isArray( events ) ){
-            for( i = 0; i < events.length; i++ ){
-                if( events[ i ] !== handler ){
+        if ( $.isArray( events ) ) {
+            for ( i = 0; i < events.length; i++ ) {
+                if ( events[i].handler !== handler ) {
                     handlers.push( events[ i ] );
                 }
             }
@@ -2172,11 +2191,11 @@ $.EventHandler.prototype = {
      * @param {String} eventName - Name of event for which all handlers are to be removed.
      */
     removeAllHandlers: function( eventName ) {
-        if (eventName){
+        if ( eventName ){
             this.events[ eventName ] = [];
         } else{
-            for (var eventType in this.events) {
-                this.events[eventType] = [];
+            for ( var eventType in this.events ) {
+                this.events[ eventType ] = [];
             }
         }
     },
@@ -2186,20 +2205,21 @@ $.EventHandler.prototype = {
      * @function
      * @param {String} eventName - Name of event to get handlers for.
      */
-    getHandler: function( eventName ) {
+    getHandler: function ( eventName ) {
         var events = this.events[ eventName ];
-        if ( !events || !events.length ){
+        if ( !events || !events.length ) {
             return null;
         }
         events = events.length === 1 ?
             [ events[ 0 ] ] :
             Array.apply( null, events );
-        return function( source, args ) {
+        return function ( source, args ) {
             var i,
                 length = events.length;
             for ( i = 0; i < length; i++ ) {
-                if( events[ i ] ){
-                    events[ i ]( source, args );
+                if ( events[ i ] ) {
+                    args.userData = events[ i ].userData;
+                    events[ i ].handler( source, args );
                 }
             }
         };
@@ -4246,7 +4266,7 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
         return this;
     },
 
-    
+
     /**
      * Function to destroy the viewer and clean up everything created by
      * OpenSeadragon.
@@ -4401,7 +4421,8 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
             this.previousBody = [];
             THIS[ this.hash ].prevElementParent = this.element.parentNode;
             THIS[ this.hash ].prevNextSibling = this.element.nextSibling;
-            THIS[ this.hash ].prevElementSize = $.getElementSize( this.element );
+            THIS[ this.hash ].prevElementWidth = this.element.style.width;
+            THIS[ this.hash ].prevElementHeight = this.element.style.height;
             nodes = body.childNodes.length;
             for ( i = 0; i < nodes; i ++ ){
                 this.previousBody.push( body.childNodes[ 0 ] );
@@ -4518,8 +4539,8 @@ $.extend( $.Viewer.prototype, $.EventHandler.prototype, $.ControlDock.prototype,
                 //this.container.style.top = 'auto';
             }
 
-            this.element.style.height = THIS[ this.hash ].prevElementSize.y + 'px';
-            this.element.style.width = THIS[ this.hash ].prevElementSize.x + 'px';
+            this.element.style.width = THIS[ this.hash ].prevElementWidth;
+            this.element.style.height = THIS[ this.hash ].prevElementHeight;
 
             THIS[ this.hash ].fullPage = false;
 
@@ -5198,7 +5219,7 @@ function onCanvasDrag( tracker, position, delta, shift ) {
             this.viewport.applyConstraints();
         }
     }
-    this.raiseEvent( 'canvas-click', {
+    this.raiseEvent( 'canvas-drag', {
         tracker: tracker,
         position: position,
         delta: delta,
@@ -6244,12 +6265,19 @@ $.TileSource = function( width, height, tileSize, tileOverlap, minLevel, maxLeve
 
     //Any functions that are passed as arguments are bound to the ready callback
     /*jshint loopfunc:true*/
-    for( i = 0; i < arguments.length; i++ ){
-        if( $.isFunction( arguments[i] ) ){
+    for ( i = 0; i < arguments.length; i++ ) {
+        if ( $.isFunction( arguments[ i ] ) ) {
             callback = arguments[ i ];
-            this.addHandler( 'ready', function( placeHolderSource, readySource ){
+            // TODO Send generic object wrapping readySource as a property (breaking change)
+            // TODO Maybe placeHolderSource should be passed to callback as well for consistency
+            //      with event handler signature?
+            //  Should be this (although technically it works as-is):
+            //this.addHandler( 'ready', function ( placeHolderSource, placeHolderArgs ) {
+            //    callback( placeHolderArgs );
+            //} );
+            this.addHandler( 'ready', function ( placeHolderSource, readySource ) {
                 callback( readySource );
-            });
+            } );
             //only one callback per constructor
             break;
         }
@@ -6431,6 +6459,9 @@ $.TileSource.prototype = {
             options = $TileSource.prototype.configure.apply( _this, [ data, url ]);
             readySource = new $TileSource( options );
             _this.ready = true;
+            // TODO Send generic object wrapping readySource as a property (breaking change)
+            //  Should be this:
+            //_this.raiseEvent( 'ready', { tileSource: readySource } );
             _this.raiseEvent( 'ready', readySource );
         };
 
@@ -6450,9 +6481,29 @@ $.TileSource.prototype = {
             $.makeAjaxRequest( url, function( xhr ) {
                 var data = processResponse( xhr );
                 callback( data );
-            }, function ( xhr ) {
+            }, function ( xhr, exc ) {
+                var msg;
+
+                /*
+                    IE < 10 will block XHR requests to different origins. Any property access on the request
+                    object will raise an exception which we'll attempt to handle by formatting the original
+                    exception rather than the second one raised when we try to access xhr.status
+                 */
+                try {
+                    msg = "HTTP " + xhr.status + " attempting to load TileSource";
+                } catch ( e ) {
+                    var formattedExc;
+                    if ( typeof( exc ) == "undefined" || !exc.toString ) {
+                        formattedExc = "Unknown error";
+                    } else {
+                        formattedExc = exc.toString();
+                    }
+
+                    msg = formattedExc + " attempting to load TileSource";
+                }
+
                 _this.raiseEvent( 'open-failed', {
-                    message: "HTTP " + xhr.status + " attempting to load TileSource",
+                    message: msg,
                     source: url
                 });
             });
@@ -7648,17 +7699,25 @@ $.LegacyTileSource = function( levels ) {
 
     //clean up the levels to make sure we support all formats
     options.levels = filterFiles( options.levels );
-    width = options.levels[ options.levels.length - 1 ].width;
-    height = options.levels[ options.levels.length - 1 ].height;
 
-    $.extend( true,  options, {
-        width:       width,
-        height:      height,
-        tileSize:    Math.max( height, width ),
+    if ( options.levels.length > 0 ) {
+        width = options.levels[ options.levels.length - 1 ].width;
+        height = options.levels[ options.levels.length - 1 ].height;
+    }
+    else {
+        width = 0;
+        height = 0;
+        $.console.error( "No supported image formats found" );
+    }
+
+    $.extend( true, options, {
+        width: width,
+        height: height,
+        tileSize: Math.max( height, width ),
         tileOverlap: 0,
-        minLevel:    0,
-        maxLevel:    options.levels.length - 1
-    });
+        minLevel: 0,
+        maxLevel: options.levels.length > 0 ? options.levels.length - 1 : 0
+    } );
 
     $.TileSource.apply( this, [ options ] );
 
@@ -7716,9 +7775,9 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
      * @name OpenSeadragon.LegacyTileSource.prototype.getLevelScale
      * @param {Number} level
      */
-    getLevelScale: function( level ) {
+    getLevelScale: function ( level ) {
         var levelScale = NaN;
-        if (  level >= this.minLevel && level <= this.maxLevel ){
+        if ( this.levels.length > 0 && level >= this.minLevel && level <= this.maxLevel ) {
             levelScale =
                 this.levels[ level ].width /
                 this.levels[ this.maxLevel ].width;
@@ -7763,14 +7822,14 @@ $.extend( $.LegacyTileSource.prototype, $.TileSource.prototype, {
      * @param {Number} y
      * @throws {Error}
      */
-    getTileUrl: function( level, x, y ) {
+    getTileUrl: function ( level, x, y ) {
         var url = null;
-        if( level >= this.minLevel && level <= this.maxLevel ){
+        if ( this.levels.length > 0 && level >= this.minLevel && level <= this.maxLevel ) {
             url = this.levels[ level ].url;
         }
         return url;
     }
-});
+} );
 
 /**
  * This method removes any files from the Array which dont conform to our
@@ -7799,6 +7858,9 @@ function filterFiles( files ){
                 width: Number( file.width ),
                 height: Number( file.height )
             });
+        }
+        else {
+            $.console.error( 'Unsupported image format: %s', file.url ? file.url : '<no URL>' );
         }
     }
 
@@ -12099,34 +12161,65 @@ $.Viewport.prototype = {
     },
 
     /**
-     * Translates from Seajax viewer coordinate
-     * system to image coordinate system
+     * Translates from OpenSeadragon viewer coordinate system to image coordinate system.
+     * This method can be called either by passing X,Y coordinates or an
+     * OpenSeadragon.Point
+     * @function
+     * @param {OpenSeadragon.Point} viewerX the point in viewport coordinate system.
+     * @param {Number} viewerX X coordinate in viewport coordinate system.
+     * @param {Number} viewerY Y coordinate in viewport coordinate system.
+     * @return {OpenSeadragon.Point} a point representing the coordinates in the image.
      */
-    viewportToImageCoordinates: function(viewerX, viewerY) {
-       return new $.Point(viewerX * this.contentSize.x, viewerY * this.contentSize.y * this.contentAspectX);
+    viewportToImageCoordinates: function( viewerX, viewerY ) {
+        if ( arguments.length == 1 ) {
+            //they passed a point instead of individual components
+            return this.viewportToImageCoordinates( viewerX.x, viewerX.y );
+        }
+        return new $.Point( viewerX * this.contentSize.x, viewerY * this.contentSize.y * this.contentAspectX );
     },
 
     /**
-     * Translates from image coordinate system to
-     * Seajax viewer coordinate system
+     * Translates from image coordinate system to OpenSeadragon viewer coordinate system
+     * This method can be called either by passing X,Y coordinates or an
+     * OpenSeadragon.Point
+     * @function
+     * @param {OpenSeadragon.Point} imageX the point in image coordinate system.
+     * @param {Number} imageX X coordinate in image coordinate system.
+     * @param {Number} imageY Y coordinate in image coordinate system.
+     * @return {OpenSeadragon.Point} a point representing the coordinates in the viewport.
      */
     imageToViewportCoordinates: function( imageX, imageY ) {
-       return new $.Point( imageX / this.contentSize.x, imageY / this.contentSize.y / this.contentAspectX);
+        if ( arguments.length == 1 ) {
+            //they passed a point instead of individual components
+            return this.imageToViewportCoordinates( imageX.x, imageX.y );
+        }
+        return new $.Point( imageX / this.contentSize.x, imageY / this.contentSize.y / this.contentAspectX );
     },
 
     /**
-     * Translates from a rectangle which describes a portion of
-     * the image in pixel coordinates to OpenSeadragon viewport
-     * rectangle coordinates.
+     * Translates from a rectangle which describes a portion of the image in
+     * pixel coordinates to OpenSeadragon viewport rectangle coordinates.
+     * This method can be called either by passing X,Y,width,height or an
+     * OpenSeadragon.Rect
+     * @function
+     * @param {OpenSeadragon.Rect} imageX the rectangle in image coordinate system.
+     * @param {Number} imageX the X coordinate of the top left corner of the rectangle
+     * in image coordinate system.
+     * @param {Number} imageY the Y coordinate of the top left corner of the rectangle
+     * in image coordinate system.
+     * @param {Number} pixelWidth the width in pixel of the rectangle.
+     * @param {Number} pixelHeight the height in pixel of the rectangle.
      */
     imageToViewportRectangle: function( imageX, imageY, pixelWidth, pixelHeight ) {
         var coordA,
             coordB,
             rect;
-        if( arguments.length == 1 ){
+        if( arguments.length == 1 ) {
             //they passed a rectangle instead of individual components
             rect = imageX;
-            return this.imageToViewportRectangle(rect.x, rect.y, rect.width, rect.height);
+            return this.imageToViewportRectangle(
+                rect.x, rect.y, rect.width, rect.height
+            );
         }
         coordA = this.imageToViewportCoordinates(
             imageX, imageY
@@ -12134,6 +12227,41 @@ $.Viewport.prototype = {
         coordB = this.imageToViewportCoordinates(
             pixelWidth, pixelHeight
         );
+        return new $.Rect(
+            coordA.x,
+            coordA.y,
+            coordB.x,
+            coordB.y
+        );
+    },
+
+    /**
+     * Translates from a rectangle which describes a portion of
+     * the viewport in point coordinates to image rectangle coordinates.
+     * This method can be called either by passing X,Y,width,height or an
+     * OpenSeadragon.Rect
+     * @function
+     * @param {OpenSeadragon.Rect} viewerX the rectangle in viewport coordinate system.
+     * @param {Number} viewerX the X coordinate of the top left corner of the rectangle
+     * in viewport coordinate system.
+     * @param {Number} imageY the Y coordinate of the top left corner of the rectangle
+     * in viewport coordinate system.
+     * @param {Number} pointWidth the width of the rectangle in viewport coordinate system.
+     * @param {Number} pointHeight the height of the rectangle in viewport coordinate system.
+     */
+    viewportToImageRectangle: function( viewerX, viewerY, pointWidth, pointHeight ) {
+        var coordA,
+            coordB,
+            rect;
+        if ( arguments.length == 1 ) {
+            //they passed a rectangle instead of individual components
+            rect = viewerX;
+            return this.viewportToImageRectangle(
+                rect.x, rect.y, rect.width, rect.height
+            );
+        }
+        coordA = this.viewportToImageCoordinates( viewerX, viewerY );
+        coordB = this.viewportToImageCoordinates( pointWidth, pointHeight );
         return new $.Rect(
             coordA.x,
             coordA.y,
