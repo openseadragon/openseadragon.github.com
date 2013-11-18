@@ -1,5 +1,7 @@
 # Website for OpenSeadragon
 
+**Note: to contribute to this website, use the https://github.com/openseadragon/site-build/ repository.**
+
 This repository is a Github Organization Page; everything that's checked in to the master branch is automatically published to http://openseadragon.github.io/.
 
 The files that are checked in here (with the exception of this readme) are all generated from the site-build repository.
