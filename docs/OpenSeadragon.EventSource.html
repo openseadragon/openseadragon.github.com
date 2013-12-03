@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenSeadragon Class: EventSource</title>
+    
+    <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
+
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+<div id="main">
+    
+    <h1 class="page-title">Class: EventSource</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
+    
+    EventSource
+    </h2>
+    
+        <div class="class-description">For use by classes which want to support custom, non-browser events.</div>
+    
+</header>  
+
+<article>
+    
+        <div class="container-toc">
+        <table border="1" class="toc">
+            <thead>
+                <tr>
+                    
+                    
+                    
+                    
+                        <th>Methods</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    
+                    
+                    
+                        <td>
+                            <ul>
+                            
+                                <li><a href="OpenSeadragon.EventSource.html#EventSource" class="ctor-link">&lt; constructor &gt;</a></li>
+                            
+                            
+                                
+                                    <li><a href="OpenSeadragon.EventSource.html#addHandler">addHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.EventSource.html#getHandler">getHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.EventSource.html#raiseEvent">raiseEvent</a></li>
+                                
+                                    <li><a href="OpenSeadragon.EventSource.html#removeAllHandlers">removeAllHandlers</a></li>
+                                
+                                    <li><a href="OpenSeadragon.EventSource.html#removeHandler">removeHandler</a></li>
+                                
+                            
+                            </ul>
+                        </td>
+                    
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    
+
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="EventSource"><span class="type-signature"></span>new EventSource<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2371">line 2371</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="addHandler"><span class="type-signature"></span>addHandler<span class="signature">(eventName, handler, <span class="optional">userData</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add an event handler for a given event.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Name of event to register.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Function to call when event is triggered.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">Arbitrary object to be passed unchanged to the handler.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2398">line 2398</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getHandler"><span class="type-signature"></span>getHandler<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Get a function which iterates the list of all handlers registered for a given event, calling the handler for each.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of event to get handlers for.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2453">line 2453</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="raiseEvent"><span class="type-signature"></span>raiseEvent<span class="signature">(eventName, eventArgs)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Trigger an event, optionally passing additional information.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of event to register.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventArgs</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Event-specific data.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2480">line 2480</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove all event handlers for a given event type. If no type is given all
+event handlers for every event type are removed.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of event for which all handlers are to be removed.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2438">line 2438</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeHandler"><span class="type-signature"></span>removeHandler<span class="signature">(eventName, handler)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove a specific event handler for a given event.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of event for which the handler is to be removed.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Function to be removed.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2414">line 2414</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Dec 03 2013 09:53:57 GMT-0800 (PST)
+</footer>
+</div>
+
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

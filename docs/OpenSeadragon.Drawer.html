@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenSeadragon Class: Drawer</title>
+    
+    <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
+
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+<div id="main">
+    
+    <h1 class="page-title">Class: Drawer</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
+    
+    Drawer
+    </h2>
+    
+        <div class="class-description">Handles rendering of tiles for an <a href="OpenSeadragon.Viewer.html"><code>OpenSeadragon.Viewer</code></a>. 
+A new instance is created for each TileSource opened (see <a href="OpenSeadragon.Viewer.html#drawer"><code>OpenSeadragon.Viewer#drawer</code></a>).</div>
+    
+</header>  
+
+<article>
+    
+        <div class="container-toc">
+        <table border="1" class="toc">
+            <thead>
+                <tr>
+                    
+                    
+                    
+                        <th>Members</th>
+                    
+                    
+                        <th>Methods</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    
+                    
+                        <td>
+                            <ul>
+                                <li><a href="OpenSeadragon.Drawer.html#canvas">canvas</a></li>
+                            
+                                <li><a href="OpenSeadragon.Drawer.html#container">container</a></li>
+                            
+                                <li><a href="OpenSeadragon.Drawer.html#context">context</a></li>
+                            
+                                <li><a href="OpenSeadragon.Drawer.html#element">element</a></li>
+                            </ul>
+                        </td>
+                    
+                    
+                        <td>
+                            <ul>
+                            
+                                <li><a href="OpenSeadragon.Drawer.html#Drawer" class="ctor-link">&lt; constructor &gt;</a></li>
+                            
+                            
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#addOverlay">addOverlay</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#canRotate">canRotate</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#clearOverlays">clearOverlays</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#loadImage">loadImage</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#needsUpdate">needsUpdate</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#numTilesLoaded">numTilesLoaded</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#removeOverlay">removeOverlay</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#reset">reset</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#update">update</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#updateOverlay">updateOverlay</a></li>
+                                
+                            
+                            </ul>
+                        </td>
+                    
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    
+
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Drawer"><span class="type-signature"></span>new Drawer<span class="signature">(source, viewport, element)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Reference to Viewer tile source.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>viewport</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Reference to Viewer viewport.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Parent element.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11664">line 11664</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="canvas"><span class="type-signature"></span>canvas<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A &lt;canvas&gt; element if the browser supports them, otherwise a &lt;div&gt; element.
+Child element of <a href="OpenSeadragon.Drawer.html#container"><code>OpenSeadragon.Drawer#container</code></a>.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11730">line 11730</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="container"><span class="type-signature"></span>container<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The parent element of this Drawer instance, passed in when the Drawer was created.
+The parent of <a href="OpenSeadragon.Drawer.html#canvas"><code>OpenSeadragon.Drawer#canvas</code></a>.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11723">line 11723</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="context"><span class="type-signature"></span>context<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        2d drawing context for <a href="OpenSeadragon.Drawer.html#canvas"><code>OpenSeadragon.Drawer#canvas</code></a> if it's a &lt;canvas&gt; element, otherwise null.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11737">line 11737</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Alias for <a href="OpenSeadragon.Drawer.html#container"><code>OpenSeadragon.Drawer#container</code></a>.</li><ul></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11745">line 11745</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="addOverlay"><span class="type-signature"></span>addOverlay<span class="signature">(element, location, placement, onDraw)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Adds an html element as an overlay to the current viewport.  Useful for
+highlighting words or areas of interest on an image or other zoomable
+interface.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A reference to an element or an id for
+     the element which will overlayed. Or an Object specifying the configuration for the overlay</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>location</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+|
+
+<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The point or
+     rectangle which will be overlayed.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>placement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#OverlayPlacement">OpenSeadragon.OverlayPlacement</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the
+     viewport which the location coordinates will be treated as relative
+     to.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onDraw</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If supplied the callback is called when the overlay 
+     needs to be drawn. It it the responsibility of the callback to do any drawing/positioning.
+     It is passed position, size and element.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11799">line 11799</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.Viewer.html#event:add-overlay">OpenSeadragon.Viewer.event:add-overlay</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="canRotate"><span class="type-signature"></span>canRotate<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns whether rotation is supported or not.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12078">line 12078</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    True if rotation is supported.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="clearOverlays"><span class="type-signature"></span>clearOverlays<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Removes all currently configured Overlays from this Drawer and schedules
+     and update.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11937">line 11937</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">OpenSeadragon.Viewer.event:clear-overlay</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Chainable.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="loadImage"><span class="type-signature"></span>loadImage<span class="signature">(src, callback)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Used internally to load images when required.  May also be used to
+preload a set of images so the browser will have them available in
+the local cache to optimize user experience in certain cases. Because
+the number of parallel image loads is configurable, if too many images
+are currently being loaded, the request will be ignored.  Since by
+default drawer.imageLoaderLimit is 0, the native browser parallel
+image loading policy will be used.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>src</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The url of the image to load.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The function that will be called with the
+     Image object as the only parameter if it was loaded successfully.
+     If an error occured, or the request timed out or was aborted,
+     the parameter is null instead.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12023">line 12023</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    loading - Whether the request was submitted or ignored
+     based on OpenSeadragon.DEFAULT_SETTINGS.imageLoaderLimit.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="needsUpdate"><span class="type-signature"></span>needsUpdate<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns whether the Drawer is scheduled for an update at the
+     soonest possible opportunity.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11965">line 11965</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    - Whether the Drawer is scheduled for an update at the
+     soonest possible opportunity.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="numTilesLoaded"><span class="type-signature"></span>numTilesLoaded<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the total number of tiles that have been loaded by this Drawer.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11975">line 11975</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    - The total number of tiles that have been loaded by
+     this Drawer.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeOverlay"><span class="type-signature"></span>removeOverlay<span class="signature">(element)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Removes and overlay identified by the reference element or element id
+     and schedules and update.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A reference to the element or an
+     element id which represent the ovelay content to be removed.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11901">line 11901</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">OpenSeadragon.Viewer.event:remove-overlay</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Chainable.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="reset"><span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Clears all tiles and triggers an update on the next call to
+Drawer.prototype.update().
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11985">line 11985</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Chainable.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Forces the Drawer to update.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11997">line 11997</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Chainable.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="updateOverlay"><span class="type-signature"></span>updateOverlay<span class="signature">(location, placement)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Updates the overlay represented by the reference to the element or
+element id moving it to the new location, relative to the new placement.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>location</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+|
+
+<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The point or
+     rectangle which will be overlayed.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>placement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#OverlayPlacement">OpenSeadragon.OverlayPlacement</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the
+     viewport which the location coordinates will be treated as relative
+     to.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11860">line 11860</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.Viewer.html#event:update-overlay">OpenSeadragon.Viewer.event:update-overlay</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Chainable.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Drawer.html">OpenSeadragon.Drawer</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Dec 03 2013 09:53:56 GMT-0800 (PST)
+</footer>
+</div>
+
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

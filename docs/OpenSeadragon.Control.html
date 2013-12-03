@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenSeadragon Class: Control</title>
+    
+    <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
+
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+<div id="main">
+    
+    <h1 class="page-title">Class: Control</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
+    
+    Control
+    </h2>
+    
+        <div class="class-description">A Control represents any interface element which is meant to allow the user
+to interact with the zoomable interface. Any control can be anchored to any
+element.</div>
+    
+</header>  
+
+<article>
+    
+        <div class="container-toc">
+        <table border="1" class="toc">
+            <thead>
+                <tr>
+                    
+                    
+                    
+                        <th>Members</th>
+                    
+                    
+                        <th>Methods</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    
+                    
+                        <td>
+                            <ul>
+                                <li><a href="OpenSeadragon.Control.html#anchor">anchor</a></li>
+                            
+                                <li><a href="OpenSeadragon.Control.html#autoFade">autoFade</a></li>
+                            
+                                <li><a href="OpenSeadragon.Control.html#container">container</a></li>
+                            
+                                <li><a href="OpenSeadragon.Control.html#element">element</a></li>
+                            
+                                <li><a href="OpenSeadragon.Control.html#wrapper">wrapper</a></li>
+                            </ul>
+                        </td>
+                    
+                    
+                        <td>
+                            <ul>
+                            
+                                <li><a href="OpenSeadragon.Control.html#Control" class="ctor-link">&lt; constructor &gt;</a></li>
+                            
+                            
+                                
+                                    <li><a href="OpenSeadragon.Control.html#destroy">destroy</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Control.html#isVisible">isVisible</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Control.html#setOpacity">setOpacity</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Control.html#setVisible">setVisible</a></li>
+                                
+                            
+                            </ul>
+                        </td>
+                    
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    
+
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Control"><span class="type-signature"></span>new Control<span class="signature">(element, options, container)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the control element to be anchored in the container.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">All required and optional settings for configuring a control element.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>anchor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#ControlAnchor">OpenSeadragon.ControlAnchor</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    OpenSeadragon.ControlAnchor.NONE
+                
+                </td>
+            
+            
+            <td class="description last">the position of the control
+ relative to the container.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>attachToViewer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Whether the control should be added directly to the viewer, or
+ directly to the container</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>autoFade</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Whether the control should have the autofade behavior</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the element to control will be anchored too.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4034">line 4034</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="anchor"><span class="type-signature"></span>anchor<span class="type-signature"> :<a href="OpenSeadragon.html#ControlAnchor">OpenSeadragon.ControlAnchor</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The position of the Control relative to its container.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="OpenSeadragon.html#ControlAnchor">OpenSeadragon.ControlAnchor</a></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4072">line 4072</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="autoFade"><span class="type-signature"></span>autoFade<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        True if the control should have autofade behavior.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4060">line 4060</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="container"><span class="type-signature"></span>container<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The Control's containing element.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4078">line 4078</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The element providing the user interface with some type of control (e.g. a zoom-in button).
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4066">line 4066</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="wrapper"><span class="type-signature"></span>wrapper<span class="type-signature"> :Element</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A neutral element surrounding the control element.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Element</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4084">line 4084</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Removes the control from the container.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4119">line 4119</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isVisible"><span class="type-signature"></span>isVisible<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Determines if the control is currently visible.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4129">line 4129</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    true if currenly visible, false otherwise.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOpacity"><span class="type-signature"></span>setOpacity<span class="signature">(opactiy)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Sets the opacity level for the control.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>opactiy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">a value between 1 and 0 inclusively.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4149">line 4149</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setVisible"><span class="type-signature"></span>setVisible<span class="signature">(visible)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Toggles the visibility of the control.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>visible</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">true to make visible, false to hide.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4138">line 4138</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Dec 03 2013 09:53:56 GMT-0800 (PST)
+</footer>
+</div>
+
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
