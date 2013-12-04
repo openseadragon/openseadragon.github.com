@@ -1,6 +1,6 @@
 //! OpenSeadragon 1.0.0
-//! Built on 2013-12-03
-//! Git commit: v1.0.0-0-g6315977
+//! Built on 2013-12-04
+//! Git commit: v1.0.0-2-gdfcb9f3
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -8509,9 +8509,9 @@ $.extend( $.IIIF1_1TileSource.prototype, $.TileSource.prototype, /** @lends Open
      *   "tile_width" : 1024,
      *   "tile_height" : 1024,
      *   "formats" : [ "jpg", "png" ],
-     *   "qualities" : [ "native", "grey" ]
-     *   "profile" : "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0" 
-     * } 
+     *   "qualities" : [ "native", "grey" ],
+     *   "profile" : "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"
+     * }
      */
     configure: function( data ){
       return data;

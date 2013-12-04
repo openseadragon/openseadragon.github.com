@@ -5,11 +5,10 @@ html
 
 body
 {
-    /*font: 14px "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif;*/
     font-family: Helvetica, Arial, FreeSans, san-serif;
     font-size: 82%;
     line-height: 120%;
-    background-color: #121621;/*#0e182e;*/
+    background-color: #121621;
     margin: 0;
     color: #333;
 }
@@ -22,19 +21,18 @@ body
 
 .source-code 
 {
-    font-size: 90%;
 }
 
 a {
-    color: #444;/*#121621*/
+    color: #444;
 }
 
 a:visited {
-    color: #444;/*#444*/
+    color: #444;
 }
 
 a:active {
-    color: #444;/*#444*/
+    color: #444;
 }
 
 header
@@ -45,7 +43,6 @@ header
 
 .class-description {
     font-style: italic;
-    /*font-family: Palatino, 'Palatino Linotype', serif;*/
     font-size: 130%;
     line-height: 140%;
     margin-bottom: 1em;
@@ -91,16 +88,14 @@ nav
 }
 
 nav ul {
-    /*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
-    font-size: 90%;/*100%*/
-    line-height: 1.1em;/*17px*/
+    font-size: 90%;
+    line-height: 1.1em;
     padding:0;
     margin:0;
     list-style-type:none;
 }
 
 nav h2 a, nav h2 a:visited {
-    /*color: #437AB2;*//*#A35A00*/
     text-decoration: none;
 }
 
@@ -153,7 +148,7 @@ h1
 
 h2
 {
-    font-size: 170%;/*170%*/
+    font-size: 170%;
     font-weight: bold;
     letter-spacing: -0.01em;
     margin: 6px 0 3px 0;
@@ -161,7 +156,7 @@ h2
 
 h3
 {
-    font-size: 150%;/*150%*/
+    font-size: 150%;
     font-weight: bold;
     letter-spacing: -0.01em;
     margin-top: 16px;
@@ -174,8 +169,8 @@ h4
     font-weight: bold;
     letter-spacing: -0.01em;
     margin-top: 16px;
-    margin: 20px 0 3px 0;/*18px 0 3px 0*/
-    color: #437AB2;/*#A35A00*/
+    margin: 20px 0 3px 0;
+    color: #437AB2;
 }
 
 h5, .container-overview .subsection-title, container-toc .subsection-title
@@ -216,7 +211,6 @@ h6
 }
 
 .name, .signature {
-    /*font-family: Consolas, "Lucida Console", Monaco, monospace;*/
 }
 
 .details { margin-top: 14px; border-left: 2px solid #DDD; }
@@ -236,7 +230,6 @@ h6
 .code-caption
 {
     font-style: italic;
-    /*font-family: Palatino, 'Palatino Linotype', serif;*/
     font-size: 107%;
     margin: 0;
 }
@@ -257,7 +250,6 @@ h6
     vertical-align: top;
     padding: 4px 6px;
     display: table-cell;
-    /*font-size: 90%;100%*/
 }
 
 .toc thead tr
@@ -308,8 +300,7 @@ h6
 }
 
 .params .name, .props .name, .name code {
-    color: #437AB2;/*#A35A00*/
-    /*font-family: Consolas, 'Lucida Console', Monaco, monospace;*/
+    color: #437AB2;
     font-size: 100%;
 }
 
@@ -321,7 +312,7 @@ h6
     vertical-align: top;
     padding: 4px 6px;
     display: table-cell;
-    font-size: 90%;/*100%*/
+    font-size: 90%;
 }
 
 .params thead tr, .props thead tr
