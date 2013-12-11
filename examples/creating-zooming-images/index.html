@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Developer Tools - Debug Mode | OpenSeadragon</title>
+    <title>Creating Zooming Images | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,54 +53,53 @@
             </ul>
         </div>
 
-        <h2>developer: debug mode</h2>
+        <h2>Creating Zooming Images</h2>
 
-<p>
-Enabling debug mode provides some in-context information about the tiles
-being drawn in a given viewport.
-</p>
-
-<p>
-Currently this is only implemented for browsers supporting HTML Canvas.
-</p>
-
-<div class="description">
-    <h3>Example</h3>
-</div>
-
-<div class="demoarea">
-    <div class="demoheading">
-        OpenSeadragon in debug mode
-        <span id='consolelog'></span>
-    </div>
-    <div id="contentDiv" class="openseadragon"></div>
-</div>
-
-<script type="text/javascript">
-    // Example
-    OpenSeadragon({
-        id:              "contentDiv",
-        prefixUrl:       "/openseadragon/images/",
-        tileSources:     "/example-images/highsmith/highsmith.js",
-        showNavigator:   false, 
-        debugMode:       true,
-        //debugGridColor:  "#f9276f",
-        //minZoomImageRatio: 0,
-        //maxZoomPixelRatio: 10000
-    });
-</script>
-
-<p>
-The relevant configuration options are shown below.
-</p>
-
-<pre>
-OpenSeadragon({
-    ...
-    debugMode:  true,
-    ...
-});
-</pre>
+<p>OpenSeadragon works with a <a href="/#examples-and-features">variety of zooming image formats</a>. These zooming images generally consist of a number of individual tiles, organized so they can be accessed as needed. If you have a large image you'd like to zoom, you'll need to convert it first. There are a number of conversion options depending on your needs.</p>
+<p>Probably the easiest is to use <a href="http://zoom.it">Zoom.it</a>; see our <a href="/examples/tilesource-zoomit/">Zoom.it instructions</a>.</p>
+<p>Other tools include:</p>
+<table class="for-examples">
+    <tr>
+        <td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=24819">Deep Zoom Composer</a></td>
+        <td>desktop app for Windows</td> 
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://blogs.msdn.com/b/expression/archive/2008/11/26/hello-deepzoomtools-dll-deep-zoom-image-tile-generation-made-easy.aspx">DeepZoomTools.dll</a></td>
+        <td>.NET library, comes with Deep Zoom Composer</td>
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/openzoom/deepzoom.py">deepzoom.py</a></td>
+        <td>Python</td> 
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.maptiler.org/">Map Tiler</a></td>
+        <td>desktop app for Windows, Mac, Linux</td> 
+        <td><a href="tilesource-tms.html">TMS</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.vips.ecs.soton.ac.uk/">VIPS</a></td>
+        <td>command line tool and library for a number of languages</td> 
+        <td><a href="tilesource-dzi.html">DZI</a> via the <a href="http://www.vips.ecs.soton.ac.uk/index.php?title=What%27s_New_in_7.30#Save_as_Deep_Zoom">dzsave</a> feature</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/mulka/tiler">Gmap Uploader Tiler</a></td> 
+        <td>C++</td> 
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/openzoom/node-deepzoomtools">Node.js Deep Zoom Tools</a></td>
+        <td>Node.js, under construction</td> 
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>    
+    <tr>
+        <td><a href="https://github.com/zoomhub/zoomhub">ZoomHub</a></td>
+        <td>service, under construction</td> 
+        <td><a href="tilesource-dzi.html">DZI</a></td>
+    </tr>
+</table>
 
 
         <ul class="footer">

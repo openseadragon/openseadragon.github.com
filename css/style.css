@@ -183,3 +183,21 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     top:        0;
     background-color: #ccc;
 }
+
+table.for-examples {
+    margin-left: 20px;
+    border-collapse: collapse;
+}
+
+table.for-examples td {
+    border: 1px dotted #999;
+    padding: 10px;
+}
+
+ol.for-examples {
+    margin-left: 20px;
+}
+
+ol.for-examples li {
+    margin: 0.5em 0;
+}

@@ -41,9 +41,7 @@
                 <li><a href='/#plugins'
                     >Plugins</a></li>
                 <li><a href='/#download'
-                    >Download</a></li>
-                <li><a href='/#installing'
-                    >Installing</a></li>
+                    >Download &amp; Install</a></li>
                 <li><a href='/docs/'
                     >API Documentation</a></li>
                 <li><a href='/#support'
@@ -95,6 +93,9 @@
         us add built-in support for your required image serving
         protocol.)</em> Each supported protocol aims to allow configuration
         via XMLHTTPRequest, JSONP, as well as direct inline configuration.
+        </p>
+        <p>
+        For creating the tiles themselves, see <a href="/examples/creating-zooming-images/">Creating Zooming Images</a>.
         </p>
         <ul>
             <li><a href='/examples/tilesource-legacy/'>
@@ -197,33 +198,24 @@
 </ul>
 
 
-<h2 id='download'>Download</h2>
+<a name="installing"></a>
+<h2 id='download'>Download &amp; Install</h2>
 <p>
     You can download OpenSeadragon 1.0.0 in
     <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.zip">zip</a> or
     <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.tar.gz">tar.gz</a> formats.
 </p>
 <p>
+    For installation instructions, see the <a href="/docs/">Getting Started</a> page in the documentation.
+</p>
+<p>
+    For creating the tiles themselves, see <a href="/examples/creating-zooming-images/">Creating Zooming Images</a>.
+</p> 
+<p>
     Older releases and source archives are
     <a href="https://github.com/openseadragon/openseadragon/releases">
     available on GitHub</a>.
 </p>
-
-
-<h2 id='installing'>Installing</h2>
-<p>
-OpenSeadragon has no external dependencies.  To install, just copy the <tt>openseadragon</tt> folder into your web root or static files directory, add it to your page, and create a viewer with the <tt>OpenSeadragon()</tt> function.</p>
-<p>Here is an example of basic usage:</p>
-<pre>
-    &lt;div id="openseadragon1" style="width: 800px; height: 600px;"&gt;&lt;/div&gt;
-    &lt;script src="/openseadragon/openseadragon.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript"&gt;
-        var viewer = OpenSeadragon({
-            id: "openseadragon1",
-            prefixUrl: "/openseadragon/images/",
-            tileSources: "/path/to/my/image.dzi"
-        });
-    &lt;/script&gt;</pre>
 
 
 <h2 id='api-documentation'>API Documentation</h2>
@@ -259,9 +251,7 @@ OpenSeadragon has no external dependencies.  To install, just copy the <tt>opens
             <li><a href='/#plugins'
                 >Plugins</a></li>
             <li><a href='/#download'
-                >Download</a></li>
-            <li><a href='/#installing'
-                >Installing</a></li>
+                >Download &amp; Install</a></li>
             <li><a href='/docs/'
                 >API Documentation</a></li>
             <li><a href='/#support'
