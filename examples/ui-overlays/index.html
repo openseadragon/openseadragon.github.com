@@ -20,14 +20,14 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.1.0/openseadragon-bin-1.1.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.1.0/openseadragon-bin-1.1.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                1.0.0
+                1.1.0
             </span>
             <span class="tagline">
                 Try it on the iPad! (new since 0.9)
@@ -585,6 +585,81 @@ OpenSeadragon({
         ...
     }]
     ...
+});
+</pre>
+</div>
+
+<div class="description">
+    <h3>Runtime Overlays</h3>
+    <p>
+        It is also possible to add overlays at runtime via 
+        <a href="/docs/OpenSeadragon.Viewer.html#addOverlay">Viewer.addOverlay</a>.
+    </p>
+</div>
+
+<div class="demoarea">
+    <div class="demoheading">
+        Runtime Overlays
+    </div>
+    <button id="toggle-overlay">Toggle overlay</button>
+    <div id="example-runtime-overlay" class="openseadragon"/>
+    <style>
+    .filter{
+        opacity:    0.2;
+        filter:     alpha(opacity=20);
+        background-color: #7FFF00;
+    }
+    </style>
+    <script type="text/javascript">
+        var viewer = OpenSeadragon({
+            id:            "example-runtime-overlay",
+            prefixUrl:     "/openseadragon/images/",
+            tileSources: [{
+                minLevel: 8,
+                width: 6425,
+                height: 8535,
+                tileSize: 256,
+                tileOverlap: 1,
+                getTileUrl: chronicling_america_example(17)
+            }]
+        });
+        var overlay = false;
+        $("#toggle-overlay").click(function() {
+            if (overlay) {
+                viewer.removeOverlay("runtime-overlay");
+            } else {
+                var elt = document.createElement("div");
+                elt.id = "runtime-overlay";
+                elt.className = "highlight";
+                viewer.addOverlay({
+                    element: elt,
+                    location: new OpenSeadragon.Rect(0.33, 0.75, 0.2, 0.25)
+                });
+            }
+            overlay = !overlay;
+        });
+    </script>
+    </div>
+
+<pre>
+var viewer = OpenSeadragon({
+    id:            "example-runtime-overlay",
+    ...
+});
+var overlay = false;
+$("#toggle-overlay").click(function() {
+    if (overlay) {
+        viewer.removeOverlay("runtime-overlay");
+    } else {
+        var elt = document.createElement("div");
+        elt.id = "runtime-overlay";
+        elt.className = "highlight";
+        viewer.addOverlay({
+            element: elt,
+            location: new OpenSeadragon.Rect(0.33, 0.75, 0.2, 0.25)
+        });
+    }
+    overlay = !overlay;
 });
 </pre>
 </div>

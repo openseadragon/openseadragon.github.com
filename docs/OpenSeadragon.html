@@ -150,6 +150,8 @@ and classes are defined on or below this namespace.</div>
                                 
                                     <li><a href="OpenSeadragon.html#cancelEvent">cancelEvent</a></li>
                                 
+                                    <li><a href="OpenSeadragon.html#createAjaxRequest">createAjaxRequest</a></li>
+                                
                                     <li><a href="OpenSeadragon.html#createCallback">createCallback</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#createFromDZI">createFromDZI</a></li>
@@ -178,9 +180,13 @@ and classes are defined on or below this namespace.</div>
                                 
                                     <li><a href="OpenSeadragon.html#getUrlParameter">getUrlParameter</a></li>
                                 
+                                    <li><a href="OpenSeadragon.html#getUrlProtocol">getUrlProtocol</a></li>
+                                
                                     <li><a href="OpenSeadragon.html#getWindowSize">getWindowSize</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#imageFormatSupported">imageFormatSupported</a></li>
+                                
+                                    <li><a href="OpenSeadragon.html#indexOf">indexOf</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#isArray">isArray</a></li>
                                 
@@ -206,6 +212,8 @@ and classes are defined on or below this namespace.</div>
                                 
                                     <li><a href="OpenSeadragon.html#parseXml">parseXml</a></li>
                                 
+                                    <li><a href="OpenSeadragon.html#pointInElement">pointInElement</a></li>
+                                
                                     <li><a href="OpenSeadragon.html#removeClass">removeClass</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#removeEvent">removeEvent</a></li>
@@ -228,6 +236,8 @@ and classes are defined on or below this namespace.</div>
                         <td>
                             <ul>
                                 <li><a href="OpenSeadragon.html#EventHandler">EventHandler</a></li>
+                            
+                                <li><a href="OpenSeadragon.html#GestureSettings">GestureSettings</a></li>
                             
                                 <li><a href="OpenSeadragon.html#NavImages">NavImages</a></li>
                             
@@ -446,7 +456,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1756">line 1756</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2100">line 2100</a>
     </li></ul></dd>
     
     
@@ -676,7 +686,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line831">line 831</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1094">line 1094</a>
     </li></ul></dd>
     
     
@@ -860,7 +870,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line9340">line 9340</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11807">line 11807</a>
     </li></ul></dd>
     
     
@@ -1044,6 +1054,29 @@ The anchoring is always relative to the container.
         </tr>
 	
 	
+	
+        <tr>
+            
+                <td class="name"><code>ABSOLUTE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
 	</tbody>
 </table></dl>
         
@@ -1068,7 +1101,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line4013">line 4013</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line5577">line 5577</a>
     </li></ul></dd>
     
     
@@ -1132,7 +1165,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line669">line 669</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line897">line 897</a>
     </li></ul></dd>
     
     
@@ -1157,7 +1190,7 @@ The anchoring is always relative to the container.
 <dd>
     
     <div class="description">
-        Determined native full screen support we can get from the browser.
+        Determine native full screen support we can get from the browser.
     </div>
     
     
@@ -1219,7 +1252,7 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Return true if full screen API is supported.</td>
         </tr>
 	
 	
@@ -1232,7 +1265,7 @@ The anchoring is always relative to the container.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -1242,7 +1275,30 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Return true if currently in full screen mode.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>getFullScreenElement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Return the element currently in full screen mode.</td>
         </tr>
 	
 	
@@ -1255,7 +1311,7 @@ The anchoring is always relative to the container.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -1265,7 +1321,30 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Make a request to go in full screen mode.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>exitFullScreen</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Make a request to exit full screen mode.</td>
         </tr>
 	
 	
@@ -1278,7 +1357,7 @@ The anchoring is always relative to the container.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -1288,7 +1367,7 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Deprecated, use exitFullScreen instead.</td>
         </tr>
 	
 	
@@ -1311,7 +1390,7 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Event fired when the full screen mode change.</td>
         </tr>
 	
 	
@@ -1334,30 +1413,8 @@ The anchoring is always relative to the container.
             
             
             
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>prefix</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
+            <td class="description last">Event fired when a request to go
+in full screen mode failed.</td>
         </tr>
 	
 	
@@ -1385,7 +1442,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2247">line 2247</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2565">line 2565</a>
     </li></ul></dd>
     
     
@@ -1410,7 +1467,8 @@ The anchoring is always relative to the container.
 <dd>
     
     <div class="description">
-        An enumeration of positions that an overlay may be assigned relative to the viewport.
+        An enumeration of positions that an overlay may be assigned relative to
+the viewport.
     </div>
     
     
@@ -1684,7 +1742,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11359">line 11359</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13847">line 13847</a>
     </li></ul></dd>
     
     
@@ -1748,7 +1806,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line558">line 558</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line786">line 786</a>
     </li></ul></dd>
     
     
@@ -1935,7 +1993,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line427">line 427</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line655">line 655</a>
     </li></ul></dd>
     
     
@@ -2074,7 +2132,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1324">line 1324</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1602">line 1602</a>
     </li></ul></dd>
     
     
@@ -2217,7 +2275,7 @@ The anchoring is always relative to the container.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -2299,7 +2357,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1366">line 1366</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1690">line 1690</a>
     </li></ul></dd>
     
     
@@ -2429,7 +2487,7 @@ the way up the DOM to the window object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1421">line 1421</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1739">line 1739</a>
     </li></ul></dd>
     
     
@@ -2457,7 +2515,155 @@ the way up the DOM to the window object.
         
             
 <dt>
-    <h4 class="name" id="createCallback"><span class="type-signature">&lt;static> </span>createCallback<span class="signature">(object, method, <span class="optional">args</span>)</span><span class="type-signature"> &rarr; {Function}</span></h4>
+    <h4 class="name" id="createAjaxRequest"><span class="type-signature">&lt;private, static> </span>createAjaxRequest<span class="signature">(<span class="optional">local</span>)</span><span class="type-signature"> &rarr; {XMLHttpRequest}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create an XHR object
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>local</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">If set to true, the XHR will be file: protocol
+compatible if possible (but may raise a warning in the browser).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1857">line 1857</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">XMLHttpRequest</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createCallback"><span class="type-signature">&lt;static> </span>createCallback<span class="signature">(object, method, <span class="optional">args</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
     
     
 </dt>
@@ -2542,7 +2748,7 @@ invocation, and each invocation can add additional arguments as well.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -2620,7 +2826,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1482">line 1482</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1800">line 1800</a>
     </li></ul></dd>
     
     
@@ -2652,7 +2858,7 @@ invocation, and each invocation can add additional arguments as well.
 	</dt>
 	<dd>
 		
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
 	</dd>
@@ -2709,7 +2915,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1697">line 1697</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2044">line 2044</a>
     </li></ul></dd>
     
     
@@ -2737,7 +2943,7 @@ invocation, and each invocation can add additional arguments as well.
         
             
 <dt>
-    <h4 class="name" id="delegate"><span class="type-signature">&lt;static> </span>delegate<span class="signature">(object, method)</span><span class="type-signature"> &rarr; {Function}</span></h4>
+    <h4 class="name" id="delegate"><span class="type-signature">&lt;static> </span>delegate<span class="signature">(object, method)</span><span class="type-signature"> &rarr; {function}</span></h4>
     
     
 </dt>
@@ -2808,7 +3014,7 @@ invocation, and each invocation can add additional arguments as well.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -2849,7 +3055,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line809">line 809</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1072">line 1072</a>
     </li></ul></dd>
     
     
@@ -2881,7 +3087,7 @@ invocation, and each invocation can add additional arguments as well.
 	</dt>
 	<dd>
 		
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
 	</dd>
@@ -2936,7 +3142,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line586">line 586</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line814">line 814</a>
     </li></ul></dd>
     
     
@@ -3063,7 +3269,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line847">line 847</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1110">line 1110</a>
     </li></ul></dd>
     
     
@@ -3205,7 +3411,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line894">line 894</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1157">line 1157</a>
     </li></ul></dd>
     
     
@@ -3347,7 +3553,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line861">line 861</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1124">line 1124</a>
     </li></ul></dd>
     
     
@@ -3489,7 +3695,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line931">line 931</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1194">line 1194</a>
     </li></ul></dd>
     
     
@@ -3627,7 +3833,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line947">line 947</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1210">line 1210</a>
     </li></ul></dd>
     
     
@@ -3777,7 +3983,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line968">line 968</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1246">line 1246</a>
     </li></ul></dd>
     
     
@@ -3924,7 +4130,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line988">line 988</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1266">line 1266</a>
     </li></ul></dd>
     
     
@@ -4011,7 +4217,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1031">line 1031</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1309">line 1309</a>
     </li></ul></dd>
     
     
@@ -4142,7 +4348,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line6915">line 6915</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line9357">line 9357</a>
     </li></ul></dd>
     
     
@@ -4259,7 +4465,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1510">line 1510</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1828">line 1828</a>
     </li></ul></dd>
     
     
@@ -4285,6 +4491,146 @@ specific to IE behavior.
             
 <div class="param-desc">
     The value of the url parameter or null if no param matches.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getUrlProtocol"><span class="type-signature">&lt;private, static> </span>getUrlProtocol<span class="signature">(url)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieves the protocol used by the url. The url can either be absolute
+or relative.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The url to retrieve the protocol from.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1841">line 1841</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The protocol (http:, https:, file:, ftp: ...)
 </div>
 
 
@@ -4350,7 +4696,7 @@ specific to IE behavior.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1120">line 1120</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1398">line 1398</a>
     </li></ul></dd>
     
     
@@ -4498,7 +4844,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1748">line 1748</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2092">line 2092</a>
     </li></ul></dd>
     
     
@@ -4531,6 +4877,239 @@ version.
 	<dd>
 		
 <span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="indexOf"><span class="type-signature">&lt;static> </span>indexOf<span class="signature">(array, searchElement, <span class="optional">fromIndex</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Find the first index at which an element is found in an array or -1
+if not present.
+
+Code taken and adapted from
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Compatibility
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The array from which to find the element</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>searchElement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The element to find</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fromIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">Index to start research.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1626">line 1626</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The index of the element in the array.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
 
 
 	</dd>
@@ -4585,7 +5164,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line477">line 477</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line705">line 705</a>
     </li></ul></dd>
     
     
@@ -4661,7 +5240,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line544">line 544</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line772">line 772</a>
     </li></ul></dd>
     
     
@@ -4737,7 +5316,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line466">line 466</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line694">line 694</a>
     </li></ul></dd>
     
     
@@ -4813,7 +5392,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line513">line 513</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line741">line 741</a>
     </li></ul></dd>
     
     
@@ -4890,7 +5469,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line488">line 488</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line716">line 716</a>
     </li></ul></dd>
     
     
@@ -5054,7 +5633,7 @@ Taken from jQuery 1.6.1
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -5191,7 +5770,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1623">line 1623</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1970">line 1970</a>
     </li></ul></dd>
     
     
@@ -5290,7 +5869,7 @@ Taken from jQuery 1.6.1
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -5313,7 +5892,7 @@ Taken from jQuery 1.6.1
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -5354,7 +5933,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1556">line 1556</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1900">line 1900</a>
     </li></ul></dd>
     
     
@@ -5490,7 +6069,7 @@ be easily centered using CSS tables
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1160">line 1160</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1438">line 1438</a>
     </li></ul></dd>
     
     
@@ -5630,7 +6209,7 @@ serves as an excellent container element.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1207">line 1207</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1485">line 1485</a>
     </li></ul></dd>
     
     
@@ -5767,7 +6346,7 @@ png.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1244">line 1244</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1522">line 1522</a>
     </li></ul></dd>
     
     
@@ -5854,7 +6433,7 @@ png.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1225">line 1225</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1503">line 1503</a>
     </li></ul></dd>
     
     
@@ -5971,7 +6550,7 @@ png.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1707">line 1707</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2054">line 2054</a>
     </li></ul></dd>
     
     
@@ -6004,6 +6583,167 @@ png.
 	<dd>
 		
 <span class="param-type">Document</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pointInElement"><span class="type-signature">&lt;static> </span>pointInElement<span class="signature">(element, point)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Determines if a point is within the bounding rectangle of the given element (hit-test).
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1229">line 1229</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
 
 
 	</dd>
@@ -6132,7 +6872,7 @@ png.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1342">line 1342</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1666">line 1666</a>
     </li></ul></dd>
     
     
@@ -6276,7 +7016,7 @@ handler.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
@@ -6358,7 +7098,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1395">line 1395</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1716">line 1716</a>
     </li></ul></dd>
     
     
@@ -6552,7 +7292,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1293">line 1293</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1571">line 1571</a>
     </li></ul></dd>
     
     
@@ -6621,7 +7361,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1069">line 1069</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1347">line 1347</a>
     </li></ul></dd>
     
     
@@ -6775,7 +7515,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line6947">line 6947</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line9389">line 9389</a>
     </li></ul></dd>
     
     
@@ -6904,7 +7644,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1447">line 1447</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1765">line 1765</a>
     </li></ul></dd>
     
     
@@ -6973,7 +7713,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line500">line 500</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line728">line 728</a>
     </li></ul></dd>
     
     
@@ -7103,7 +7843,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2368">line 2368</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2712">line 2712</a>
     </li></ul></dd>
     
     
@@ -7124,6 +7864,262 @@ handler.
     
     
     
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="GestureSettings">GestureSettings</h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Settings for gestures generated by a pointer device.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scrollToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to false to disable zooming on scroll gestures.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to false to disable zooming on click gestures.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to false to disable zooming on double-click gestures. Note: If set to true
+    then clickToZoom should be set to false to prevent multiple zooms.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to false to disable zooming on pinch gestures.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickEnabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to false to disable the kinetic panning effect (flick) at the end of a drag gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMinSpeed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If flickEnabled is true, the minimum speed (in pixels-per-second) required to cause the kinetic panning effect (flick) at the end of a drag gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMomentum</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If flickEnabled is true, a constant multiplied by the velocity to determine the distance of the kinetic panning effect (flick) at the end of a drag gesture.
+    A larger value will make the flick feel "lighter", while a smaller value will make the flick feel "heavier".
+    Note: springStiffness and animationTime also affect the "spring" used to stop the flick animation.</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
     
     
 </dd>
@@ -7740,6 +8736,284 @@ handler.
 	
         <tr>
             
+                <td class="name"><code>rotateleft</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Images for the rotate left button.
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>REST</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GROUP</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>HOVER</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DOWN</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rotateright</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Images for the rotate right button.
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>REST</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GROUP</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>HOVER</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DOWN</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>previous</code></td>
             
             
@@ -8039,7 +9313,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line25">line 25</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line27">line 27</a>
     </li></ul></dd>
     
     
@@ -8194,7 +9468,7 @@ handler.
 <span class="param-type">String</span>
 |
 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 |
 
 <span class="param-type">Array.&lt;Object></span>
@@ -8206,7 +9480,7 @@ handler.
 <span class="param-type">Array.&lt;String></span>
 |
 
-<span class="param-type">Array.&lt;Function></span>
+<span class="param-type">Array.&lt;function()></span>
 
 
             
@@ -8238,6 +9512,59 @@ handler.
     getUrl( level, x, y ) is implemented by the function. Finally, when it
     is an Array of objects, it is used to create a
     <a href="OpenSeadragon.LegacyTileSource.html"><code>OpenSeadragon.LegacyTileSource</code></a>.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>overlays</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Array of objects defining permanent overlays of
+    the viewer. The overlays added via this option and later removed with
+    <a href="OpenSeadragon.Viewer.html#removeOverlay"><code>OpenSeadragon.Viewer#removeOverlay</code></a> will be added back when a new
+    image is opened.
+    To add overlays which can be definitively removed, one must use
+    <a href="OpenSeadragon.Viewer.html#addOverlay"><code>OpenSeadragon.Viewer#addOverlay</code></a>
+    If displaying a sequence of images, the overlays can be associated
+    with a specific page by passing the overlays array to the page's
+    tile source configuration.
+    Expected properties:
+    * x, y, (or px, py for pixel coordinates) to define the location.
+    * width, height in point if using x,y or in pixels if using px,py. If width
+      and height are specified, the overlay size is adjusted when zooming,
+      otherwise the size stays the size of the content (or the size defined by CSS).
+    * className to associate a class to the overlay
+    * id to set the overlay element. If an element with this id already exists,
+      it is reused, otherwise it is created. If not specified, a new element is
+      created.
+    * placement a string to define the relative position to the viewport.
+      Only used if no width and height are specified. Default: 'TOP_LEFT'.
+      See <a href="OpenSeadragon.html#OverlayPlacement"><code>OpenSeadragon.OverlayPlacement</code></a> for possible values.</td>
         </tr>
 	
 	
@@ -8474,44 +9801,6 @@ handler.
 	
         <tr>
             
-                <td class="name"><code>animationTime</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    1.2
-                
-                </td>
-            
-            
-            <td class="description last">Specifies the animation duration per each <a href="OpenSeadragon.Spring.html"><code>OpenSeadragon.Spring</code></a>
-    which occur when the image is dragged or zoomed.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>blendTime</code></td>
             
             
@@ -8699,6 +9988,80 @@ handler.
             
             <td class="description last">Zoom level to use when image is first opened or the home button is clicked.
     If 0, adjusts to fit viewer.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>opacity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">Opacity of the drawer (1=opaque, 0=transparent)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>layersAspectRatioEpsilon</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0.0001
+                
+                </td>
+            
+            
+            <td class="description last">Maximum aspectRatio mismatch between 2 layers.</td>
         </tr>
 	
 	
@@ -9197,43 +10560,6 @@ handler.
 	
         <tr>
             
-                <td class="name"><code>springStiffness</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    7.0
-                
-                </td>
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>imageLoaderLimit</code></td>
             
             
@@ -9303,8 +10629,8 @@ handler.
                 </td>
             
             
-            <td class="description last">If multiple mouse clicks occurs within less than this number of
-    milliseconds, treat them as a single click.</td>
+            <td class="description last">The number of milliseconds within which a pointer down-up event combination
+     will be treated as a click gesture.</td>
         </tr>
 	
 	
@@ -9341,8 +10667,1451 @@ handler.
                 </td>
             
             
-            <td class="description last">If a mouse or touch drag occurs and the distance to the starting drag
-    point is less than this many pixels, ignore the drag event.</td>
+            <td class="description last">The maximum distance allowed between a pointer down event and a pointer up event
+     to be treated as a click gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickTimeThreshold</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    300
+                
+                </td>
+            
+            
+            <td class="description last">The number of milliseconds within which two pointer down-up event combinations
+     will be treated as a double-click gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickDistThreshold</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    20
+                
+                </td>
+            
+            
+            <td class="description last">The maximum distance allowed between two pointer click events
+     to be treated as a double-click gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>springStiffness</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    6.5
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>animationTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1.2
+                
+                </td>
+            
+            
+            <td class="description last">Specifies the animation duration per each <a href="OpenSeadragon.Spring.html"><code>OpenSeadragon.Spring</code></a>
+    which occur when the image is dragged or zoomed.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>gestureSettingsMouse</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#GestureSettings">OpenSeadragon.GestureSettings</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Settings for gestures generated by a mouse pointer device. (See <a href="OpenSeadragon.html#GestureSettings"><code>OpenSeadragon.GestureSettings</code></a>)
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scrollToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on scroll gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on click gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on double-click gesture. Note: If set to true
+    then clickToZoom should be set to false to prevent multiple zooms.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on pinch gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickEnabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Enable flick gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMinSpeed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    120
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the minimum speed to initiate a flick gesture (pixels-per-second)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMomentum</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0.25
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the momentum factor for the flick gesture</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>gestureSettingsTouch</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#GestureSettings">OpenSeadragon.GestureSettings</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Settings for gestures generated by a touch pointer device. (See <a href="OpenSeadragon.html#GestureSettings"><code>OpenSeadragon.GestureSettings</code></a>)
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scrollToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on scroll gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on click gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on double-click gesture. Note: If set to true
+    then clickToZoom should be set to false to prevent multiple zooms.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on pinch gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickEnabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Enable flick gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMinSpeed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    120
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the minimum speed to initiate a flick gesture (pixels-per-second)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMomentum</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0.25
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the momentum factor for the flick gesture</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>gestureSettingsPen</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#GestureSettings">OpenSeadragon.GestureSettings</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Settings for gestures generated by a pen pointer device. (See <a href="OpenSeadragon.html#GestureSettings"><code>OpenSeadragon.GestureSettings</code></a>)
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scrollToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on scroll gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on click gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on double-click gesture. Note: If set to true
+    then clickToZoom should be set to false to prevent multiple zooms.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on pinch gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickEnabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Enable flick gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMinSpeed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    120
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the minimum speed to initiate a flick gesture (pixels-per-second)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMomentum</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0.25
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the momentum factor for the flick gesture</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>gestureSettingsUnknown</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#GestureSettings">OpenSeadragon.GestureSettings</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Settings for gestures generated by unknown pointer devices. (See <a href="OpenSeadragon.html#GestureSettings"><code>OpenSeadragon.GestureSettings</code></a>)
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scrollToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on scroll gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on click gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on double-click gesture. Note: If set to true
+    then clickToZoom should be set to false to prevent multiple zooms.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchToZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Zoom on pinch gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickEnabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Enable flick gesture</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMinSpeed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    120
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the minimum speed to initiate a flick gesture (pixels-per-second)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>flickMomentum</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0.25
+                
+                </td>
+            
+            
+            <td class="description last">If flickEnabled is true, the momentum factor for the flick gesture</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -9379,7 +12148,7 @@ handler.
                 </td>
             
             
-            <td class="description last">The "zoom distance" per mouse click or touch tap. <em><strong>Note:</strong> Setting this to 1.0 effectively disables the click-to-zoom feature.</em></td>
+            <td class="description last">The "zoom distance" per mouse click or touch tap. <em><strong>Note:</strong> Setting this to 1.0 effectively disables the click-to-zoom feature (also see gestureSettings[Mouse|Touch|Pen].clickToZoom/dblClickToZoom).</em></td>
         </tr>
 	
 	
@@ -9416,7 +12185,7 @@ handler.
                 </td>
             
             
-            <td class="description last">The "zoom distance" per mouse scroll or touch pinch. <em><strong>Note:</strong> Setting this to 1.0 effectively disables the mouse-wheel zoom feature.</em></td>
+            <td class="description last">The "zoom distance" per mouse scroll or touch pinch. <em><strong>Note:</strong> Setting this to 1.0 effectively disables the mouse-wheel zoom feature (also see gestureSettings[Mouse|Touch|Pen].scrollToZoom}).</em></td>
         </tr>
 	
 	
@@ -9454,43 +12223,6 @@ handler.
             
             
             <td class="description last">The number of seconds to animate a single zoom event over.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>showNavigationControl</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-            
-            <td class="description last">Set to false to prevent the appearance of the default navigation controls.</td>
         </tr>
 	
 	
@@ -9564,82 +12296,9 @@ handler.
                 </td>
             
             
-            <td class="description last">Set the ID of a div to hold the navigator minimap.  If one is not specified,
-    one will be generated and placed on top of the main image</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>navigatorHeight</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">TODO: Implement this. Currently not used.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>navigatorWidth</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">TODO: Implement this. Currently not used.</td>
+            <td class="description last">The ID of a div to hold the navigator minimap.
+    If an ID is specified, the navigatorPosition, navigatorSizeRatio, navigatorMaintainSizeRatio, and navigatorTop|Left|Height|Width options will be ignored.
+    If an ID is not specified, a div element will be generated and placed on top of the main image.</td>
         </tr>
 	
 	
@@ -9652,7 +12311,7 @@ handler.
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
 
 
             
@@ -9671,12 +12330,14 @@ handler.
             
                 <td class="default">
                 
-                    null
+                    'TOP_RIGHT'
                 
                 </td>
             
             
-            <td class="description last">TODO: Implement this. Currently not used.</td>
+            <td class="description last">Valid values are 'TOP_LEFT', 'TOP_RIGHT', 'BOTTOM_LEFT', 'BOTTOM_RIGHT', or 'ABSOLUTE'.<br>
+    If 'ABSOLUTE' is specified, then navigatorTop|Left|Height|Width determines the size and position of the navigator minimap in the viewer, and navigatorSizeRatio and navigatorMaintainSizeRatio are ignored.<br>
+    For 'TOP_LEFT', 'TOP_RIGHT', 'BOTTOM_LEFT', and 'BOTTOM_RIGHT', the navigatorSizeRatio or navigatorHeight|Width values determine the size of the navigator minimap.</td>
         </tr>
 	
 	
@@ -9713,7 +12374,244 @@ handler.
                 </td>
             
             
-            <td class="description last">Ratio of navigator size to viewer size.</td>
+            <td class="description last">Ratio of navigator size to viewer size. Ignored if navigatorHeight|Width are specified.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorMaintainSizeRatio</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">If true, the navigator minimap is resized (using navigatorSizeRatio) when the viewer size changes.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorTop</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">Specifies the location of the navigator minimap (see navigatorPosition).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorLeft</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">Specifies the location of the navigator minimap (see navigatorPosition).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorHeight</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">Specifies the size of the navigator minimap (see navigatorPosition).
+    If specified, navigatorSizeRatio and navigatorMaintainSizeRatio are ignored.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorWidth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">Specifies the size of the navigator minimap (see navigatorPosition).
+    If specified, navigatorSizeRatio and navigatorMaintainSizeRatio are ignored.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigatorAutoResize</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Set to false to prevent polling for navigator size changes. Useful for providing custom resize behavior.
+    Setting to false can also improve performance when the navigator is configured to a fixed size.</td>
         </tr>
 	
 	
@@ -9986,7 +12884,204 @@ handler.
 	
         <tr>
             
-                <td class="name"><code>navPrevNextWrap</code></td>
+                <td class="name"><code>showNavigationControl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Set to false to prevent the appearance of the default navigation controls.<br>
+    Note that if set to false, the customs buttons set by the options
+    zoomInButton, zoomOutButton etc, are rendered inactive.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navigationControlAnchor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#ControlAnchor">OpenSeadragon.ControlAnchor</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    TOP_LEFT
+                
+                </td>
+            
+            
+            <td class="description last">Placement of the default navigation controls.
+    To set the placement of the sequence controls, see the
+    sequenceControlAnchor option.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>showZoomControl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">If true then + and - buttons to zoom in and out are displayed.<br>
+    Note: <code>OpenSeadragon.Options.showNavigationControl</code> is overriding
+    this setting when set to false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>showHomeControl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">If true then the 'Go home' button is displayed to go back to the original
+    zoom and pan.<br>
+    Note: <code>OpenSeadragon.Options.showNavigationControl</code> is overriding
+    this setting when set to false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>showFullPageControl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">If true then the 'Toggle full page' button is displayed to switch
+    between full page and normal mode.<br>
+    Note: <code>OpenSeadragon.Options.showNavigationControl</code> is overriding
+    this setting when set to false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>showRotationControl</code></td>
             
             
             <td class="type">
@@ -10016,9 +13111,11 @@ handler.
                 </td>
             
             
-            <td class="description last">If the 'previous' button will wrap to the last image when viewing the first
-    image and if the 'next' button will wrap to the first image when viewing
-    the last image.</td>
+            <td class="description last">If true then the rotate left/right controls will be displayed as part of the
+    standard controls. This is also subject to the browser support for rotate
+    (e.g. viewer.drawer.canRotate()).<br>
+    Note: <code>OpenSeadragon.Options.showNavigationControl</code> is overriding
+    this setting when set to false.</td>
         </tr>
 	
 	
@@ -10057,6 +13154,370 @@ handler.
             
             <td class="description last">If the viewer has been configured with a sequence of tile sources, then
     provide buttons for navigating forward and backward through the images.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sequenceControlAnchor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#ControlAnchor">OpenSeadragon.ControlAnchor</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    TOP_LEFT
+                
+                </td>
+            
+            
+            <td class="description last">Placement of the default sequence controls.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>navPrevNextWrap</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">If true then the 'previous' button will wrap to the last image when
+    viewing the first image and the 'next' button will wrap to the first
+    image when viewing the last image.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>zoomInButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Zoom in' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>zoomOutButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Zoom out' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>homeButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Go home' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fullPageButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Toggle full page' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rotateLeftButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Rotate left' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rotateRightButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Rotate right' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>previousButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Previous page' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>nextButton</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">Set the id of the custom 'Next page' button to use.
+    This is useful to have a custom button anywhere in the web page.<br>
+    To only change the button images, consider using
+    <code>OpenSeadragon.Options.navImages</code></td>
         </tr>
 	
 	
@@ -10545,6 +14006,47 @@ handler.
         </tr>
 	
 	
+	
+        <tr>
+            
+                <td class="name"><code>crossOriginPolicy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Valid values are 'Anonymous', 'use-credentials', and false. If false, canvas requests will
+     not use CORS, and the canvas will be tainted.</td>
+        </tr>
+	
+	
 	</tbody>
 </table></dl>
         
@@ -10598,13 +14100,13 @@ handler.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-layer">add-layer</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-layer-failed">add-layer-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:layer-level-changed">layer-level-changed</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-layer">remove-layer</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Mar 17 2014 10:22:34 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Apr 30 2014 10:57:59 GMT-0700 (PDT)
 </footer>
 </div>
 

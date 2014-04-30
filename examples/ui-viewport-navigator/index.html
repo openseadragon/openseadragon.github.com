@@ -20,14 +20,14 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.1.0/openseadragon-bin-1.1.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.0.0/openseadragon-bin-1.0.0.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.1.0/openseadragon-bin-1.1.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                1.0.0
+                1.1.0
             </span>
             <span class="tagline">
                 Try it on the iPad! (new since 0.9)
@@ -132,6 +132,59 @@ into which the navigator should be overlayed.
         ...
         showNavigator:  true,
         navigatorPosition:   "BOTTOM_LEFT",
+        ...
+    });
+
+</pre>
+
+<!--==================================================================-->
+
+<div class="description">
+    <h3>Navigator Overlay Absolute Position</h3>
+    <p>In addition to the corners, the navigator can be positioned at a specific
+        size and location.</p>
+
+</div>
+
+
+<div class="demoarea">
+    <div class="demoheading">
+        Viewport with Navigator at an Absolute Location 
+    </div>
+    <div id="contentDiv4" class="openseadragon"></div>
+</div>
+
+<script type="text/javascript">
+    OpenSeadragon({
+        id:            "contentDiv4",
+        prefixUrl:     "/openseadragon/images/",
+        tileSources:   "/example-images/highsmith/highsmith.dzi",
+        showNavigator:  true,
+        navigatorPosition: "ABSOLUTE",
+        navigatorTop:      "40px",
+        navigatorLeft:     "4px",
+        navigatorHeight:   "120px",
+        navigatorWidth:    "145px",
+    });
+</script>
+
+<p>
+The relevant configuration options are shown below. The
+<code>navigatorPosition</code> attribute is set to <code>"ABSOLUTE"</code>
+and the <code>navigatorTop</code>, <code>navigatorLeft</code>,
+<code>navigatorHeight</code>, and <code>navigatorWidth</code>
+attributes define the size and location of the navigator.
+</p>
+
+<pre>
+    OpenSeadragon({
+        ...
+        showNavigator:  true,
+        navigatorPosition: "ABSOLUTE",
+        navigatorTop:      "40px",
+        navigatorLeft:     "4px",
+        navigatorHeight:   "120px",
+        navigatorWidth:    "145px",
         ...
     });
 

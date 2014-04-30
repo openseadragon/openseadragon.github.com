@@ -32,9 +32,8 @@
     MouseTracker
     </h2>
     
-        <div class="class-description">Provides simplified handling of common mouse, touch, and keyboard
-events on a specific element, like 'enter', 'exit', 'press', 'release',
-'scroll', 'click', and 'drag'.</div>
+        <div class="class-description">Provides simplified handling of common pointer device (mouse, touch, pen, etc.) gestures
+           and keyboard events on a specified element.</div>
     
 </header>  
 
@@ -46,12 +45,16 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 <tr>
                     
                     
+                        <th>Classes</th>
+                    
                     
                         <th>Members</th>
                     
                     
                         <th>Methods</th>
                     
+                    
+                        <th>Types</th>
                     
                     
                 </tr>
@@ -60,12 +63,24 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 <tr>
                     
                     
+                        <td>
+                            <ul>
+                                <li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li>
+                            </ul>
+                        </td>
+                    
                     
                         <td>
                             <ul>
+                                <li><a href="OpenSeadragon.MouseTracker.html#gesturePointVelocityTracker">gesturePointVelocityTracker</a></li>
+                            
+                                <li><a href="OpenSeadragon.MouseTracker.html#clickDistThreshold">clickDistThreshold</a></li>
+                            
                                 <li><a href="OpenSeadragon.MouseTracker.html#clickDistThreshold">clickDistThreshold</a></li>
                             
                                 <li><a href="OpenSeadragon.MouseTracker.html#clickTimeThreshold">clickTimeThreshold</a></li>
+                            
+                                <li><a href="OpenSeadragon.MouseTracker.html#dblClickTimeThreshold">dblClickTimeThreshold</a></li>
                             
                                 <li><a href="OpenSeadragon.MouseTracker.html#element">element</a></li>
                             </ul>
@@ -83,7 +98,11 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#clickHandler">clickHandler</a></li>
                                 
+                                    <li><a href="OpenSeadragon.MouseTracker.html#dblClickHandler">dblClickHandler</a></li>
+                                
                                     <li><a href="OpenSeadragon.MouseTracker.html#destroy">destroy</a></li>
+                                
+                                    <li><a href="OpenSeadragon.MouseTracker.html#dragEndHandler">dragEndHandler</a></li>
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#dragHandler">dragHandler</a></li>
                                 
@@ -93,11 +112,15 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#focusHandler">focusHandler</a></li>
                                 
+                                    <li><a href="OpenSeadragon.MouseTracker.html#getActivePointersListByType">getActivePointersListByType</a></li>
+                                
                                     <li><a href="OpenSeadragon.MouseTracker.html#isTracking">isTracking</a></li>
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#keyHandler">keyHandler</a></li>
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#moveHandler">moveHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.MouseTracker.html#pinchHandler">pinchHandler</a></li>
                                 
                                     <li><a href="OpenSeadragon.MouseTracker.html#pressHandler">pressHandler</a></li>
                                 
@@ -113,6 +136,12 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                             </ul>
                         </td>
                     
+                    
+                        <td>
+                            <ul>
+                                <li><a href="OpenSeadragon.MouseTracker.html#GesturePoint">GesturePoint</a></li>
+                            </ul>
+                        </td>
                     
                     
                 </tr>
@@ -245,7 +274,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">A reference to an element or an element id for which the mouse/touch/key
+            <td class="description last">A reference to an element or an element id for which the pointer/key
      events will be monitored.</td>
         </tr>
 	
@@ -281,8 +310,8 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">The number of milliseconds within which multiple mouse clicks
-     will be treated as a single event.</td>
+            <td class="description last">The number of milliseconds within which a pointer down-up event combination
+     will be treated as a click gesture.</td>
         </tr>
 	
 	
@@ -317,8 +346,80 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">The distance between mouse click within multiple mouse clicks
-     will be treated as a single event.</td>
+            <td class="description last">The maximum distance allowed between a pointer down event and a pointer up event
+     to be treated as a click gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickTimeThreshold</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The number of milliseconds within which two pointer down-up event combinations
+     will be treated as a double-click gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickDistThreshold</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The maximum distance allowed between two pointer click events
+     to be treated as a click gesture.</td>
         </tr>
 	
 	
@@ -357,7 +458,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">The number of milliseconds without mouse move before the mouse stop
+            <td class="description last">The number of milliseconds without pointer move before the stop
      event is fired.</td>
         </tr>
 	
@@ -397,7 +498,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse enter.</td>
+            <td class="description last">An optional handler for pointer enter.</td>
         </tr>
 	
 	
@@ -436,7 +537,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse exit.</td>
+            <td class="description last">An optional handler for pointer exit.</td>
         </tr>
 	
 	
@@ -475,7 +576,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse press.</td>
+            <td class="description last">An optional handler for pointer press.</td>
         </tr>
 	
 	
@@ -514,7 +615,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse release.</td>
+            <td class="description last">An optional handler for pointer release.</td>
         </tr>
 	
 	
@@ -553,7 +654,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse move.</td>
+            <td class="description last">An optional handler for pointer move.</td>
         </tr>
 	
 	
@@ -592,7 +693,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse scroll.</td>
+            <td class="description last">An optional handler for mouse wheel scroll.</td>
         </tr>
 	
 	
@@ -631,7 +732,46 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse click.</td>
+            <td class="description last">An optional handler for pointer click.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dblClickHandler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">An optional handler for pointer double-click.</td>
         </tr>
 	
 	
@@ -670,7 +810,85 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
                 </td>
             
             
-            <td class="description last">An optional handler for mouse drag.</td>
+            <td class="description last">An optional handler for the drag gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dragEndHandler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">An optional handler for after a drag gesture.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pinchHandler</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">An optional handler for the pinch gesture.</td>
         </tr>
 	
 	
@@ -863,7 +1081,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2544">line 2544</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2881">line 2881</a>
     </li></ul></dd>
     
     
@@ -907,6 +1125,62 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
         <dl>
             
 <dt>
+    <h4 class="name" id="gesturePointVelocityTracker"><span class="type-signature">&lt;private, static> </span>gesturePointVelocityTracker<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Provides continuous computation of velocity (speed and direction) of active pointers.
+This is a singleton, used by all MouseTracker instances, as it is unlikely there will ever be more than
+two active gesture pointers at a time.
+    </div>
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3535">line 3535</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="clickDistThreshold"><span class="type-signature"></span>clickDistThreshold<span class="type-signature"> :Number</span></h4>
     
     
@@ -914,7 +1188,8 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
 <dd>
     
     <div class="description">
-        The distance between mouse click within multiple mouse clicks will be treated as a single event.
+        The maximum distance allowed between a pointer down event and a pointer up event
+to be treated as a click gesture.
     </div>
     
     
@@ -953,7 +1228,72 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2618">line 2618</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2966">line 2966</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="clickDistThreshold"><span class="type-signature"></span>clickDistThreshold<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The maximum distance allowed between two pointer click events
+to be treated as a click gesture.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2980">line 2980</a>
     </li></ul></dd>
     
     
@@ -978,7 +1318,8 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
 <dd>
     
     <div class="description">
-        The number of milliseconds within which mutliple mouse clicks will be treated as a single event.
+        The number of milliseconds within which a pointer down-up event combination 
+will be treated as a click gesture.
     </div>
     
     
@@ -1017,7 +1358,72 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2612">line 2612</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2959">line 2959</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="dblClickTimeThreshold"><span class="type-signature"></span>dblClickTimeThreshold<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The number of milliseconds within which two pointer down-up event combinations
+will be treated as a double-click gesture.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2973">line 2973</a>
     </li></ul></dd>
     
     
@@ -1042,7 +1448,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
 <dd>
     
     <div class="description">
-        The element for which mouse/touch/key events are being monitored.
+        The element for which pointer events are being monitored.
     </div>
     
     
@@ -1081,7 +1487,7 @@ events on a specific element, like 'enter', 'exit', 'press', 'release',
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2606">line 2606</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2953">line 2953</a>
     </li></ul></dd>
     
     
@@ -1312,7 +1718,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2988">line 2988</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3531">line 3531</a>
     </li></ul></dd>
     
     
@@ -1448,6 +1854,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -1477,7 +1906,7 @@ calling the constructor.
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Boolean</span>
 
 
             
@@ -1487,7 +1916,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True only if the clickDistThreshold and clickDeltaThreshold are both passed. Useful for ignoring events.</td>
+            <td class="description last">True only if the clickDistThreshold and clickTimeThreshold are both passed. Useful for ignoring drag events.</td>
         </tr>
 	
 	
@@ -1533,7 +1962,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -1639,7 +2068,334 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2892">line 2892</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3339">line 3339</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="dblClickHandler"><span class="type-signature"></span>dblClickHandler<span class="signature">(event)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Implement or assign implementation to these handlers during or after
+calling the constructor.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventSource</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A reference to the tracker instance.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the event relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>shift</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the shift key was pressed during this event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>isTouchEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>originalEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The original event object.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preventDefaultAction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Arbitrary user-defined object.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3363">line 3363</a>
     </li></ul></dd>
     
     
@@ -1675,7 +2431,7 @@ calling the constructor.
     
     
     <div class="description">
-        Clean up any events or objects created by the mouse tracker.
+        Clean up any events or objects created by the tracker.
     </div>
     
 
@@ -1708,7 +2464,380 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2700">line 2700</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3094">line 3094</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="dragEndHandler"><span class="type-signature"></span>dragEndHandler<span class="signature">(event)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Implement or assign implementation to these handlers during or after
+calling the constructor.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventSource</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A reference to the tracker instance.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the event relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>speed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Speed at the end of a drag gesture, in pixels per second.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Direction at the end of a drag gesture, expressed as an angle counterclockwise relative to the positive X axis (-pi to pi, in radians). Only valid if speed > 0.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>shift</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the shift key was pressed during this event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>isTouchEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>originalEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The original event object.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preventDefaultAction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Arbitrary user-defined object.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3424">line 3424</a>
     </li></ul></dd>
     
     
@@ -1844,6 +2973,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -1867,6 +3019,30 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>delta</code></td>
             
             
@@ -1883,7 +3059,53 @@ calling the constructor.
             
             
             
-            <td class="description last">The x,y components of the difference between start drag and end drag.  Usefule for ignoring or weighting the events.</td>
+            <td class="description last">The x,y components of the difference between the current position and the last drag event position.  Useful for ignoring or weighting the events.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>speed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current computed speed, in pixels per second.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current computed direction, expressed as an angle counterclockwise relative to the positive X axis (-pi to pi, in radians). Only valid if speed > 0.</td>
         </tr>
 	
 	
@@ -1929,7 +3151,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -2035,7 +3257,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2916">line 2916</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3396">line 3396</a>
     </li></ul></dd>
     
     
@@ -2171,6 +3393,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -2188,6 +3433,30 @@ calling the constructor.
             
             
             <td class="description last">The position of the event relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
         </tr>
 	
 	
@@ -2234,7 +3503,7 @@ calling the constructor.
             
             
             
-            <td class="description last">Was the button down anywhere in the screen during the event.</td>
+            <td class="description last">Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span></td>
         </tr>
 	
 	
@@ -2257,7 +3526,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -2363,7 +3632,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2754">line 2754</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3177">line 3177</a>
     </li></ul></dd>
     
     
@@ -2499,6 +3768,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -2516,6 +3808,30 @@ calling the constructor.
             
             
             <td class="description last">The position of the event relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
         </tr>
 	
 	
@@ -2562,7 +3878,7 @@ calling the constructor.
             
             
             
-            <td class="description last">Was the button down anywhere in the screen during the event.</td>
+            <td class="description last">Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span></td>
         </tr>
 	
 	
@@ -2585,7 +3901,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -2691,7 +4007,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2779">line 2779</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3207">line 3207</a>
     </li></ul></dd>
     
     
@@ -2926,7 +4242,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2972">line 2972</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3515">line 3515</a>
     </li></ul></dd>
     
     
@@ -2947,6 +4263,142 @@ calling the constructor.
     
     
     
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getActivePointersListByType"><span class="type-signature"></span>getActivePointersListByType<span class="signature">(type)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.MouseTracker.GesturePointList.html">OpenSeadragon.MouseTracker.GesturePointList</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the <a href="OpenSeadragon.MouseTracker.GesturePointList.html"><code>GesturePointList</code></a> for the given pointer device type,
+creating and caching a new <a href="OpenSeadragon.MouseTracker.GesturePointList.html"><code>GesturePointList</code></a> if one doesn't already exist for the type.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The pointer device type: "mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3132">line 3132</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.MouseTracker.GesturePointList.html">OpenSeadragon.MouseTracker.GesturePointList</a></span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -2997,7 +4449,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2711">line 2711</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3105">line 3105</a>
     </li></ul></dd>
     
     
@@ -3300,7 +4752,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2956">line 2956</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3499">line 3499</a>
     </li></ul></dd>
     
     
@@ -3436,6 +4888,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -3459,6 +4934,30 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>isTouchEvent</code></td>
             
             
@@ -3475,7 +4974,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -3581,7 +5080,403 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2844">line 2844</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3287">line 3287</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pinchHandler"><span class="type-signature"></span>pinchHandler<span class="signature">(event)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Implement or assign implementation to these handlers during or after
+calling the constructor.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventSource</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A reference to the tracker instance.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>gesturePoints</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="OpenSeadragon.MouseTracker.html#GesturePoint">OpenSeadragon.MouseTracker.GesturePoint</a>></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Gesture points associated with the gesture. Velocity data can be found here.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>lastCenter</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The previous center point of the two pinch contact points relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>center</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The center point of the two pinch contact points relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>lastDistance</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The previous distance between the two pinch contact points in CSS pixels.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>distance</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The distance between the two pinch contact points in CSS pixels.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>shift</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the shift key was pressed during this event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>originalEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The original event object.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preventDefaultAction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Arbitrary user-defined object.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3454">line 3454</a>
     </li></ul></dd>
     
     
@@ -3717,6 +5612,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -3740,6 +5658,30 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>isTouchEvent</code></td>
             
             
@@ -3756,7 +5698,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -3862,7 +5804,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2799">line 2799</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3232">line 3232</a>
     </li></ul></dd>
     
     
@@ -3998,6 +5940,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -4015,6 +5980,30 @@ calling the constructor.
             
             
             <td class="description last">The position of the event relative to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
         </tr>
 	
 	
@@ -4061,7 +6050,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the cursor still inside the tracked element when the button was released.</td>
+            <td class="description last">True if the cursor inside the tracked element when the button was released.</td>
         </tr>
 	
 	
@@ -4084,7 +6073,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -4190,7 +6179,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2824">line 2824</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3262">line 3262</a>
     </li></ul></dd>
     
     
@@ -4326,6 +6315,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -4411,7 +6423,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead. Touch devices no longer generate scroll event.</span></td>
         </tr>
 	
 	
@@ -4517,7 +6529,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2868">line 2868</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3313">line 3313</a>
     </li></ul></dd>
     
     
@@ -4634,7 +6646,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2721">line 2721</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3115">line 3115</a>
     </li></ul></dd>
     
     
@@ -4792,6 +6804,29 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>pointerType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">"mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>position</code></td>
             
             
@@ -4815,6 +6850,30 @@ calling the constructor.
 	
         <tr>
             
+                <td class="name"><code>buttons</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current buttons pressed.
+     Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>isTouchEvent</code></td>
             
             
@@ -4831,7 +6890,7 @@ calling the constructor.
             
             
             
-            <td class="description last">True if the original event is a touch event, otherwise false.</td>
+            <td class="description last">True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span></td>
         </tr>
 	
 	
@@ -4937,7 +6996,7 @@ calling the constructor.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2936">line 2936</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3479">line 3479</a>
     </li></ul></dd>
     
     
@@ -4966,6 +7025,424 @@ calling the constructor.
     
     
     
+        <h3 class="subsection-title">Type Definitions</h3>
+        
+        <dl>
+                
+<dt>
+    <h4 class="name" id="GesturePoint">GesturePoint</h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents a point of contact on the screen made by a mouse cursor, pen, touch, or other pointer device.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Identifier unique from all other active GesturePoints for a given pointer device.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The pointer device type: "mouse", "touch", "pen", etc.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>captured</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if events for the gesture point are captured to the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>isPrimary</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if the gesture point is a master pointer amongst the set of active pointers for each pointer type. True for mouse and primary (first) touch/pen pointers.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>insideElementPressed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if button pressed or contact point initiated inside the screen area of the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>insideElement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">True if pointer or contact point is currently inside the bounds of the tracked element.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>speed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current computed speed, in pixels per second.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Current computed direction, expressed as an angle counterclockwise relative to the positive X axis (-pi to pi, in radians). Only valid if speed > 0.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>contactPos</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The initial pointer contact position, relative to the page including any scrolling. Only valid if the pointer has contact (pressed, touch contact, pen contact).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>contactTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The initial pointer contact time, in milliseconds. Only valid if the pointer has contact (pressed, touch contact, pen contact).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>lastPos</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The last pointer position, relative to the page including any scrolling.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>lastTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The last pointer contact time, in milliseconds.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>currentPos</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The current pointer position, relative to the page including any scrolling.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>currentTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The current pointer contact time, in milliseconds.</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3706">line 3706</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            </dl>
+    
     
     
 </article>
@@ -4978,13 +7455,13 @@ calling the constructor.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIF1_1TileSource.html">IIIF1_1TileSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TileSourceCollection.html">TileSourceCollection</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-layer">add-layer</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-layer-failed">add-layer-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-release">container-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:layer-level-changed">layer-level-changed</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-layer">remove-layer</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Mar 17 2014 10:22:35 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Apr 30 2014 10:58:00 GMT-0700 (PDT)
 </footer>
 </div>
 
