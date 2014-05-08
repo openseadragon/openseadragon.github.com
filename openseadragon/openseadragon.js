@@ -1,6 +1,6 @@
-//! OpenSeadragon 1.1.0
-//! Built on 2014-04-30
-//! Git commit: v1.1.0-0-g3b36277
+//! OpenSeadragon 1.1.1
+//! Built on 2014-05-08
+//! Git commit: v1.1.1-0-g9aa0f32
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -89,7 +89,7 @@
 
 
 /**
- * @version  OpenSeadragon 1.1.0
+ * @version  OpenSeadragon 1.1.1
  *
  * @file
  * <h2><strong>OpenSeadragon - Javascript Deep Zooming</strong></h2>
@@ -664,10 +664,10 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
      */
     /* jshint ignore:start */
     $.version = {
-        versionStr: '1.1.0',
+        versionStr: '1.1.1',
         major: 1,
         minor: 1,
-        revision: 0
+        revision: 1
     };
     /* jshint ignore:end */
 
@@ -3014,8 +3014,6 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          *      Are we curruently capturing mouse events (legacy mouse events only).
          */
         THIS[ this.hash ] = {
-            setCaptureCapable:     !!this.element.setCapture && !!this.element.releaseCapture,
-
             click:                 function ( event ) { onClick( _this, event ); },
             dblclick:              function ( event ) { onDblClick( _this, event ); },
             keypress:              function ( event ) { onKeyPress( _this, event ); },
@@ -3636,6 +3634,14 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                                     'DOMMouseScroll';                                                        // Assume old Firefox
 
     /**
+     * Detect legacy mouse capture support.
+     */
+    $.MouseTracker.supportsMouseCapture = (function () {
+        var divElement = document.createElement( 'div' );
+        return $.isFunction( divElement.setCapture ) && $.isFunction( divElement.releaseCapture );
+    }());
+
+    /**
      * Detect browser pointer device event model(s) and build appropriate list of events to subscribe to.
      */
     $.MouseTracker.subscribeEvents = [ "click", "dblclick", "keypress", "focus", "blur", $.MouseTracker.wheelEventName ];
@@ -3669,14 +3675,9 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         $.MouseTracker.haveMouseEnter = true;
     } else {
         // Legacy W3C mouse events
-        $.MouseTracker.subscribeEvents.push( "mousedown", "mouseup", "mousemove" );
-        if ( 'onmouseenter' in window ) {
-            $.MouseTracker.subscribeEvents.push( "mouseenter", "mouseleave" );
-            $.MouseTracker.haveMouseEnter = true;
-        } else {
-            $.MouseTracker.subscribeEvents.push( "mouseover", "mouseout" );
-            $.MouseTracker.haveMouseEnter = false;
-        }
+        // TODO: Favor mouseenter/mouseleave over mouseover/mouseout when Webkit browser support is better
+        $.MouseTracker.subscribeEvents.push( "mouseover", "mouseout", "mousedown", "mouseup", "mousemove" );
+        $.MouseTracker.haveMouseEnter = false;
         if ( 'ontouchstart' in window ) {
             // iOS, Android, and other W3c Touch Event implementations (see http://www.w3.org/TR/2011/WD-touch-events-20110505)
             $.MouseTracker.subscribeEvents.push( "touchstart", "touchend", "touchmove", "touchcancel" );
@@ -3922,7 +3923,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         var delegate = THIS[ tracker.hash ];
 
         if ( !delegate.capturing ) {
-            if ( delegate.setCaptureCapable ) {
+            if ( $.MouseTracker.supportsMouseCapture ) {
                 // IE<10, Firefox, other browsers with setCapture()/releaseCapture()
                 tracker.element.setCapture( true );
             } else {
@@ -3955,7 +3956,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         var delegate = THIS[ tracker.hash ];
 
         if ( delegate.capturing ) {
-            if ( delegate.setCaptureCapable ) {
+            if ( $.MouseTracker.supportsMouseCapture ) {
                 // IE<10, Firefox, other browsers with setCapture()/releaseCapture()
                 tracker.element.releaseCapture();
             } else {
@@ -8289,7 +8290,7 @@ function onCanvasDrag( event ) {
             event.delta.y = 0;
         }
         this.viewport.panBy( this.viewport.deltaPointsFromPixels( event.delta.negate() ), gestureSettings.flickEnabled );
-        if( this.constrainDuringPan && !gestureSettings.flickEnabled ){
+        if( this.constrainDuringPan ){
             this.viewport.applyConstraints();
         }
     }
@@ -8325,11 +8326,17 @@ function onCanvasDragEnd( event ) {
 
     if ( !event.preventDefaultAction && this.viewport ) {
         gestureSettings = this.gestureSettingsByDeviceType( event.pointerType );
-        if ( gestureSettings.flickEnabled && event.speed >= gestureSettings.flickMinSpeed && !event.preventDefaultAction && this.viewport ) {
+        if ( gestureSettings.flickEnabled && event.speed >= gestureSettings.flickMinSpeed ) {
             var amplitudeX = gestureSettings.flickMomentum * ( event.speed * Math.cos( event.direction ) ),
                 amplitudeY = gestureSettings.flickMomentum * ( event.speed * Math.sin( event.direction ) ),
                 center = this.viewport.pixelFromPoint( this.viewport.getCenter( true ) ),
                 target = this.viewport.pointFromPixel( new $.Point( center.x - amplitudeX, center.y - amplitudeY ) );
+            if( !this.panHorizontal ) {
+                target.x = center.x;
+            }
+            if( !this.panVertical ) {
+                target.y = center.y;
+            }
             this.viewport.panTo( target, false );
             this.viewport.applyConstraints();
         }
@@ -8393,15 +8400,25 @@ function onCanvasRelease( event ) {
 }
 
 function onCanvasPinch( event ) {
-    var gestureSettings;
+    var gestureSettings,
+        centerPt,
+        lastCenterPt,
+        panByPt;
 
     if ( !event.preventDefaultAction && this.viewport ) {
         gestureSettings = this.gestureSettingsByDeviceType( event.pointerType );
         if ( gestureSettings.pinchToZoom ) {
-            var centerPt = this.viewport.pointFromPixel( event.center, true ),
-                lastCenterPt = this.viewport.pointFromPixel( event.lastCenter, true );
+            centerPt = this.viewport.pointFromPixel( event.center, true );
+            lastCenterPt = this.viewport.pointFromPixel( event.lastCenter, true );
+            panByPt = lastCenterPt.minus( centerPt );
+            if( !this.panHorizontal ) {
+                panByPt.x = 0;
+            }
+            if( !this.panVertical ) {
+                panByPt.y = 0;
+            }
             this.viewport.zoomBy( event.distance / event.lastDistance, centerPt, true );
-            this.viewport.panBy( lastCenterPt.minus( centerPt ), true );
+            this.viewport.panBy( panByPt, true );
             this.viewport.applyConstraints();
         }
     }
