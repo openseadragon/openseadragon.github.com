@@ -139,11 +139,16 @@
             }],
         },
             "/example-images/highsmith/highsmith.dzi"
-        ],
-        onPageChange:   function( data ){
-            document.getElementById('currentpage').innerHTML = ( data.page + 1 ) + ' of 3';
-        }
+        ]
     });
+    
+    contentDiv.addHandler("page", update_page_info );
+    
+    function update_page_info(data) {
+        document.getElementById('currentpage').innerHTML = ( data.page + 1 ) + ' of 3';
+    }
+
+    
 </script>
 
 <p>
@@ -166,17 +171,23 @@ OpenSeadragon({
 
 <p>
 The interface in this example updates the current page numbers in the label
-&quot;N of 3&quot;.  This is achieved via the provided callback
-<code>onPageChange</code>.
+&quot;N of 3&quot;.  This is achieved by adding a handler to the 'page' event using
+<code>addHandler</code>.
 </p>
 <pre>
 OpenSeadragon({
     ...
-    onPageChange:   function( data ){
-        document.getElementById('currentpage').innerHTML = ( data.page + 1 ) + ' of 3';
-    }
+    id: "viewer"
     ...
 });
+
+viewer.addHandler("page", update_page_info );
+
+function update_page_info(data) {
+    document.getElementById('currentpage').innerHTML = ( data.page + 1 ) + ' of 3';
+}
+
+
 </pre>
 
 
