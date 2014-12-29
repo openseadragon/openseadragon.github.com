@@ -97,7 +97,7 @@
     <pre>
 OpenSeadragon({
     id:            "example-custom-tilesource",
-    prefixUrl:     "/openseadragon",
+    prefixUrl:     "/openseadragon/images/",
     navigatorSizeRatio: 0.25,
     wrapHorizontal:     true,
     tileSources:   {
@@ -107,7 +107,7 @@ OpenSeadragon({
         minLevel: 8,
         getTileUrl: function( level, x, y ){
             return "http://s3.amazonaws.com/com.modestmaps.bluemarble/" +
-                    (level-8) + "-r" + x + "-c" + y + ".jpg";
+                    (level-8) + "-r" + y + "-c" + x + ".jpg";
         }
     }
 });
