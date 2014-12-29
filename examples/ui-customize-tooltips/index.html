@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Keyboard Navigation | OpenSeadragon</title>
+    <title>Customize Tooltips | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,57 +53,76 @@
             </ul>
         </div>
 
-        <style type="text/css">
+             
 
-       <!-- Changed the background color to make the focus highlighting
-            easier to see for this example -->
-      .openseadragon
-      {
-      background-color: lightgrey;
-      }
-      
-    </style>
-
-<h2>example: keyboard navigation</h2>
-
-<p>The viewer supports keyboard operations to complement the drag and scroll 
-(zoom) mouse interactions.</p>
-
+<h2>example: customize the tooltips and errors</h2>
 <p>
-  To interact via the keyboard, the focus must be on the viewer.
-  In this example the focus is set using 
-  <code>document.getElementById('contentDiv').focus(); </code>
-</p>
 
-<p>
-  You can use the following keys to navigate:
+The default strings are as follows
 </p>
+<pre>
+var I18N = {
+  Errors: {
+    Dzc:            "Sorry, we don't support Deep Zoom Collections!",
+    Dzi:            "Hmm, this doesn't appear to be a valid Deep Zoom Image.",
+    Xml:            "Hmm, this doesn't appear to be a valid Deep Zoom Image.",
+    ImageFormat:    "Sorry, we don't support {0}-based Deep Zoom Images.",
+    Security:       "It looks like a security restriction stopped us from " +
+                    "loading this Deep Zoom Image.",
+    Status:         "This space unintentionally left blank ({0} {1}).",
+    OpenFailed:     "Unable to open {0}: {1}"
+  },
 
-<ul>
-    <li><strong>[ w, up arrow ]</strong> - move viewport <strong>up</strong></li>
-    <li><strong>[ s, down arrow ]</strong> - move viewport <strong>down</strong></li>
-    <li><strong>[ a, left arrow ]</strong> - move viewport <strong>left</strong></li>
-    <li><strong>[ f, right arrow ]</strong> - move viewport <strong>right</strong></li>
-    <li><strong>[ 0 ]</strong> - zoom / move viewport <strong>home</strong></li>
-    <li><strong>[ - / _, shift+W, shift+up arrow ]</strong> - zoom viewport <strong>out</strong></li>
-    <li><strong>[ = / +, shift+S, shift+down arrow ]</strong> - zoom viewport <strong>in</strong></li>
-</ul>
-<p>
-<em>Note that Chrome and Safari do not support the arrow keys for these operations.</em>
-</p>
+  Tooltips: {
+    FullPage:       "Toggle full page",
+    Home:           "Go home",
+    ZoomIn:         "Zoom in",
+    ZoomOut:        "Zoom out",
+    NextPage:       "Next page",
+    PreviousPage:   "Previous page",
+    RotateLeft:     "Rotate left",
+    RotateRight:    "Rotate right"
+  }
+};
+
+
+
+</pre>
+<p>The OpenSeadragon Tooltips and Errors are in English by default.</p>
 
 <div class="description">
-    <h3>Keyboard Navigation</h3>
+    <h3>Tooltip and Errors customization</h3>
 </div>
 
 <div class="demoarea">
     <div class="demoheading">
-        Keyboard Navigation
+      Tooltip and string customization
     </div>
-    <div id="contentDiv" class="openseadragon"></div>
+   
+    <p>
+      In this example the tooltips of the buttons for Home, ZoomOut, ZoomIn and Fullpage, 
+      have been translated into Thai using 
+        
+<code><a href="https://openseadragon.github.io/docs/OpenSeadragon.html#setString">OpenSeadragon.setString()</a></code>.
+  </p>
+  <p>      
+  <i>(Hover the mouse over the buttons to see tooltip)</i>
+
+  </p>
+
+     <div id="contentDiv" class="openseadragon"></div>
 </div>
 
+<h3>Code</h3>
+
 <script type="text/javascript">
+    
+    OpenSeadragon.setString("Tooltips.Home","จัดรูปไว้กลางจอ");
+    OpenSeadragon.setString("Tooltips.ZoomOut","ย่อ");
+    OpenSeadragon.setString("Tooltips.ZoomIn", "ขยาย");
+    OpenSeadragon.setString("Tooltips.FullPage","เต็มจอ");
+
+
     OpenSeadragon({
         id:            "contentDiv",
         prefixUrl:     "/openseadragon/images/",
@@ -111,13 +130,21 @@
     });
 
 
-    document.getElementById('contentDiv').focus();
     
 </script>
 
 
+<pre>
+   
+   OpenSeadragon.setString("Tooltips.Home","จัดรูปไว้กลางจอ");
+   OpenSeadragon.setString("Tooltips.ZoomOut","ย่อ");
+   OpenSeadragon.setString("Tooltips.ZoomIn", "ขยาย");
+   OpenSeadragon.setString("Tooltips.FullPage","เต็มจอ");
 
-
+   OpenSeadragon({
+    ...
+  });
+</pre>
 
 
 
