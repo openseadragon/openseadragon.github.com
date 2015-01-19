@@ -146,6 +146,12 @@ pre {
 }
 hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 
+.image-credit {
+    font-size: 11px;
+    text-align: right;
+    margin-top: 3px;   
+}
+
 /*
  from openseadragon demos
  */
@@ -156,6 +162,9 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     border:     1px solid black;
     color:      #333; /* text color for messages */
     background-color: black;
+}
+.openseadragon.front-page {
+    height: 586px;
 }
 .openseadragon-small
 {
