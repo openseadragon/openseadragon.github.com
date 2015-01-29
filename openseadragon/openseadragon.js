@@ -1,6 +1,6 @@
-//! OpenSeadragon 1.2.0
-//! Built on 2015-01-05
-//! Git commit: v1.2.0-0-d694c7e
+//! OpenSeadragon 1.2.1
+//! Built on 2015-01-29
+//! Git commit: v1.2.1-0-2f9563d
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -89,7 +89,7 @@
 
 
 /**
- * @version  OpenSeadragon 1.2.0
+ * @version  OpenSeadragon 1.2.1
  *
  * @file
  * <h2><strong>OpenSeadragon - Javascript Deep Zooming</strong></h2>
@@ -131,6 +131,10 @@
   * @property {Element} element
   *     The element to append the viewer's container element to. If not provided, the 'id' property must be provided.
   *     If both the element and id properties are specified, the viewer is appended to the element provided in the element property.
+  *
+  * @property {Number} [tabIndex=0]
+  *     Tabbing order index to assign to the viewer element. Positive values are selected in increasing order. When tabIndex is 0 
+  *     source order is used. A negative value omits the viewer from the tabbing order.
   *
   * @property {Array|String|Function|Object[]|Array[]|String[]|Function[]} [tileSources=null]
   *     As an Array, the tileSource can hold either Objects or mixed
@@ -521,9 +525,17 @@
   *
   * @property {Boolean} [preserveViewport=false]
   *     If the viewer has been configured with a sequence of tile sources, then
-  *     normally navigating to through each image resets the viewport to 'home'
+  *     normally navigating through each image resets the viewport to 'home'
   *     position.  If preserveViewport is set to true, then the viewport position
   *     is preserved when navigating between images in the sequence.
+  *
+  * @property {Boolean} [preserveOverlays=false]
+  *     If the viewer has been configured with a sequence of tile sources, then
+  *     normally navigating through each image resets the overlays.
+  *     If preserveOverlays is set to true, then the overlays
+  *     are preserved when navigating between images in the sequence.
+  *     Note: setting preserveOverlays overrides any overlays specified in the
+  *     "overlays" property.
   *
   * @property {Boolean} [showReferenceStrip=false]
   *     If the viewer has been configured with a sequence of tile sources, then
@@ -674,10 +686,10 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
      * @since 1.0.0
      */
     $.version = {
-        versionStr: '1.2.0',
+        versionStr: '1.2.1',
         major: parseInt('1', 10),
         minor: parseInt('2', 10),
-        revision: parseInt('0', 10)
+        revision: parseInt('1', 10)
     };
 
 
@@ -951,6 +963,7 @@ window.OpenSeadragon = window.OpenSeadragon || function( options ){
             showSequenceControl:     true,  //SEQUENCE
             sequenceControlAnchor:   null,  //SEQUENCE
             preserveViewport:        false, //SEQUENCE
+            preserveOverlays:        false, //SEQUENCE
             navPrevNextWrap:         false, //SEQUENCE
             showNavigationControl:   true,  //ZOOM/HOME/FULL/ROTATION
             navigationControlAnchor: null,  //ZOOM/HOME/FULL/ROTATION
@@ -2900,7 +2913,10 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
 
 (function ( $ ) {
 
-        // dictionary from hash to private properties
+    // All MouseTracker instances
+    var MOUSETRACKERS  = [];
+
+    // dictionary from hash to private properties
     var THIS           = {};
 
 
@@ -2917,6 +2933,9 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @param {Element|String} options.element
      *      A reference to an element or an element id for which the pointer/key
      *      events will be monitored.
+     * @param {Boolean} [options.startDisabled=false]
+     *      If true, event tracking on the element will not start until
+     *      {@link OpenSeadragon.MouseTracker.setTracking|setTracking} is called.
      * @param {Number} options.clickTimeThreshold
      *      The number of milliseconds within which a pointer down-up event combination
      *      will be treated as a click gesture.
@@ -2938,8 +2957,12 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      *      An optional handler for pointer exit.
      * @param {OpenSeadragon.EventHandler} [options.pressHandler=null]
      *      An optional handler for pointer press.
+     * @param {OpenSeadragon.EventHandler} [options.nonPrimaryPressHandler=null]
+     *      An optional handler for pointer non-primary button press.
      * @param {OpenSeadragon.EventHandler} [options.releaseHandler=null]
      *      An optional handler for pointer release.
+     * @param {OpenSeadragon.EventHandler} [options.nonPrimaryReleaseHandler=null]
+     *      An optional handler for pointer non-primary button release.
      * @param {OpenSeadragon.EventHandler} [options.moveHandler=null]
      *      An optional handler for pointer move.
      * @param {OpenSeadragon.EventHandler} [options.scrollHandler=null]
@@ -2954,6 +2977,10 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      *      An optional handler for after a drag gesture.
      * @param {OpenSeadragon.EventHandler} [options.pinchHandler=null]
      *      An optional handler for the pinch gesture.
+     * @param {OpenSeadragon.EventHandler} [options.keyDownHandler=null]
+     *      An optional handler for keydown.
+     * @param {OpenSeadragon.EventHandler} [options.keyUpHandler=null]
+     *      An optional handler for keyup.
      * @param {OpenSeadragon.EventHandler} [options.keyHandler=null]
      *      An optional handler for keypress.
      * @param {OpenSeadragon.EventHandler} [options.focusHandler=null]
@@ -2964,6 +2991,8 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      *      Arbitrary object to be passed unchanged to any attached handler methods.
      */
     $.MouseTracker = function ( options ) {
+
+        MOUSETRACKERS.push( this );
 
         var args = arguments;
 
@@ -3010,24 +3039,28 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          * @memberof OpenSeadragon.MouseTracker#
          */
         this.dblClickDistThreshold = options.dblClickDistThreshold || $.DEFAULT_SETTINGS.dblClickDistThreshold;
-        this.userData           = options.userData        || null;
-        this.stopDelay          = options.stopDelay       || 50;
+        this.userData              = options.userData          || null;
+        this.stopDelay             = options.stopDelay         || 50;
 
-        this.enterHandler       = options.enterHandler    || null;
-        this.exitHandler        = options.exitHandler     || null;
-        this.pressHandler       = options.pressHandler    || null;
-        this.releaseHandler     = options.releaseHandler  || null;
-        this.moveHandler        = options.moveHandler     || null;
-        this.scrollHandler      = options.scrollHandler   || null;
-        this.clickHandler       = options.clickHandler    || null;
-        this.dblClickHandler    = options.dblClickHandler || null;
-        this.dragHandler        = options.dragHandler     || null;
-        this.dragEndHandler     = options.dragEndHandler  || null;
-        this.pinchHandler       = options.pinchHandler    || null;
-        this.stopHandler        = options.stopHandler     || null;
-        this.keyHandler         = options.keyHandler      || null;
-        this.focusHandler       = options.focusHandler    || null;
-        this.blurHandler        = options.blurHandler     || null;
+        this.enterHandler             = options.enterHandler             || null;
+        this.exitHandler              = options.exitHandler              || null;
+        this.pressHandler             = options.pressHandler             || null;
+        this.nonPrimaryPressHandler   = options.nonPrimaryPressHandler   || null;
+        this.releaseHandler           = options.releaseHandler           || null;
+        this.nonPrimaryReleaseHandler = options.nonPrimaryReleaseHandler || null;
+        this.moveHandler              = options.moveHandler              || null;
+        this.scrollHandler            = options.scrollHandler            || null;
+        this.clickHandler             = options.clickHandler             || null;
+        this.dblClickHandler          = options.dblClickHandler          || null;
+        this.dragHandler              = options.dragHandler              || null;
+        this.dragEndHandler           = options.dragEndHandler           || null;
+        this.pinchHandler             = options.pinchHandler             || null;
+        this.stopHandler              = options.stopHandler              || null;
+        this.keyDownHandler           = options.keyDownHandler           || null;
+        this.keyUpHandler             = options.keyUpHandler             || null;
+        this.keyHandler               = options.keyHandler               || null;
+        this.focusHandler             = options.focusHandler             || null;
+        this.blurHandler              = options.blurHandler              || null;
 
         //Store private properties in a scope sealed hash map
         var _this = this;
@@ -3040,6 +3073,8 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         THIS[ this.hash ] = {
             click:                 function ( event ) { onClick( _this, event ); },
             dblclick:              function ( event ) { onDblClick( _this, event ); },
+            keydown:               function ( event ) { onKeyDown( _this, event ); },
+            keyup:                 function ( event ) { onKeyUp( _this, event ); },
             keypress:              function ( event ) { onKeyPress( _this, event ); },
             focus:                 function ( event ) { onFocus( _this, event ); },
             blur:                  function ( event ) { onBlur( _this, event ); },
@@ -3049,6 +3084,8 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             DOMMouseScroll:        function ( event ) { onMouseWheel( _this, event ); },
             MozMousePixelScroll:   function ( event ) { onMouseWheel( _this, event ); },
 
+            mouseenter:            function ( event ) { onMouseEnter( _this, event ); }, // Used on IE8 only
+            mouseleave:            function ( event ) { onMouseLeave( _this, event ); }, // Used on IE8 only
             mouseover:             function ( event ) { onMouseOver( _this, event ); },
             mouseout:              function ( event ) { onMouseOut( _this, event ); },
             mousedown:             function ( event ) { onMouseDown( _this, event ); },
@@ -3057,8 +3094,6 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             mousemove:             function ( event ) { onMouseMove( _this, event ); },
             mousemovecaptured:     function ( event ) { onMouseMoveCaptured( _this, event ); },
 
-            touchenter:            function ( event ) { onTouchEnter( _this, event ); },
-            touchleave:            function ( event ) { onTouchLeave( _this, event ); },
             touchstart:            function ( event ) { onTouchStart( _this, event ); },
             touchend:              function ( event ) { onTouchEnd( _this, event ); },
             touchendcaptured:      function ( event ) { onTouchEndCaptured( _this, event ); },
@@ -3073,7 +3108,6 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             MSPointerOver:         function ( event ) { onPointerOver( _this, event ); },
             pointerout:            function ( event ) { onPointerOut( _this, event ); },
             MSPointerOut:          function ( event ) { onPointerOut( _this, event ); },
-
             pointerdown:           function ( event ) { onPointerDown( _this, event ); },
             MSPointerDown:         function ( event ) { onPointerDown( _this, event ); },
             pointerup:             function ( event ) { onPointerUp( _this, event ); },
@@ -3105,6 +3139,9 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             currentPinchCenter:    null
         };
 
+        if ( !options.startDisabled ) {
+            this.setTracking( true );
+        }
     };
 
     $.MouseTracker.prototype = /** @lends OpenSeadragon.MouseTracker.prototype */{
@@ -3114,8 +3151,17 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          * @function
          */
         destroy: function () {
+            var i;
+
             stopTracking( this );
             this.element = null;
+
+            for ( i = 0; i < MOUSETRACKERS.length; i++ ) {
+                if ( MOUSETRACKERS[ i ] === this ) {
+                    MOUSETRACKERS.splice( i, 1 );
+                    break;
+                }
+            }
 
             THIS[ this.hash ] = null;
             delete THIS[ this.hash ];
@@ -3172,6 +3218,24 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         },
 
         /**
+         * Returns the total number of pointers currently active on the tracked element.
+         * @function
+         * @returns {Number}
+         */
+        getActivePointerCount: function () {
+            var delegate = THIS[ this.hash ],
+                i,
+                len = delegate.activePointersLists.length,
+                count = 0;
+
+            for ( i = 0; i < len; i++ ) {
+                count += delegate.activePointersLists[ i ].getLength();
+            }
+
+            return count;
+        },
+
+        /**
          * Implement or assign implementation to these handlers during or after
          * calling the constructor.
          * @function
@@ -3185,6 +3249,8 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          * @param {Number} event.buttons
          *      Current buttons pressed.
          *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+         * @param {Number} event.pointers
+         *      Number of pointers (all types) active in the tracked element.
          * @param {Boolean} event.insideElementPressed
          *      True if the left mouse button is currently being pressed and was
          *      initiated inside the tracked element, otherwise false.
@@ -3215,6 +3281,8 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          * @param {Number} event.buttons
          *      Current buttons pressed.
          *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+         * @param {Number} event.pointers
+         *      Number of pointers (all types) active in the tracked element.
          * @param {Boolean} event.insideElementPressed
          *      True if the left mouse button is currently being pressed and was
          *      initiated inside the tracked element, otherwise false.
@@ -3267,6 +3335,34 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          *     "mouse", "touch", "pen", etc.
          * @param {OpenSeadragon.Point} event.position
          *      The position of the event relative to the tracked element.
+         * @param {Number} event.button
+         *      Button which caused the event.
+         *      -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
+         * @param {Number} event.buttons
+         *      Current buttons pressed.
+         *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+         * @param {Boolean} event.isTouchEvent
+         *      True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span>
+         * @param {Object} event.originalEvent
+         *      The original event object.
+         * @param {Boolean} event.preventDefaultAction
+         *      Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.
+         * @param {Object} event.userData
+         *      Arbitrary user-defined object.
+         */
+        nonPrimaryPressHandler: function () { },
+
+        /**
+         * Implement or assign implementation to these handlers during or after
+         * calling the constructor.
+         * @function
+         * @param {Object} event
+         * @param {OpenSeadragon.MouseTracker} event.eventSource
+         *      A reference to the tracker instance.
+         * @param {String} event.pointerType
+         *     "mouse", "touch", "pen", etc.
+         * @param {OpenSeadragon.Point} event.position
+         *      The position of the event relative to the tracked element.
          * @param {Number} event.buttons
          *      Current buttons pressed.
          *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
@@ -3285,6 +3381,34 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          *      Arbitrary user-defined object.
          */
         releaseHandler: function () { },
+
+        /**
+         * Implement or assign implementation to these handlers during or after
+         * calling the constructor.
+         * @function
+         * @param {Object} event
+         * @param {OpenSeadragon.MouseTracker} event.eventSource
+         *      A reference to the tracker instance.
+         * @param {String} event.pointerType
+         *     "mouse", "touch", "pen", etc.
+         * @param {OpenSeadragon.Point} event.position
+         *      The position of the event relative to the tracked element.
+         * @param {Number} event.button
+         *      Button which caused the event.
+         *      -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
+         * @param {Number} event.buttons
+         *      Current buttons pressed.
+         *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+         * @param {Boolean} event.isTouchEvent
+         *      True if the original event is a touch event, otherwise false. <span style="color:red;">Deprecated. Use pointerType and/or originalEvent instead.</span>
+         * @param {Object} event.originalEvent
+         *      The original event object.
+         * @param {Boolean} event.preventDefaultAction
+         *      Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.
+         * @param {Object} event.userData
+         *      Arbitrary user-defined object.
+         */
+        nonPrimaryReleaseHandler: function () { },
 
         /**
          * Implement or assign implementation to these handlers during or after
@@ -3512,8 +3636,66 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
          *      A reference to the tracker instance.
          * @param {Number} event.keyCode
          *      The key code that was pressed.
+         * @param {Boolean} event.ctrl
+         *      True if the ctrl key was pressed during this event.
          * @param {Boolean} event.shift
          *      True if the shift key was pressed during this event.
+         * @param {Boolean} event.alt
+         *      True if the alt key was pressed during this event.
+         * @param {Boolean} event.meta
+         *      True if the meta key was pressed during this event.
+         * @param {Object} event.originalEvent
+         *      The original event object.
+         * @param {Boolean} event.preventDefaultAction
+         *      Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.
+         * @param {Object} event.userData
+         *      Arbitrary user-defined object.
+         */
+        keyDownHandler: function () { },
+
+        /**
+         * Implement or assign implementation to these handlers during or after
+         * calling the constructor.
+         * @function
+         * @param {Object} event
+         * @param {OpenSeadragon.MouseTracker} event.eventSource
+         *      A reference to the tracker instance.
+         * @param {Number} event.keyCode
+         *      The key code that was pressed.
+         * @param {Boolean} event.ctrl
+         *      True if the ctrl key was pressed during this event.
+         * @param {Boolean} event.shift
+         *      True if the shift key was pressed during this event.
+         * @param {Boolean} event.alt
+         *      True if the alt key was pressed during this event.
+         * @param {Boolean} event.meta
+         *      True if the meta key was pressed during this event.
+         * @param {Object} event.originalEvent
+         *      The original event object.
+         * @param {Boolean} event.preventDefaultAction
+         *      Set to true to prevent the tracker subscriber from performing its default action (subscriber implementation dependent). Default: false.
+         * @param {Object} event.userData
+         *      Arbitrary user-defined object.
+         */
+        keyUpHandler: function () { },
+
+        /**
+         * Implement or assign implementation to these handlers during or after
+         * calling the constructor.
+         * @function
+         * @param {Object} event
+         * @param {OpenSeadragon.MouseTracker} event.eventSource
+         *      A reference to the tracker instance.
+         * @param {Number} event.keyCode
+         *      The key code that was pressed.
+         * @param {Boolean} event.ctrl
+         *      True if the ctrl key was pressed during this event.
+         * @param {Boolean} event.shift
+         *      True if the shift key was pressed during this event.
+         * @param {Boolean} event.alt
+         *      True if the alt key was pressed during this event.
+         * @param {Boolean} event.meta
+         *      True if the meta key was pressed during this event.
          * @param {Object} event.originalEvent
          *      The original event object.
          * @param {Boolean} event.preventDefaultAction
@@ -3673,15 +3855,17 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     /**
      * Detect browser pointer device event model(s) and build appropriate list of events to subscribe to.
      */
-    $.MouseTracker.subscribeEvents = [ "click", "dblclick", "keypress", "focus", "blur", $.MouseTracker.wheelEventName ];
+    $.MouseTracker.subscribeEvents = [ "click", "dblclick", "keydown", "keyup", "keypress", "focus", "blur", $.MouseTracker.wheelEventName ];
 
     if( $.MouseTracker.wheelEventName == "DOMMouseScroll" ) {
         // Older Firefox
         $.MouseTracker.subscribeEvents.push( "MozMousePixelScroll" );
     }
 
-    if ( window.PointerEvent ) {
+    // Note: window.navigator.pointerEnable is deprecated on IE 11 and not part of W3C spec.
+    if ( window.PointerEvent && ( window.navigator.pointerEnabled || $.Browser.vendor !== $.BROWSERS.IE ) ) {
         // IE11 and other W3C Pointer Event implementations (see http://www.w3.org/TR/pointerevents)
+        $.MouseTracker.havePointerEvents = true;
         $.MouseTracker.subscribeEvents.push( "pointerover", "pointerout", "pointerdown", "pointerup", "pointermove", "pointercancel" );
         $.MouseTracker.unprefixedPointerEvents = true;
         if( navigator.maxTouchPoints ) {
@@ -3689,10 +3873,10 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         } else {
             $.MouseTracker.maxTouchPoints = 0;
         }
-        $.MouseTracker.haveTouchEnter = false;
         $.MouseTracker.haveMouseEnter = false;
-    } else if ( window.MSPointerEvent ) {
+    } else if ( window.MSPointerEvent && window.navigator.msPointerEnabled ) {
         // IE10
+        $.MouseTracker.havePointerEvents = true;
         $.MouseTracker.subscribeEvents.push( "MSPointerOver", "MSPointerOut", "MSPointerDown", "MSPointerUp", "MSPointerMove", "MSPointerCancel" );
         $.MouseTracker.unprefixedPointerEvents = false;
         if( navigator.msMaxTouchPoints ) {
@@ -3700,26 +3884,27 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         } else {
             $.MouseTracker.maxTouchPoints = 0;
         }
-        $.MouseTracker.haveTouchEnter = false;
         $.MouseTracker.haveMouseEnter = false;
     } else {
         // Legacy W3C mouse events
-        $.MouseTracker.subscribeEvents.push( "mouseover", "mouseout", "mousedown", "mouseup", "mousemove" );
-        $.MouseTracker.haveMouseEnter = false;
-        if ( 'ontouchstart' in window ) {
-            // iOS, Android, and other W3c Touch Event implementations (see http://www.w3.org/TR/2011/WD-touch-events-20110505)
-            $.MouseTracker.subscribeEvents.push( "touchstart", "touchend", "touchmove", "touchcancel" );
-            if ( 'ontouchenter' in window ) {
-                $.MouseTracker.subscribeEvents.push( "touchenter", "touchleave" );
-                $.MouseTracker.haveTouchEnter = true;
-            } else {
-                $.MouseTracker.haveTouchEnter = false;
-            }
+        $.MouseTracker.havePointerEvents = false;
+        if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+            $.MouseTracker.subscribeEvents.push( "mouseenter", "mouseleave" );
+            $.MouseTracker.haveMouseEnter = true;
         } else {
-            $.MouseTracker.haveTouchEnter = false;
+            $.MouseTracker.subscribeEvents.push( "mouseover", "mouseout" );
+            $.MouseTracker.haveMouseEnter = false;
+        }
+        $.MouseTracker.subscribeEvents.push( "mousedown", "mouseup", "mousemove" );
+        if ( 'ontouchstart' in window ) {
+            // iOS, Android, and other W3c Touch Event implementations
+            //    (see http://www.w3.org/TR/touch-events/)
+            //    (see https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
+            //    (see https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
+            $.MouseTracker.subscribeEvents.push( "touchstart", "touchend", "touchmove", "touchcancel" );
         }
         if ( 'ongesturestart' in window ) {
-            // iOS (see https://developer.apple.com/library/safari/documentation/UserExperience/Reference/GestureEventClassReference/GestureEvent/GestureEvent.html)
+            // iOS (see https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html)
             //   Subscribe to these to prevent default gesture handling
             $.MouseTracker.subscribeEvents.push( "gesturestart", "gesturechange" );
         }
@@ -4017,7 +4202,14 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     function getCaptureEventParams( tracker, pointerType ) {
         var delegate = THIS[ tracker.hash ];
 
-        if ( pointerType === 'mouse' ) {
+        if ( pointerType === 'pointerevent' ) {
+            return {
+                upName: $.MouseTracker.unprefixedPointerEvents ? 'pointerup' : 'MSPointerUp',
+                upHandler: delegate.pointerupcaptured,
+                moveName: $.MouseTracker.unprefixedPointerEvents ? 'pointermove' : 'MSPointerMove',
+                moveHandler: delegate.pointermovecaptured
+            };
+        } else if ( pointerType === 'mouse' ) {
             return {
                 upName: 'mouseup',
                 upHandler: delegate.mouseupcaptured,
@@ -4032,12 +4224,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                 moveHandler: delegate.touchmovecaptured
             };
         } else {
-            return {
-                upName: $.MouseTracker.unprefixedPointerEvents ? 'pointerup' : 'MSPointerUp',
-                upHandler: delegate.pointerupcaptured,
-                moveName: $.MouseTracker.unprefixedPointerEvents ? 'pointermove' : 'MSPointerMove',
-                moveHandler: delegate.pointermovecaptured
-            };
+            throw new Error( "MouseTracker.getCaptureEventParams: Unknown pointer type." );
         }
     }
 
@@ -4047,27 +4234,31 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @inner
      */
     function capturePointer( tracker, pointerType ) {
-        var delegate = THIS[ tracker.hash ],
-            pointsList = tracker.getActivePointersListByType( pointerType ),
-            eventParams = getCaptureEventParams( tracker, pointerType );
+        var pointsList = tracker.getActivePointersListByType( pointerType ),
+            eventParams;
 
         pointsList.captureCount++;
 
         if ( pointsList.captureCount === 1 ) {
-            // We emulate mouse capture by hanging listeners on the window object.
-            //    (Note we listen on the capture phase so the captured handlers will get called first)
-            $.addEvent(
-                $.MouseTracker.captureElement,
-                eventParams.upName,
-                eventParams.upHandler,
-                true
-            );
-            $.addEvent(
-                $.MouseTracker.captureElement,
-                eventParams.moveName,
-                eventParams.moveHandler,
-                true
-            );
+            if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+                tracker.element.setCapture( true );
+            } else {
+                eventParams = getCaptureEventParams( tracker, $.MouseTracker.havePointerEvents ? 'pointerevent' : pointerType );
+                // We emulate mouse capture by hanging listeners on the document object.
+                //    (Note we listen on the capture phase so the captured handlers will get called first)
+                $.addEvent(
+                    $.MouseTracker.captureElement,
+                    eventParams.upName,
+                    eventParams.upHandler,
+                    true
+                );
+                $.addEvent(
+                    $.MouseTracker.captureElement,
+                    eventParams.moveName,
+                    eventParams.moveHandler,
+                    true
+                );
+            }
         }
     }
 
@@ -4078,27 +4269,31 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @inner
      */
     function releasePointer( tracker, pointerType ) {
-        var delegate = THIS[ tracker.hash ],
-            pointsList = tracker.getActivePointersListByType( pointerType ),
-            eventParams = getCaptureEventParams( tracker, pointerType );
+        var pointsList = tracker.getActivePointersListByType( pointerType ),
+            eventParams;
 
         pointsList.captureCount--;
 
         if ( pointsList.captureCount === 0 ) {
-            // We emulate mouse capture by hanging listeners on the window object.
-            //    (Note we listen on the capture phase so the captured handlers will get called first)
-            $.removeEvent(
-                $.MouseTracker.captureElement,
-                eventParams.moveName,
-                eventParams.moveHandler,
-                true
-            );
-            $.removeEvent(
-                $.MouseTracker.captureElement,
-                eventParams.upName,
-                eventParams.upHandler,
-                true
-            );
+            if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+                tracker.element.releaseCapture();
+            } else {
+                eventParams = getCaptureEventParams( tracker, $.MouseTracker.havePointerEvents ? 'pointerevent' : pointerType );
+                // We emulate mouse capture by hanging listeners on the document object.
+                //    (Note we listen on the capture phase so the captured handlers will get called first)
+                $.removeEvent(
+                    $.MouseTracker.captureElement,
+                    eventParams.moveName,
+                    eventParams.moveHandler,
+                    true
+                );
+                $.removeEvent(
+                    $.MouseTracker.captureElement,
+                    eventParams.upName,
+                    eventParams.upHandler,
+                    true
+                );
+            }
         }
     }
 
@@ -4201,17 +4396,77 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @private
      * @inner
      */
+    function onKeyDown( tracker, event ) {
+        //$.console.log( "keydown %s %s %s %s %s", event.keyCode, event.charCode, event.ctrlKey, event.shiftKey, event.altKey );
+        var propagate;
+        if ( tracker.keyDownHandler ) {
+            event = $.getEvent( event );
+            propagate = tracker.keyDownHandler(
+                {
+                    eventSource:          tracker,
+                    keyCode:              event.keyCode ? event.keyCode : event.charCode,
+                    ctrl:                 event.ctrlKey,
+                    shift:                event.shiftKey,
+                    alt:                  event.altKey,
+                    meta:                 event.metaKey,
+                    originalEvent:        event,
+                    preventDefaultAction: false,
+                    userData:             tracker.userData
+                }
+            );
+            if ( !propagate ) {
+                $.cancelEvent( event );
+            }
+        }
+    }
+
+
+    /**
+     * @private
+     * @inner
+     */
+    function onKeyUp( tracker, event ) {
+        //$.console.log( "keyup %s %s %s %s %s", event.keyCode, event.charCode, event.ctrlKey, event.shiftKey, event.altKey );
+        var propagate;
+        if ( tracker.keyUpHandler ) {
+            event = $.getEvent( event );
+            propagate = tracker.keyUpHandler(
+                {
+                    eventSource:          tracker,
+                    keyCode:              event.keyCode ? event.keyCode : event.charCode,
+                    ctrl:                 event.ctrlKey,
+                    shift:                event.shiftKey,
+                    alt:                  event.altKey,
+                    meta:                 event.metaKey,
+                    originalEvent:        event,
+                    preventDefaultAction: false,
+                    userData:             tracker.userData
+                }
+            );
+            if ( !propagate ) {
+                $.cancelEvent( event );
+            }
+        }
+    }
+
+
+    /**
+     * @private
+     * @inner
+     */
     function onKeyPress( tracker, event ) {
-        //console.log( "keypress %s %s %s %s %s", event.keyCode, event.charCode, event.ctrlKey, event.shiftKey, event.altKey );
+        //$.console.log( "keypress %s %s %s %s %s", event.keyCode, event.charCode, event.ctrlKey, event.shiftKey, event.altKey );
         var propagate;
         if ( tracker.keyHandler ) {
             event = $.getEvent( event );
             propagate = tracker.keyHandler(
                 {
                     eventSource:          tracker,
-                    position:             getMouseRelative( event, tracker.element ),
                     keyCode:              event.keyCode ? event.keyCode : event.charCode,
+                    ctrl:                 event.ctrlKey,
                     shift:                event.shiftKey,
+                    alt:                  event.altKey,
+                    meta:                 event.metaKey,
                     originalEvent:        event,
                     preventDefaultAction: false,
                     userData:             tracker.userData
@@ -4373,19 +4628,39 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
 
 
     /**
+     * Only used on IE 8
+     *
+     * @private
+     * @inner
+     */
+    function onMouseEnter( tracker, event ) {
+        event = $.getEvent( event );
+
+        handleMouseEnter( tracker, event );
+    }
+
+
+    /**
      * @private
      * @inner
      */
     function onMouseOver( tracker, event ) {
-        var gPoint;
-
         event = $.getEvent( event );
 
-        if ( this === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
+        if ( event.currentTarget === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
             return;
         }
 
-        gPoint = {
+        handleMouseEnter( tracker, event );
+    }
+
+
+    /**
+     * @private
+     * @inner
+     */
+    function handleMouseEnter( tracker, event ) {
+        var gPoint = {
             id: $.MouseTracker.mousePointerId,
             type: 'mouse',
             isPrimary: true,
@@ -4398,19 +4673,39 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
 
 
     /**
+     * Only used on IE 8
+     *
+     * @private
+     * @inner
+     */
+    function onMouseLeave( tracker, event ) {
+        event = $.getEvent( event );
+
+        handleMouseExit( tracker, event );
+    }
+
+
+    /**
      * @private
      * @inner
      */
     function onMouseOut( tracker, event ) {
-        var gPoint;
-
         event = $.getEvent( event );
 
-        if ( this === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
+        if ( event.currentTarget === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
             return;
         }
 
-        gPoint = {
+        handleMouseExit( tracker, event );
+    }
+
+
+    /**
+     * @private
+     * @inner
+     */
+    function handleMouseExit( tracker, event ) {
+        var gPoint = {
             id: $.MouseTracker.mousePointerId,
             type: 'mouse',
             isPrimary: true,
@@ -4419,6 +4714,31 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         };
 
         updatePointersExit( tracker, event, [ gPoint ] );
+    }
+
+
+    /**
+     * Returns a W3C DOM level 3 standard button value given an event.button property:
+     *   -1 == none, 0 == primary/left, 1 == middle, 2 == secondary/right, 3 == X1/back, 4 == X2/forward, 5 == eraser (pen)
+     * @private
+     * @inner
+     */
+    function getStandardizedButton( button ) {
+        if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+            // On IE 8, 0 == none, 1 == left, 2 == right, 3 == left and right, 4 == middle, 5 == left and middle, 6 == right and middle, 7 == all three
+            // TODO: Support chorded (multiple) button presses on IE 8?
+            if ( button === 1 ) {
+                return 0;
+            } else if ( button === 2 ) {
+                return 2;
+            } else if ( button === 4 ) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else {
+            return button;
+        }
     }
 
 
@@ -4439,7 +4759,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             currentTime: $.now()
         };
 
-        if ( updatePointersDown( tracker, event, [ gPoint ], event.button ) ) {
+        if ( updatePointersDown( tracker, event, [ gPoint ], getStandardizedButton( event.button ) ) ) {
             $.stopEvent( event );
             capturePointer( tracker, 'mouse' );
         }
@@ -4488,10 +4808,11 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             currentTime: $.now()
         };
 
-        if ( updatePointersUp( tracker, event, [ gPoint ], event.button ) ) {
+        if ( updatePointersUp( tracker, event, [ gPoint ], getStandardizedButton( event.button ) ) ) {
             releasePointer( tracker, 'mouse' );
         }
     }
+
 
     /**
      * @private
@@ -4540,45 +4861,24 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @private
      * @inner
      */
-    function onTouchEnter( tracker, event ) {
+    function abortTouchContacts( tracker, event, pointsList ) {
         var i,
-            touchCount = event.changedTouches.length,
-            gPoints = [];
+            gPointCount = pointsList.getLength(),
+            abortGPoints = [];
 
-        for ( i = 0; i < touchCount; i++ ) {
-            gPoints.push( {
-                id: event.changedTouches[ i ].identifier,
-                type: 'touch',
-                // isPrimary not set - let the updatePointers functions determine it
-                currentPos: getMouseAbsolute( event.changedTouches[ i ] ),
-                currentTime: $.now()
-            } );
+        for ( i = 0; i < gPointCount; i++ ) {
+            abortGPoints.push( pointsList.getByIndex( i ) );
         }
 
-        updatePointersEnter( tracker, event, gPoints );
-    }
-
-
-    /**
-     * @private
-     * @inner
-     */
-    function onTouchLeave( tracker, event ) {
-        var i,
-            touchCount = event.changedTouches.length,
-            gPoints = [];
-
-        for ( i = 0; i < touchCount; i++ ) {
-            gPoints.push( {
-                id: event.changedTouches[ i ].identifier,
-                type: 'touch',
-                // isPrimary not set - let the updatePointers functions determine it
-                currentPos: getMouseAbsolute( event.changedTouches[ i ] ),
-                currentTime: $.now()
-            } );
+        if ( abortGPoints.length > 0 ) {
+            // simulate touchend
+            updatePointersUp( tracker, event, abortGPoints, 0 ); // 0 means primary button press/release or touch contact
+            // release pointer capture
+            pointsList.captureCount = 1;
+            releasePointer( tracker, 'touch' );
+            // simulate touchleave
+            updatePointersExit( tracker, event, abortGPoints );
         }
-
-        updatePointersExit( tracker, event, gPoints );
     }
 
 
@@ -4589,10 +4889,18 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     function onTouchStart( tracker, event ) {
         var time,
             i,
+            j,
             touchCount = event.changedTouches.length,
-            gPoints = [];
+            gPoints = [],
+            parentGPoints,
+            pointsList = tracker.getActivePointersListByType( 'touch' );
 
         time = $.now();
+
+        if ( pointsList.getLength() > event.touches.length - touchCount ) {
+            $.console.warn('Tracked touch contact count doesn\'t match event.touches.length. Removing all tracked touch pointers.');
+            abortTouchContacts( tracker, event, pointsList );
+        }
 
         for ( i = 0; i < touchCount; i++ ) {
             gPoints.push( {
@@ -4604,9 +4912,24 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             } );
         }
 
-        // simulate touchenter if not natively available
-        if ( !$.MouseTracker.haveTouchEnter ) {
-            updatePointersEnter( tracker, event, gPoints );
+        // simulate touchenter on our tracked element
+        updatePointersEnter( tracker, event, gPoints );
+
+        // simulate touchenter on our tracked element's tracked ancestor elements
+        for ( i = 0; i < MOUSETRACKERS.length; i++ ) {
+            if ( MOUSETRACKERS[ i ] !== tracker && MOUSETRACKERS[ i ].isTracking() && isParentChild( MOUSETRACKERS[ i ].element, tracker.element ) ) {
+                parentGPoints = [];
+                for ( j = 0; j < touchCount; j++ ) {
+                    parentGPoints.push( {
+                        id: event.changedTouches[ j ].identifier,
+                        type: 'touch',
+                        // isPrimary not set - let the updatePointers functions determine it
+                        currentPos: getMouseAbsolute( event.changedTouches[ j ] ),
+                        currentTime: time
+                    } );
+                }
+                updatePointersEnter( MOUSETRACKERS[ i ], event, parentGPoints );
+            }
         }
 
         if ( updatePointersDown( tracker, event, gPoints, 0 ) ) { // 0 means primary button press/release or touch contact
@@ -4647,8 +4970,10 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     function handleTouchEnd( tracker, event ) {
         var time,
             i,
+            j,
             touchCount = event.changedTouches.length,
-            gPoints = [];
+            gPoints = [],
+            parentGPoints;
 
         time = $.now();
 
@@ -4666,9 +4991,24 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
             releasePointer( tracker, 'touch' );
         }
 
-        // simulate touchleave if not natively available
-        if ( !$.MouseTracker.haveTouchEnter && touchCount > 0 ) {
-            updatePointersExit( tracker, event, gPoints );
+        // simulate touchleave on our tracked element
+        updatePointersExit( tracker, event, gPoints );
+
+        // simulate touchleave on our tracked element's tracked ancestor elements
+        for ( i = 0; i < MOUSETRACKERS.length; i++ ) {
+            if ( MOUSETRACKERS[ i ] !== tracker && MOUSETRACKERS[ i ].isTracking() && isParentChild( MOUSETRACKERS[ i ].element, tracker.element ) ) {
+                parentGPoints = [];
+                for ( j = 0; j < touchCount; j++ ) {
+                    parentGPoints.push( {
+                        id: event.changedTouches[ j ].identifier,
+                        type: 'touch',
+                        // isPrimary not set - let the updatePointers functions determine it
+                        currentPos: getMouseAbsolute( event.changedTouches[ j ] ),
+                        currentTime: time
+                    } );
+                }
+                updatePointersExit( MOUSETRACKERS[ i ], event, parentGPoints );
+            }
         }
 
         $.cancelEvent( event );
@@ -4771,7 +5111,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     function onPointerOver( tracker, event ) {
         var gPoint;
 
-        if ( this === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
+        if ( event.currentTarget === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
             return;
         }
 
@@ -4794,7 +5134,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
     function onPointerOut( tracker, event ) {
         var gPoint;
 
-        if ( this === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
+        if ( event.currentTarget === event.relatedTarget || isParentChild( event.currentTarget, event.relatedTarget ) ) {
             return;
         }
 
@@ -4808,6 +5148,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
 
         updatePointersExit( tracker, event, [ gPoint ] );
     }
+
 
     /**
      * @private
@@ -4826,7 +5167,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
 
         if ( updatePointersDown( tracker, event, [ gPoint ], event.button ) ) {
             $.stopEvent( event );
-            capturePointer( tracker, 'pointer' );
+            capturePointer( tracker, gPoint.type );
         }
 
         if ( tracker.clickHandler || tracker.dblClickHandler || tracker.pressHandler || tracker.dragHandler || tracker.dragEndHandler || tracker.pinchHandler ) {
@@ -4876,7 +5217,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         };
 
         if ( updatePointersUp( tracker, event, [ gPoint ], event.button ) ) {
-            releasePointer( tracker, 'pointer' );
+            releasePointer( tracker, gPoint.type );
         }
     }
 
@@ -5061,6 +5402,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                         pointerType:          curGPoint.type,
                         position:             getPointRelativeToAbsolute( curGPoint.currentPos, tracker.element ),
                         buttons:              pointsList.buttons,
+                        pointers:             tracker.getActivePointerCount(),
                         insideElementPressed: curGPoint.insideElementPressed,
                         buttonDownAny:        pointsList.buttons !== 0,
                         isTouchEvent:         curGPoint.type === 'touch',
@@ -5124,6 +5466,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
                         pointerType:          curGPoint.type,
                         position:             getPointRelativeToAbsolute( curGPoint.currentPos, tracker.element ),
                         buttons:              pointsList.buttons,
+                        pointers:             tracker.getActivePointerCount(),
                         insideElementPressed: updateGPoint ? updateGPoint.insideElementPressed : false,
                         buttonDownAny:        pointsList.buttons !== 0,
                         isTouchEvent:         curGPoint.type === 'touch',
@@ -5152,7 +5495,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @param {Array.<OpenSeadragon.MouseTracker.GesturePoint>} gPoints
      *      Gesture points associated with the event.
      * @param {Number} buttonChanged
-     *      The button involved in the event: -1: none, 0: primary, 1: aux, 2: secondary, 3: X1, 4: X2, 5: pen eraser.
+     *      The button involved in the event: -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
      *      Note on chorded button presses (a button pressed when another button is already pressed): In the W3C Pointer Events model, 
      *      only one pointerdown/pointerup event combo is fired. Chorded button state changes instead fire pointermove events.
      *
@@ -5170,30 +5513,71 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         if ( typeof event.buttons !== 'undefined' ) {
             pointsList.buttons = event.buttons;
         } else {
-            if ( buttonChanged === 0 ) {
-                // Primary
-                pointsList.buttons |= 1;
-            } else if ( buttonChanged === 1 ) {
-                // Aux
-                pointsList.buttons |= 4;
-            } else if ( buttonChanged === 2 ) {
-                // Secondary
-                pointsList.buttons |= 2;
-            } else if ( buttonChanged === 3 ) {
-                // X1 (Back)
-                pointsList.buttons |= 8;
-            } else if ( buttonChanged === 4 ) {
-                // X2 (Forward)
-                pointsList.buttons |= 16;
-            } else if ( buttonChanged === 5 ) {
-                // Pen Eraser
-                pointsList.buttons |= 32;
+            if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+                if ( buttonChanged === 0 ) {
+                    // Primary
+                    pointsList.buttons += 1;
+                } else if ( buttonChanged === 1 ) {
+                    // Aux
+                    pointsList.buttons += 4;
+                } else if ( buttonChanged === 2 ) {
+                    // Secondary
+                    pointsList.buttons += 2;
+                } else if ( buttonChanged === 3 ) {
+                    // X1 (Back)
+                    pointsList.buttons += 8;
+                } else if ( buttonChanged === 4 ) {
+                    // X2 (Forward)
+                    pointsList.buttons += 16;
+                } else if ( buttonChanged === 5 ) {
+                    // Pen Eraser
+                    pointsList.buttons += 32;
+                }
+            } else {
+                if ( buttonChanged === 0 ) {
+                    // Primary
+                    pointsList.buttons |= 1;
+                } else if ( buttonChanged === 1 ) {
+                    // Aux
+                    pointsList.buttons |= 4;
+                } else if ( buttonChanged === 2 ) {
+                    // Secondary
+                    pointsList.buttons |= 2;
+                } else if ( buttonChanged === 3 ) {
+                    // X1 (Back)
+                    pointsList.buttons |= 8;
+                } else if ( buttonChanged === 4 ) {
+                    // X2 (Forward)
+                    pointsList.buttons |= 16;
+                } else if ( buttonChanged === 5 ) {
+                    // Pen Eraser
+                    pointsList.buttons |= 32;
+                }
             }
         }
 
         // Only capture and track primary button, pen, and touch contacts
-        //if ( buttonChanged !== 0 ) {
-        if ( buttonChanged !== 0 && buttonChanged !== 1 ) { //TODO Remove this IE8 compatibility and use the commented line above
+        if ( buttonChanged !== 0 ) {
+            // Aux Press
+            if ( tracker.nonPrimaryPressHandler ) {
+                propagate = tracker.nonPrimaryPressHandler(
+                    {
+                        eventSource:          tracker,
+                        pointerType:          gPoints[ 0 ].type,
+                        position:             getPointRelativeToAbsolute( gPoints[ 0 ].currentPos, tracker.element ),
+                        button:               buttonChanged,
+                        buttons:              pointsList.buttons,
+                        isTouchEvent:         gPoints[ 0 ].type === 'touch',
+                        originalEvent:        event,
+                        preventDefaultAction: false,
+                        userData:             tracker.userData
+                    }
+                );
+                if ( propagate === false ) {
+                    $.cancelEvent( event );
+                }
+            }
+
             return false;
         }
 
@@ -5273,7 +5657,7 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
      * @param {Array.<OpenSeadragon.MouseTracker.GesturePoint>} gPoints
      *      Gesture points associated with the event.
      * @param {Number} buttonChanged
-     *      The button involved in the event: -1: none, 0: primary, 1: aux, 2: secondary, 3: X1, 4: X2, 5: pen eraser.
+     *      The button involved in the event: -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
      *      Note on chorded button presses (a button pressed when another button is already pressed): In the W3C Pointer Events model, 
      *      only one pointerdown/pointerup event combo is fired. Chorded button state changes instead fire pointermove events.
      *
@@ -5297,30 +5681,71 @@ $.EventSource.prototype = /** @lends OpenSeadragon.EventSource.prototype */{
         if ( typeof event.buttons !== 'undefined' ) {
             pointsList.buttons = event.buttons;
         } else {
-            if ( buttonChanged === 0 ) {
-                // Primary
-                pointsList.buttons ^= ~1;
-            } else if ( buttonChanged === 1 ) {
-                // Aux
-                pointsList.buttons ^= ~4;
-            } else if ( buttonChanged === 2 ) {
-                // Secondary
-                pointsList.buttons ^= ~2;
-            } else if ( buttonChanged === 3 ) {
-                // X1 (Back)
-                pointsList.buttons ^= ~8;
-            } else if ( buttonChanged === 4 ) {
-                // X2 (Forward)
-                pointsList.buttons ^= ~16;
-            } else if ( buttonChanged === 5 ) {
-                // Pen Eraser
-                pointsList.buttons ^= ~32;
+            if ( $.Browser.vendor === $.BROWSERS.IE && $.Browser.version < 9 ) {
+                if ( buttonChanged === 0 ) {
+                    // Primary
+                    pointsList.buttons -= 1;
+                } else if ( buttonChanged === 1 ) {
+                    // Aux
+                    pointsList.buttons -= 4;
+                } else if ( buttonChanged === 2 ) {
+                    // Secondary
+                    pointsList.buttons -= 2;
+                } else if ( buttonChanged === 3 ) {
+                    // X1 (Back)
+                    pointsList.buttons -= 8;
+                } else if ( buttonChanged === 4 ) {
+                    // X2 (Forward)
+                    pointsList.buttons -= 16;
+                } else if ( buttonChanged === 5 ) {
+                    // Pen Eraser
+                    pointsList.buttons -= 32;
+                }
+            } else {
+                if ( buttonChanged === 0 ) {
+                    // Primary
+                    pointsList.buttons ^= ~1;
+                } else if ( buttonChanged === 1 ) {
+                    // Aux
+                    pointsList.buttons ^= ~4;
+                } else if ( buttonChanged === 2 ) {
+                    // Secondary
+                    pointsList.buttons ^= ~2;
+                } else if ( buttonChanged === 3 ) {
+                    // X1 (Back)
+                    pointsList.buttons ^= ~8;
+                } else if ( buttonChanged === 4 ) {
+                    // X2 (Forward)
+                    pointsList.buttons ^= ~16;
+                } else if ( buttonChanged === 5 ) {
+                    // Pen Eraser
+                    pointsList.buttons ^= ~32;
+                }
             }
         }
 
         // Only capture and track primary button, pen, and touch contacts
-        //if ( buttonChanged !== 0 ) {
-        if ( buttonChanged !== 0 && buttonChanged !== 1 ) { //TODO Remove this IE8 compatibility and use the commented line above
+        if ( buttonChanged !== 0 ) {
+            // Aux Release
+            if ( tracker.nonPrimaryReleaseHandler ) {
+                propagate = tracker.nonPrimaryReleaseHandler(
+                    {
+                        eventSource:           tracker,
+                        pointerType:           gPoints[ 0 ].type,
+                        position:              getPointRelativeToAbsolute(  gPoints[ 0 ].currentPos, tracker.element ),
+                        button:                buttonChanged,
+                        buttons:               pointsList.buttons,
+                        isTouchEvent:          gPoints[ 0 ].type === 'touch',
+                        originalEvent:         event,
+                        preventDefaultAction:  false,
+                        userData:              tracker.userData
+                    }
+                );
+                if ( propagate === false ) {
+                    $.cancelEvent( event );
+                }
+            }
+
             return false;
         }
 
@@ -6252,14 +6677,6 @@ $.Viewer = function( options ) {
          */
         container:      null,
         /**
-         * A &lt;textarea&gt; element, the element where keyboard events are handled.<br><br>
-         * Child element of {@link OpenSeadragon.Viewer#container},
-         * positioned below {@link OpenSeadragon.Viewer#canvas}. 
-         * @member {Element} keyboardCommandArea
-         * @memberof OpenSeadragon.Viewer#
-         */
-        keyboardCommandArea: null,
-        /**
          * A &lt;div&gt; element, the element where user-input events are handled for panning and zooming.<br><br>
          * Child element of {@link OpenSeadragon.Viewer#container},
          * positioned on top of {@link OpenSeadragon.Viewer#keyboardCommandArea}.<br><br>
@@ -6406,7 +6823,6 @@ $.Viewer = function( options ) {
 
     this.element              = this.element || document.getElementById( this.id );
     this.canvas               = $.makeNeutralElement( "div" );
-    this.keyboardCommandArea  = $.makeNeutralElement( "textarea" );
     this.drawersContainer     = $.makeNeutralElement( "div" );
     this.overlaysContainer    = $.makeNeutralElement( "div" );
 
@@ -6420,6 +6836,7 @@ $.Viewer = function( options ) {
         style.left     = "0px";
     }(this.canvas.style));
     $.setElementTouchActionNone( this.canvas );
+    this.canvas.tabIndex = options.tabIndex || 0;
 
     //the container is created through applying the ControlDock constructor above
     this.container.className = "openseadragon-container";
@@ -6433,19 +6850,7 @@ $.Viewer = function( options ) {
         style.textAlign = "left";  // needed to protect against
     }( this.container.style ));
 
-    this.keyboardCommandArea.className = "keyboard-command-area";
-    (function( style ){
-        style.width    = "100%";
-        style.height   = "100%";
-        style.overflow = "hidden";
-        style.position = "absolute";
-        style.top      = "0px";
-        style.left     = "0px";
-        style.resize   = "none";
-    }(  this.keyboardCommandArea.style ));
-
     this.container.insertBefore( this.canvas, this.container.firstChild );
-    this.container.insertBefore( this.keyboardCommandArea, this.container.firstChild );
     this.element.appendChild( this.container );
     this.canvas.appendChild( this.drawersContainer );
     this.canvas.appendChild( this.overlaysContainer );
@@ -6458,96 +6863,39 @@ $.Viewer = function( options ) {
     this.bodyOverflow   = document.body.style.overflow;
     this.docOverflow    = document.documentElement.style.overflow;
 
-    this.keyboardCommandArea.innerTracker = new $.MouseTracker({
-            _this : this,
-            element:            this.keyboardCommandArea,
-            focusHandler:       function( event ){
-                if ( !event.preventDefaultAction ) {
-                    var point    = $.getElementPosition( this.element );
-                    window.scrollTo( 0, point.y );
-                }
-            },
-
-            keyHandler:         function( event ){
-                if ( !event.preventDefaultAction ) {
-                    switch( event.keyCode ){
-                        case 61://=|+
-                            _this.viewport.zoomBy(1.1);
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 45://-|_
-                            _this.viewport.zoomBy(0.9);
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 48://0|)
-                            _this.viewport.goHome();
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 119://w
-                        case 87://W
-                        case 38://up arrow
-                            if ( event.shift ) {
-                                _this.viewport.zoomBy(1.1);
-                            } else {
-                                _this.viewport.panBy(new $.Point(0, -0.05));
-                            }
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 115://s
-                        case 83://S
-                        case 40://down arrow
-                            if ( event.shift ) {
-                                _this.viewport.zoomBy(0.9);
-                            } else {
-                                _this.viewport.panBy(new $.Point(0, 0.05));
-                            }
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 97://a
-                        case 37://left arrow
-                            _this.viewport.panBy(new $.Point(-0.05, 0));
-                            _this.viewport.applyConstraints();
-                            return false;
-                        case 100://d
-                        case 39://right arrow
-                            _this.viewport.panBy(new $.Point(0.05, 0));
-                            _this.viewport.applyConstraints();
-                            return false;
-                        default:
-                            //console.log( 'navigator keycode %s', event.keyCode );
-                            return true;
-                    }
-                }
-            }
-        }).setTracking( true ); // default state
-
-
     this.innerTracker = new $.MouseTracker({
-        element:               this.canvas,
-        clickTimeThreshold:    this.clickTimeThreshold,
-        clickDistThreshold:    this.clickDistThreshold,
-        dblClickTimeThreshold: this.dblClickTimeThreshold,
-        dblClickDistThreshold: this.dblClickDistThreshold,
-        clickHandler:          $.delegate( this, onCanvasClick ),
-        dblClickHandler:       $.delegate( this, onCanvasDblClick ),
-        dragHandler:           $.delegate( this, onCanvasDrag ),
-        dragEndHandler:        $.delegate( this, onCanvasDragEnd ),
-        releaseHandler:        $.delegate( this, onCanvasRelease ),
-        scrollHandler:         $.delegate( this, onCanvasScroll ),
-        pinchHandler:          $.delegate( this, onCanvasPinch )
-    }).setTracking( this.mouseNavEnabled ? true : false ); // default state
+        element:                  this.canvas,
+        startDisabled:            this.mouseNavEnabled ? false : true,
+        clickTimeThreshold:       this.clickTimeThreshold,
+        clickDistThreshold:       this.clickDistThreshold,
+        dblClickTimeThreshold:    this.dblClickTimeThreshold,
+        dblClickDistThreshold:    this.dblClickDistThreshold,
+        keyDownHandler:           $.delegate( this, onCanvasKeyDown ),
+        keyHandler:               $.delegate( this, onCanvasKeyPress ),
+        clickHandler:             $.delegate( this, onCanvasClick ),
+        dblClickHandler:          $.delegate( this, onCanvasDblClick ),
+        dragHandler:              $.delegate( this, onCanvasDrag ),
+        dragEndHandler:           $.delegate( this, onCanvasDragEnd ),
+        enterHandler:             $.delegate( this, onCanvasEnter ),
+        exitHandler:              $.delegate( this, onCanvasExit ),
+        pressHandler:             $.delegate( this, onCanvasPress ),
+        releaseHandler:           $.delegate( this, onCanvasRelease ),
+        nonPrimaryPressHandler:   $.delegate( this, onCanvasNonPrimaryPress ),
+        nonPrimaryReleaseHandler: $.delegate( this, onCanvasNonPrimaryRelease ),
+        scrollHandler:            $.delegate( this, onCanvasScroll ),
+        pinchHandler:             $.delegate( this, onCanvasPinch )
+    });
 
     this.outerTracker = new $.MouseTracker({
         element:               this.container,
+        startDisabled:         this.mouseNavEnabled ? false : true,
         clickTimeThreshold:    this.clickTimeThreshold,
         clickDistThreshold:    this.clickDistThreshold,
         dblClickTimeThreshold: this.dblClickTimeThreshold,
         dblClickDistThreshold: this.dblClickDistThreshold,
         enterHandler:          $.delegate( this, onContainerEnter ),
-        exitHandler:           $.delegate( this, onContainerExit ),
-        pressHandler:          $.delegate( this, onContainerPress ),
-        releaseHandler:        $.delegate( this, onContainerRelease )
-    }).setTracking( this.mouseNavEnabled ? true : false ); // always tracking
+        exitHandler:           $.delegate( this, onContainerExit )
+    });
 
     if( this.toolbar ){
         this.toolbar = new $.ControlDock({ element: this.toolbar });
@@ -6682,9 +7030,13 @@ $.extend( $.Viewer.prototype, $.EventSource.prototype, $.ControlDock.prototype, 
             this.navigator.close();
         }
 
-        this.clearOverlays();
+        if( ! this.preserveOverlays)
+        {
+            this.clearOverlays();
+            this.overlaysContainer.innerHTML = "";
+        }
+
         this.drawersContainer.innerHTML = "";
-        this.overlaysContainer.innerHTML = "";
 
         if ( this.drawer ) {
             this.drawer.destroy();
@@ -6748,9 +7100,6 @@ $.extend( $.Viewer.prototype, $.EventSource.prototype, $.ControlDock.prototype, 
         }
 
         // destroy the mouse trackers
-        if (this.keyboardCommandArea){
-            this.keyboardCommandArea.innerTracker.destroy();
-        }
         if (this.innerTracker){
             this.innerTracker.destroy();
         }
@@ -6763,7 +7112,6 @@ $.extend( $.Viewer.prototype, $.EventSource.prototype, $.ControlDock.prototype, 
 
         // clear all our references to dom objects
         this.canvas = null;
-        this.keyboardCommandArea = null;
         this.container = null;
 
         // clear our reference to the main element - they will need to pass it in again, creating a new viewer
@@ -8111,6 +8459,10 @@ function openTileSource( viewer, source ) {
         _this.viewport.resetContentSize( _this.source.dimensions );
     }
 
+    if( _this.preserveOverlays ){
+        _this.overlays = _this.currentOverlays;
+    }
+
     _this.source.overlays = _this.source.overlays || [];
 
     _this.drawer = new $.Drawer({
@@ -8405,8 +8757,101 @@ function onBlur(){
 
 }
 
+function onCanvasKeyDown( event ) {
+    if ( !event.preventDefaultAction && !event.ctrl && !event.alt && !event.meta ) {
+        switch( event.keyCode ){
+            case 38://up arrow
+                if ( event.shift ) {
+                    this.viewport.zoomBy(1.1);
+                } else {
+                    this.viewport.panBy(new $.Point(0, -0.05));
+                }
+                this.viewport.applyConstraints();
+                return false;
+            case 40://down arrow
+                if ( event.shift ) {
+                    this.viewport.zoomBy(0.9);
+                } else {
+                    this.viewport.panBy(new $.Point(0, 0.05));
+                }
+                this.viewport.applyConstraints();
+                return false;
+            case 37://left arrow
+                this.viewport.panBy(new $.Point(-0.05, 0));
+                this.viewport.applyConstraints();
+                return false;
+            case 39://right arrow
+                this.viewport.panBy(new $.Point(0.05, 0));
+                this.viewport.applyConstraints();
+                return false;
+            default:
+                //console.log( 'navigator keycode %s', event.keyCode );
+                return true;
+        }
+    } else {
+        return true;
+    }
+}
+
+function onCanvasKeyPress( event ) {
+    if ( !event.preventDefaultAction && !event.ctrl && !event.alt && !event.meta ) {
+        switch( event.keyCode ){
+            case 61://=|+
+                this.viewport.zoomBy(1.1);
+                this.viewport.applyConstraints();
+                return false;
+            case 45://-|_
+                this.viewport.zoomBy(0.9);
+                this.viewport.applyConstraints();
+                return false;
+            case 48://0|)
+                this.viewport.goHome();
+                this.viewport.applyConstraints();
+                return false;
+            case 119://w
+            case 87://W
+                if ( event.shift ) {
+                    this.viewport.zoomBy(1.1);
+                } else {
+                    this.viewport.panBy(new $.Point(0, -0.05));
+                }
+                this.viewport.applyConstraints();
+                return false;
+            case 115://s
+            case 83://S
+                if ( event.shift ) {
+                    this.viewport.zoomBy(0.9);
+                } else {
+                    this.viewport.panBy(new $.Point(0, 0.05));
+                }
+                this.viewport.applyConstraints();
+                return false;
+            case 97://a
+                this.viewport.panBy(new $.Point(-0.05, 0));
+                this.viewport.applyConstraints();
+                return false;
+            case 100://d
+                this.viewport.panBy(new $.Point(0.05, 0));
+                this.viewport.applyConstraints();
+                return false;
+            default:
+                //console.log( 'navigator keycode %s', event.keyCode );
+                return true;
+        }
+    } else {
+        return true;
+    }
+}
+
 function onCanvasClick( event ) {
     var gestureSettings;
+
+    var haveKeyboardFocus = document.activeElement == this.canvas;
+
+    // If we don't have keyboard focus, request it.
+    if ( !haveKeyboardFocus ) {
+        this.canvas.focus();
+    }
 
     if ( !event.preventDefaultAction && this.viewport && event.quick ) {
         gestureSettings = this.gestureSettingsByDeviceType( event.pointerType );
@@ -8563,15 +9008,102 @@ function onCanvasDragEnd( event ) {
     });
 }
 
+function onCanvasEnter( event ) {
+    /**
+     * Raised when a pointer enters the {@link OpenSeadragon.Viewer#canvas} element.
+     *
+     * @event canvas-enter
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {Number} buttons - Current buttons pressed. A combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Number} pointers - Number of pointers (all types) active in the tracked element.
+     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
+     * @property {Boolean} buttonDownAny - Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span>
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'canvas-enter', {
+        tracker: event.eventSource,
+        pointerType: event.pointerType,
+        position: event.position,
+        buttons: event.buttons,
+        pointers: event.pointers,
+        insideElementPressed: event.insideElementPressed,
+        buttonDownAny: event.buttonDownAny,
+        originalEvent: event.originalEvent
+    });
+}
+
+function onCanvasExit( event ) {
+    /**
+     * Raised when a pointer leaves the {@link OpenSeadragon.Viewer#canvas} element.
+     *
+     * @event canvas-exit
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {Number} buttons - Current buttons pressed. A combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Number} pointers - Number of pointers (all types) active in the tracked element.
+     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
+     * @property {Boolean} buttonDownAny - Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span>
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'canvas-exit', {
+        tracker: event.eventSource,
+        pointerType: event.pointerType,
+        position: event.position,
+        buttons: event.buttons,
+        pointers: event.pointers,
+        insideElementPressed: event.insideElementPressed,
+        buttonDownAny: event.buttonDownAny,
+        originalEvent: event.originalEvent
+    });
+}
+
+function onCanvasPress( event ) {
+    /**
+     * Raised when the primary mouse button is pressed or touch starts on the {@link OpenSeadragon.Viewer#canvas} element.
+     *
+     * @event canvas-press
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
+     * @property {Boolean} insideElementReleased - True if the cursor still inside the tracked element when the button was released.
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'canvas-press', {
+        tracker: event.eventSource,
+        pointerType: event.pointerType,
+        position: event.position,
+        insideElementPressed: event.insideElementPressed,
+        insideElementReleased: event.insideElementReleased,
+        originalEvent: event.originalEvent
+    });
+}
+
 function onCanvasRelease( event ) {
     /**
-     * Raised when the mouse button is released or touch ends on the {@link OpenSeadragon.Viewer#canvas} element.
+     * Raised when the primary mouse button is released or touch ends on the {@link OpenSeadragon.Viewer#canvas} element.
      *
      * @event canvas-release
      * @memberof OpenSeadragon.Viewer
      * @type {object}
      * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
      * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
      * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
      * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
      * @property {Boolean} insideElementReleased - True if the cursor still inside the tracked element when the button was released.
@@ -8580,9 +9112,66 @@ function onCanvasRelease( event ) {
      */
     this.raiseEvent( 'canvas-release', {
         tracker: event.eventSource,
+        pointerType: event.pointerType,
         position: event.position,
         insideElementPressed: event.insideElementPressed,
         insideElementReleased: event.insideElementReleased,
+        originalEvent: event.originalEvent
+    });
+}
+
+function onCanvasNonPrimaryPress( event ) {
+    /**
+     * Raised when any non-primary pointer button is pressed on the {@link OpenSeadragon.Viewer#canvas} element.
+     *
+     * @event canvas-nonprimary-press
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
+     * @property {Number} button - Button which caused the event.
+     *      -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
+     * @property {Number} buttons - Current buttons pressed.
+     *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'canvas-nonprimary-press', {
+        tracker: event.eventSource,
+        position: event.position,
+        pointerType: event.pointerType,
+        button: event.button,
+        buttons: event.buttons,
+        originalEvent: event.originalEvent
+    });
+}
+
+function onCanvasNonPrimaryRelease( event ) {
+    /**
+     * Raised when any non-primary pointer button is released on the {@link OpenSeadragon.Viewer#canvas} element.
+     *
+     * @event canvas-nonprimary-release
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {String} pointerType - "mouse", "touch", "pen", etc.
+     * @property {Number} button - Button which caused the event.
+     *      -1: none, 0: primary/left, 1: aux/middle, 2: secondary/right, 3: X1/back, 4: X2/forward, 5: pen eraser.
+     * @property {Number} buttons - Current buttons pressed.
+     *      Combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'canvas-nonprimary-release', {
+        tracker: event.eventSource,
+        position: event.position,
+        pointerType: event.pointerType,
+        button: event.button,
+        buttons: event.buttons,
         originalEvent: event.originalEvent
     });
 }
@@ -8689,8 +9278,38 @@ function onCanvasScroll( event ) {
     return false;
 }
 
+function onContainerEnter( event ) {
+    THIS[ this.hash ].mouseInside = true;
+    abortControlsAutoHide( this );
+    /**
+     * Raised when the cursor enters the {@link OpenSeadragon.Viewer#container} element.
+     *
+     * @event container-enter
+     * @memberof OpenSeadragon.Viewer
+     * @type {object}
+     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
+     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
+     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
+     * @property {Number} buttons - Current buttons pressed. A combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Number} pointers - Number of pointers (all types) active in the tracked element.
+     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
+     * @property {Boolean} buttonDownAny - Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span>
+     * @property {Object} originalEvent - The original DOM event.
+     * @property {?Object} userData - Arbitrary subscriber-defined object.
+     */
+    this.raiseEvent( 'container-enter', {
+        tracker: event.eventSource,
+        position: event.position,
+        buttons: event.buttons,
+        pointers: event.pointers,
+        insideElementPressed: event.insideElementPressed,
+        buttonDownAny: event.buttonDownAny,
+        originalEvent: event.originalEvent
+    });
+}
+
 function onContainerExit( event ) {
-    if ( !event.insideElementPressed ) {
+    if ( event.pointers < 1 ) {
         THIS[ this.hash ].mouseInside = false;
         if ( !THIS[ this.hash ].animating ) {
             beginControlsAutoHide( this );
@@ -8706,6 +9325,7 @@ function onContainerExit( event ) {
      * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
      * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
      * @property {Number} buttons - Current buttons pressed. A combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
+     * @property {Number} pointers - Number of pointers (all types) active in the tracked element.
      * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
      * @property {Boolean} buttonDownAny - Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span>
      * @property {Object} originalEvent - The original DOM event.
@@ -8715,71 +9335,7 @@ function onContainerExit( event ) {
         tracker: event.eventSource,
         position: event.position,
         buttons: event.buttons,
-        insideElementPressed: event.insideElementPressed,
-        buttonDownAny: event.buttonDownAny,
-        originalEvent: event.originalEvent
-    });
-}
-
-function onContainerPress( event ) {
-    if ( event.pointerType === 'touch' && !$.MouseTracker.haveTouchEnter ) {
-        THIS[ this.hash ].mouseInside = true;
-        abortControlsAutoHide( this );
-    }
-}
-
-function onContainerRelease( event ) {
-    if ( !event.insideElementReleased || ( event.pointerType === 'touch' && !$.MouseTracker.haveTouchEnter ) ) {
-        THIS[ this.hash ].mouseInside = false;
-        if ( !THIS[ this.hash ].animating ) {
-            beginControlsAutoHide( this );
-        }
-    }
-    /**
-     * Raised when the mouse button is released or touch ends on the {@link OpenSeadragon.Viewer#container} element.
-     *
-     * @event container-release
-     * @memberof OpenSeadragon.Viewer
-     * @type {object}
-     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
-     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
-     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
-     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
-     * @property {Boolean} insideElementReleased - True if the cursor still inside the tracked element when the button was released.
-     * @property {Object} originalEvent - The original DOM event.
-     * @property {?Object} userData - Arbitrary subscriber-defined object.
-     */
-    this.raiseEvent( 'container-release', {
-        tracker: event.eventSource,
-        position: event.position,
-        insideElementPressed: event.insideElementPressed,
-        insideElementReleased: event.insideElementReleased,
-        originalEvent: event.originalEvent
-    });
-}
-
-function onContainerEnter( event ) {
-    THIS[ this.hash ].mouseInside = true;
-    abortControlsAutoHide( this );
-    /**
-     * Raised when the cursor enters the {@link OpenSeadragon.Viewer#container} element.
-     *
-     * @event container-enter
-     * @memberof OpenSeadragon.Viewer
-     * @type {object}
-     * @property {OpenSeadragon.Viewer} eventSource - A reference to the Viewer which raised this event.
-     * @property {OpenSeadragon.MouseTracker} tracker - A reference to the MouseTracker which originated this event.
-     * @property {OpenSeadragon.Point} position - The position of the event relative to the tracked element.
-     * @property {Number} buttons - Current buttons pressed. A combination of bit flags 0: none, 1: primary (or touch contact), 2: secondary, 4: aux (often middle), 8: X1 (often back), 16: X2 (often forward), 32: pen eraser.
-     * @property {Boolean} insideElementPressed - True if the left mouse button is currently being pressed and was initiated inside the tracked element, otherwise false.
-     * @property {Boolean} buttonDownAny - Was the button down anywhere in the screen during the event. <span style="color:red;">Deprecated. Use buttons instead.</span>
-     * @property {Object} originalEvent - The original DOM event.
-     * @property {?Object} userData - Arbitrary subscriber-defined object.
-     */
-    this.raiseEvent( 'container-enter', {
-        tracker: event.eventSource,
-        position: event.position,
-        buttons: event.buttons,
+        pointers: event.pointers,
         insideElementPressed: event.insideElementPressed,
         buttonDownAny: event.buttonDownAny,
         originalEvent: event.originalEvent
@@ -9147,8 +9703,7 @@ $.Navigator = function( options ){
     var viewer      = options.viewer,
         _this = this,
         viewerSize,
-        navigatorSize,
-        unneededElement;
+        navigatorSize;
 
     //We may need to create a new element and id if they did not
     //provide the id for the existing element
@@ -9194,6 +9749,7 @@ $.Navigator = function( options ){
         sizeRatio:     $.DEFAULT_SETTINGS.navigatorSizeRatio
     }, options, {
         element:                this.element,
+        tabIndex:               -1, // No keyboard navigation, omit from tab order
         //These need to be overridden to prevent recursion since
         //the navigator is a viewer and a viewer has a navigator
         showNavigator:          false,
@@ -9263,24 +9819,6 @@ $.Navigator = function( options ){
     this.displayRegionContainer.style.width = "100%";
     this.displayRegionContainer.style.height = "100%";
 
-    this.element.innerTracker = new $.MouseTracker({
-        element:         this.element,
-        dragHandler:     $.delegate( this, onCanvasDrag ),
-        clickHandler:    $.delegate( this, onCanvasClick ),
-        releaseHandler:  $.delegate( this, onCanvasRelease ),
-        scrollHandler:   $.delegate( this, onCanvasScroll )
-    }).setTracking( true );
-
-    /*this.displayRegion.outerTracker = new $.MouseTracker({
-        element:            this.container,
-        clickTimeThreshold: this.clickTimeThreshold,
-        clickDistThreshold: this.clickDistThreshold,
-        enterHandler:       $.delegate( this, onContainerEnter ),
-        exitHandler:        $.delegate( this, onContainerExit ),
-        releaseHandler:     $.delegate( this, onContainerRelease )
-    }).setTracking( this.mouseNavEnabled ? true : false ); // always tracking*/
-
-
     viewer.addControl(
         this.element,
         options.controlOptions
@@ -9306,10 +9844,6 @@ $.Navigator = function( options ){
 
     this.displayRegionContainer.appendChild(this.displayRegion);
     this.element.getElementsByTagName('div')[0].appendChild(this.displayRegionContainer);
-    unneededElement = this.element.getElementsByTagName('textarea')[0];
-    if (unneededElement) {
-        unneededElement.parentNode.removeChild(unneededElement);
-    }
 
     if (options.navigatorRotate)
     {
@@ -9318,8 +9852,18 @@ $.Navigator = function( options ){
             _setTransformRotate(_this.displayRegion, -args.degrees);
             _this.viewport.setRotation(args.degrees);
         });
-
     }
+
+    // Remove the base class' (Viewer's) innerTracker and replace it with our own
+    this.innerTracker.destroy();
+    this.innerTracker = new $.MouseTracker({
+        element:         this.element,
+        dragHandler:     $.delegate( this, onCanvasDrag ),
+        clickHandler:    $.delegate( this, onCanvasClick ),
+        releaseHandler:  $.delegate( this, onCanvasRelease ),
+        scrollHandler:   $.delegate( this, onCanvasScroll )
+    });
+
 };
 
 $.extend( $.Navigator.prototype, $.EventSource.prototype, $.Viewer.prototype, /** @lends OpenSeadragon.Navigator.prototype */{
@@ -10518,8 +11062,10 @@ $.extend( $.DziTileSource.prototype, $.TileSource.prototype, /** @lends OpenSead
         var ns;
         if ( data.Image ) {
             ns = data.Image.xmlns;
-        } else if ( data.documentElement && "Image" == data.documentElement.localName ) {
-            ns = data.documentElement.namespaceURI;
+        } else if ( data.documentElement) {
+            if ("Image" == data.documentElement.localName || "Image" == data.documentElement.tagName) {
+                ns = data.documentElement.namespaceURI;
+            }
         }
 
         return ( "http://schemas.microsoft.com/deepzoom/2008" == ns ||
@@ -10632,7 +11178,7 @@ function configureFromXML( tileSource, xmlDoc ){
     }
 
     var root           = xmlDoc.documentElement,
-        rootName       = root.localName,
+        rootName       = root.localName || root.tagName,
         ns             = xmlDoc.documentElement.namespaceURI,
         configuration  = null,
         displayRects   = [],
@@ -10645,7 +11191,10 @@ function configureFromXML( tileSource, xmlDoc ){
     if ( rootName == "Image" ) {
 
         try {
-            sizeNode = root.getElementsByTagNameNS(ns, "Size" )[ 0 ];
+            sizeNode = root.getElementsByTagName("Size" )[ 0 ];
+            if (sizeNode === undefined) {
+                sizeNode = root.getElementsByTagNameNS(ns, "Size" )[ 0 ];
+            }
 
             configuration = {
                 Image: {
@@ -10668,11 +11217,17 @@ function configureFromXML( tileSource, xmlDoc ){
                 );
             }
 
-            dispRectNodes = root.getElementsByTagNameNS(ns, "DisplayRect" );
+            dispRectNodes = root.getElementsByTagName("DisplayRect" );
+            if (dispRectNodes === undefined) {
+                dispRectNodes = root.getElementsByTagNameNS(ns, "DisplayRect" )[ 0 ];
+            }
 
             for ( i = 0; i < dispRectNodes.length; i++ ) {
                 dispRectNode = dispRectNodes[ i ];
-                rectNode     = dispRectNode.getElementsByTagNameNS(ns, "Rect" )[ 0 ];
+                rectNode     = dispRectNode.getElementsByTagName("Rect" )[ 0 ];
+                if (rectNode === undefined) {
+                    rectNode = dispRectNode.getElementsByTagNameNS(ns, "Rect" )[ 0 ];
+                }
 
                 displayRects.push({
                     Rect: {
@@ -12167,7 +12722,7 @@ $.Button = function( options ) {
             return true;
         }
 
-    }).setTracking( true );
+    });
 
     outTo( this, $.ButtonState.REST );
 };
@@ -12426,23 +12981,7 @@ $.ButtonGroup = function( options ) {
                 }
             }
         },
-        pressHandler: function ( event ) {
-            if ( event.pointerType === 'touch' && !$.MouseTracker.haveTouchEnter ) {
-                var i;
-                for ( i = 0; i < _this.buttons.length; i++ ) {
-                    _this.buttons[ i ].notifyGroupEnter();
-                }
-            }
-        },
-        releaseHandler: function ( event ) {
-            var i;
-            if ( !event.insideElementReleased || ( event.pointerType === 'touch' && !$.MouseTracker.haveTouchEnter ) ) {
-                for ( i = 0; i < _this.buttons.length; i++ ) {
-                    _this.buttons[ i ].notifyGroupExit();
-                }
-            }
-        }
-    }).setTracking( true );
+    });
 };
 
 $.ButtonGroup.prototype = /** @lends OpenSeadragon.ButtonGroup.prototype */{
@@ -12868,8 +13407,9 @@ $.ReferenceStrip = function ( options ) {
         scrollHandler:  $.delegate( this, onStripScroll ),
         enterHandler:   $.delegate( this, onStripEnter ),
         exitHandler:    $.delegate( this, onStripExit ),
+        keyDownHandler: $.delegate( this, onKeyDown ),
         keyHandler:     $.delegate( this, onKeyPress )
-    } ).setTracking( true );
+    } );
 
     //Controls the position and orientation of the reference strip and sets the
     //appropriate width and height
@@ -12957,7 +13497,7 @@ $.ReferenceStrip = function ( options ) {
                     viewer.goToPage( page );
                 }
             }
-        } ).setTracking( true );
+        } );
 
         this.element.appendChild( element );
 
@@ -13189,8 +13729,10 @@ function loadPanels( strip, viewerSize, scroll ) {
             style.width         = ( strip.panelWidth - 4 ) + 'px';
             style.height        = ( strip.panelHeight - 4 ) + 'px';
 
+            // TODO: What is this for? Future keyboard navigation support?
             miniViewer.displayRegion.innerTracker = new $.MouseTracker( {
-                element: miniViewer.displayRegion
+                element: miniViewer.displayRegion,
+                startDisabled: true
             } );
 
             element.getElementsByTagName( 'div' )[0].appendChild(
@@ -13254,6 +13796,37 @@ function onStripExit( event ) {
 }
 
 
+/**
+ * @private
+ * @inner
+ * @function
+ */
+function onKeyDown( event ) {
+    //console.log( event.keyCode );
+
+    if ( !event.preventDefaultAction && !event.ctrl && !event.alt && !event.meta ) {
+        switch ( event.keyCode ) {
+            case 38: //up arrow
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
+                return false;
+            case 40: //down arrow
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
+                return false;
+            case 37: //left arrow
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
+                return false;
+            case 39: //right arrow
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
+                return false;
+            default:
+                //console.log( 'navigator keycode %s', event.keyCode );
+                return true;
+        }
+    } else {
+        return true;
+    }
+}
+
 
 /**
  * @private
@@ -13263,35 +13836,35 @@ function onStripExit( event ) {
 function onKeyPress( event ) {
     //console.log( event.keyCode );
 
-    switch ( event.keyCode ) {
-        case 61: //=|+
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
-            return false;
-        case 45: //-|_
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
-            return false;
-        case 48: //0|)
-        case 119: //w
-        case 87: //W
-        case 38: //up arrow
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
-            return false;
-        case 115: //s
-        case 83: //S
-        case 40: //down arrow
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
-            return false;
-        case 97: //a
-        case 37: //left arrow
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
-            return false;
-        case 100: //d
-        case 39: //right arrow
-            onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
-            return false;
-        default:
-            //console.log( 'navigator keycode %s', event.keyCode );
-            return true;
+    if ( !event.preventDefaultAction && !event.ctrl && !event.alt && !event.meta ) {
+        switch ( event.keyCode ) {
+            case 61: //=|+
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
+                return false;
+            case 45: //-|_
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
+                return false;
+            case 48: //0|)
+            case 119: //w
+            case 87: //W
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
+                return false;
+            case 115: //s
+            case 83: //S
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
+                return false;
+            case 97: //a
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: -1, shift: null } );
+                return false;
+            case 100: //d
+                onStripScroll.call( this, { eventSource: this.tracker, position: null, scroll: 1, shift: null } );
+                return false;
+            default:
+                //console.log( 'navigator keycode %s', event.keyCode );
+                return true;
+        }
+    } else {
+        return true;
     }
 }
 

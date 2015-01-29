@@ -20,15 +20,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.0/openseadragon-bin-1.2.0.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.0/openseadragon-bin-1.2.0.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                1.2.0
+                1.2.1
             </span>
             <span class="tagline">
             </span>
@@ -72,7 +72,7 @@
 <p>
   To interact via the keyboard, the focus must be on the viewer.
   In this example the focus is set using 
-  <code>document.getElementById('contentDiv').focus(); </code>
+  <code>document.getElementById('contentDiv').querySelector('.openseadragon-canvas').focus();</code>
 </p>
 
 <p>
@@ -88,9 +88,6 @@
     <li><strong>[ - / _, shift+W, shift+up arrow ]</strong> - zoom viewport <strong>out</strong></li>
     <li><strong>[ = / +, shift+S, shift+down arrow ]</strong> - zoom viewport <strong>in</strong></li>
 </ul>
-<p>
-<em>Note that Chrome and Safari do not support the arrow keys for these operations.</em>
-</p>
 
 <div class="description">
     <h3>Keyboard Navigation</h3>
@@ -104,15 +101,16 @@
 </div>
 
 <script type="text/javascript">
-    OpenSeadragon({
+    var viewer = OpenSeadragon({
         id:            "contentDiv",
         prefixUrl:     "/openseadragon/images/",
         tileSources:   "/example-images/highsmith/highsmith.dzi"
     });
 
 
-    document.getElementById('contentDiv').focus();
-    
+    viewer.addHandler('open', function (event) {
+        document.getElementById('contentDiv').querySelector('.openseadragon-canvas').focus();
+    });    
 </script>
 
 
