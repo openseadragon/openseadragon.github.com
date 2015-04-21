@@ -54,12 +54,20 @@ h3 {
     border-top: 1px dotted #999;
     padding-top: 1em;
 }
+h4 {
+    padding-left: 25px;
+}
 ul h3 { text-align: left;}
 ul { list-style: none; padding: 0px 4em; }
 
 ul ul, 
 .square-list {
-    list-style: square
+    list-style: square;
+    line-height: 1.5em;
+}
+
+.square-list li ul {
+    padding-left: 2em;
 }
 
 .logo {
