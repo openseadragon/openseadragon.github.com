@@ -243,7 +243,71 @@ OpenSeadragon({
 });
 </pre>
   
+<div class="description">
+    <h3>Point Overlays</h3>
+    <p>
+        If you would like an overlay to point to a specific point in the image,
+        you can omit the width and height parameters. In that case, the overlay
+        will keep the same size independently of the zoom level. It is also
+        possible to set which part of the overlay should be at the specified
+        location by specifying a
+        <a href="/docs/OpenSeadragon.html#OverlayPlacement">placement</a>.
+        For example, if your overlay is an arrow pointing to the right, you
+        should set the placement to RIGHT.
+    </p>
+</div>
 
+
+<div class="demoarea">
+    <div class="demoheading">
+        Point Overlays
+    </div>
+    <div id=right-arrow-overlay>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg"
+             alt="Right arrow"
+             width="20">
+    </div>
+    <div id="example-point-overlay" class="openseadragon">
+        <script type="text/javascript">
+            OpenSeadragon({
+                id:            "example-point-overlay",
+                prefixUrl:     "/openseadragon/images/",
+                tileSources: [{
+                    minLevel: 8,
+                    width: 6425,
+                    height: 8535,
+                    tileSize: 256,
+                    tileOverlap: 1,
+                    getTileUrl: chronicling_america_example(10),
+                    overlays: [{
+                        id: 'right-arrow-overlay',
+                        x: 0.2008,
+                        y: 0.4778,
+                        placement: 'RIGHT'
+                    }]
+                }]
+            });
+
+        </script>
+    </div>
+</div>
+
+<p>
+    The coordinates specified are those of the hand of the statue.
+</p>
+
+<pre>
+OpenSeadragon({
+    ...
+    overlays: [{
+        id: 'right-arrow-overlay',
+        x: 0.2008,
+        y: 0.4778,
+        placement: 'RIGHT'
+    }],
+    ...
+});
+</pre>
 
 <div class="description">
     <h3>Viewport Overlays</h3>
