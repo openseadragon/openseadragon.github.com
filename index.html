@@ -20,15 +20,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                1.2.1
+                2.0.0
             </span>
             <span class="tagline">
             </span>
@@ -56,7 +56,7 @@
         <h2>OpenSeadragon</h2>
 
 <div class="elevator">
-    An open-source, web-based viewer for zoomable images, implemented in pure JavaScript, for desktop and mobile.
+    An open-source, web-based viewer for <strong>high-resolution zoomable images</strong>, implemented in pure JavaScript, for desktop and mobile.
 </div>
 
 <div class="demoarea">
@@ -84,6 +84,14 @@
 </h2>
 <ul>
     <li>
+        <h3>Basics</h3>
+        <ul>
+            <li><a href="/examples/creating-zooming-images/">Creating Zooming Images</a></li>
+            <li><a href="/examples/viewport-coordinates/">Viewport Coordinates</a></li>
+        </ul>
+    </li>
+
+    <li>
         <h3>Supported Tile Sources</h3>
         <p>
         OpenSeadragon supports several image serving protocols out of
@@ -93,9 +101,6 @@
         us add built-in support for your required image serving
         protocol.)</em> Each supported protocol aims to allow configuration
         via XMLHTTPRequest, JSONP, as well as direct inline configuration.
-        </p>
-        <p>
-        For creating the tiles themselves, see <a href="/examples/creating-zooming-images/">Creating Zooming Images</a>.
         </p>
         <ul>
             <li><a href='/examples/tilesource-legacy/'>
@@ -156,26 +161,23 @@
     </li>
 
     <li>
-        <h3>Image Set Visualization Features</h3>
-        <p>
-        Visualizing image sets may be the most fertile area of future
-        development in OpenSeadragon.  It's very common that sets of
-        related images are required to be presented in a way that
-        allows a user to easily navigate through them.
-        </p>
+        <h3>Multi-Image Features</h3>
+        <p>It's very common that sets of related images are required to be presented in a way that allows a user to easily navigate through them. OpenSeadragon provides simple options for this, as well as full multi-image support with complete control.</p>
         <ul>
             <li><a href='/examples/tilesource-sequence/'>
-                <span>Image Sequence</span>
+                <span>Sequence Mode</span>
             </a></li>
             <li><a href='/examples/ui-reference-strip/'>
                 <span>Image Reference Strip</span>
             </a></li>
             <li><a href='/examples/tilesource-collection/'>
-                <span>Tile Source Collections</span>
+                <span>Collection Mode</span>
+            </a></li>
+            <li><a href='/examples/multi-image/'>
+                <span>Full Multi-Image</span>
             </a></li>
         </ul>
     </li>
-
 
     <li>
         <h3>Developer Tools</h3>
@@ -195,19 +197,20 @@
 <h2 id='plugins'>Plugins</h2>
 <p>Plugins can be used to enhance OpenSeadragon. The following plugins are currently available:</p>
 <ul class="square-list">
+    <li><a href="https://github.com/msalsbery/OpenSeadragonImagingHelper">OpenSeadragonImagingHelper</a> provides coordinate conversion, pan, and zoom methods in a simplified coordinate system.</li>
     <li><a href="https://github.com/MartinPluta/OpenSeadragonMultiRow">OpenSeadragonMultiRow</a> adds navigation and options for multi row image sequences.</li>
     <li><a href="https://github.com/NIST-ISG/OpenSeadragonScalebar">OpenSeadragonScalebar</a> displays your image's scale in real-world measurements.</li>
-    <li><a href="https://github.com/msalsbery/OpenSeadragonImagingHelper">OpenSeadragonImagingHelper</a> provides coordinate conversion, pan, and zoom methods in a simplified coordinate system.</li>
     <li><a href="https://github.com/msalsbery/OpenSeadragonViewerInputHook">OpenSeadragonViewerInputHook</a> provides hooks into an OpenSeadragon.Viewer and/or OpenSeadragon.MouseTracker for overriding/extending the default user-input event handling behavior.</li>
+    <li><a href="https://github.com/openseadragon/svg-overlay">SVG Overlay</a> allows you to add SVG elements that pan and zoom with the OpenSeadragon viewer.</li>
 </ul>
 
 
 <a name="installing"></a>
 <h2 id='download'>Download &amp; Install</h2>
 <p>
-    You can download OpenSeadragon 1.2.1 in
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.zip">zip</a> or
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.tar.gz">tar.gz</a> formats.
+    You can download OpenSeadragon 2.0.0 in
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.zip">zip</a> or
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.tar.gz">tar.gz</a> formats.
 </p>
 <p>
     You can also use <a href="http://bower.io">Bower</a> to install it: <tt>bower install openseadragon</tt>

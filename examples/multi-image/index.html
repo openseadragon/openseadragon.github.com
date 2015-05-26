@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Developer Tools - Debug Mode | OpenSeadragon</title>
+    <title>Multi-Image | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -53,54 +53,37 @@
             </ul>
         </div>
 
-        <h2>developer: debug mode</h2>
-
-<p>
-Enabling debug mode provides some in-context information about the tiles
-being drawn in a given viewport.
-</p>
-
-<p>
-Currently this is only implemented for browsers supporting HTML Canvas.
-</p>
-
-<div class="description">
-    <h3>Example</h3>
-</div>
-
-<div class="demoarea">
-    <div class="demoheading">
-        OpenSeadragon in debug mode
-        <span id='consolelog'></span>
-    </div>
-    <div id="contentDiv" class="openseadragon"></div>
-</div>
-
-<script type="text/javascript">
-    // Example
-    OpenSeadragon({
-        id:              "contentDiv",
-        prefixUrl:       "/openseadragon/images/",
-        tileSources:     "/example-images/highsmith/highsmith.js",
-        showNavigator:   false, 
-        debugMode:       true,
-        //debugGridColor:  "#f9276f",
-        //minZoomImageRatio: 0,
-        //maxZoomPixelRatio: 10000
-    });
-</script>
-
-<p>
-The relevant configuration options are shown below.
-</p>
-
+        <h2>Multi-Image</h2>
+<p>You can load as many images as you want into the same viewer. You'll just need to arrange them how you like.</p>
+<p>Here are some examples of what you can do with OpenSeadragon multi-image:</p>
+<ul class="square-list">
+    <li><a href="http://iangilman.com/openseadragon/flickr/">OpenSeadragon + Flickr</a></li> 
+    <li><a href="http://iangilman.com/openseadragon/rdio/">OpenSeadragon + Rdio</a></li> 
+    <li><a href="http://iangilman.com/openseadragon/chrisjordan/">OpenSeadragon + Chris Jordan</a></li> 
+    <li><a href="http://demos.biblissima-condorcet.fr/chateauroux/osd-demo/">Demo of a virtual reconstruction of a medieval manuscript</a></li> 
+</ul>
+<h4>Adding Multiple Images</h4>
+<p>When creating your viewer, you can pass multiple tile sources into the tileSources option. Once you've created the viewer, you can also pass an array into <a href="/docs/OpenSeadragon.Viewer.html#open">Viewer.open()</a>. If you just want to add additional images to a viewer that already has images loaded, you can use <a href="/docs/OpenSeadragon.Viewer.html#addTiledImage">Viewer.addTiledImage()</a>. All of these venues allow you to specify the image location and scaling. For example:</p>
 <pre>
-OpenSeadragon({
-    ...
-    debugMode:  true,
-    ...
+viewer.addTiledImage({
+    tileSource: 'my-image.dzi',
+    x: 5,
+    y: 0,
+    width: 10
 });
 </pre>
+<p>If you specify the width, it will set the height automatically based on the aspect ratio; likewise for width if you specify height. It's entirely up to you where and how big you place your images, regardless of their resolution. You can mix high-resolution and low-resolution images side by side.</p>
+<h4>Working with the Images in the Viewer</h4>
+<p>Once you've added your images, you can access them via the viewer's <a href="/docs/OpenSeadragon.World.html">World</a>. For example:</p>
+<pre>
+var i, tiledImage;
+var count = viewer.world.getItemCount();
+for (i = 0; i &lt; count; i++) {
+    tiledImage = viewer.world.getItemAt(i);
+    tiledImage.setPosition(new OpenSeadragon.Point(i, 0));
+}
+</pre>
+<p>You can also use <a href="/docs/OpenSeadragon.World.html#arrange">World.arrange()</a> to arrange the images for you.</p>
 
 
         <ul class="footer">

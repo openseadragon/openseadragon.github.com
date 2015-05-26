@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>OpenSeadragon Class: Button</title>
+    <title>OpenSeadragon Class: World</title>
     
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -17,7 +17,7 @@
 <div id="container">
 <div id="main">
     
-    <h1 class="page-title">Class: Button</h1>
+    <h1 class="page-title">Class: World</h1>
     
     
 
@@ -29,12 +29,10 @@
     <h2>
         <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
     
-    Button
+    World
     </h2>
     
-        <div class="class-description">Manages events, hover states for individual buttons, tool-tips, as well
-as fading the buttons out when the user has not interacted with them
-for a specified period.</div>
+        <div class="class-description">Keeps track of all of the tiled images in the scene.</div>
     
 </header>  
 
@@ -46,8 +44,6 @@ for a specified period.</div>
                 <tr>
                     
                     
-                    
-                        <th>Members</th>
                     
                     
                         <th>Methods</th>
@@ -63,67 +59,67 @@ for a specified period.</div>
                     
                     
                     
+                    
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.Button.html#currentState">currentState</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#element">element</a></li>
+                                <li><a href="OpenSeadragon.World.html#World" class="ctor-link">&lt; constructor &gt;</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#fadeDelay">fadeDelay</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#fadeLength">fadeLength</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#addHandler">addHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#addItem">addItem</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#arrange">arrange</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#draw">draw</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getContentFactor">getContentFactor</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getHandler">getHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getHomeBounds">getHomeBounds</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getIndexOfItem">getIndexOfItem</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getItemAt">getItemAt</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#getItemCount">getItemCount</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#needsDraw">needsDraw</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#raiseEvent">raiseEvent</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#removeAll">removeAll</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#removeAllHandlers">removeAllHandlers</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#removeHandler">removeHandler</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#removeItem">removeItem</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#resetItems">resetItems</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#setItemIndex">setItemIndex</a></li>
+                                
+                                    <li><a href="OpenSeadragon.World.html#update">update</a></li>
+                                
                             
-                                <li><a href="OpenSeadragon.Button.html#tracker">tracker</a></li>
                             </ul>
                         </td>
                     
                     
-                        <td>
-                            <ul>
-                            
-                                <li><a href="OpenSeadragon.Button.html#Button" class="ctor-link">&lt; constructor &gt;</a></li>
-                            
-                            
-                                
-                                    <li><a href="OpenSeadragon.Button.html#addHandler">addHandler</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#disable">disable</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#enable">enable</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#getHandler">getHandler</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#notifyGroupEnter">notifyGroupEnter</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#notifyGroupExit">notifyGroupExit</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#raiseEvent">raiseEvent</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#removeAllHandlers">removeAllHandlers</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Button.html#removeHandler">removeHandler</a></li>
-                                
-                            
-                            </ul>
-                        </td>
-                    
-                    
                     
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li>
+                                <li><a href="OpenSeadragon.World.html#event:add-item">add-item</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#event:click">click</a></li>
+                                <li><a href="OpenSeadragon.World.html#event:item-index-change">item-index-change</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li>
+                                <li><a href="OpenSeadragon.World.html#event:metrics-change">metrics-change</a></li>
                             
-                                <li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li>
-                            
-                                <li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li>
-                            
-                                <li><a href="OpenSeadragon.Button.html#event:press">press</a></li>
-                            
-                                <li><a href="OpenSeadragon.Button.html#event:release">release</a></li>
+                                <li><a href="OpenSeadragon.World.html#event:remove-item">remove-item</a></li>
                             </ul>
                         </td>
                     
@@ -139,7 +135,7 @@ for a specified period.</div>
     
         
 <dt>
-    <h4 class="name" id="Button"><span class="type-signature"></span>new Button<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="World"><span class="type-signature"></span>new World<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -193,7 +189,7 @@ for a specified period.</div>
             
             
             
-            <td class="description last">
+            <td class="description last">World options.
                 <h6>Properties</h6>
                 
 
@@ -207,11 +203,7 @@ for a specified period.</div>
 		<th>Type</th>
 		
 		
-		<th>Argument</th>
 		
-		
-		
-		<th>Default</th>
 		
 		
 		<th class="last">Description</th>
@@ -223,586 +215,23 @@ for a specified period.</div>
 	
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>viewer</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Element</span>
+<span class="param-type"><a href="OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a></span>
 
 
             
             </td>
             
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
             
             
             
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Element to use as the button. If not specified, an HTML &lt;button&gt; element is created.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>tooltip</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Provides context help for the button when the
- user hovers over it.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>srcRest</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">URL of image to use in 'rest' state.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>srcGroup</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">URL of image to use in 'up' state.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>srcHover</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">URL of image to use in 'hover' state.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>srcDown</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">URL of image to use in 'down' state.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>fadeDelay</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">How long to wait before fading.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>fadeLength</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    2000
-                
-                </td>
-            
-            
-            <td class="description last">How long should it take to fade the button.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onPress</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:press"><code>OpenSeadragon.Button.event:press</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onRelease</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:release"><code>OpenSeadragon.Button.event:release</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onClick</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:click"><code>OpenSeadragon.Button.event:click</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onEnter</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:enter"><code>OpenSeadragon.Button.event:enter</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onExit</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:exit"><code>OpenSeadragon.Button.event:exit</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onFocus</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:focus"><code>OpenSeadragon.Button.event:focus</code></a>.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onBlur</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">Event handler callback for <a href="OpenSeadragon.Button.html#event:blur"><code>OpenSeadragon.Button.event:blur</code></a>.</td>
+            <td class="description last">The Viewer that owns this World.</td>
         </tr>
 	
 	
@@ -839,7 +268,7 @@ for a specified period.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12500">line 12500</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18435">line 18435</a>
     </li></ul></dd>
     
     
@@ -883,330 +312,6 @@ for a specified period.</div>
     
     
     
-    
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
-            
-<dt>
-    <h4 class="name" id="currentState"><span class="type-signature"></span>currentState<span class="type-signature"> :<a href="OpenSeadragon.html#ButtonState">OpenSeadragon.ButtonState</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The button's current state.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="OpenSeadragon.html#ButtonState">OpenSeadragon.ButtonState</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12628">line 12628</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The button element.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Element</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12563">line 12563</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="fadeDelay"><span class="type-signature"></span>fadeDelay<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        How long to wait before fading.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12541">line 12541</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="fadeLength"><span class="type-signature"></span>fadeLength<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        How long should it take to fade the button.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12547">line 12547</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="tracker"><span class="type-signature"></span>tracker<span class="type-signature"> :<a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Tracks mouse/touch/key events on the button.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12644">line 12644</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        </dl>
     
     
     
@@ -1427,12 +532,521 @@ for a specified period.</div>
         
             
 <dt>
-    <h4 class="name" id="disable"><span class="type-signature"></span>disable<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addItem"><span class="type-signature"></span>addItem<span class="signature">(item)</span><span class="type-signature"></span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Add the specified item.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">The item to add.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options.index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Index for the item. If not specified, goes at the top.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18468">line 18468</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.World.html#event:add-item">OpenSeadragon.World.event:add-item</a></li>
+    
+        <li><a href="OpenSeadragon.World.html#event:metrics-change">OpenSeadragon.World.event:metrics-change</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="arrange"><span class="type-signature"></span>arrange<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Arranges all of the TiledImages with the specified settings.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Specifies how to arrange.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>immediately</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Whether to animate to the new arrangement.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>layout</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">See collectionLayout in <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rows</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">See collectionRows in <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileSize</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">See collectionTileSize in <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileMargin</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">See collectionTileMargin in <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18686">line 18686</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.World.html#event:metrics-change">OpenSeadragon.World.event:metrics-change</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="draw"><span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Draws all items.
+    </div>
     
 
     
@@ -1464,7 +1078,7 @@ for a specified period.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12831">line 12831</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18639">line 18639</a>
     </li></ul></dd>
     
     
@@ -1492,12 +1106,18 @@ for a specified period.</div>
         
             
 <dt>
-    <h4 class="name" id="enable"><span class="type-signature"></span>enable<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getContentFactor"><span class="type-signature"></span>getContentFactor<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        To facilitate zoom constraints, we keep track of the pixel density of the
+densest item in the World (i.e. the item whose content size to viewport size
+ratio is the highest) and save it as this "content factor".
+    </div>
     
 
     
@@ -1529,7 +1149,7 @@ for a specified period.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12840">line 12840</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18672">line 18672</a>
     </li></ul></dd>
     
     
@@ -1550,6 +1170,28 @@ for a specified period.</div>
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the number of content units per viewport unit.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -1679,17 +1321,12 @@ for a specified period.</div>
         
             
 <dt>
-    <h4 class="name" id="notifyGroupEnter"><span class="type-signature"></span>notifyGroupEnter<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getHomeBounds"><span class="type-signature"></span>getHomeBounds<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
     
     
 </dt>
 <dd>
     
-    
-    <div class="description">
-        TODO: Determine what this function is intended to do and if it's actually
-useful as an API point.
-    </div>
     
 
     
@@ -1721,7 +1358,7 @@ useful as an API point.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12815">line 12815</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18662">line 18662</a>
     </li></ul></dd>
     
     
@@ -1742,6 +1379,28 @@ useful as an API point.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The smallest rectangle that encloses all items, in viewport coordinates.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -1749,7 +1408,7 @@ useful as an API point.
         
             
 <dt>
-    <h4 class="name" id="notifyGroupExit"><span class="type-signature"></span>notifyGroupExit<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getIndexOfItem"><span class="type-signature"></span>getIndexOfItem<span class="signature">(item)</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
@@ -1757,9 +1416,282 @@ useful as an API point.
     
     
     <div class="description">
-        TODO: Determine what this function is intended to do and if it's actually
-useful as an API point.
+        Get the index of the given item or -1 if not present.
     </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The item.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18514">line 18514</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The index of the item or -1 if not present.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getItemAt"><span class="type-signature"></span>getItemAt<span class="signature">(index)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Get the item at the specified index.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The item's index.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18504">line 18504</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The item at the specified index.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getItemCount"><span class="type-signature"></span>getItemCount<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    
+    
+</dt>
+<dd>
+    
     
 
     
@@ -1791,7 +1723,7 @@ useful as an API point.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12824">line 12824</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18522">line 18522</a>
     </li></ul></dd>
     
     
@@ -1812,6 +1744,115 @@ useful as an API point.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The number of items used.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="needsDraw"><span class="type-signature"></span>needsDraw<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18650">line 18650</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    true if any items need updating.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -1948,6 +1989,82 @@ useful as an API point.
 </dl>
 
     
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove all items.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18596">line 18596</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.World.html#event:remove-item">OpenSeadragon.World.event:remove-item</a></li>
+    
+        <li><a href="OpenSeadragon.World.html#event:metrics-change">OpenSeadragon.World.event:metrics-change</a></li>
+    </ul>
     
 
     
@@ -2229,6 +2346,413 @@ event handlers for every event type are removed.
     
 </dd>
 
+        
+            
+<dt>
+    <h4 class="name" id="removeItem"><span class="type-signature"></span>removeItem<span class="signature">(item)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove an item.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The item to remove.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18575">line 18575</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.World.html#event:remove-item">OpenSeadragon.World.event:remove-item</a></li>
+    
+        <li><a href="OpenSeadragon.World.html#event:metrics-change">OpenSeadragon.World.event:metrics-change</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="resetItems"><span class="type-signature"></span>resetItems<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Clears all tiles and triggers updates for all items.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18618">line 18618</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setItemIndex"><span class="type-signature"></span>setItemIndex<span class="signature">(item, index)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Change the index of a item so that it appears over or under others.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The item to move.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The new index.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18532">line 18532</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="OpenSeadragon.World.html#event:item-index-change">OpenSeadragon.World.event:item-index-change</a></li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Updates (i.e. animates bounds of) all items.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18627">line 18627</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
         </dl>
     
     
@@ -2240,7 +2764,7 @@ event handlers for every event type are removed.
         <dl>
             
 <dt>
-    <h4 class="name" id="event:blur">blur</h4>
+    <h4 class="name" id="event:add-item">add-item</h4>
     
     
 </dt>
@@ -2248,7 +2772,7 @@ event handlers for every event type are removed.
     
     
     <div class="description">
-        Raised when the Button element loses focus.
+        Raised when an item is added to the World.
     </div>
     
 
@@ -2306,7 +2830,7 @@ event handlers for every event type are removed.
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
+<span class="param-type"><a href="OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a></span>
 
 
             
@@ -2322,20 +2846,20 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">A reference to the Button which raised the event.</td>
+            <td class="description last">A reference to the World which raised the event.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>originalEvent</code></td>
+                <td class="name"><code>item</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
 
 
             
@@ -2351,7 +2875,7 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">The original DOM event.</td>
+            <td class="description last">The item that has been added.</td>
         </tr>
 	
 	
@@ -2410,7 +2934,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12708">line 12708</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18485">line 18485</a>
     </li></ul></dd>
     
     
@@ -2438,7 +2962,7 @@ event handlers for every event type are removed.
         
             
 <dt>
-    <h4 class="name" id="event:click">click</h4>
+    <h4 class="name" id="event:item-index-change">item-index-change</h4>
     
     
 </dt>
@@ -2446,7 +2970,7 @@ event handlers for every event type are removed.
     
     
     <div class="description">
-        Raised when a mouse button is pressed and released or touch is initiated and ended in the Button element within the time and distance threshold.
+        Raised when the order of the indexes has been changed.
     </div>
     
 
@@ -2504,7 +3028,7 @@ event handlers for every event type are removed.
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
+<span class="param-type"><a href="OpenSeadragon.World.html">OpenSeadragon.World</a></span>
 
 
             
@@ -2520,20 +3044,20 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">A reference to the Button which raised the event.</td>
+            <td class="description last">A reference to the World which raised the event.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>originalEvent</code></td>
+                <td class="name"><code>item</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
 
 
             
@@ -2549,7 +3073,66 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">The original DOM event.</td>
+            <td class="description last">The item whose index has
+been changed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>previousIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">The previous index of the item</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>newIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">The new index of the item</td>
         </tr>
 	
 	
@@ -2608,7 +3191,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12759">line 12759</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18550">line 18550</a>
     </li></ul></dd>
     
     
@@ -2636,7 +3219,7 @@ event handlers for every event type are removed.
         
             
 <dt>
-    <h4 class="name" id="event:enter">enter</h4>
+    <h4 class="name" id="event:metrics-change">metrics-change</h4>
     
     
 </dt>
@@ -2644,7 +3227,7 @@ event handlers for every event type are removed.
     
     
     <div class="description">
-        Raised when the cursor enters the Button element.
+        Raised when the home bounds or content factor change.
     </div>
     
 
@@ -2702,7 +3285,7 @@ event handlers for every event type are removed.
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
+<span class="param-type"><a href="OpenSeadragon.World.html">OpenSeadragon.World</a></span>
 
 
             
@@ -2718,36 +3301,7 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">A reference to the Button which raised the event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>originalEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">The original DOM event.</td>
+            <td class="description last">A reference to the World which raised the event.</td>
         </tr>
 	
 	
@@ -2806,7 +3360,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12658">line 12658</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18766">line 18766</a>
     </li></ul></dd>
     
     
@@ -2834,7 +3388,7 @@ event handlers for every event type are removed.
         
             
 <dt>
-    <h4 class="name" id="event:exit">exit</h4>
+    <h4 class="name" id="event:remove-item">remove-item</h4>
     
     
 </dt>
@@ -2842,7 +3396,7 @@ event handlers for every event type are removed.
     
     
     <div class="description">
-        Raised when the cursor leaves the Button element.
+        Raised when an item is removed.
     </div>
     
 
@@ -2900,7 +3454,7 @@ event handlers for every event type are removed.
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
+<span class="param-type"><a href="OpenSeadragon.World.html">OpenSeadragon.World</a></span>
 
 
             
@@ -2916,20 +3470,20 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">A reference to the Button which raised the event.</td>
+            <td class="description last">A reference to the World which raised the event.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>originalEvent</code></td>
+                <td class="name"><code>item</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
 
 
             
@@ -2945,7 +3499,7 @@ event handlers for every event type are removed.
             
             
             
-            <td class="description last">The original DOM event.</td>
+            <td class="description last">The item's underlying item.</td>
         </tr>
 	
 	
@@ -3004,601 +3558,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12692">line 12692</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:focus">focus</h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Raised when the Button element receives focus.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">object</span>
-
-
-            </li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventSource</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">A reference to the Button which raised the event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>originalEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">The original DOM event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>userData</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                    &lt;nullable><br>
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Arbitrary subscriber-defined object.</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12676">line 12676</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:press">press</h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Raised when a mouse button is pressed or touch occurs in the Button element.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">object</span>
-
-
-            </li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventSource</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">A reference to the Button which raised the event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>originalEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">The original DOM event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>userData</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                    &lt;nullable><br>
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Arbitrary subscriber-defined object.</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12723">line 12723</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:release">release</h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Raised when the mouse button is released or touch ends in the Button element.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">object</span>
-
-
-            </li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventSource</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Button.html">OpenSeadragon.Button</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">A reference to the Button which raised the event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>originalEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">The original DOM event.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>userData</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                    &lt;nullable><br>
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Arbitrary subscriber-defined object.</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12739">line 12739</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18780">line 18780</a>
     </li></ul></dd>
     
     
@@ -3641,7 +3601,7 @@ event handlers for every event type are removed.
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue May 26 2015 16:39:34 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue May 26 2015 16:39:36 GMT-0700 (PDT)
 </footer>
 </div>
 

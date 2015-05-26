@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>OpenSeadragon Class: ButtonGroup</title>
+    <title>OpenSeadragon Class: TileCache</title>
     
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -17,7 +17,7 @@
 <div id="container">
 <div id="main">
     
-    <h1 class="page-title">Class: ButtonGroup</h1>
+    <h1 class="page-title">Class: TileCache</h1>
     
     
 
@@ -29,10 +29,11 @@
     <h2>
         <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
     
-    ButtonGroup
+    TileCache
     </h2>
     
-        <div class="class-description">Manages events on groups of buttons.</div>
+        <div class="class-description">Stores all the tiles displayed in a <a href="OpenSeadragon.Viewer.html"><code>OpenSeadragon.Viewer</code></a>.
+You generally won't have to interact with the TileCache directly.</div>
     
 </header>  
 
@@ -44,8 +45,6 @@
                 <tr>
                     
                     
-                    
-                        <th>Members</th>
                     
                     
                         <th>Methods</th>
@@ -59,27 +58,19 @@
                     
                     
                     
-                        <td>
-                            <ul>
-                                <li><a href="OpenSeadragon.ButtonGroup.html#buttons">buttons</a></li>
-                            
-                                <li><a href="OpenSeadragon.ButtonGroup.html#element">element</a></li>
-                            
-                                <li><a href="OpenSeadragon.ButtonGroup.html#tracker">tracker</a></li>
-                            </ul>
-                        </td>
-                    
                     
                         <td>
                             <ul>
                             
-                                <li><a href="OpenSeadragon.ButtonGroup.html#ButtonGroup" class="ctor-link">&lt; constructor &gt;</a></li>
+                                <li><a href="OpenSeadragon.TileCache.html#TileCache" class="ctor-link">&lt; constructor &gt;</a></li>
                             
                             
                                 
-                                    <li><a href="OpenSeadragon.ButtonGroup.html#emulateEnter">emulateEnter</a></li>
+                                    <li><a href="OpenSeadragon.TileCache.html#cacheTile">cacheTile</a></li>
                                 
-                                    <li><a href="OpenSeadragon.ButtonGroup.html#emulateExit">emulateExit</a></li>
+                                    <li><a href="OpenSeadragon.TileCache.html#clearTilesFor">clearTilesFor</a></li>
+                                
+                                    <li><a href="OpenSeadragon.TileCache.html#numTilesLoaded">numTilesLoaded</a></li>
                                 
                             
                             </ul>
@@ -99,7 +90,7 @@
     
         
 <dt>
-    <h4 class="name" id="ButtonGroup"><span class="type-signature"></span>new ButtonGroup<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TileCache"><span class="type-signature"></span>new TileCache<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -153,7 +144,7 @@
             
             
             
-            <td class="description last">A dictionary of settings applied against the entire group of buttons.
+            <td class="description last">Configuration for this TileCache.
                 <h6>Properties</h6>
                 
 
@@ -181,44 +172,13 @@
 	
         <tr>
             
-                <td class="name"><code>buttons</code></td>
+                <td class="name"><code>maxImageCacheCount</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Array</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Array of buttons</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
+<span class="param-type">Number</span>
 
 
             
@@ -238,7 +198,8 @@
             
             
             
-            <td class="description last">Element to use as the container</td>
+            <td class="description last">See maxImageCacheCount in
+<a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a> for details.</td>
         </tr>
 	
 	
@@ -275,7 +236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12990">line 12990</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18253">line 18253</a>
     </li></ul></dd>
     
     
@@ -313,202 +274,6 @@
     
     
     
-    
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
-            
-<dt>
-    <h4 class="name" id="buttons"><span class="type-signature"></span>buttons<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        An array containing the buttons themselves.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Array</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13002">line 13002</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="element"><span class="type-signature"></span>element<span class="type-signature"> :Element</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The shared container for the buttons.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Element</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13018">line 13018</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="tracker"><span class="type-signature"></span>tracker<span class="type-signature"> :<a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Tracks mouse/touch/key events accross the group of buttons.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="OpenSeadragon.MouseTracker.html">OpenSeadragon.MouseTracker</a></span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13039">line 13039</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        </dl>
     
     
     
@@ -517,7 +282,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="emulateEnter"><span class="type-signature">&lt;private> </span>emulateEnter<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cacheTile"><span class="type-signature"></span>cacheTile<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -525,8 +290,11 @@
     
     
     <div class="description">
-        TODO: Figure out why this is used on the public API and if a more useful
-api can be created.
+        Caches the specified tile, removing an old tile if necessary to stay under the
+maxImageCacheCount specified on construction. Note that if multiple tiles reference
+the same image, there may be more tiles than maxImageCacheCount; the goal is to keep
+the number of images below that number. Note, as well, that even the number of images
+may temporarily surpass that number, but should eventually come back down to the max specified.
     </div>
     
 
@@ -534,6 +302,194 @@ api can be created.
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Tile info.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tile</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Tile.html">OpenSeadragon.Tile</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The tile to cache.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiledImage</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The TiledImage that owns that tile.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cutoff</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">If adding this tile goes over the cache max count, this
+function will release an old tile. The cutoff option specifies a tile level at or below which
+tiles will not be released.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -559,7 +515,7 @@ api can be created.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13073">line 13073</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18293">line 18293</a>
     </li></ul></dd>
     
     
@@ -587,7 +543,7 @@ api can be created.
         
             
 <dt>
-    <h4 class="name" id="emulateExit"><span class="type-signature">&lt;private> </span>emulateExit<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="clearTilesFor"><span class="type-signature"></span>clearTilesFor<span class="signature">(tiledImage)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -595,9 +551,121 @@ api can be created.
     
     
     <div class="description">
-        TODO: Figure out why this is used on the public API and if a more useful
-api can be created.
+        Clears all tiles associated with the specified tiledImage.
     </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiledImage</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TiledImage.html">OpenSeadragon.TiledImage</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18362">line 18362</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="numTilesLoaded"><span class="type-signature"></span>numTilesLoaded<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    
+    
+</dt>
+<dd>
+    
     
 
     
@@ -629,7 +697,7 @@ api can be created.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13083">line 13083</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18276">line 18276</a>
     </li></ul></dd>
     
     
@@ -650,6 +718,29 @@ api can be created.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The total number of tiles that have been loaded by
+this TileCache.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -676,7 +767,7 @@ api can be created.
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue May 26 2015 16:39:34 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue May 26 2015 16:39:35 GMT-0700 (PDT)
 </footer>
 </div>
 

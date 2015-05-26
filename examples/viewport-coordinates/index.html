@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <title>Viewport Coordinates | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                2.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Viewport Coordinates</h2>
+<p>OpenSeadragon zooms your images to fit into your webpage. To do this, it uses three coordinate systems: Image, Web, and Viewport.</p>
+<p><strong>Image</strong> coordinates are the actual pixels of your image. If the image is 1000px wide, its left side is at x = 0, and its right side is x = 1000.</p>
+<p><strong>Web</strong> coordinates are the normal "pixel" coordinates of the webpage. Note that this may not be physical screen pixels, if you're on a "retina" display.</p>
+<p><strong>Viewport</strong> coordinates are an arbitrary coordinate system that OpenSeadragon uses to allow you to lay things out, and to be a neutral space between image and web coordinates. They allow you to forget about how many pixels are in your image, and just think in terms of relative locations (i.e. halfway down the image).</p>
+<p>By default, a single image will be placed with its left side at viewport x = 0 and its right side at viewport x = 1. The default top is at at viewport y = 0 and its bottom is wherever is appropriate for the image's aspect ratio. For instance, the bottom of a square image would be at y = 1, but the bottom of an image that's twice as wide as it is tall would be at y = 0.5.</p>
+<p>Viewport coordinates become more interesting with multiple images in the same viewer. When you open the images, or add them later, you can specify x, y, and either width or height. If you specify the width, it will set the height automatically based on the aspect ratio; likewise for width if you specify height. It's entirely up to you where and how big you place your images, regardless of their resolution. You can mix high-resolution and low-resolution images side by side.</p>
+<p>Different OpenSeadragon functions work with different systems; for instance, the <a href="/docs/OpenSeadragon.MouseTracker.html">MouseTracker</a> generally deals with web coordinates, whereas the <a href="/docs/OpenSeadragon.Viewport.html">Viewport</a> generally deals with viewport coordinates. The documentation for each function should make it clear. If you need to convert between coordinate systems, Viewport and <a href="/docs/OpenSeadragon.TiledImage.html">TiledImage</a> have functions that do so.</p>
+<p>Also see the <a href="https://github.com/msalsbery/OpenSeadragonImagingHelper">OpenSeadragonImagingHelper</a> plugin, which has additional functions for working with the OpenSeadragon coordinate systems. 
+<h3>Example</h3>
+<p>Here you can see the three coordinate systems as you mouse over the image. It also shows your zoom level, both in terms of the regular viewport zoom (where 1 means the image width fits the viewport exactly) and the <a href="http://openseadragon.github.io/docs/OpenSeadragon.Viewport.html#viewportToImageZoom">image zoom</a> (where 1 means the image is being shown at its full resolution).</p>
+<div style="padding: 0 1.5em; height: 500px;">
+    <div class="info" style="float: left; width: 200px;">
+        <div class="position"></div>
+        <div class="zoom" style="margin-top: 3em;"></div>
+    </div>
+    <div id="openseadragon1" style="float: right; width: 380px; height: 500px; background: black;"></div>
+</div>
+<script>
+    var positionEl = document.querySelectorAll('.info .position')[0];
+    var zoomEl = document.querySelectorAll('.info .zoom')[0];
+
+    var highsmith = {
+        Image: {
+            xmlns: "http://schemas.microsoft.com/deepzoom/2008",
+            Url: "http://openseadragon.github.io/example-images/highsmith/highsmith_files/",
+            Format: "jpg",
+            Overlap: "2",
+            TileSize: "256",
+            Size: {
+                Height: "9221",
+                Width:  "7026"
+            }
+        }
+    };
+
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/",
+        tileSources: highsmith
+    });
+
+    var updateZoom = function() {
+        var zoom = viewer.viewport.getZoom(true);
+        var imageZoom = viewer.viewport.viewportToImageZoom(zoom);
+
+        zoomEl.innerHTML = 'Zoom:<br>' + (Math.round(zoom * 100) / 100) + 
+            '<br><br>Image Zoom:<br>' + (Math.round(imageZoom * 100) / 100);
+    }
+
+    viewer.addHandler('open', function() {
+
+        var tracker = new OpenSeadragon.MouseTracker({
+            element: viewer.container,
+            moveHandler: function(event) {
+                var webPoint = event.position;
+                var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
+                var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+                var zoom = viewer.viewport.getZoom(true);
+                var imageZoom = viewer.viewport.viewportToImageZoom(zoom);
+
+                positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
+                    '<br><br>Viewport:<br>' + viewportPoint.toString() +
+                    '<br><br>Image:<br>' + imagePoint.toString();
+                
+                updateZoom();     
+            }
+        });  
+
+        tracker.setTracking(true);  
+
+        viewer.addHandler('animation', updateZoom);   
+    });
+</script>
+<p>Here's a code sample coordinate conversion, based on clicks: 
+<pre>// Assuming we have an OpenSeadragon Viewer called "viewer", we can catch the clicks 
+// with addHandler like so:
+viewer.addHandler('canvas-click', function(target, info) {
+    // The canvas-click event gives us a position in web coordinates.
+    var webPoint = event.position;
+
+    // Convert that to viewport coordinates, the lingua franca of OpenSeadragon coordinates.
+    var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
+
+    // Convert from viewport coordinates to image coordinates.
+    var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+
+    // Show the results.
+    console.log(webPoint.toString(), viewportPoint.toString(), imagePoint.toString());
+});</pre>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

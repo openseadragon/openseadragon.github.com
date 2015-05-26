@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
 
-    <title>Tile Source Sequence | OpenSeadragon</title>
+    <title>Sequence Mode | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -20,15 +20,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.0.0/openseadragon-bin-2.0.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                1.2.1
+                2.0.0
             </span>
             <span class="tagline">
             </span>
@@ -53,7 +53,7 @@
             </ul>
         </div>
 
-        <h2>example: image sequence</h2>
+        <h2>Sequence Mode</h2>
 
 <p>
     It is not uncommon to have a sequence of images to present. Although
@@ -77,6 +77,15 @@
          class="openseadragon"></div>
 </div>
 
+<p>The key is to provide an array for tileSources, and to set the sequenceMode flag.</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: [ ... ],
+    sequenceMode: true,
+    ...
+});
+</pre>
 
 <div class="description">
     <h3>Preset Zoom Level, Resetting on Page Turn</h3>
@@ -93,6 +102,16 @@
     <div id="contentDiv2" class="openseadragon"></div>
 </div>
 
+<p>We control the zoom level for each new page with defaultZoomLevel.</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: [ ... ],
+    sequenceMode: true,
+    defaultZoomLevel: 1.05,
+    ...
+});
+</pre>
 
 <div class="description">
     <h3>Preserving the Viewport Zoom Level and Position for Image Sequences</h3>
@@ -104,6 +123,16 @@
     <div id="contentDiv3" class="openseadragon"></div>
 </div>
 
+<p>The preserveViewport option remembers the zoom and pan between images.</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: [ ... ],
+    sequenceMode: true,
+    preserveViewport: true,    
+    ...
+});
+</pre>
 
 <div class="description">
     <h3>Mixed Tile Sources</h3>
@@ -115,6 +144,15 @@
     <div id="contentDiv4" class="openseadragon"></div>
 </div>
 
+<p>The individual tile sources in the tileSources array can be of any type OpenSeadragon supports.</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: [ ... ],
+    sequenceMode: true,
+    ...
+});
+</pre>
 
 <script type="text/javascript">
     // Example
@@ -122,6 +160,7 @@
         id: "contentDiv1",
         prefixUrl: "/openseadragon/images/",
         showNavigator: true,
+        sequenceMode: true,
         tileSources: [{
             type: 'legacy-image-pyramid',
             levels: [{
@@ -563,6 +602,7 @@
         prefixUrl: "/openseadragon/images/",
         showNavigator: true,
         defaultZoomLevel: 1.05,
+        sequenceMode: true,
         tileSources: [
             "/example-images/pnp/ppmsca/05900/05954/05954.dzi",
             "/example-images/pnp/ppmsca/05900/05954/05955.dzi",
@@ -583,6 +623,7 @@
         prefixUrl: "/openseadragon/images/",
         showNavigator: true,
         preserveViewport: true,
+        sequenceMode: true,
         tileSources: [{
             type: 'legacy-image-pyramid',
             levels: [{
@@ -660,6 +701,7 @@
         id: "contentDiv4",
         prefixUrl: "/openseadragon/images/",
         showNavigator: true,
+        sequenceMode: true,
         tileSources: [{
             type: 'legacy-image-pyramid',
             levels: [{
