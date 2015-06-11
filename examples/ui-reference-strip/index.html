@@ -57,7 +57,7 @@
 
 <p>
     An image reference strip allows the user to quickly preview and navigate a
-    sequence of images.
+    sequence of images. This feature works only with <a href="/examples/tilesource-sequence/">sequence mode</a> enabled.
 </p>
 
 <div class="description">
@@ -77,6 +77,7 @@
     OpenSeadragon({
         id:             "contentDiv",
         prefixUrl:      "/openseadragon/images/",
+        sequenceMode: true,
         showReferenceStrip:  true,
         tileSources:    [{
             type: 'legacy-image-pyramid',
@@ -137,7 +138,8 @@ The relevant configuration options are shown below.
 <pre>
 OpenSeadragon({
     ...
-    showReferenceStrip:  true,
+    sequenceMode: true,
+    showReferenceStrip: true,
     ...
 });
 </pre>
@@ -161,6 +163,7 @@ OpenSeadragon({
         prefixUrl:     "/openseadragon/images/",
         toolbar:       "toolbarDiv",
         springStiffness:        10,
+        sequenceMode:           true,
         showReferenceStrip:     true,
         autoHideControls:       false,
         referenceStripScroll:   'vertical',
@@ -223,8 +226,9 @@ The relevant configuration options are shown below.
 <pre>
 OpenSeadragon({
     ...
-    showReferenceStrip:     true,
-    referenceStripScroll:   'vertical',
+    sequenceMode: true,    
+    showReferenceStrip: true,
+    referenceStripScroll: 'vertical',
     ...
 });
 </pre>
