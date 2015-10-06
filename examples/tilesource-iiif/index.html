@@ -5,7 +5,7 @@
 
     <title>IIIF Tile Source | OpenSeadragon</title>
 
-    <link rel='stylesheet' 
+    <link rel='stylesheet'
           type='text/css'
           media='screen'
           href='/css/style.css'/>
@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <a href="https://github.com/openseadragon/openseadragon"><img 
-       style="position: absolute; top: 0; right: 0; border: 0;" 
-       src="/images/forkme_right_darkblue_121621.png" 
+    <a href="https://github.com/openseadragon/openseadragon"><img
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="/images/forkme_right_darkblue_121621.png"
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
@@ -58,14 +58,14 @@
 </h2>
 <p>
     The latest version (1.1) of the International Image Interoperability Framework: Image API is formally described
-    <a href='http://www-sul.stanford.edu/iiif/image-api/1.1/'>here</a>.
+    <a href='http://iiif.io/api/image/2.0/'>here</a>.
 </p>
 <p>
-    The IIIF API specifies a web service that returns an image in response to a standard HTTP or HTTPS request. 
-    The URL can specify the region, size, rotation, quality, and format of the requested image. A 
-    URL can also be constructed to request basic technical information about the image to support client 
-    applications.  The IIIF API was designed to facilitate systematic reuse of image resources in digital 
-    image repositories maintained by cultural heritage organizations. The API could be adopted by any image 
+    The IIIF API specifies a web service that returns an image in response to a standard HTTP or HTTPS request.
+    The URL can specify the region, size, rotation, quality, and format of the requested image. A
+    URL can also be constructed to request basic technical information about the image to support client
+    applications.  The IIIF API was designed to facilitate systematic reuse of image resources in digital
+    image repositories maintained by cultural heritage organizations. The API could be adopted by any image
     repository or service, and can be used to retrieve static images in response to a properly constructed URL.
 </p>
 <p>
@@ -80,7 +80,7 @@
     <h3>Inline Configuration for IIIF Tile Sources</h3>
     <p>
         Inline configuration is very straightforward.  The tile source type is
-        identified by its <code>profile</code> attribute and must specify the 
+        identified by its <code>profile</code> attribute and must specify the
         URL of the tile service with the <code>tilesUrl</code> attribute.
     </p>
 </div>
@@ -88,11 +88,11 @@
     <div class="demoheading">
         Example Inline Configuration for IIIF
     </div>
-    <div id="example-inline-configuration-for-iiif" 
+    <div id="example-inline-configuration-for-iiif"
          class="openseadragon">
     </div>
     <p>
-        In this example we also specified the <code>preserveViewport</code> option to retain the 
+        In this example we also specified the <code>preserveViewport</code> option to retain the
         viewport zoom and position when changing pages.
     </p>
     <p>
@@ -107,16 +107,16 @@ OpenSeadragon({
     minZoomLevel:       1,
     defaultZoomLevel:   1,
     tileSources:   [{
-        "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-        "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2",
-        "formats": [ "jpg", "png", "gif" ],
-        "height": 3600,
-        "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-        "qualities": [ "native", "bitonal", "grey", "color" ],
-        "scale_factors": [ 1, 2, 4, 8, 16 ],
-        "tile_height": 256,
-        "tile_width": 256,
-        "width": 2617
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000001.jp2",
+      "height": 7200,
+      "width": 5233
+      "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+      "protocol": "http://iiif.io/api/image",
+      "tiles": [{
+        "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+        "width": 1024
+      }]
     },
        ...
     ]
@@ -132,58 +132,58 @@ OpenSeadragon({
         minZoomLevel:       1,
         defaultZoomLevel:   1,
         tileSources:   [{
-            "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-            "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2",
-            "formats": [ "jpg", "png", "gif" ],
-            "height": 3600,
-            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-            "qualities": [ "native", "bitonal", "grey", "color" ],
-            "scale_factors": [ 1, 2, 4, 8, 16 ],
-            "tile_height": 256,
-            "tile_width": 256,
-            "width": 2617
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000001.jp2",
+          "height": 7200,
+          "width": 5233
+          "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+          "protocol": "http://iiif.io/api/image",
+          "tiles": [{
+            "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+            "width": 1024
+          }]
         },{
-            "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-            "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000002.jp2",
-            "formats": [ "jpg", "png", "gif" ],
-            "height": 3600,
-            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-            "qualities": [ "native", "bitonal", "grey", "color" ],
-            "scale_factors": [ 1, 2, 4, 8, 16 ],
-            "tile_height": 256,
-            "tile_width": 256,
-            "width": 2547
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000002.jp2",
+          "height": 7200,
+          "width": 5093
+          "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+          "protocol": "http://iiif.io/api/image",
+          "tiles": [{
+            "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+            "width": 1024
+          }]
         },{
-            "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-            "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000003.jp2",
-            "formats": [ "jpg", "png", "gif" ],
-            "height": 3600,
-            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-            "qualities": [ "native", "bitonal", "grey", "color" ],
-            "scale_factors": [ 1, 2, 4, 8, 16 ],
-            "tile_height": 256,
-            "tile_width": 256,
-            "width": 2694
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000003.jp2",
+          "height": 7200,
+          "width": 5387
+          "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+          "protocol": "http://iiif.io/api/image",
+          "tiles": [{
+            "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+            "width": 1024
+          }]
         },{
-            "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-            "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000004.jp2",
-            "formats": [ "jpg", "png", "gif" ],
-            "height": 3600,
-            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-            "qualities": [ "native", "bitonal", "grey", "color" ],
-            "scale_factors": [ 1, 2, 4, 8, 16 ],
-            "tile_height": 256,
-            "tile_width": 256,
-            "width": 2717
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000004.jp2",
+          "height": 7200,
+          "width": 5434
+          "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+          "protocol": "http://iiif.io/api/image",
+          "tiles": [{
+            "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+            "width": 1024
+          }]
         }]
     });
 </script>
 
 <div class="description">
     <h3>XMLHTTPRequest for IIIF info.json</h3>
-    <p>Note: The following example follows the <a href='http://www-sul.stanford.edu/iiif/image-api/1.1/'>IIIF Image API 
-    specification version 1.1</a>. The older 1.0 XML and JSON syntaxes are also 
-    supported. Also note that the Image Server will need to support <a href="http://www.w3.org/TR/cors/">cross-origin 
+    <p>Note: The following example follows the <a href='http://iiif.io/api/image/2.0/'>IIIF Image API
+    specification, version 2.0.</a>. The older 1.0 XML and JSON syntaxes and 1.1 JSON syntax are also
+    supported. Also note that the Image Server will need to support <a href="http://www.w3.org/TR/cors/">cross-origin
     resource sharing</a> in order for this to work across different domains.
     </p>
 </div>
@@ -191,20 +191,20 @@ OpenSeadragon({
     <div class="demoheading">
         Example XMLHTTPRequest for IIIF info JSON
     </div>
-    <div id="example-xmlhttprequest-for-info-json" 
+    <div id="example-xmlhttprequest-for-info-json"
          class="openseadragon">
         <script type="text/javascript">
             OpenSeadragon({
                 id:            "example-xmlhttprequest-for-info-json",
                 prefixUrl:     "/openseadragon/images/",
                 tileSources:   [
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000006.jp2/info.json",
-                    "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000007.jp2/info.json"
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000006.jp2/info.json",
+                    "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000007.jp2/info.json"
                 ]
             });
         </script>
@@ -215,32 +215,32 @@ OpenSeadragon({
         </noscript>
     </div>
     <p>
-        Below is a sample IIIF info file.
+        Below is a sample IIIF info file containing the minimum amount of information to work with OpenSeadragon.
     </p>
 <pre>
-{
-    "@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-    "@id": "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2",
-    "formats": [ "jpg","png","gif"],
-    "height": 3600,
-    "width": 2617,
-    "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
-    "qualities": ["native","bitonal","grey","color"],
-    "scale_factors": [1,2,4,8,16],
-    "tile_height": 256,
-    "tile_width": 256
-}</pre>
+  {
+    "@context": "http://iiif.io/api/image/2/context.json",
+    "@id": "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000004.jp2",
+    "height": 7200,
+    "width": 5434
+    "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+    "protocol": "http://iiif.io/api/image",
+    "tiles": [{
+      "scaleFactors": [ 1, 2, 4, 8, 16, 32 ],
+      "width": 1024
+    }]
+  }</pre>
 <pre>
 OpenSeadragon({
     ...
     tileSources:   [
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000006.jp2/info.json",
-        "http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000007.jp2/info.json"
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000006.jp2/info.json",
+        "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000007.jp2/info.json"
     ]
     ...
 });</pre>
