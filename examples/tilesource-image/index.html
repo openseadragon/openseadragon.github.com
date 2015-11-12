@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <title>Image Tile Source | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.1.0/openseadragon-bin-2.1.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.1.0/openseadragon-bin-2.1.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                2.1.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>example: image tile source</h2>
+
+<p>
+    If you have a simple image that you would like to display in OpenSeadragon,
+    you can do so by using the Image Tile Source.
+</p>
+
+<p>
+    Note that using the Image Tile Source for big images will have a
+    performance impact. In that case, consider
+    <a href="/examples/creating-zooming-images/">building a pyramid</a>.
+</p>
+
+<div class="description">
+    <h3>Inline Configuration</h3>
+    <p>
+        Inline Configuration just consists in setting the type of the tile
+        source to 'image' and to provide the URL of the image.
+    </p>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Example Inline Configuration for an Image
+    </div>
+    <div id="example-inline-configuration-for-image"
+         class="openseadragon">
+        <script type="text/javascript">
+            OpenSeadragon({
+                id:            "example-inline-configuration-for-image",
+                prefixUrl:     "/openseadragon/images/",
+                tileSources:   {
+                    type: 'image',
+                    url:  '/example-images/grand-canyon-landscape-overlooking.jpg'
+                }
+            });
+        </script>
+        <noscript>
+            <p>OpenSeadragon is not available unless JavaScript is enabled.</p>
+            <img src='/example-images/grand-canyon-landscape-overlooking.jpg'
+                 height='600'/>
+        </noscript>
+    </div>
+    <pre>
+OpenSeadragon({
+    ...
+    tileSources: {
+        type: 'image',
+        url:  '/example-images/grand-canyon-landscape-overlooking.jpg'
+    }
+    ...
+});
+    </pre>
+</div>
+<p>
+    By default, the Image Tile Source tries to build an internal pyramid to
+    avoid aliasing when zoomed out. To disable this feature, you can set the
+    'buildPyramid' flag to false:
+</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: {
+        type: 'image',
+        url:  '/example-images/grand-canyon-landscape-overlooking.jpg',
+        buildPyramid: false
+    }
+    ...
+});
+</pre>
+<p>
+    If the image is fetched from another domain, the pyramid can not be built
+    without
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a>
+    support.<br>
+    If the image server has CORS headers, you can set the cross origin policy
+    and the withCredentials flag like this:
+</p>
+<pre>
+OpenSeadragon({
+    ...
+    tileSources: {
+        type: 'image',
+        url:  'http://cors-enabled-server.org/my-image.png',
+        crossOriginPolicy: 'Anonymous'
+        ajaxWithCredentials: false
+    }
+    ...
+});
+</pre>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
