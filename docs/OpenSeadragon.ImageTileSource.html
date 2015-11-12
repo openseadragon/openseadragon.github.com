@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>OpenSeadragon Class: LegacyTileSource</title>
+    <title>OpenSeadragon Class: ImageTileSource</title>
     
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -17,7 +17,7 @@
 <div id="container">
 <div id="main">
     
-    <h1 class="page-title">Class: LegacyTileSource</h1>
+    <h1 class="page-title">Class: ImageTileSource</h1>
     
     
 
@@ -29,15 +29,18 @@
     <h2>
         <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
     
-    LegacyTileSource
+    ImageTileSource
     </h2>
     
-        <div class="class-description">The LegacyTileSource allows simple, traditional image pyramids to be loaded
-into an OpenSeadragon Viewer.  Basically, this translates to the historically
-common practice of starting with a 'master' image, maybe a tiff for example,
-and generating a set of 'service' images like one or more thumbnails, a medium
-resolution image and a high resolution image in standard web formats like
-png or jpg.</div>
+        <div class="class-description">The ImageTileSource allows a simple image to be loaded
+into an OpenSeadragon Viewer.
+There are 2 ways to open an ImageTileSource:
+1. viewer.open({type: 'image', url: fooUrl});
+2. viewer.open(new OpenSeadragon.ImageTileSource({url: fooUrl}));
+
+With the first syntax, the crossOriginPolicy, ajaxWithCredentials and
+useCanvas options are inherited from the viewer if they are not
+specified directly in the options object.</div>
     
 </header>  
 
@@ -66,17 +69,17 @@ png or jpg.</div>
                     
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#aspectRatio">aspectRatio</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#aspectRatio">aspectRatio</a></li>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#dimensions">dimensions</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#dimensions">dimensions</a></li>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#maxLevel">maxLevel</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#maxLevel">maxLevel</a></li>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#minLevel">minLevel</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#minLevel">minLevel</a></li>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#ready">ready</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#ready">ready</a></li>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#tileOverlap">tileOverlap</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#tileOverlap">tileOverlap</a></li>
                             </ul>
                         </td>
                     
@@ -84,45 +87,47 @@ png or jpg.</div>
                         <td>
                             <ul>
                             
-                                <li><a href="OpenSeadragon.LegacyTileSource.html#LegacyTileSource" class="ctor-link">&lt; constructor &gt;</a></li>
+                                <li><a href="OpenSeadragon.ImageTileSource.html#ImageTileSource" class="ctor-link">&lt; constructor &gt;</a></li>
                             
                             
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#addHandler">addHandler</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#addHandler">addHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#configure">configure</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#configure">configure</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getClosestLevel">getClosestLevel</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getClosestLevel">getClosestLevel</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getHandler">getHandler</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getContext2D">getContext2D</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getImageInfo">getImageInfo</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getHandler">getHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getLevelScale">getLevelScale</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getImageInfo">getImageInfo</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getNumTiles">getNumTiles</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getLevelScale">getLevelScale</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getPixelRatio">getPixelRatio</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getNumTiles">getNumTiles</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getTileAtPoint">getTileAtPoint</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getPixelRatio">getPixelRatio</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getTileBounds">getTileBounds</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getTileAtPoint">getTileAtPoint</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getTileHeight">getTileHeight</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getTileBounds">getTileBounds</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getTileUrl">getTileUrl</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getTileHeight">getTileHeight</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#getTileWidth">getTileWidth</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getTileUrl">getTileUrl</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#raiseEvent">raiseEvent</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#getTileWidth">getTileWidth</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#removeAllHandlers">removeAllHandlers</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#raiseEvent">raiseEvent</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#removeHandler">removeHandler</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#removeAllHandlers">removeAllHandlers</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#supports">supports</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#removeHandler">removeHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.LegacyTileSource.html#tileExists">tileExists</a></li>
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#supports">supports</a></li>
+                                
+                                    <li><a href="OpenSeadragon.ImageTileSource.html#tileExists">tileExists</a></li>
                                 
                             
                             </ul>
@@ -142,7 +147,7 @@ png or jpg.</div>
     
         
 <dt>
-    <h4 class="name" id="LegacyTileSource"><span class="type-signature"></span>new LegacyTileSource<span class="signature">(levels)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ImageTileSource"><span class="type-signature"></span>new ImageTileSource<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -180,13 +185,13 @@ png or jpg.</div>
 	
         <tr>
             
-                <td class="name"><code>levels</code></td>
+                <td class="name"><code>options</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">Object</span>
 
 
             
@@ -196,27 +201,11 @@ png or jpg.</div>
             
             
             
-            <td class="description last">An array of file descriptions, each is an object with
-     a 'url', a 'width', and a 'height'.  Overriding classes can expect more
-     properties but these properties are sufficient for this implementation.
-     Additionally, the levels are required to be listed in order from
-     smallest to largest.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
+            <td class="description last">Options object.
+                <h6>Properties</h6>
+                
 
-<table class="props">
+<table class="params">
     <thead>
 	<tr>
 		
@@ -226,7 +215,11 @@ png or jpg.</div>
 		<th>Type</th>
 		
 		
+		<th>Argument</th>
 		
+		
+		
+		<th>Default</th>
 		
 		
 		<th class="last">Description</th>
@@ -238,167 +231,218 @@ png or jpg.</div>
 	
         <tr>
             
-                <td class="name"><code>aspectRatio</code></td>
+                <td class="name"><code>url</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last"></td>
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">URL of the image</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>dimensions</code></td>
+                <td class="name"><code>buildPyramid</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Boolean</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last"></td>
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">If set to true (default), a
+pyramid will be built internally to provide a better downsampling.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>tileSize</code></td>
+                <td class="name"><code>crossOriginPolicy</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Boolean</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last"></td>
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Valid values are
+'Anonymous', 'use-credentials', and false. If false, image requests will
+not use CORS preventing internal pyramid building for images from other
+domains.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>tileOverlap</code></td>
+                <td class="name"><code>ajaxWithCredentials</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Boolean</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last"></td>
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">Whether to set
+the withCredentials XHR flag for AJAX requests (when loading tile sources).</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>minLevel</code></td>
+                <td class="name"><code>useCanvas</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Boolean</span>
 
 
             
             </td>
             
             
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>maxLevel</code></td>
-            
-            
-            <td class="type">
-            
+                <td class="attributes">
                 
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>levels</code></td>
-            
-            
-            <td class="type">
-            
+                    &lt;optional><br>
                 
-<span class="param-type">Array</span>
-
-
-            
-            </td>
-            
-            
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last"></td>
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">Set to false to prevent any use
+of the canvas API.</td>
         </tr>
 	
 	
 	</tbody>
-</table></dl>
-        
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
     
         
     
@@ -420,7 +464,7 @@ png or jpg.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12390">line 12390</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12696">line 12696</a>
     </li></ul></dd>
     
     
@@ -1098,7 +1142,7 @@ png or jpg.</div>
         
             
 <dt>
-    <h4 class="name" id="configure"><span class="type-signature"></span>configure<span class="signature">(configuration, dataUrl)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="configure"><span class="type-signature"></span>configure<span class="signature">(options, dataUrl)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
     
 </dt>
@@ -1136,16 +1180,13 @@ png or jpg.</div>
 	
         <tr>
             
-                <td class="name"><code>configuration</code></td>
+                <td class="name"><code>options</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">Object</span>
-|
-
-<span class="param-type">XMLDocument</span>
 
 
             
@@ -1155,7 +1196,7 @@ png or jpg.</div>
             
             
             
-            <td class="description last">the raw configuration</td>
+            <td class="description last">the options</td>
         </tr>
 	
 	
@@ -1178,7 +1219,7 @@ png or jpg.</div>
             
             
             
-            <td class="description last">the url the data was retreived from if any.</td>
+            <td class="description last">the url the image was retreived from, if any.</td>
         </tr>
 	
 	
@@ -1209,7 +1250,7 @@ png or jpg.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12481">line 12481</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12754">line 12754</a>
     </li></ul></dd>
     
     
@@ -1351,6 +1392,169 @@ png or jpg.</div>
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11038">line 11038</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getContext2D"><span class="type-signature"></span>getContext2D<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieves a tile context 2D
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Level of the tile</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">x coordinate of the tile</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">y coordinate of the tile</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12877">line 12877</a>
     </li></ul></dd>
     
     
@@ -1576,11 +1780,6 @@ image metadata pertinent to this TileSources implementation.
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="OpenSeadragon.TileSource.html#getImageInfo">OpenSeadragon.TileSource#getImageInfo</a>
-    </li></dd>
-    
     
     
     
@@ -1595,7 +1794,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11100">line 11100</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12764">line 12764</a>
     </li></ul></dd>
     
     
@@ -1723,7 +1922,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12502">line 12502</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12827">line 12827</a>
     </li></ul></dd>
     
     
@@ -1836,7 +2035,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12516">line 12516</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12840">line 12840</a>
     </li></ul></dd>
     
     
@@ -2090,7 +2289,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12530">line 12530</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12853">line 12853</a>
     </li></ul></dd>
     
     
@@ -2415,10 +2614,7 @@ Subclasses should override this if tileHeight can be different at different leve
     
     
     <div class="description">
-        This method is not implemented by this class other than to throw an Error
-announcing you have to implement it.  Because of the variety of tile
-server technologies, and various specifications for building image
-pyramids, this method is here to allow easy integration.
+        Retrieves a tile url
     </div>
     
 
@@ -2468,7 +2664,7 @@ pyramids, this method is here to allow easy integration.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">Level of the tile</td>
         </tr>
 	
 	
@@ -2491,7 +2687,7 @@ pyramids, this method is here to allow easy integration.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">x coordinate of the tile</td>
         </tr>
 	
 	
@@ -2514,7 +2710,7 @@ pyramids, this method is here to allow easy integration.
             
             
             
-            <td class="description last"></td>
+            <td class="description last">y coordinate of the tile</td>
         </tr>
 	
 	
@@ -2545,7 +2741,7 @@ pyramids, this method is here to allow easy integration.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12546">line 12546</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12863">line 12863</a>
     </li></ul></dd>
     
     
@@ -2564,21 +2760,6 @@ pyramids, this method is here to allow easy integration.
     
     
     
-    <h5>Throws:</h5>
-    
-            
-
-    <div class="param-desc">
-    
-        
-<span class="param-type">Error</span>
-
-
-    
-    </div>
-
-
-        
     
     
     
@@ -3242,7 +3423,7 @@ this tile source.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12462">line 12462</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12743">line 12743</a>
     </li></ul></dd>
     
     
