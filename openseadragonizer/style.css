@@ -1,0 +1,112 @@
+/*
+Copyright (C) 2015 OpenSeadragon contributors
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+
+- Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+- Neither the name of OpenSeadragon nor the names of its contributors
+  may be used to endorse or promote products derived from this software
+  without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+*/
+body {
+    margin: 0;
+    color:          #333;
+    font-family: Helvetica, Arial, FreeSans, san-serif;
+    background-color: #121621;
+}
+
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+}
+
+#loader img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.img-vertical-align-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#openseadragon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#popup {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 12.5%;
+    background-color: #EEE;
+    width: 75%;
+    font-size: x-large;
+    padding: 5px;
+    padding-right: 10px; /* compensate input */
+    border-radius: 5px;
+}
+
+#popup input {
+    width: 100%;
+    font-size: x-large;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#popup button {
+    font-size: x-large;
+    border-radius: 5px;
+    color: #333;
+    border: 1px solid black;
+}
+
+#error {
+    margin-bottom: 1%;
+    color: #800;
+    font-size: large;
+    font-style: italic;
+    text-align: center;
+}
+
+.powered-by {
+    position:  absolute;
+    color: #437AB2;
+    right: 1%;
+    bottom: 5%;
+    font-size: medium;
+    text-align: right;
+}
+
+.powered-by a {
+    color: #437AB2;
+}
