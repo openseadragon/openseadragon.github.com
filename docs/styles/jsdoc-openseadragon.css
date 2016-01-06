@@ -12,7 +12,8 @@ body
     margin: 0;
     color: #333;
 }
-#container {
+
+#main-container {
     margin:     0 5em;
     padding:    1.0em;
     background-color: #EEE;
