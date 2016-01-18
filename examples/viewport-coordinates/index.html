@@ -132,7 +132,7 @@
 <p>Here's a code sample coordinate conversion, based on clicks: 
 <pre>// Assuming we have an OpenSeadragon Viewer called "viewer", we can catch the clicks 
 // with addHandler like so:
-viewer.addHandler('canvas-click', function(target, info) {
+viewer.addHandler('canvas-click', function(event) {
     // The canvas-click event gives us a position in web coordinates.
     var webPoint = event.position;
 
