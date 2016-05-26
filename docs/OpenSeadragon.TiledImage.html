@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
     <title>OpenSeadragon Class: TiledImage</title>
-    
+
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
 
@@ -16,26 +18,26 @@
 
 <div id="main-container">
 <div id="main">
-    
+
     <h1 class="page-title">Class: TiledImage</h1>
+
     
-    
+
 
 
 
 <section>
-    
+
 <header>
-    <h2>
-        <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
     
-    TiledImage
-    </h2>
-    
-        <div class="class-description">Handles rendering of tiles for an <a href="OpenSeadragon.Viewer.html"><code>OpenSeadragon.Viewer</code></a>.
+        <h2>
+            <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>TiledImage</h2>
+        
+            <div class="class-description">Handles rendering of tiles for an <a href="OpenSeadragon.Viewer.html"><code>OpenSeadragon.Viewer</code></a>.
 A new instance is created for each TileSource opened.</div>
+        
     
-</header>  
+</header>
 
 <article>
     
@@ -70,13 +72,21 @@ A new instance is created for each TileSource opened.</div>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#addHandler">addHandler</a></li>
                                 
+                                    <li><a href="OpenSeadragon.TiledImage.html#addOnceHandler">addOnceHandler</a></li>
+                                
                                     <li><a href="OpenSeadragon.TiledImage.html#destroy">destroy</a></li>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#draw">draw</a></li>
                                 
+                                    <li><a href="OpenSeadragon.TiledImage.html#fitBounds">fitBounds</a></li>
+                                
                                     <li><a href="OpenSeadragon.TiledImage.html#getBounds">getBounds</a></li>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#getClip">getClip</a></li>
+                                
+                                    <li><a href="OpenSeadragon.TiledImage.html#getClippedBounds">getClippedBounds</a></li>
+                                
+                                    <li><a href="OpenSeadragon.TiledImage.html#getCompositeOperation">getCompositeOperation</a></li>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#getContentSize">getContentSize</a></li>
                                 
@@ -106,6 +116,8 @@ A new instance is created for each TileSource opened.</div>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#setClip">setClip</a></li>
                                 
+                                    <li><a href="OpenSeadragon.TiledImage.html#setCompositeOperation">setCompositeOperation</a></li>
+                                
                                     <li><a href="OpenSeadragon.TiledImage.html#setHeight">setHeight</a></li>
                                 
                                     <li><a href="OpenSeadragon.TiledImage.html#setOpacity">setOpacity</a></li>
@@ -134,7 +146,7 @@ A new instance is created for each TileSource opened.</div>
                     
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">bounds-change</a></li>
+                                <li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li>
                             </ul>
                         </td>
                     
@@ -146,56 +158,61 @@ A new instance is created for each TileSource opened.</div>
 
     <div class="container-overview">
     
-    
-    
         
 <dt>
-    <h4 class="name" id="TiledImage"><span class="type-signature"></span>new TiledImage<span class="signature">(options)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        You shouldn't have to create a TiledImage directly; use <a href="OpenSeadragon.Viewer.html#open"><code>OpenSeadragon.Viewer#open</code></a>
-or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#addTiledImage</code></a> instead.
-    </div>
-    
 
     
+    <h2>Constructor</h2>
     
+
+    <h4 class="name" id="TiledImage"><span class="type-signature"></span>new TiledImage<span class="signature">(options)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    You shouldn't have to create a TiledImage directly; use <a href="OpenSeadragon.Viewer.html#open"><code>OpenSeadragon.Viewer#open</code></a>
+or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#addTiledImage</code></a> instead.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>options</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -204,44 +221,44 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Configuration for this TiledImage.
                 <h6>Properties</h6>
                 
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>source</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -250,33 +267,33 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The TileSource that defines this TiledImage.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>viewer</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -285,33 +302,33 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The Viewer that owns this TiledImage.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>tileCache</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -320,33 +337,33 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The TileCache for this TiledImage to use.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>drawer</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -355,33 +372,33 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The Drawer for this TiledImage to draw onto.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>imageLoader</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -390,33 +407,33 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The ImageLoader for this TiledImage to use.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>x</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -425,19 +442,19 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -445,17 +462,17 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
                 
                 </td>
             
-            
+
             <td class="description last">Left position, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>y</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -464,19 +481,19 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -484,17 +501,17 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
                 
                 </td>
             
-            
+
             <td class="description last">Top position, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>width</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -503,19 +520,19 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -523,17 +540,17 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
                 
                 </td>
             
-            
+
             <td class="description last">Width, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>height</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -542,35 +559,35 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Height, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
-                <td class="name"><code>clip</code></td>
+                <td class="name"><code>fitBounds</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -579,37 +596,114 @@ or <a href="OpenSeadragon.Viewer.html#addTiledImage"><code>OpenSeadragon.Viewer#
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
+
+            <td class="description last">The bounds in viewport coordinates
+to fit the image into. If specified, x, y, width and height get ignored.</td>
+        </tr>
+
+    
+
+        <tr>
             
+                <td class="name"><code>fitBoundsPlacement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#.Placement">OpenSeadragon.Placement</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    OpenSeadragon.Placement.CENTER
+                
+                </td>
+            
+
+            <td class="description last">How to anchor the image in the bounds if options.fitBounds is set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
             <td class="description last">An area, in image pixels, to clip to
 (portions of the image outside of this area will not be visible). Only works on
 browsers that support the HTML5 canvas.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>springStiffness</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -618,35 +712,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>animationTime</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -655,35 +749,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>minZoomImageRatio</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -692,35 +786,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>wrapHorizontal</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -729,35 +823,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>wrapVertical</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -766,35 +860,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>immediateRender</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -803,35 +897,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>blendTime</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -840,35 +934,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>alwaysBlend</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -877,35 +971,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>minPixelRatio</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -914,35 +1008,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
-                <td class="name"><code>opacity</code></td>
+                <td class="name"><code>smoothTileEdgesMinZoom</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -951,19 +1045,56 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opacity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
             
                 <td class="default">
                 
@@ -971,17 +1102,54 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
+
             <td class="description last">Opacity the tiled image should be drawn at.</td>
         </tr>
-	
-	
-	
+
+    
+
+        <tr>
+            
+                <td class="name"><code>compositeOperation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">How the image is composited onto other images; see compositeOperation in <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a> for possible values.</td>
+        </tr>
+
+    
+
         <tr>
             
                 <td class="name"><code>debugMode</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -990,35 +1158,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>placeholderFillStyle</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1036,35 +1204,35 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>crossOriginPolicy</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1076,85 +1244,98 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
-            <td class="description last">See <a href="OpenSeadragon.html#Options"><code>OpenSeadragon.Options</code></a>.</td>
+
+            <td class="description last">See <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a>.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
+
             </td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17519">line 17519</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18622">line 18622</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
     
@@ -1162,77 +1343,87 @@ browsers that support the HTML5 canvas.</td>
 
     
         <h3 class="subsection-title">Extends</h3>
+
         
-        <ul>
-            <li><a href="OpenSeadragon.EventSource.html">OpenSeadragon.EventSource</a></li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
-        
-        <dl>
-            
-<dt>
-    <h4 class="name" id="addHandler"><span class="type-signature"></span>addHandler<span class="signature">(eventName, handler, <span class="optional">userData</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Add an event handler for a given event.
-    </div>
+
+
+    <ul>
+        <li><a href="OpenSeadragon.EventSource.html">OpenSeadragon.EventSource</a></li>
+    </ul>
+
+
     
 
     
+
     
+
+     
+
     
+
     
+
     
-        <h5>Parameters:</h5>
+        <h3 class="subsection-title">Methods</h3>
+
         
+            
+<dt>
+
+    
+
+    <h4 class="name" id="addHandler"><span class="type-signature"></span>addHandler<span class="signature">(eventName, handler, userData<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Add an event handler for a given event.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1241,68 +1432,68 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Name of event to register.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>handler</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
 
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Function to call when event is triggered.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>userData</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1311,19 +1502,19 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -1331,254 +1522,655 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
+
             <td class="description last">Arbitrary object to be passed unchanged to the handler.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#addHandler">OpenSeadragon.EventSource#addHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2925">line 2925</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2823">line 2823</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+
     
+
+    <h4 class="name" id="addOnceHandler"><span class="type-signature"></span>addOnceHandler<span class="signature">(eventName, handler, userData<span class="signature-attributes">opt</span>, times<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
 </dt>
 <dd>
-    
-    
-    <div class="description">
-        Destroy the TiledImage (unload current loaded tiles).
-    </div>
-    
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
+<div class="description">
+    Add an event handler to be triggered only once (or a given number of times)
+for a given event.
+</div>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17730">line 17730</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
 
-        
-            
-<dt>
-    <h4 class="name" id="draw"><span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Draws the TiledImage to its Drawer.
-    </div>
-    
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17721">line 17721</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
 
-    
-    
 
+    <h5>Parameters:</h5>
     
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="getBounds"><span class="type-signature"></span>getBounds<span class="signature">(<span class="optional">current</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-                <td class="name"><code>current</code></td>
+                <td class="name"><code>eventName</code></td>
             
+
+            <td class="type">
             
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Name of event to register.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Function to call when event
+is triggered.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Arbitrary object to be passed unchanged
+to the handler.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>times</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">The number of times to handle the event
+before removing it.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.EventSource.html#addOnceHandler">OpenSeadragon.EventSource#addOnceHandler</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2802">line 2802</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Destroy the TiledImage (unload current loaded tiles).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18851">line 18851</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="draw"><span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Draws the TiledImage to its Drawer.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18840">line 18840</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="fitBounds"><span class="type-signature"></span>fitBounds<span class="signature">(bounds, anchor<span class="signature-attributes">opt</span>, immediately<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Positions and scales the TiledImage to fit in the specified bounds.
+Note: this method fires OpenSeadragon.TiledImage.event:bounds-change
+twice
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">The bounds to fit the image into.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>anchor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#.Placement">OpenSeadragon.Placement</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    OpenSeadragon.Placement.CENTER
+                
+                </td>
+            
+
+            <td class="description last">How to anchor the image in the bounds.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>immediately</code></td>
+            
+
             <td class="type">
             
                 
@@ -1587,19 +2179,19 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -1607,62 +2199,230 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
-            <td class="description last">Pass true for the current location; false for target location.</td>
+
+            <td class="description last">Whether to animate to the new size
+or snap immediately.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17738">line 17738</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19175">line 19175</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
+
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
             
+<dt>
+
+    
+
+    <h4 class="name" id="getBounds"><span class="type-signature"></span>getBounds<span class="signature">(current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>current</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Pass true for the current location; false for target location.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18859">line 18859</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     This TiledImage's bounds in viewport coordinates.
 </div>
@@ -1670,86 +2430,102 @@ browsers that support the HTML5 canvas.</td>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="getClip"><span class="type-signature"></span>getClip<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>|null}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18027">line 18027</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19229">line 19229</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     The TiledImage's current clip rectangle,
 in image pixels, or null if none.
@@ -1758,89 +2534,385 @@ in image pixels, or null if none.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
 |
 
 <span class="param-type">null</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getContentSize"><span class="type-signature"></span>getContentSize<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+    <h4 class="name" id="getClippedBounds"><span class="type-signature"></span>getClippedBounds<span class="signature">(current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {$.Rect}</span></h4>
+
     
+
 </dt>
 <dd>
-    
+
+<div class="description">
+    Get the bounds of the displayed part of the tiled image.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
 
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
+<table class="params">
+    <thead>
+    <tr>
         
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
+
+        <tr>
+            
+                <td class="name"><code>current</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Pass true for the current location,
+false for the target location.</td>
+        </tr>
+
     
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17757">line 17757</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18881">line 18881</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The clipped bounds in viewport coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">$.Rect</span>
+
+
+    </dd>
+</dl>
 
     
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
+
+</dd>
+
+        
             
+<dt>
+
+    
+
+    <h4 class="name" id="getCompositeOperation"><span class="type-signature"></span>getCompositeOperation<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19273">line 19273</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The TiledImage's current compositeOperation.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="getContentSize"><span class="type-signature"></span>getContentSize<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18898">line 18898</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     This TiledImage's content size, in original pixels.
 </div>
@@ -1848,70 +2920,75 @@ in image pixels, or null if none.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getHandler"><span class="type-signature"></span>getHandler<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Get a function which iterates the list of all handlers registered for a given event, calling the handler for each.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getHandler"><span class="type-signature"></span>getHandler<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Get a function which iterates the list of all handlers registered for a given event, calling the handler for each.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1920,136 +2997,164 @@ in image pixels, or null if none.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event to get handlers for.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#getHandler">OpenSeadragon.EventSource#getHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2980">line 2980</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2878">line 2878</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="getOpacity"><span class="type-signature"></span>getOpacity<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18056">line 18056</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19258">line 19258</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     The TiledImage's current opacity.
 </div>
@@ -2057,71 +3162,76 @@ in image pixels, or null if none.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Number</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="imageToViewerElementCoordinates"><span class="type-signature"></span>imageToViewerElementCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Convert pixel coordinates relative to the image to
-viewer element coordinates.
-    </div>
-    
 
     
+
+    <h4 class="name" id="imageToViewerElementCoordinates"><span class="type-signature"></span>imageToViewerElementCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Convert pixel coordinates relative to the image to
+viewer element coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>pixel</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2130,138 +3240,155 @@ viewer element coordinates.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17909">line 17909</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19050">line 19050</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="imageToViewportCoordinates"><span class="type-signature"></span>imageToViewportCoordinates<span class="signature">(imageX, <span class="optional">imageY</span>, <span class="optional">current</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Translates from image coordinate system to OpenSeadragon viewer coordinate system
-This method can be called either by passing X,Y coordinates or an <a href="OpenSeadragon.Point.html"><code>OpenSeadragon.Point</code></a>.
-    </div>
-    
 
     
+
+    <h4 class="name" id="imageToViewportCoordinates"><span class="type-signature"></span>imageToViewportCoordinates<span class="signature">(imageX, imageY<span class="signature-attributes">opt</span>, current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Translates from image coordinate system to OpenSeadragon viewer coordinate system
+This method can be called either by passing X,Y coordinates or an <a href="OpenSeadragon.Point.html"><code>OpenSeadragon.Point</code></a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>imageX</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2273,33 +3400,33 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The X coordinate or point in image coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>imageY</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2308,35 +3435,35 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The Y coordinate in image coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>current</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2345,19 +3472,19 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -2365,62 +3492,74 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
                 
                 </td>
             
-            
+
             <td class="description last">Pass true to use the current location; false for target location.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17808">line 17808</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18949">line 18949</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     A point representing the coordinates in the viewport.
 </div>
@@ -2428,76 +3567,81 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="imageToViewportRectangle"><span class="type-signature"></span>imageToViewportRectangle<span class="signature">(imageX, <span class="optional">imageY</span>, <span class="optional">pixelWidth</span>, <span class="optional">pixelHeight</span>, <span class="optional">current</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Translates from a rectangle which describes a portion of the image in
-pixel coordinates to OpenSeadragon viewport rectangle coordinates.
-This method can be called either by passing X,Y,width,height or an <a href="OpenSeadragon.Rect.html"><code>OpenSeadragon.Rect</code></a>.
-    </div>
-    
 
     
+
+    <h4 class="name" id="imageToViewportRectangle"><span class="type-signature"></span>imageToViewportRectangle<span class="signature">(imageX, imageY<span class="signature-attributes">opt</span>, pixelWidth<span class="signature-attributes">opt</span>, pixelHeight<span class="signature-attributes">opt</span>, current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Translates from a rectangle which describes a portion of the image in
+pixel coordinates to OpenSeadragon viewport rectangle coordinates.
+This method can be called either by passing X,Y,width,height or an <a href="OpenSeadragon.Rect.html"><code>OpenSeadragon.Rect</code></a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>imageX</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2509,33 +3653,33 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The left coordinate or rectangle in image coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>imageY</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2544,35 +3688,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The top coordinate in image coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>pixelWidth</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2581,35 +3725,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The width in pixel of the rectangle.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>pixelHeight</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2618,35 +3762,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The height in pixel of the rectangle.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>current</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2655,19 +3799,19 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -2675,62 +3819,74 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
                 
                 </td>
             
-            
+
             <td class="description last">Pass true to use the current location; false for target location.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17839">line 17839</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18980">line 18980</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     A rect representing the coordinates in the viewport.
 </div>
@@ -2738,75 +3894,80 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="imageToViewportZoom"><span class="type-signature"></span>imageToViewportZoom<span class="signature">(imageZoom)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
-    <div class="description">
-        Convert an image zoom to a viewport zoom.
+
+<div class="description">
+    Convert an image zoom to a viewport zoom.
 Image zoom: ratio of the original image size to displayed image size.
 1 means original image size, 0.5 half size...
 Viewport zoom: ratio of the displayed image's width to viewport's width.
 1 means identical width, 2 means image's width is twice the viewport's width...
 Note: not accurate with multi-image.
-    </div>
-    
+</div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>imageZoom</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2815,66 +3976,78 @@ Note: not accurate with multi-image.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">The image zoom</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17963">line 17963</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19104">line 19104</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     viewportZoom The viewport zoom
 </div>
@@ -2882,70 +4055,75 @@ Note: not accurate with multi-image.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Number</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="imageToWindowCoordinates"><span class="type-signature"></span>imageToWindowCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Convert image coordinates to pixel coordinates relative to the window.
-    </div>
-    
 
     
+
+    <h4 class="name" id="imageToWindowCoordinates"><span class="type-signature"></span>imageToWindowCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Convert image coordinates to pixel coordinates relative to the window.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>pixel</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2954,149 +4132,177 @@ Note: not accurate with multi-image.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17930">line 17930</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19071">line 19071</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="needsDraw"><span class="type-signature"></span>needsDraw<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17681">line 17681</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18800">line 18800</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Whether the TiledImage needs to be drawn.
 </div>
@@ -3104,70 +4310,75 @@ Note: not accurate with multi-image.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Boolean</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="raiseEvent"><span class="type-signature"></span>raiseEvent<span class="signature">(eventName, eventArgs)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Trigger an event, optionally passing additional information.
-    </div>
-    
 
     
+
+    <h4 class="name" id="raiseEvent"><span class="type-signature"></span>raiseEvent<span class="signature">(eventName, eventArgs)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Trigger an event, optionally passing additional information.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3176,21 +4387,21 @@ Note: not accurate with multi-image.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event to register.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>eventArgs</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3199,121 +4410,138 @@ Note: not accurate with multi-image.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Event-specific data.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#raiseEvent">OpenSeadragon.EventSource#raiseEvent</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3007">line 3007</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2905">line 2905</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Remove all event handlers for a given event type. If no type is given all
-event handlers for every event type are removed.
-    </div>
-    
 
     
+
+    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Remove all event handlers for a given event type. If no type is given all
+event handlers for every event type are removed.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3322,120 +4550,137 @@ event handlers for every event type are removed.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event for which all handlers are to be removed.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#removeAllHandlers">OpenSeadragon.EventSource#removeAllHandlers</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2965">line 2965</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2863">line 2863</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="removeHandler"><span class="type-signature"></span>removeHandler<span class="signature">(eventName, handler)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Remove a specific event handler for a given event.
-    </div>
-    
 
     
+
+    <h4 class="name" id="removeHandler"><span class="type-signature"></span>removeHandler<span class="signature">(eventName, handler)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Remove a specific event handler for a given event.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3444,209 +4689,242 @@ event handlers for every event type are removed.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event for which the handler is to be removed.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>handler</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
 
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Function to be removed.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#removeHandler">OpenSeadragon.EventSource#removeHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2941">line 2941</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2839">line 2839</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="reset"><span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"></span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
-    <div class="description">
-        Clears all tiles and triggers an update on the next call to
+
+<div class="description">
+    Clears all tiles and triggers an update on the next call to
 <a href="OpenSeadragon.TiledImage.html#update"><code>OpenSeadragon.TiledImage#update</code></a>.
-    </div>
-    
+</div>
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17689">line 17689</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18808">line 18808</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setClip"><span class="type-signature"></span>setClip<span class="signature">(newClip)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="setClip"><span class="type-signature"></span>setClip<span class="signature">(newClip)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>newClip</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3658,121 +4936,268 @@ event handlers for every event type are removed.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">An area, in image pixels, to clip to
 (portions of the image outside of this area will not be visible). Only works on
 browsers that support the HTML5 canvas.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18040">line 18040</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19242">line 19242</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setHeight"><span class="type-signature"></span>setHeight<span class="signature">(height, <span class="optional">immediately</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Sets the TiledImage's height in the world, adjusting the width to match based on aspect ratio.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setCompositeOperation"><span class="type-signature"></span>setCompositeOperation<span class="signature">(compositeOperation)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>compositeOperation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the tiled image should be drawn with this globalCompositeOperation.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19280">line 19280</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="setHeight"><span class="type-signature"></span>setHeight<span class="signature">(height, immediately<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Sets the TiledImage's height in the world, adjusting the width to match based on aspect ratio.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>height</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3781,33 +5206,33 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The new height, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>immediately</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3816,19 +5241,19 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -3836,112 +5261,129 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
+
             <td class="description last">Whether to animate to the new size or snap immediately.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18019">line 18019</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19160">line 19160</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
-    <h5>Fires:</h5>
-    <ul>
-        <li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
-    </ul>
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setOpacity"><span class="type-signature"></span>setOpacity<span class="signature">(opacity)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="setOpacity"><span class="type-signature"></span>setOpacity<span class="signature">(opacity)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>opacity</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3950,119 +5392,136 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Opacity the tiled image should be drawn at.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18063">line 18063</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19265">line 19265</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setPosition"><span class="type-signature"></span>setPosition<span class="signature">(position, <span class="optional">immediately</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Sets the TiledImage's position in the world.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setPosition"><span class="type-signature"></span>setPosition<span class="signature">(position, immediately<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Sets the TiledImage's position in the world.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>position</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4071,33 +5530,33 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The new position, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>immediately</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4106,19 +5565,19 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -4126,120 +5585,137 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
+
             <td class="description last">Whether to animate to the new position or snap immediately.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17975">line 17975</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19116">line 19116</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
-    <h5>Fires:</h5>
-    <ul>
-        <li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
-    </ul>
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setWidth"><span class="type-signature"></span>setWidth<span class="signature">(width, <span class="optional">immediately</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Sets the TiledImage's width in the world, adjusting the height to match based on aspect ratio.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setWidth"><span class="type-signature"></span>setWidth<span class="signature">(width, immediately<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Sets the TiledImage's width in the world, adjusting the height to match based on aspect ratio.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>width</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4248,33 +5724,33 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The new width, in viewport coordinates.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>immediately</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4283,19 +5759,19 @@ browsers that support the HTML5 canvas.</td>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -4303,136 +5779,164 @@ browsers that support the HTML5 canvas.</td>
                 
                 </td>
             
-            
+
             <td class="description last">Whether to animate to the new size or snap immediately.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18009">line 18009</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19150">line 19150</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
-    <h5>Fires:</h5>
-    <ul>
-        <li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
-    </ul>
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">OpenSeadragon.TiledImage.event:bounds-change</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
-    <div class="description">
-        Updates the TiledImage's bounds, animating if needed.
-    </div>
-    
 
-    
-    
-    
-    
-    
-    
-    
+<div class="description">
+    Updates the TiledImage's bounds, animating if needed.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17699">line 17699</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18818">line 18818</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Whether the TiledImage animated.
 </div>
@@ -4440,71 +5944,76 @@ browsers that support the HTML5 canvas.</td>
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Boolean</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="viewerElementToImageCoordinates"><span class="type-signature"></span>viewerElementToImageCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Convert pixel coordinates relative to the viewer element to image
-coordinates.
-    </div>
-    
 
     
+
+    <h4 class="name" id="viewerElementToImageCoordinates"><span class="type-signature"></span>viewerElementToImageCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Convert pixel coordinates relative to the viewer element to image
+coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>pixel</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4513,138 +6022,155 @@ coordinates.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17898">line 17898</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19039">line 19039</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="viewportToImageCoordinates"><span class="type-signature"></span>viewportToImageCoordinates<span class="signature">(viewerX, <span class="optional">viewerY</span>, <span class="optional">current</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Translates from OpenSeadragon viewer coordinate system to image coordinate system.
-This method can be called either by passing X,Y coordinates or an <a href="OpenSeadragon.Point.html"><code>OpenSeadragon.Point</code></a>.
-    </div>
-    
 
     
+
+    <h4 class="name" id="viewportToImageCoordinates"><span class="type-signature"></span>viewportToImageCoordinates<span class="signature">(viewerX, viewerY<span class="signature-attributes">opt</span>, current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Translates from OpenSeadragon viewer coordinate system to image coordinate system.
+This method can be called either by passing X,Y coordinates or an <a href="OpenSeadragon.Point.html"><code>OpenSeadragon.Point</code></a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>viewerX</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4656,33 +6182,33 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The X coordinate or point in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>viewerY</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4691,35 +6217,35 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The Y coordinate in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>current</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4728,19 +6254,19 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -4748,62 +6274,74 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
                 
                 </td>
             
-            
+
             <td class="description last">Pass true to use the current location; false for target location.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17776">line 17776</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18917">line 18917</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     A point representing the coordinates in the image.
 </div>
@@ -4811,76 +6349,81 @@ This method can be called either by passing X,Y coordinates or an <a href="OpenS
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="viewportToImageRectangle"><span class="type-signature"></span>viewportToImageRectangle<span class="signature">(viewerX, <span class="optional">viewerY</span>, <span class="optional">pointWidth</span>, <span class="optional">pointHeight</span>, <span class="optional">current</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Translates from a rectangle which describes a portion of
-the viewport in point coordinates to image rectangle coordinates.
-This method can be called either by passing X,Y,width,height or an <a href="OpenSeadragon.Rect.html"><code>OpenSeadragon.Rect</code></a>.
-    </div>
-    
 
     
+
+    <h4 class="name" id="viewportToImageRectangle"><span class="type-signature"></span>viewportToImageRectangle<span class="signature">(viewerX, viewerY<span class="signature-attributes">opt</span>, pointWidth<span class="signature-attributes">opt</span>, pointHeight<span class="signature-attributes">opt</span>, current<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Translates from a rectangle which describes a portion of
+the viewport in point coordinates to image rectangle coordinates.
+This method can be called either by passing X,Y,width,height or an <a href="OpenSeadragon.Rect.html"><code>OpenSeadragon.Rect</code></a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>viewerX</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4892,33 +6435,33 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The left coordinate or rectangle in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>viewerY</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4927,35 +6470,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The top coordinate in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>pointWidth</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -4964,35 +6507,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The width in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>pointHeight</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5001,35 +6544,35 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">The height in viewport coordinate system.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>current</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5038,19 +6581,19 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -5058,62 +6601,74 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
                 
                 </td>
             
-            
+
             <td class="description last">Pass true to use the current location; false for target location.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17871">line 17871</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19012">line 19012</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     A rect representing the coordinates in the image.
 </div>
@@ -5121,74 +6676,79 @@ This method can be called either by passing X,Y,width,height or an <a href="Open
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="viewportToImageZoom"><span class="type-signature"></span>viewportToImageZoom<span class="signature">(viewportZoom)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
-    <div class="description">
-        Convert a viewport zoom to an image zoom.
+
+<div class="description">
+    Convert a viewport zoom to an image zoom.
 Image zoom: ratio of the original image size to displayed image size.
 1 means original image size, 0.5 half size...
 Viewport zoom: ratio of the displayed image's width to viewport's width.
 1 means identical width, 2 means image's width is twice the viewport's width...
-    </div>
-    
+</div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>viewportZoom</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5197,66 +6757,78 @@ Viewport zoom: ratio of the displayed image's width to viewport's width.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">The viewport zoom</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17946">line 17946</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19087">line 19087</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     imageZoom The image zoom
 </div>
@@ -5264,70 +6836,75 @@ Viewport zoom: ratio of the displayed image's width to viewport's width.
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Number</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="windowToImageCoordinates"><span class="type-signature"></span>windowToImageCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Convert pixel coordinates relative to the window to image coordinates.
-    </div>
-    
 
     
+
+    <h4 class="name" id="windowToImageCoordinates"><span class="type-signature"></span>windowToImageCoordinates<span class="signature">(pixel)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>}</span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Convert pixel coordinates relative to the window to image coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>pixel</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5336,161 +6913,177 @@ Viewport zoom: ratio of the displayed image's width to viewport's width.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17919">line 17919</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19060">line 19060</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
+
+
 </dd>
 
-        </dl>
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Events</h3>
         
-        <dl>
-            
-<dt>
-    <h4 class="name" id="event:bounds-change">bounds-change</h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Raised when the TiledImage's bounds are changed.
-Note that this event is triggered only when the animation target is changed;
-not for every frame of animation.
-    </div>
     
 
     
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id=".event:bounds-change">bounds-change</h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Raised when the TiledImage's bounds are changed.
+Note that this event is triggered only when the animation target is changed;
+not for every frame of animation.
+</div>
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">object</span>
 
 
-            </li>
-        </ul>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
     
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
 
 <table class="props">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventSource</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5499,27 +7092,27 @@ not for every frame of animation.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
+
             <td class="description last">A reference to the TiledImage which raised the event.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>userData</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -5528,77 +7121,90 @@ not for every frame of animation.
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
                     &lt;nullable><br>
                 
                 </td>
             
+
             
-            
-            
+
             <td class="description last">Arbitrary subscriber-defined object.</td>
         </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
+
     
-        
-    
-    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18104">line 18104</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19321">line 19321</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
-        </dl>
+        
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -5606,13 +7212,13 @@ not for every frame of animation.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.World.html">World</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">bounds-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#event:remove-item">remove-item</a></li></ul><h3>Global</h3><ul><li><a href="global.html#The margins push the "home" region in from the sides by the specified amounts.">The margins push the "home" region in from the sides by the specified amounts.</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.World.html">World</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu May 12 2016 14:36:26 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu May 26 2016 15:35:34 GMT-0700 (PDT)
 </footer>
 </div>
 

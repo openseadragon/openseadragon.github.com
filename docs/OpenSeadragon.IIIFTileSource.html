@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
     <title>OpenSeadragon Class: IIIFTileSource</title>
-    
+
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
 
@@ -16,26 +18,26 @@
 
 <div id="main-container">
 <div id="main">
-    
+
     <h1 class="page-title">Class: IIIFTileSource</h1>
+
     
-    
+
 
 
 
 <section>
-    
+
 <header>
-    <h2>
-        <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>
     
-    IIIFTileSource
-    </h2>
+        <h2>
+            <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>IIIFTileSource</h2>
+        
+            <div class="class-description">A client implementation of the International Image Interoperability Framework
+Format: Image API 1.0 - 2.1</div>
+        
     
-        <div class="class-description">A client implementation of the International Image Interoperability
-Format: Image API 1.0 - 2.0</div>
-    
-</header>  
+</header>
 
 <article>
     
@@ -86,6 +88,8 @@ Format: Image API 1.0 - 2.0</div>
                                 
                                     <li><a href="OpenSeadragon.IIIFTileSource.html#addHandler">addHandler</a></li>
                                 
+                                    <li><a href="OpenSeadragon.IIIFTileSource.html#addOnceHandler">addOnceHandler</a></li>
+                                
                                     <li><a href="OpenSeadragon.IIIFTileSource.html#configure">configure</a></li>
                                 
                                     <li><a href="OpenSeadragon.IIIFTileSource.html#getClosestLevel">getClosestLevel</a></li>
@@ -134,53 +138,67 @@ Format: Image API 1.0 - 2.0</div>
 
     <div class="container-overview">
     
-    
-    
         
 <dt>
+
+    
+    <h2>Constructor</h2>
+    
+
     <h4 class="name" id="IIIFTileSource"><span class="type-signature"></span>new IIIFTileSource<span class="signature">()</span><span class="type-signature"></span></h4>
+
     
-    
+
 </dt>
 <dd>
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11772">line 11772</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11941">line 11941</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -189,22 +207,24 @@ Format: Image API 1.0 - 2.0</div>
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
     
@@ -212,491 +232,567 @@ Format: Image API 1.0 - 2.0</div>
 
     
         <h3 class="subsection-title">Extends</h3>
+
         
-        <ul>
-            <li><a href="OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a></li>
-        </ul>
+
+
+    <ul>
+        <li><a href="OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a></li>
+    </ul>
+
+
     
+
     
+
     
+
+     
+
     
-    
-    
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Members</h3>
+
         
-        <dl>
             
 <dt>
-    <h4 class="name" id="aspectRatio"><span class="type-signature"></span>aspectRatio<span class="type-signature"> :Number</span></h4>
-    
-    
+<h4 class="name" id="aspectRatio"><span class="type-signature"></span>aspectRatio<span class="type-signature"> :Number</span></h4>
+
+
 </dt>
 <dd>
-    
-    <div class="description">
-        Ratio of width to height
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+<div class="description">
+    Ratio of width to height
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Number</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#aspectRatio">OpenSeadragon.TileSource#aspectRatio</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10850">line 10850</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11016">line 11016</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="dimensions"><span class="type-signature"></span>dimensions<span class="type-signature"> :<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span></h4>
-    
-    
+<h4 class="name" id="dimensions"><span class="type-signature"></span>dimensions<span class="type-signature"> :<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span></h4>
+
+
 </dt>
 <dd>
-    
-    <div class="description">
-        Vector storing x and y dimensions ( width and height respectively ).
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+<div class="description">
+    Vector storing x and y dimensions ( width and height respectively ).
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#dimensions">OpenSeadragon.TileSource#dimensions</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10851">line 10851</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11021">line 11021</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="maxLevel"><span class="type-signature"></span>maxLevel<span class="type-signature"> :Number</span></h4>
-    
-    
+<h4 class="name" id="maxLevel"><span class="type-signature"></span>maxLevel<span class="type-signature"> :Number</span></h4>
+
+
 </dt>
 <dd>
-    
-    <div class="description">
-        The maximum pyramid level this tile source supports or should attempt to load.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+<div class="description">
+    The maximum pyramid level this tile source supports or should attempt to load.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Number</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#maxLevel">OpenSeadragon.TileSource#maxLevel</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10854">line 10854</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11036">line 11036</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="minLevel"><span class="type-signature"></span>minLevel<span class="type-signature"> :Number</span></h4>
-    
-    
+<h4 class="name" id="minLevel"><span class="type-signature"></span>minLevel<span class="type-signature"> :Number</span></h4>
+
+
 </dt>
 <dd>
-    
-    <div class="description">
-        The minimum pyramid level this tile source supports or should attempt to load.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+<div class="description">
+    The minimum pyramid level this tile source supports or should attempt to load.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Number</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#minLevel">OpenSeadragon.TileSource#minLevel</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10853">line 10853</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11031">line 11031</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="ready"><span class="type-signature"></span>ready<span class="type-signature"> :Boolean</span></h4>
-    
-    
+<h4 class="name" id="ready"><span class="type-signature"></span>ready<span class="type-signature"> :Boolean</span></h4>
+
+
 </dt>
 <dd>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Boolean</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#ready">OpenSeadragon.TileSource#ready</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10855">line 10855</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11041">line 11041</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="tileOverlap"><span class="type-signature"></span>tileOverlap<span class="type-signature"> :Number</span></h4>
-    
-    
+<h4 class="name" id="tileOverlap"><span class="type-signature"></span>tileOverlap<span class="type-signature"> :Number</span></h4>
+
+
 </dt>
 <dd>
-    
-    <div class="description">
-        The overlap in pixels each tile shares with its adjacent neighbors.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+
+<div class="description">
+    The overlap in pixels each tile shares with its adjacent neighbors.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Number</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
 
     
-<dl class="details">
-    
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#tileOverlap">OpenSeadragon.TileSource#tileOverlap</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10852">line 10852</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11026">line 11026</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
+
+
+
+
 </dd>
 
-        </dl>
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
         
-        <dl>
-            
-<dt>
-    <h4 class="name" id="addHandler"><span class="type-signature"></span>addHandler<span class="signature">(eventName, handler, <span class="optional">userData</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Add an event handler for a given event.
-    </div>
     
 
     
-    
-    
-    
-    
-        <h5>Parameters:</h5>
+        <h3 class="subsection-title">Methods</h3>
+
         
+            
+<dt>
+
+    
+
+    <h4 class="name" id="addHandler"><span class="type-signature"></span>addHandler<span class="signature">(eventName, handler, userData<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Add an event handler for a given event.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -705,68 +801,68 @@ Format: Image API 1.0 - 2.0</div>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Name of event to register.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>handler</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
 
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
                 </td>
             
-            
+
             <td class="description last">Function to call when event is triggered.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>userData</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -775,19 +871,19 @@ Format: Image API 1.0 - 2.0</div>
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
-            
+
             
                 <td class="default">
                 
@@ -795,112 +891,209 @@ Format: Image API 1.0 - 2.0</div>
                 
                 </td>
             
-            
+
             <td class="description last">Arbitrary object to be passed unchanged to the handler.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#addHandler">OpenSeadragon.EventSource#addHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2925">line 2925</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2823">line 2823</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="configure"><span class="type-signature"></span>configure<span class="signature">(data)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="addOnceHandler"><span class="type-signature"></span>addOnceHandler<span class="signature">(eventName, handler, userData<span class="signature-attributes">opt</span>, times<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Add an event handler to be triggered only once (or a given number of times)
+for a given event.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>eventName</code></td>
             
+
+            <td class="type">
             
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Name of event to register.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Function to call when event
+is triggered.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userData</code></td>
+            
+
             <td class="type">
             
                 
@@ -909,129 +1102,38 @@ Format: Image API 1.0 - 2.0</div>
 
             
             </td>
+
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
+
             
+                <td class="default">
+                
+                    null
+                
+                </td>
             
-            
-            <td class="description last">the raw configuration</td>
+
+            <td class="description last">Arbitrary object to be passed unchanged
+to the handler.</td>
         </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11908">line 11908</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
 
     
 
-    
-    
-    
-    
-    
-    
-    
-        <h5>Example</h5>
-        
-        <p class="code-caption">IIIF 1.1 Info Looks like this</p>
-    
-    <pre class="source-code"><code>{
-  "<span class="hljs-attribute">@context</span>" : <span class="hljs-value"><span class="hljs-string">"http://library.stanford.edu/iiif/image-api/1.1/context.json"</span></span>,
-  "<span class="hljs-attribute">@id</span>" : <span class="hljs-value"><span class="hljs-string">"http://iiif.example.com/prefix/1E34750D-38DB-4825-A38A-B60A345E591C"</span></span>,
-  "<span class="hljs-attribute">width</span>" : <span class="hljs-value"><span class="hljs-number">6000</span></span>,
-  "<span class="hljs-attribute">height</span>" : <span class="hljs-value"><span class="hljs-number">4000</span></span>,
-  "<span class="hljs-attribute">scale_factors</span>" : <span class="hljs-value">[ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span> ]</span>,
-  "<span class="hljs-attribute">tile_width</span>" : <span class="hljs-value"><span class="hljs-number">1024</span></span>,
-  "<span class="hljs-attribute">tile_height</span>" : <span class="hljs-value"><span class="hljs-number">1024</span></span>,
-  "<span class="hljs-attribute">formats</span>" : <span class="hljs-value">[ <span class="hljs-string">"jpg"</span>, <span class="hljs-string">"png"</span> ]</span>,
-  "<span class="hljs-attribute">qualities</span>" : <span class="hljs-value">[ <span class="hljs-string">"native"</span>, <span class="hljs-string">"grey"</span> ]</span>,
-  "<span class="hljs-attribute">profile</span>" : <span class="hljs-value"><span class="hljs-string">"http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"</span>
-</span>}</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="getClosestLevel"><span class="type-signature"></span>getClosestLevel<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
         <tr>
             
-                <td class="name"><code>level</code></td>
+                <td class="name"><code>times</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1040,120 +1142,442 @@ Format: Image API 1.0 - 2.0</div>
 
             
             </td>
+
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
+
             
+                <td class="default">
+                
+                    1
+                
+                </td>
             
+
+            <td class="description last">The number of times to handle the event
+before removing it.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.EventSource.html#addOnceHandler">OpenSeadragon.EventSource#addOnceHandler</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2802">line 2802</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
             
+<dt>
+
+    
+
+    <h4 class="name" id="configure"><span class="type-signature"></span>configure<span class="signature">(data)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the raw configuration</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#configure">OpenSeadragon.TileSource#configure</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12096">line 12096</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">IIIF 1.1 Info Looks like this</p>
+    
+    <pre class="source-code"><code>{
+  "@context" : "http://library.stanford.edu/iiif/image-api/1.1/context.json",
+  "@id" : "http://iiif.example.com/prefix/1E34750D-38DB-4825-A38A-B60A345E591C",
+  "width" : 6000,
+  "height" : 4000,
+  "scale_factors" : [ 1, 2, 4 ],
+  "tile_width" : 1024,
+  "tile_height" : 1024,
+  "formats" : [ "jpg", "png" ],
+  "qualities" : [ "native", "grey" ],
+  "profile" : "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"
+}</code></pre>
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="getClosestLevel"><span class="type-signature"></span>getClosestLevel<span class="signature">(level)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getClosestLevel">OpenSeadragon.TileSource#getClosestLevel</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11038">line 11038</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11204">line 11204</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getHandler"><span class="type-signature"></span>getHandler<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Get a function which iterates the list of all handlers registered for a given event, calling the handler for each.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getHandler"><span class="type-signature"></span>getHandler<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Get a function which iterates the list of all handlers registered for a given event, calling the handler for each.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1162,121 +1586,138 @@ Format: Image API 1.0 - 2.0</div>
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event to get handlers for.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#getHandler">OpenSeadragon.EventSource#getHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2980">line 2980</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2878">line 2878</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getImageInfo"><span class="type-signature"></span>getImageInfo<span class="signature">(url)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Responsible for retrieving, and caching the
-image metadata pertinent to this TileSources implementation.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getImageInfo"><span class="type-signature"></span>getImageInfo<span class="signature">(url)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Responsible for retrieving, and caching the
+image metadata pertinent to this TileSources implementation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>url</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1285,69 +1726,81 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getImageInfo">OpenSeadragon.TileSource#getImageInfo</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11100">line 11100</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11266">line 11266</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    <h5>Throws:</h5>
-    
-            
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
 
     <div class="param-desc">
     
@@ -1359,57 +1812,62 @@ image metadata pertinent to this TileSources implementation.
     </div>
 
 
-        
     
-    
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="getLevelScale"><span class="type-signature"></span>getLevelScale<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1418,116 +1876,133 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getLevelScale">OpenSeadragon.TileSource#getLevelScale</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line10993">line 10993</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12154">line 12154</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
+
+    
+
     <h4 class="name" id="getNumTiles"><span class="type-signature"></span>getNumTiles<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1536,116 +2011,133 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getNumTiles">OpenSeadragon.TileSource#getNumTiles</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11013">line 11013</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12173">line 12173</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getPixelRatio"><span class="type-signature"></span>getPixelRatio<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="getPixelRatio"><span class="type-signature"></span>getPixelRatio<span class="signature">(level)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1654,116 +2146,133 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getPixelRatio">OpenSeadragon.TileSource#getPixelRatio</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11025">line 11025</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11191">line 11191</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getTileAtPoint"><span class="type-signature"></span>getTileAtPoint<span class="signature">(level, point)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="getTileAtPoint"><span class="type-signature"></span>getTileAtPoint<span class="signature">(level, point)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1772,21 +2281,21 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>point</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1795,116 +2304,133 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getTileAtPoint">OpenSeadragon.TileSource#getTileAtPoint</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11062">line 11062</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12193">line 12193</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getTileBounds"><span class="type-signature"></span>getTileBounds<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="getTileBounds"><span class="type-signature"></span>getTileBounds<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1913,21 +2439,21 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>x</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1936,21 +2462,21 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>y</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -1959,120 +2485,137 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#getTileBounds">OpenSeadragon.TileSource#getTileBounds</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11076">line 11076</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11242">line 11242</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getTileHeight"><span class="type-signature"></span>getTileHeight<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return the tileHeight for the given level.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getTileHeight"><span class="type-signature"></span>getTileHeight<span class="signature">(level)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Return the tileHeight for the given level.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2081,116 +2624,138 @@ image metadata pertinent to this TileSources implementation.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#getTileHeight">OpenSeadragon.TileSource#getTileHeight</a>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11943">line 11943</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12136">line 12136</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getTileUrl"><span class="type-signature"></span>getTileUrl<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Responsible for retreiving the url which will return an image for the
-region specified by the given x, y, and level components.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getTileUrl"><span class="type-signature"></span>getTileUrl<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Responsible for retrieving the url which will return an image for the
+region specified by the given x, y, and level components.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2199,21 +2764,21 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">z index</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>x</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2222,21 +2787,21 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>y</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2245,64 +2810,81 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#getTileUrl">OpenSeadragon.TileSource#getTileUrl</a>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11962">line 11962</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12212">line 12212</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    <h5>Throws:</h5>
-    
-            
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
 
     <div class="param-desc">
     
@@ -2314,61 +2896,66 @@ region specified by the given x, y, and level components.
     </div>
 
 
-        
     
-    
-    
-    
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getTileWidth"><span class="type-signature"></span>getTileWidth<span class="signature">(level)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return the tileWidth for the given level.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getTileWidth"><span class="type-signature"></span>getTileWidth<span class="signature">(level)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Return the tileWidth for the given level.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2377,115 +2964,137 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#getTileWidth">OpenSeadragon.TileSource#getTileWidth</a>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11929">line 11929</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12117">line 12117</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="raiseEvent"><span class="type-signature"></span>raiseEvent<span class="signature">(eventName, eventArgs)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Trigger an event, optionally passing additional information.
-    </div>
-    
 
     
+
+    <h4 class="name" id="raiseEvent"><span class="type-signature"></span>raiseEvent<span class="signature">(eventName, eventArgs)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Trigger an event, optionally passing additional information.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2494,21 +3103,21 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event to register.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>eventArgs</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2517,121 +3126,138 @@ region specified by the given x, y, and level components.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Event-specific data.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#raiseEvent">OpenSeadragon.EventSource#raiseEvent</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3007">line 3007</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2905">line 2905</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Remove all event handlers for a given event type. If no type is given all
-event handlers for every event type are removed.
-    </div>
-    
 
     
+
+    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Remove all event handlers for a given event type. If no type is given all
+event handlers for every event type are removed.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2640,120 +3266,137 @@ event handlers for every event type are removed.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event for which all handlers are to be removed.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#removeAllHandlers">OpenSeadragon.EventSource#removeAllHandlers</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2965">line 2965</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2863">line 2863</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="removeHandler"><span class="type-signature"></span>removeHandler<span class="signature">(eventName, handler)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Remove a specific event handler for a given event.
-    </div>
-    
 
     
+
+    <h4 class="name" id="removeHandler"><span class="type-signature"></span>removeHandler<span class="signature">(eventName, handler)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Remove a specific event handler for a given event.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>eventName</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2762,144 +3405,161 @@ event handlers for every event type are removed.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Name of event for which the handler is to be removed.</td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>handler</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.html#EventHandler">OpenSeadragon.EventHandler</a></span>
+<span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
 
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Function to be removed.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.EventSource.html#removeHandler">OpenSeadragon.EventSource#removeHandler</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2941">line 2941</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2839">line 2839</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="supports"><span class="type-signature"></span>supports<span class="signature">(data, optional)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Determine if the data and/or url imply the image service is supported by
-this tile source.
-    </div>
-    
 
     
+
+    <h4 class="name" id="supports"><span class="type-signature"></span>supports<span class="signature">(data, optional)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+<div class="description">
+    Determine if the data and/or url imply the image service is supported by
+this tile source.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>data</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2911,21 +3571,21 @@ this tile source.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>optional</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2934,111 +3594,133 @@ this tile source.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">url</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#supports">OpenSeadragon.TileSource#supports</a>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11861">line 11861</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12049">line 12049</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="tileExists"><span class="type-signature"></span>tileExists<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
     
+
+    <h4 class="name" id="tileExists"><span class="type-signature"></span>tileExists<span class="signature">(level, x, y)</span><span class="type-signature"></span></h4>
+
     
+
+</dt>
+<dd>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>level</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3047,21 +3729,21 @@ this tile source.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>x</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3070,21 +3752,21 @@ this tile source.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	
+
+    
+
         <tr>
             
                 <td class="name"><code>y</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3093,81 +3775,93 @@ this tile source.
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
+
     
-        
-    
-    
+
     
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
         <a href="OpenSeadragon.TileSource.html#tileExists">OpenSeadragon.TileSource#tileExists</a>
-    </li></dd>
+    </li></ul></dd>
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11283">line 11283</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line11449">line 11449</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 </dd>
 
-        </dl>
+        
     
+
     
-    
-    
+
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -3175,13 +3869,13 @@ this tile source.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.World.html">World</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#event:click">click</a></li><li><a href="OpenSeadragon.Button.html#event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#event:press">press</a></li><li><a href="OpenSeadragon.Button.html#event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#event:bounds-change">bounds-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#event:remove-item">remove-item</a></li></ul><h3>Global</h3><ul><li><a href="global.html#The margins push the "home" region in from the sides by the specified amounts.">The margins push the "home" region in from the sides by the specified amounts.</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.World.html">World</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Thu May 12 2016 14:36:25 GMT-0700 (PDT)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu May 26 2016 15:35:34 GMT-0700 (PDT)
 </footer>
 </div>
 
