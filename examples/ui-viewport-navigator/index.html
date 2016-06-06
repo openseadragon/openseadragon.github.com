@@ -101,7 +101,7 @@
 <div class="description">
     <h3>Navigator Overlay Position</h3>
     <p>By default the navigator is positioned in the upper right corner,
-        though it is possible to position it through configuration into any 
+        though it is possible to position it through configuration into any
         corner.</p>
 
 </div>
@@ -152,7 +152,7 @@ into which the navigator should be overlayed.
 
 <div class="demoarea">
     <div class="demoheading">
-        Viewport with Navigator at an Absolute Location 
+        Viewport with Navigator at an Absolute Location
     </div>
     <div id="contentDiv4" class="openseadragon"></div>
 </div>
@@ -196,6 +196,66 @@ attributes define the size and location of the navigator.
 <!--==================================================================-->
 
 <div class="description">
+    <h3>Navigator Auto Fade</h3>
+    <p>By default, the navigator will auto fade after some timeout when the user stops interacting with the viewport. You can disable this behavior and make it visible persistently.</p>
+
+</div>
+
+
+<div class="demoarea">
+    <div class="demoheading">
+        Viewport with togglable Navigator
+    </div>
+    <button onclick="toggleNav()">Toggle Navigator</button>
+    <div id="contentDiv5" class="openseadragon"></div>
+</div>
+
+<script type="text/javascript">
+    var viewer_af = OpenSeadragon({
+        id:            "contentDiv5",
+        prefixUrl:     "/openseadragon/images/",
+        tileSources:   "/example-images/highsmith/highsmith.dzi",
+        showNavigator:  true,
+        navigatorAutoFade: false
+    });
+
+    var navShown = true;
+    function toggleNav () {
+        if (navShown)
+            viewer_af.navigator.element.style.display = "none";
+        else
+            viewer_af.navigator.element.style.display = "inline-block";
+        navShown = !navShown;
+    }
+</script>
+
+<p>
+The relevant configuration options are shown below.
+</p>
+
+<pre>
+    var viewer = OpenSeadragon({
+        ...
+        showNavigator:  true,
+        navigatorAutoFade:  false,
+        ...
+    });
+
+    // UI code for toggling navigator
+    // e.g.: button onclick handler
+    var navShown = true;
+    function toggleNav () {
+        if (navShown)
+            viewer.navigator.element.style.display = "none";
+        else
+            viewer.navigator.element.style.display = "inline-block";
+        navShown = !navShown;
+    }
+</pre>
+
+<!--==================================================================-->
+
+<div class="description">
     <h3>Custom Navigator Location</h3>
     <p>Instead of placing the navigator overtop of the main image, the navigator
     may be placed elsewhere in the web page as illustrated in the example below.
@@ -206,7 +266,7 @@ attributes define the size and location of the navigator.
 
 <div class="demoarea2">
     <div class="demoheading">
-        Viewport With Custom Navigator Location 
+        Viewport With Custom Navigator Location
         <div id="navigatorDiv" class="openseadragon-small"></div>
     </div>
     <div id="contentDiv2" class="openseadragon"></div>
