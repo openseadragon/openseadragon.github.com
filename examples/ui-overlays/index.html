@@ -690,7 +690,7 @@ OpenSeadragon({
     }
     </style>
     <script type="text/javascript">
-        var viewer = OpenSeadragon({
+        var runtimeViewer = OpenSeadragon({
             id:            "example-runtime-overlay",
             prefixUrl:     "/openseadragon/images/",
             tileSources: [{
@@ -705,12 +705,12 @@ OpenSeadragon({
         var overlay = false;
         $("#toggle-overlay").click(function() {
             if (overlay) {
-                viewer.removeOverlay("runtime-overlay");
+                runtimeViewer.removeOverlay("runtime-overlay");
             } else {
                 var elt = document.createElement("div");
                 elt.id = "runtime-overlay";
                 elt.className = "highlight";
-                viewer.addOverlay({
+                runtimeViewer.addOverlay({
                     element: elt,
                     location: new OpenSeadragon.Rect(0.33, 0.75, 0.2, 0.25)
                 });
@@ -775,7 +775,7 @@ $("#toggle-overlay").click(function() {
     }
     </style>
     <script type="text/javascript">
-        var viewer = OpenSeadragon({
+        var rotationViewer = OpenSeadragon({
             id:            "example-overlay-rotation",
             prefixUrl:     "/openseadragon/images/",
             tileSources: [{
@@ -812,7 +812,7 @@ $("#toggle-overlay").click(function() {
             min: -180,
             max: 180,
             slide: function(event, ui) {
-                viewer.viewport.setRotation(ui.value);
+                rotationViewer.viewport.setRotation(ui.value);
             }
         });
     </script>
@@ -820,7 +820,7 @@ $("#toggle-overlay").click(function() {
 
 <pre>
 var viewer = OpenSeadragon({
-    id:            "example-runtime-overlay",
+    id:            "example-overlay-rotation",
     ...,
     overlays: [{
         id: 'overlay-rotation-exact', // Green overlay
