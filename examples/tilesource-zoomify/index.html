@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
 
     <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
-    <title>Rotation | OpenSeadragon</title>
+    <title>Zoomify Tile Source | OpenSeadragon</title>
 
     <link rel='stylesheet' 
           type='text/css'
@@ -56,113 +56,60 @@
             </ul>
         </div>
 
-        <h2>example: rotation</h2>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
+        <h2>
+    example: zoomify tile support
+</h2>
 <p>
-    The viewer can be rotated either programmatically or by activating the
-    corresponding controls in the user interface.
+    <a href="http://www.zoomify.com/">Zoomify</a> was a popular viewer to display large images in the past with Flash (and now without it, of course). It is still used in various places, because it is not only a viewer, but a tile builder too and it has some enterprise features. Its popularity was related to the fact that an extension was added to a popular commercial image application. An old description of the format can be found <a href="https://ecommons.cornell.edu/bitstream/handle/1813/5410/Introducing_Zoomify_Image.pdf">here</a>.
+</p>
+<p>
+    The tile sources can be produced by the commercial tool Zoomify, but scripts were written for common web languages (see <a href="/examples/creating-zooming-images/">creating zooming images</a>). Other common viewers support this format, for example <a href="https://openlayers.org/en/latest/examples/zoomify.html">OpenLayers</a>.
+</p>
+<p>
+    OpenSeadragon supports Zoomify tiles thanks to <a href="https://github.com/foobarable">foobarable</a>.
 </p>
 
 <div class="description">
-    <h3>Enabling rotation buttons</h3>
+    <h3>Inline Configuration for Zoomify</h3>
     <p>
-        If you just want to let the user rotate the viewer, you can simply
-        add the rotation controls and enable the pinch rotate on tactile
-        devices. You can also specify an initial rotation.
+        Currently, only inline configuration is supported, because Zoomify metadata are not in a standard xml file.
     </p>
 </div>
 <div class="demoarea">
     <div class="demoheading">
-        Viewer with rotation buttons
+        Example Inline Configuration for Zoomify
     </div>
-    <div id="example-buttons" class="openseadragon">
-        <script type="text/javascript">
-            OpenSeadragon({
-                id:            "example-buttons",
-                prefixUrl:     "/openseadragon/images/",
-                tileSources:   "/example-images/highsmith/highsmith.dzi",
-                degrees:       90,
-                showRotationControl: true,
-                gestureSettingsTouch: {
-                    pinchRotate: true
-                }
-            });
-        </script>
-        <noscript>
-            <p>OpenSeadragon is not available unless JavaScript is enabled.</p>
-            <img src='/example-images/highsmith/01967v.jpg' height='600'/>
-        </noscript>
+    <div id="example-inline-configuration-for-zoomify"
+         class="openseadragon">
     </div>
-    <pre>
+    <p>
+        Supply all necessary information in the <code>tilesource</code> object. A minimal example object for this method looks like this:
+    </p>
+<pre>
 OpenSeadragon({
     ...
-    // Initial rotation angle
-    degrees: 90,
-    // Show rotation buttons
-    showRotationControl: true,
-    // Enable touch rotation on tactile devices
-    gestureSettingsTouch: {
-        pinchRotate: true
-    }
-});
-    </pre>
+    tileSources: [{
+        type:       "zoomifytileservice",
+        width:      7026,
+        height:     9221,
+        tilesUrl:   "/test/data/zoomify/"
+    }]
+    ...
+});</pre>
 </div>
-
-<div class="description">
-    <h3>Programmatically set the rotation angle</h3>
-    <p>
-        To have more control over the rotation, you can set it via the
-        <a href="/docs/OpenSeadragon.Viewport.html#setRotation">Viewport.setRotation</a>
-        method.
-    </p>
-</div>
-<div class="demoarea">
-    <div class="demoheading">
-        Use the slider bar to set the rotation angle
-    </div>
-    <div id="slider" style="margin: 10px"></div>
-    <div id="example-programmatically" class="openseadragon">
-        <script type="text/javascript">
-            var viewer = OpenSeadragon({
-                id:            "example-programmatically",
-                prefixUrl:     "/openseadragon/images/",
-                tileSources:   "/example-images/highsmith/highsmith.dzi"
-            });
-
-            $("#slider").slider({
-                min: -180,
-                max: 180,
-                slide: function(event, ui) {
-                    viewer.viewport.setRotation(ui.value);
-                }
-            });
-        </script>
-        <noscript>
-            <p>OpenSeadragon is not available unless JavaScript is enabled.</p>
-            <img src='/example-images/highsmith/01967v.jpg' height='600'/>
-        </noscript>
-    </div>
-    <pre>
-var viewer = OpenSeadragon({
-    id:            "example-programmatically",
-    prefixUrl:     "/openseadragon/images/",
-    tileSources:   "/example-images/highsmith/highsmith.dzi"
-});
-
-// Using jQuery UI slider
-$("#slider").slider({
-    min: -180,
-    max: 180,
-    slide: function(event, ui) {
-        viewer.viewport.setRotation(ui.value);
-    }
-});
-    </pre>
-</div>
+<script type="text/javascript">
+    OpenSeadragon({
+        id:             "example-inline-configuration-for-zoomify",
+        prefixUrl:      "/openseadragon/images/",
+        showNavigator:  true,
+        tileSources:    [{
+            type:       "zoomifytileservice",
+            width:      7026,
+            height:     9221,
+            tilesUrl:   "/example-images/highsmith/highsmith_zdata/"
+        }]
+    });
+</script>
 
 
         <ul class="footer">

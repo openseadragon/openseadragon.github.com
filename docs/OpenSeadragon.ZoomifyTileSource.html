@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
-    <title>OpenSeadragon Class: TmsTileSource</title>
+    <title>OpenSeadragon Class: ZoomifyTileSource</title>
 
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -19,7 +19,7 @@
 <div id="main-container">
 <div id="main">
 
-    <h1 class="page-title">Class: TmsTileSource</h1>
+    <h1 class="page-title">Class: ZoomifyTileSource</h1>
 
     
 
@@ -31,11 +31,40 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="global.html#OpenSeadragon">OpenSeadragon</a>.</span>TmsTileSource</h2>
+            <span class="ancestors"><a href="global.html#OpenSeadragon">OpenSeadragon</a>.</span>ZoomifyTileSource</h2>
         
-            <div class="class-description">A tilesource implementation for Tiled Map Services (TMS).
-TMS tile scheme ( [ as supported by OpenLayers ] is described here
-( http://openlayers.org/dev/examples/tms.html ).</div>
+            <div class="class-description">A tilesource implementation for the zoomify format.
+
+A description of the format can be found here:
+https://ecommons.cornell.edu/bitstream/handle/1813/5410/Introducing_Zoomify_Image.pdf
+
+There are two ways of creating a zoomify tilesource for openseadragon
+
+1) Supplying all necessary information in the tilesource object. A minimal example object for this method looks like this:
+
+{
+     type: "zoomifytileservice",
+     width: 1000,
+     height: 1000,
+     tilesUrl: "/test/data/zoomify/"
+}
+
+The tileSize is currently hardcoded to 256 (the usual Zoomify default). The tileUrl must the path to the image _directory_.
+
+2) Loading image metadata from xml file: (CURRENTLY NOT SUPPORTED)
+
+When creating zoomify formatted images one "xml" like file with name ImageProperties.xml
+will be created as well. Here is an example of such a file:
+
+<IMAGE_PROPERTIES WIDTH="1000" HEIGHT="1000" NUMTILES="21" NUMIMAGES="1" VERSION="1.8" TILESIZE="256" />
+
+To use this xml file as metadata source you must supply the path to the ImageProperties.xml file and leave out all other parameters:
+As stated above, this method of loading a zoomify tilesource is currently not supported
+
+{
+     type: "zoomifytileservice",
+     tilesUrl: "/test/data/zoomify/ImageProperties.xml"
+}</div>
         
     
 </header>
@@ -65,17 +94,17 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
                     
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.TmsTileSource.html#aspectRatio">aspectRatio</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#aspectRatio">aspectRatio</a></li>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#dimensions">dimensions</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#dimensions">dimensions</a></li>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#maxLevel">maxLevel</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#maxLevel">maxLevel</a></li>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#minLevel">minLevel</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#minLevel">minLevel</a></li>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#ready">ready</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#ready">ready</a></li>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#tileOverlap">tileOverlap</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#tileOverlap">tileOverlap</a></li>
                             </ul>
                         </td>
                     
@@ -83,49 +112,49 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
                         <td>
                             <ul>
                             
-                                <li><a href="OpenSeadragon.TmsTileSource.html#TmsTileSource" class="ctor-link">&lt; constructor &gt;</a></li>
+                                <li><a href="OpenSeadragon.ZoomifyTileSource.html#ZoomifyTileSource" class="ctor-link">&lt; constructor &gt;</a></li>
                             
                             
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#addHandler">addHandler</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#addHandler">addHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#addOnceHandler">addOnceHandler</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#addOnceHandler">addOnceHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#configure">configure</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#configure">configure</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getClosestLevel">getClosestLevel</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getClosestLevel">getClosestLevel</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getHandler">getHandler</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getHandler">getHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getImageInfo">getImageInfo</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getImageInfo">getImageInfo</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getLevelScale">getLevelScale</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getLevelScale">getLevelScale</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getNumTiles">getNumTiles</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getNumTiles">getNumTiles</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getPixelRatio">getPixelRatio</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getPixelRatio">getPixelRatio</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileAjaxHeaders">getTileAjaxHeaders</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileAjaxHeaders">getTileAjaxHeaders</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileAtPoint">getTileAtPoint</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileAtPoint">getTileAtPoint</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileBounds">getTileBounds</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileBounds">getTileBounds</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileHeight">getTileHeight</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileHeight">getTileHeight</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileUrl">getTileUrl</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileUrl">getTileUrl</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#getTileWidth">getTileWidth</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#getTileWidth">getTileWidth</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#raiseEvent">raiseEvent</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#raiseEvent">raiseEvent</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#removeAllHandlers">removeAllHandlers</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#removeAllHandlers">removeAllHandlers</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#removeHandler">removeHandler</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#removeHandler">removeHandler</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#supports">supports</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#supports">supports</a></li>
                                 
-                                    <li><a href="OpenSeadragon.TmsTileSource.html#tileExists">tileExists</a></li>
+                                    <li><a href="OpenSeadragon.ZoomifyTileSource.html#tileExists">tileExists</a></li>
                                 
                             
                             </ul>
@@ -148,7 +177,7 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="TmsTileSource"><span class="type-signature"></span>new TmsTileSource<span class="signature">(width, height, tileSize, tileOverlap, tilesUrl)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ZoomifyTileSource"><span class="type-signature"></span>new ZoomifyTileSource<span class="signature">(width, height, tileSize, tilesUrl)</span><span class="type-signature"></span></h4>
 
     
 
@@ -195,9 +224,6 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
             
                 
 <span class="param-type">Number</span>
-|
-
-<span class="param-type">Object</span>
 
 
             
@@ -207,8 +233,7 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
 
             
 
-            <td class="description last">the pixel width of the image or the idiomatic
-     options object which is used instead of positional arguments.</td>
+            <td class="description last">the pixel width of the image.</td>
         </tr>
 
     
@@ -239,29 +264,6 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
         <tr>
             
                 <td class="name"><code>tileSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tileOverlap</code></td>
             
 
             <td class="type">
@@ -341,7 +343,7 @@ TMS tile scheme ( [ as supported by OpenLayers ] is described here
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12980">line 12980</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13076">line 13076</a>
     </li></ul></dd>
     
 
@@ -1509,7 +1511,7 @@ before removing it.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13052">line 13052</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13194">line 13194</a>
     </li></ul></dd>
     
 
@@ -3209,7 +3211,7 @@ Subclasses should override this if tileHeight can be different at different leve
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13063">line 13063</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13204">line 13204</a>
     </li></ul></dd>
     
 
@@ -3981,7 +3983,7 @@ this tile source.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13040">line 13040</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13182">line 13182</a>
     </li></ul></dd>
     
 
