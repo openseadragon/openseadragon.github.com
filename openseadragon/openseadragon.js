@@ -1,6 +1,6 @@
 //! openseadragon 2.3.0
-//! Built on 2017-07-14
-//! Git commit: v2.3.0-2-b49fef3
+//! Built on 2017-07-18
+//! Git commit: v2.3.0-4-b0ed844
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -696,13 +696,6 @@
   */
 
 
- /**
-  * This function serves as a single point of instantiation for an {@link OpenSeadragon.Viewer}, including all
-  * combinations of out-of-the-box configurable features.
-  *
-  * @param {OpenSeadragon.Options} options - Viewer options.
-  * @returns {OpenSeadragon.Viewer}
-  */
 function OpenSeadragon( options ){
     return new OpenSeadragon.Viewer( options );
 }
@@ -4279,8 +4272,9 @@ $.EventSource.prototype = {
         },
 
         /**
-         * @function Increment this pointer's contact count.
+         * Increment this pointer's contact count.
          * It will evaluate whether this pointer type is allowed to have multiple contacts.
+         * @function
          */
         addContact: function() {
             ++this.contacts;
@@ -4291,8 +4285,9 @@ $.EventSource.prototype = {
         },
 
         /**
-         * @function Decrement this pointer's contact count.
+         * Decrement this pointer's contact count.
          * It will make sure the count does not go below 0.
+         * @function
          */
         removeContact: function() {
             --this.contacts;
@@ -6382,10 +6377,12 @@ $.EventSource.prototype = {
         }
     }
 
-    // True if inside an iframe, otherwise false.
-    // @member {Boolean} isInIframe
-    // @private
-    // @inner
+    /**
+     * True if inside an iframe, otherwise false.
+     * @member {Boolean} isInIframe
+     * @private
+     * @inner
+     */
     var isInIframe = (function() {
         try {
             return window.self !== window.top;
@@ -6394,10 +6391,12 @@ $.EventSource.prototype = {
         }
     })();
 
-    // @function
-    // @private
-    // @inner
-    // @returns {Boolean} True if the target has access rights to events, otherwise false.
+    /**
+     * @function
+     * @private
+     * @inner
+     * @returns {Boolean} True if the target has access rights to events, otherwise false.
+     */
     function canAccessEvents (target) {
         try {
             return target.addEventListener && target.removeEventListener;
@@ -20176,8 +20175,8 @@ $.extend($.TiledImage.prototype, $.EventSource.prototype, /** @lends OpenSeadrag
     },
 
     /**
-     * @private
      * Get the point around which this tiled image is rotated
+     * @private
      * @param {Boolean} current True for current rotation point, false for target.
      * @returns {OpenSeadragon.Point}
      */
