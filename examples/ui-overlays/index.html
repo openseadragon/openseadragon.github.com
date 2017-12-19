@@ -74,7 +74,7 @@ at the <a href='http://www.loc.gov/'>Library of Congress</a>.</p>
 <p>Highlighted overlays are useful for directing users' attention to
 specific areas of interest.</p>
 
-<p>OpenSeadragon makes it easy to declare highlighted areas and control 
+<p>OpenSeadragon makes it easy to declare highlighted areas and control
 the presentation through simple CSS mechanisms. A tile source overlay
 is specific to the particular tile source. So if you have a sequence of
 tile sources and want to overlay unique content on each, use this mechanism.
@@ -162,9 +162,9 @@ tile sources and want to overlay unique content on each, use this mechanism.
                     tileOverlap: 1,
                     overlays: [{
                         id: 'example-overlay',
-                        x: 0.33, 
-                        y: 0.75, 
-                        width: 0.2, 
+                        x: 0.33,
+                        y: 0.75,
+                        width: 0.2,
                         height: 0.25,
                         className: 'highlight'
                     }],
@@ -195,24 +195,24 @@ tile sources and want to overlay unique content on each, use this mechanism.
                         mousey = e.pageY + 20, //Get Y coordinates
                         tipWidth = tip.width(), //Find width of tooltip
                         tipHeight = tip.height(), //Find height of tooltip
-                    
+
                     //Distance of element from the right edge of viewport
                         tipVisX = $(window).width() - (mousex + tipWidth),
                     //Distance of element from the bottom of viewport
                         tipVisY = $(window).height() - (mousey + tipHeight);
-                      
+
                     if ( tipVisX < 20 ) { //If tooltip exceeds the X coordinate of viewport
                         mousex = e.pageX - tipWidth - 20;
                     } if ( tipVisY < 20 ) { //If tooltip exceeds the Y coordinate of viewport
                         mousey = e.pageY - tipHeight - 20;
-                    } 
+                    }
                     tip.css({  top: mousey, left: mousex, position: 'absolute' });
                     tip.show().css({opacity: 0.8}); //Show tooltip
                 }, function() {
                     tip.hide(); //Hide tooltip
                 });
             };
-        </script> 
+        </script>
 
         <div id="example-tip" style='display:none;width:250px;background-color:#fff;'>
             <p>
@@ -240,9 +240,9 @@ OpenSeadragon({
         ...
         overlays: [{
             id: 'example-overlay',
-            x: 0.33, 
-            y: 0.75, 
-            width: 0.2, 
+            x: 0.33,
+            y: 0.75,
+            width: 0.2,
             height: 0.25,
             className: 'highlight'
         }],
@@ -251,7 +251,7 @@ OpenSeadragon({
     ...
 });
 </pre>
-  
+
 <div class="description">
     <h3>Fixed size Overlays</h3>
     <p>
@@ -356,9 +356,9 @@ OpenSeadragon({
             sequenceMode:  true,
             overlays: [{
                 id: 'global-overlay-filter',
-                px: 0, 
-                py: 0, 
-                width: 6425, 
+                px: 0,
+                py: 0,
+                width: 6425,
                 height: 8535,
                 className: 'filter'
             }],
@@ -379,7 +379,7 @@ OpenSeadragon({
             }]
         });
 
-    </script>   
+    </script>
     </div>
 
 <pre>
@@ -387,9 +387,9 @@ OpenSeadragon({
     ...
     overlays: [{
         id: 'global-overlay-filter',
-        px: 0, 
-        py: 0, 
-        width: 6425, 
+        px: 0,
+        py: 0,
+        width: 6425,
         height: 8535,
         className: 'filter'
     }],
@@ -582,15 +582,28 @@ OpenSeadragon({
             }).addOnceHandler('open', function(event) {
                 var viewer = event.eventSource;
                 // Make sure the overlay is entirely visible at opening.
-                viewer.viewport.fitBounds(
-                        new OpenSeadragon.Rect(0, 0, 1.5, 1.32), true);
+                viewer.viewport.fitBounds(new OpenSeadragon.Rect(0, 0, 1.5, 1.32), true);
+                new OpenSeadragon.MouseTracker({
+                  element: 'html-overlay',
+                  clickHandler: function(event) {
+                    var target = event.originalEvent.target;
+                    if (target.matches('a')) {
+                      if (target.getAttribute('target') === '_blank') {
+                        window.open(target.getAttribute('href'));
+                      } else {
+                        location.href = target.getAttribute('href');
+                      }
+                    }
+                  }
+                });
             });
 
-        </script>  
+
+        </script>
         <style>
         .navigator .no-overlay-in-navigator{
                display:none;
-        }        
+        }
         #html-overlay{
             opacity:    0.7;
             color: #fff;
@@ -608,7 +621,7 @@ OpenSeadragon({
         }
         </style>
         <div id='html-overlay' style=''>
-            
+
             <div class="info">
                 <dl class="alt">
                     <dt>Title: </dt>
@@ -629,18 +642,18 @@ OpenSeadragon({
                     <dt>Preceding Titles:</dt>
                     <dd>
                     <ul class="bullet_blue">
-                    <li><a href="http://chroniclingamerica.loc.gov/lccn/sn94052989/">The morning call. (San Francisco [Calif.]) 1878-1895</a></li>
+                    <li><a href="http://chroniclingamerica.loc.gov/lccn/sn94052989/" target="_blank">The morning call. (San Francisco [Calif.]) 1878-1895</a></li>
                     </ul>
                     </dd>
                 </dl>
-                <a  style='' 
+                <a  style=''
                     href="http://chroniclingamerica.loc.gov/lccn/sn85066387/1895-03-05/ed-1/seq-1/">
-                    <img class="thumbnail" 
+                    <img class="thumbnail"
                          src="http://chroniclingamerica.loc.gov/lccn/sn85066387/1895-03-05/ed-1/seq-1/thumbnail.jpg" alt="">
                 </a>
             </div>
 
-        </div> 
+        </div>
     </div>
 
 <pre>
@@ -663,7 +676,22 @@ OpenSeadragon({
     },{
         ...
     }]
+}).addOnceHandler('open', function(event) {
     ...
+    // MouseTracker is required for links to function in overlays
+    new OpenSeadragon.MouseTracker({
+        element: 'html-overlay',
+        clickHandler: function(event) {
+            var target = event.originalEvent.target;
+            if (target.matches('a')) {
+                if (target.getAttribute('target') === '_blank') {
+                    window.open(target.getAttribute('href'));
+                } else {
+                    location.href = target.getAttribute('href');
+                }
+            }
+        }
+    });
 });
 </pre>
 </div>
@@ -671,7 +699,7 @@ OpenSeadragon({
 <div class="description">
     <h3>Runtime Overlays</h3>
     <p>
-        It is also possible to add overlays at runtime via 
+        It is also possible to add overlays at runtime via
         <a href="/docs/OpenSeadragon.Viewer.html#addOverlay">Viewer.addOverlay</a>.
     </p>
 </div>
@@ -703,7 +731,7 @@ OpenSeadragon({
             }]
         });
         var overlay = false;
-        $("#toggle-overlay").click(function() {
+        document.querySelector('#toggle-overlay').addEventListener('click', function() {
             if (overlay) {
                 runtimeViewer.removeOverlay("runtime-overlay");
             } else {
@@ -726,7 +754,7 @@ var viewer = OpenSeadragon({
     ...
 });
 var overlay = false;
-$("#toggle-overlay").click(function() {
+document.querySelector('#toggle-overlay').addEventListener('click', function() {
     if (overlay) {
         viewer.removeOverlay("runtime-overlay");
     } else {
@@ -846,6 +874,7 @@ var viewer = OpenSeadragon({
 });
 </pre>
 </div>
+
 
         <ul class="footer">
             <li><a href='/#examples-and-features'
