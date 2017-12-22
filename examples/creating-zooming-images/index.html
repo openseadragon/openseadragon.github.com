@@ -59,27 +59,15 @@
         <h2>Creating Zooming Images</h2>
 
 <p>OpenSeadragon works with a <a href="/#examples-and-features">variety of zooming image formats</a>. These zooming images generally consist of a number of individual tiles, organized so they can be accessed as needed. If you have a large image you'd like to zoom, you'll need to convert it first. There are a number of conversion options depending on your needs.</p>
-<!-- <p>Probably the easiest is to use <a href="http://zoom.it">Zoom.it</a>; see our <a href="/examples/tilesource-zoomit/">Zoom.it instructions</a>.</p> 
+<!-- <p>Probably the easiest is to use <a href="http://zoom.it">Zoom.it</a>; see our <a href="/examples/tilesource-zoomit/">Zoom.it instructions</a>.</p>
 <p>Other tools include:</p> -->
 <table class="for-examples">
     <tr>
-        <td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=24819">Deep Zoom Composer</a></td>
-        <td>desktop app for Windows</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+        <td colspan="3"><h4>DZI</h4></td>
     </tr>
     <tr>
-        <td><a href="http://research.microsoft.com/en-us/um/redmond/projects/ice/">Image Composite Editor</a></td>
-        <td>panoramic image stitcher from Microsoft Research for the Windows desktop</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
-    </tr>
-    <tr>
-        <td><a href="http://blogs.msdn.com/b/expression/archive/2008/11/26/hello-deepzoomtools-dll-deep-zoom-image-tile-generation-made-easy.aspx">DeepZoomTools.dll</a></td>
-        <td>.NET library, comes with Deep Zoom Composer</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/openzoom/deepzoom.py">deepzoom.py</a></td>
-        <td>Python</td>
+        <td><a href="https://github.com/jeremytubbs/deepzoom">Deepzoom</a></td>
+        <td>PHP</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
@@ -88,13 +76,18 @@
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
-        <td><a href="https://github.com/nfabre/deepzoom.php">PHP Deep Zoom Tools</a></td>
-        <td>PHP</td>
+        <td><a href="https://github.com/openzoom/deepzoom.py">deepzoom.py</a></td>
+        <td>Python</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
-        <td><a href="https://github.com/jeremytubbs/deepzoom">Deepzoom</a></td>
-        <td>PHP</td>
+        <td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=24819">Deep Zoom Composer</a></td>
+        <td>desktop app for Windows</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://blogs.msdn.com/b/expression/archive/2008/11/26/hello-deepzoomtools-dll-deep-zoom-image-tile-generation-made-easy.aspx">DeepZoomTools.dll</a></td>
+        <td>.NET library, comes with Deep Zoom Composer</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
@@ -103,28 +96,23 @@
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
-        <td><a href="http://www.maptiler.org/">MapTiler</a></td>
-        <td>desktop app for Windows, Mac, Linux</td>
-        <td><a href="/examples/tilesource-tms/">TMS</a></td>
+        <td><a href="https://github.com/mulka/tiler">Gmap Uploader Tiler</a></td>
+        <td>C++</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
-        <td><a href="http://www.vips.ecs.soton.ac.uk/">VIPS</a></td>
-        <td>command line tool and library for a number of languages</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a> via the <a href="http://libvips.blogspot.co.uk/2013/03/making-deepzoom-zoomify-and-google-maps.html">dzsave</a> feature</td>
+        <td><a href="https://www.microsoft.com/en-us/download/details.aspx?id=52341">HD View Utilities</a></td>
+        <td>Photoshop plugin and command-line tool (Windows)</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
-        <td><a href="http://sharp.dimens.io/">Sharp</a></td>
-        <td>Node.js, uses VIPS</td>
+        <td><a href="http://research.microsoft.com/en-us/um/redmond/projects/ice/">Image Composite Editor</a></td>
+        <td>panoramic image stitcher from Microsoft Research for the Windows desktop</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/VoidVolker/MagickSlicer">MagickSlicer</a></td>
         <td>shell script (Linux/Mac)</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/mulka/tiler">Gmap Uploader Tiler</a></td>
-        <td>C++</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
@@ -138,6 +126,26 @@
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
+        <td><a href="https://github.com/nfabre/deepzoom.php">PHP Deep Zoom Tools</a></td>
+        <td>PHP</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/usnistgov/pyramidio">PyramidIO</a></td>
+        <td>Java (command line and library)</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://sharp.dimens.io/">Sharp</a></td>
+        <td>Node.js, uses VIPS</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.vips.ecs.soton.ac.uk/">VIPS</a></td>
+        <td>command line tool and library for a number of languages</td>
+        <td><a href="/examples/tilesource-dzi/">DZI</a> via the <a href="http://libvips.blogspot.co.uk/2013/03/making-deepzoom-zoomify-and-google-maps.html">dzsave</a> feature</td>
+    </tr>
+    <tr>
         <td><a href="http://zoomable.ca/">Zoomable</a></td>
         <td>service, offers embeds; no explicit API</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
@@ -148,6 +156,19 @@
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
     </tr>
     <tr>
+        <td colspan="3"><h4>IIIF</h4></td>
+    </tr>
+    <tr>
+        <td><a href="https://medusa-project.github.io/cantaloupe/">Cantaloupe</a></td>
+        <td>Server</td>
+        <td><a href="/examples/tilesource-iiif/">IIIF</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://iipimage.sourceforge.net/">IIPImage</a></td>
+        <td>Server</td>
+        <td><a href="/examples/tilesource-iiif/">IIIF</a></td>
+    </tr>
+    <tr>
         <td><a href="http://kakadusoftware.com">Kakadu</a></td>
         <td>
             C++ library to encode or decode JPEG 2000 images
@@ -155,13 +176,24 @@
             example of a batch convert script: <a href="https://github.com/DDMAL/diva.js/blob/master/source/processing/process_jp2.py">process_jp2.py</a> (Diva.js project)
         </td>
         <td>
-            <a href="/examples/tilesource-iiif/">IIIF</a> (requires a IIIF-compliant image server with JPEG 2000 support, like <a href="https://github.com/pulibrary/loris">Loris</a>; see also <a href="http://iiif.io">iiif.io</a> for more details)
+            <a href="/examples/tilesource-iiif/">IIIF</a><br/>(requires a IIIF-compliant image server with JPEG 2000 support, like <a href="https://github.com/pulibrary/loris">Loris</a>; see also <a href="http://iiif.io">iiif.io</a> for more details)
         </td>
     </tr>
     <tr>
-        <td><a href="https://sourceforge.net/projects/zoomifyimage/">Zoomify Image</a></td>
+        <td colspan="3"><h4>TMS</h4></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.gdal.org/gdal2tiles.html">GDAL2tiles</a></td>
         <td>Python</td>
-        <td><a href="/examples/tilesource-zoomify/">Zoomify</a></td>
+        <td><a href="/examples/tilesource-tms/">TMS</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.maptiler.org/">MapTiler</a></td>
+        <td>desktop app for Windows, Mac, Linux</td>
+        <td><a href="/examples/tilesource-tms/">TMS</a></td>
+    </tr>
+    <tr>
+        <td colspan="3"><h4>Zoomify</h4></td>
     </tr>
     <tr>
         <td><a href="http://www.zoomify.com/free.htm">Zoomify App</a></td>
@@ -169,8 +201,8 @@
         <td><a href="/examples/tilesource-zoomify/">Zoomify</a></td>
     </tr>
     <tr>
-        <td><a href="http://www.zoomify.com/photoshop.htm">Zoomify Plugin</a></td>
-        <td>Free proprietary export plugin for Photoshop</td>
+        <td><a href="https://sourceforge.net/projects/zoomifyimage/">Zoomify Image</a></td>
+        <td>Python</td>
         <td><a href="/examples/tilesource-zoomify/">Zoomify</a></td>
     </tr>
     <tr>
@@ -179,11 +211,13 @@
         <td><a href="/examples/tilesource-zoomify/">Zoomify</a></td>
     </tr>
     <tr>
-        <td><a href="https://github.com/usnistgov/pyramidio">PyramidIO</a></td>
-        <td>Java (command line and library)</td>
-        <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+        <td><a href="http://www.zoomify.com/photoshop.htm">Zoomify Plugin</a></td>
+        <td>Free proprietary export plugin for Photoshop</td>
+        <td><a href="/examples/tilesource-zoomify/">Zoomify</a></td>
     </tr>
 </table>
+<br/>
+<p>If none of these options meet your needs, you can create your own tile-generating tool. See <a href="https://github.com/openseadragon/openseadragon/wiki/The-DZI-File-Format">this page</a> for more information on the DZI format.</p>
 
 
         <ul class="footer">
