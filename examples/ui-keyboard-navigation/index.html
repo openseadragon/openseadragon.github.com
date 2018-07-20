@@ -21,15 +21,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.4.0/openseadragon-bin-2.4.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.4.0/openseadragon-bin-2.4.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                2.3.1
+                2.4.0
             </span>
             <span class="tagline">
             </span>
@@ -64,17 +64,17 @@
       {
       background-color: lightgrey;
       }
-      
+
     </style>
 
 <h2>example: keyboard navigation</h2>
 
-<p>The viewer supports keyboard operations to complement the drag and scroll 
+<p>The viewer supports keyboard operations to complement the drag and scroll
 (zoom) mouse interactions.</p>
 
 <p>
   To interact via the keyboard, the focus must be on the viewer.
-  In this example the focus is set using 
+  In this example the focus is set using
   <code>document.getElementById('contentDiv').querySelector('.openseadragon-canvas').focus();</code>
 </p>
 
@@ -90,6 +90,9 @@
     <li><strong>[ 0 ]</strong> - zoom / move viewport <strong>home</strong></li>
     <li><strong>[ - / _, shift+W, shift+up arrow ]</strong> - zoom viewport <strong>out</strong></li>
     <li><strong>[ = / +, shift+S, shift+down arrow ]</strong> - zoom viewport <strong>in</strong></li>
+    <li><strong>[ r ]</strong> - rotate <strong>clockwise</strong></li>
+    <li><strong>[ R ]</strong> - rotate <strong>counterclockwise</strong></li>
+    <li><strong>[ f ]</strong> - flip <strong>horizontally</strong></li>
 </ul>
 
 <div class="description">
@@ -113,15 +116,8 @@
 
     viewer.addHandler('open', function (event) {
         document.getElementById('contentDiv').querySelector('.openseadragon-canvas').focus();
-    });    
+    });
 </script>
-
-
-
-
-
-
-
 
 
         <ul class="footer">
