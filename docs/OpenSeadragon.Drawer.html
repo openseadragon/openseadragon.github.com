@@ -87,6 +87,8 @@
                                 
                                     <li><a href="OpenSeadragon.Drawer.html#clear">clear</a></li>
                                 
+                                    <li><a href="OpenSeadragon.Drawer.html#clipWithPolygons">clipWithPolygons</a></li>
+                                
                                     <li><a href="OpenSeadragon.Drawer.html#destroy">destroy</a></li>
                                 
                                     <li><a href="OpenSeadragon.Drawer.html#drawTile">drawTile</a></li>
@@ -98,6 +100,8 @@
                                     <li><a href="OpenSeadragon.Drawer.html#setImageSmoothingEnabled">setImageSmoothingEnabled</a></li>
                                 
                                     <li><a href="OpenSeadragon.Drawer.html#setOpacity">setOpacity</a></li>
+                                
+                                    <li><a href="OpenSeadragon.Drawer.html#viewportCoordToDrawerCoord">viewportCoordToDrawerCoord</a></li>
                                 
                                     <li><a href="OpenSeadragon.Drawer.html#viewportToDrawerRectangle">viewportToDrawerRectangle</a></li>
                                 
@@ -373,7 +377,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17547">line 17547</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17638">line 17638</a>
     </li></ul></dd>
     
 
@@ -475,7 +479,7 @@ Child element of <a href="OpenSeadragon.Drawer.html#container"><code>OpenSeadrag
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17595">line 17595</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17686">line 17686</a>
     </li></ul></dd>
     
 
@@ -551,7 +555,7 @@ The parent of <a href="OpenSeadragon.Drawer.html#canvas"><code>OpenSeadragon.Dra
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17588">line 17588</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17679">line 17679</a>
     </li></ul></dd>
     
 
@@ -626,7 +630,7 @@ The parent of <a href="OpenSeadragon.Drawer.html#canvas"><code>OpenSeadragon.Dra
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17602">line 17602</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17693">line 17693</a>
     </li></ul></dd>
     
 
@@ -699,7 +703,7 @@ The parent of <a href="OpenSeadragon.Drawer.html#canvas"><code>OpenSeadragon.Dra
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17616">line 17616</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17707">line 17707</a>
     </li></ul></dd>
     
 
@@ -1051,7 +1055,7 @@ options.translate get ignored.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17923">line 17923</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18049">line 18049</a>
     </li></ul></dd>
     
 
@@ -1132,7 +1136,7 @@ options.translate get ignored.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17740">line 17740</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17866">line 17866</a>
     </li></ul></dd>
     
 
@@ -1239,7 +1243,165 @@ options.translate get ignored.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17758">line 17758</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17884">line 17884</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="clipWithPolygons"><span class="type-signature"></span>clipWithPolygons<span class="signature">(polygons, useSketch)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    This function will create multiple polygon paths on the drawing context by provided polygons,
+then clip the context to the paths.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>polygons</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;<a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a>>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an array of polygons. A polygon is an array of OpenSeadragon.Point</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useSketch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to use the sketch canvas or not.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17791">line 17791</a>
     </li></ul></dd>
     
 
@@ -1324,7 +1486,7 @@ options.translate get ignored.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17747">line 17747</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17873">line 17873</a>
     </li></ul></dd>
     
 
@@ -1622,7 +1784,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17819">line 17819</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17945">line 17945</a>
     </li></ul></dd>
     
 
@@ -1756,7 +1918,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18157">line 18157</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18281">line 18281</a>
     </li></ul></dd>
     
 
@@ -1863,7 +2025,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17697">line 17697</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17823">line 17823</a>
     </li></ul></dd>
     
 
@@ -2029,7 +2191,7 @@ drawn smoothly on the canvas; see imageSmoothingEnabled in
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18136">line 18136</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18262">line 18262</a>
     </li></ul></dd>
     
 
@@ -2163,7 +2325,7 @@ drawn smoothly on the canvas; see imageSmoothingEnabled in
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17684">line 17684</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17810">line 17810</a>
     </li></ul></dd>
     
 
@@ -2208,6 +2370,143 @@ drawn smoothly on the canvas; see imageSmoothingEnabled in
 </dl>
 
     
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="viewportCoordToDrawerCoord"><span class="type-signature"></span>viewportCoordToDrawerCoord<span class="signature">(point)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    This function converts the given point from to the drawer coordinate by
+multiplying it with the pixel density.
+This function does not take rotation into account, thus assuming provided
+point is at 0 degree.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the pixel point to convert</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17777">line 17777</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </dd>
@@ -2320,7 +2619,7 @@ drawn smoothly on the canvas; see imageSmoothingEnabled in
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17797">line 17797</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17923">line 17923</a>
     </li></ul></dd>
     
 
@@ -2391,7 +2690,7 @@ drawn smoothly on the canvas; see imageSmoothingEnabled in
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 17 2020 10:07:19 GMT-0800 (PST)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 05 2020 10:30:54 GMT-0800 (PST)
 </footer>
 </div>
 
