@@ -13,7 +13,7 @@ body {
     margin:     0 auto;
     width:      800px;
     padding:    1.0em;
-    background-color: #EEE; 
+    background-color: #EEE;
 
 }
 div noscript{
@@ -40,16 +40,16 @@ h1 .tagline {
     margin-top: 5px;
     margin-left: 10px;
 }
-h2 { 
-    font-size: 1.5em; 
-    color: #437AB2; 
-    text-align: left; 
+h2 {
+    font-size: 1.5em;
+    color: #437AB2;
+    text-align: left;
     border-top: 2px dotted #aaa;
     padding: 1em 0 0 1em;
 }
-h3 { 
-    font-size: 1.1em; 
-    color: #800; 
+h3 {
+    font-size: 1.1em;
+    color: #800;
     text-align: center;
     border-top: 1px dotted #999;
     padding-top: 1em;
@@ -60,7 +60,7 @@ h4 {
 ul h3 { text-align: left;}
 ul { list-style: none; padding: 0px 4em; }
 
-ul ul, 
+ul ul,
 .square-list {
     list-style: square;
     line-height: 1.5em;
@@ -107,7 +107,7 @@ p { padding: 0 1.5em; }
     margin: 0 0 0 25px;
     padding: 10px;
     list-style: square;
-    
+
 }
 .navigation ul li{
     margin-bottom: 5px;
@@ -141,7 +141,7 @@ p { padding: 0 1.5em; }
     content: "";
     margin: 0;
 }
-pre { 
+pre {
     background-color: #F8F8F8;
     border: 1px solid #CCC;
     font-size: 13px;
@@ -157,7 +157,7 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 .image-credit {
     font-size: 11px;
     text-align: right;
-    margin-top: 3px;   
+    margin-top: 3px;
 }
 
 /*
@@ -183,7 +183,7 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     background-color: black;
 }
 .demoheading {
-    color: #437AB2; 
+    color: #437AB2;
     padding: 0 0 0.2em 1em;
 }
 .toolbar
@@ -221,4 +221,10 @@ ol.for-examples {
 
 ol.for-examples li {
     margin: 0.5em 0;
+}
+
+.opencollective {
+    display: block;
+    margin-top: 25px;
+    text-align: right;
 }
