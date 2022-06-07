@@ -101,6 +101,8 @@
                             
                                 <li><a href="OpenSeadragon.Tile.html#position">position</a></li>
                             
+                                <li><a href="OpenSeadragon.Tile.html#postData">postData</a></li>
+                            
                                 <li><a href="OpenSeadragon.Tile.html#size">size</a></li>
                             
                                 <li><a href="OpenSeadragon.Tile.html#sourceBounds">sourceBounds</a></li>
@@ -156,7 +158,7 @@
 
     
 
-    <h4 class="name" id="Tile"><span class="type-signature"></span>new Tile<span class="signature">(level, x, y, bounds, exists, url, context2D, loadWithAjax, ajaxHeaders, sourceBounds)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Tile"><span class="type-signature"></span>new Tile<span class="signature">(level, x, y, bounds, exists, url, context2D, loadWithAjax, ajaxHeaders, sourceBounds, postData, cacheKey)</span><span class="type-signature"></span></h4>
 
     
 
@@ -353,7 +355,7 @@
             
 
             <td class="description last">The context2D of this tile if it
-is provided directly by the tile source.</td>
+     is provided directly by the tile source.</td>
         </tr>
 
     
@@ -423,8 +425,55 @@ is provided directly by the tile source.</td>
             
 
             <td class="description last">The portion of the tile to use as the source of the
-drawing operation, in pixels. Note that this only works when drawing with canvas; when drawing
-with HTML the entire tile is always used.</td>
+     drawing operation, in pixels. Note that this only works when drawing with canvas; when drawing
+     with HTML the entire tile is always used.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>postData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">HTTP POST data (usually but not necessarily in k=v&k2=v2... form,
+     see TileSrouce::getPostData) or null</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cacheKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">key to act as a tile cache, must be unique for tiles with unique image data</td>
         </tr>
 
     
@@ -465,7 +514,7 @@ with HTML the entire tile is always used.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17428">line 17428</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17612">line 17612</a>
     </li></ul></dd>
     
 
@@ -567,7 +616,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17503">line 17503</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17698">line 17698</a>
     </li></ul></dd>
     
 
@@ -642,7 +691,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17603">line 17603</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17800">line 17800</a>
     </li></ul></dd>
     
 
@@ -717,7 +766,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17576">line 17576</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17773">line 17773</a>
     </li></ul></dd>
     
 
@@ -792,7 +841,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17466">line 17466</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17653">line 17653</a>
     </li></ul></dd>
     
 
@@ -867,7 +916,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17510">line 17510</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17705">line 17705</a>
     </li></ul></dd>
     
 
@@ -942,7 +991,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17491">line 17491</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17686">line 17686</a>
     </li></ul></dd>
     
 
@@ -1017,7 +1066,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17533">line 17533</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17730">line 17730</a>
     </li></ul></dd>
     
 
@@ -1092,7 +1141,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17479">line 17479</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17666">line 17666</a>
     </li></ul></dd>
     
 
@@ -1167,7 +1216,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17570">line 17570</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17767">line 17767</a>
     </li></ul></dd>
     
 
@@ -1242,7 +1291,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17545">line 17545</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17742">line 17742</a>
     </li></ul></dd>
     
 
@@ -1317,7 +1366,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17539">line 17539</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17736">line 17736</a>
     </li></ul></dd>
     
 
@@ -1392,7 +1441,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17624">line 17624</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17821">line 17821</a>
     </li></ul></dd>
     
 
@@ -1467,7 +1516,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17617">line 17617</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17814">line 17814</a>
     </li></ul></dd>
     
 
@@ -1542,7 +1591,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17610">line 17610</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17807">line 17807</a>
     </li></ul></dd>
     
 
@@ -1617,7 +1666,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17448">line 17448</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17635">line 17635</a>
     </li></ul></dd>
     
 
@@ -1692,7 +1741,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17520">line 17520</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17717">line 17717</a>
     </li></ul></dd>
     
 
@@ -1767,7 +1816,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17526">line 17526</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17723">line 17723</a>
     </li></ul></dd>
     
 
@@ -1842,7 +1891,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17497">line 17497</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17692">line 17692</a>
     </li></ul></dd>
     
 
@@ -1917,7 +1966,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17582">line 17582</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17779">line 17779</a>
     </li></ul></dd>
     
 
@@ -1992,7 +2041,83 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17558">line 17558</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17755">line 17755</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+<h4 class="name" id="postData"><span class="type-signature"></span>postData<span class="type-signature"> :String</span></h4>
+
+
+</dt>
+<dd>
+
+<div class="description">
+    Post parameters for this tile. For example, it can be an URL-encoded string
+in k1=v1&k2=v2... format, or a JSON, or a FormData instance... or null if no POST request used
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17678">line 17678</a>
     </li></ul></dd>
     
 
@@ -2067,7 +2192,7 @@ Only used if loadWithAjax is set to true.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17564">line 17564</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17761">line 17761</a>
     </li></ul></dd>
     
 
@@ -2143,7 +2268,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17472">line 17472</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17659">line 17659</a>
     </li></ul></dd>
     
 
@@ -2218,7 +2343,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17552">line 17552</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17749">line 17749</a>
     </li></ul></dd>
     
 
@@ -2293,7 +2418,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17485">line 17485</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17672">line 17672</a>
     </li></ul></dd>
     
 
@@ -2368,7 +2493,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17596">line 17596</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17793">line 17793</a>
     </li></ul></dd>
     
 
@@ -2443,7 +2568,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17454">line 17454</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17641">line 17641</a>
     </li></ul></dd>
     
 
@@ -2518,7 +2643,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17460">line 17460</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17647">line 17647</a>
     </li></ul></dd>
     
 
@@ -2547,7 +2672,7 @@ this only works when drawing with canvas; when drawing with HTML the entire tile
 
     
 
-    <h4 class="name" id="drawCanvas"><span class="type-signature"></span>drawCanvas<span class="signature">(context, drawingHandler, scale<span class="signature-attributes">opt</span>, translate<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="drawCanvas"><span class="type-signature"></span>drawCanvas<span class="signature">(context, drawingHandler, scale<span class="signature-attributes">opt</span>, translate<span class="signature-attributes">opt</span>, shouldRoundPositionAndSize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -2740,6 +2865,45 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>shouldRoundPositionAndSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Tells whether to round
+position and size of tiles supporting alpha channel in non-transparency
+context.</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -2777,7 +2941,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17713">line 17713</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17913">line 17913</a>
     </li></ul></dd>
     
 
@@ -2911,7 +3075,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17655">line 17655</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17852">line 17852</a>
     </li></ul></dd>
     
 
@@ -2996,7 +3160,7 @@ where <code>rendered</code> is the context with the pre-drawn image.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17804">line 17804</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18012">line 18012</a>
     </li></ul></dd>
     
 
@@ -3169,7 +3333,7 @@ Needed to avoid swimming and twitching.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17826">line 17826</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18034">line 18034</a>
     </li></ul></dd>
     
 
@@ -3273,7 +3437,7 @@ components.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17641">line 17641</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17838">line 17838</a>
     </li></ul></dd>
     
 
@@ -3376,7 +3540,7 @@ components.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17847">line 17847</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18055">line 18055</a>
     </li></ul></dd>
     
 
@@ -3425,7 +3589,7 @@ components.
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon May 16 2022 14:00:22 GMT-0700 (Pacific Daylight Time)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Jun 07 2022 14:08:12 GMT-0700 (Pacific Daylight Time)
 </footer>
 </div>
 
