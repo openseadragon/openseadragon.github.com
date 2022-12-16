@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
-    <title>OpenSeadragon Class: ImageLoader</title>
+    <title>OpenSeadragon Class: ImageJob</title>
 
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -19,7 +19,7 @@
 <div id="main-container">
 <div id="main">
 
-    <h1 class="page-title">Class: ImageLoader</h1>
+    <h1 class="page-title">Class: ImageJob</h1>
 
     
 
@@ -30,11 +30,9 @@
 
 <header>
     
-        <h2>
-            <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>ImageLoader</h2>
+        <h2>ImageJob</h2>
         
-            <div class="class-description">Handles downloading of a set of images using asynchronous queue pattern.
-You generally won't have to interact with the ImageLoader directly.</div>
+            <div class="class-description">Handles downloading of a single image.</div>
         
     
 </header>
@@ -64,14 +62,8 @@ You generally won't have to interact with the ImageLoader directly.</div>
                         <td>
                             <ul>
                             
-                                <li><a href="OpenSeadragon.ImageLoader.html#ImageLoader" class="ctor-link">&lt; constructor &gt;</a></li>
+                                <li><a href="ImageJob.html#ImageJob" class="ctor-link">&lt; constructor &gt;</a></li>
                             
-                            
-                                
-                                    <li><a href="OpenSeadragon.ImageLoader.html#addJob">addJob</a></li>
-                                
-                                    <li><a href="OpenSeadragon.ImageLoader.html#clear">clear</a></li>
-                                
                             
                             </ul>
                         </td>
@@ -93,7 +85,7 @@ You generally won't have to interact with the ImageLoader directly.</div>
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="ImageLoader"><span class="type-signature"></span>new ImageLoader<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ImageJob"><span class="type-signature"></span>new ImageJob<span class="signature">(options)</span><span class="type-signature"></span></h4>
 
     
 
@@ -149,253 +141,7 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
             
 
-            <td class="description last">Options for this ImageLoader.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>jobLimit</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The number of concurrent image requests. See imageLoaderLimit in <a href="OpenSeadragon.html#.Options"><code>OpenSeadragon.Options</code></a> for details.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>timeout</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The max number of milliseconds that an image job may take to complete.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17805">line 17805</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-<dt>
-
-    
-
-    <h4 class="name" id="addJob"><span class="type-signature"></span>addJob<span class="signature">(options)</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-<div class="description">
-    Add an unloaded image to the loader queue.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options for this job.
+            <td class="description last">Options for this ImageJob.
                 <h6>Properties</h6>
                 
 
@@ -482,8 +228,7 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
             
 
-            <td class="description last">Tile that belongs the data to. The tile instance
-     is not internally used and serves for custom TileSources implementations.</td>
+            <td class="description last">Tile that belongs the data to.</td>
         </tr>
 
     
@@ -589,6 +334,39 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
         <tr>
             
+                <td class="name"><code>ajaxWithCredentials</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to set withCredentials on AJAX requests.</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>crossOriginPolicy</code></td>
             
 
@@ -596,9 +374,6 @@ You generally won't have to interact with the ImageLoader directly.</div>
             
                 
 <span class="param-type">String</span>
-|
-
-<span class="param-type">Boolean</span>
 
 
             
@@ -651,42 +426,8 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
             
 
-            <td class="description last">POST parameters (usually but not necessarily in k=v&k2=v2... form,
+            <td class="description last">HTTP POST data (usually but not necessarily in k=v&k2=v2... form,
      see TileSource::getPostData) or null</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ajaxWithCredentials</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Whether to set withCredentials on AJAX
-     requests.</td>
         </tr>
 
     
@@ -756,6 +497,39 @@ You generally won't have to interact with the ImageLoader directly.</div>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The max number of milliseconds that this image job may take to complete.</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -800,7 +574,7 @@ You generally won't have to interact with the ImageLoader directly.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17846">line 17846</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17716">line 17716</a>
     </li></ul></dd>
     
 
@@ -827,36 +601,8 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
 </dd>
 
-        
-            
-<dt>
-
     
-
-    <h4 class="name" id="clear"><span class="type-signature"></span>clear<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-<div class="description">
-    Clear any unstarted image loading jobs from the queue.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
+    </div>
 
     
 
@@ -864,55 +610,12 @@ You generally won't have to interact with the ImageLoader directly.</div>
 
     
 
-    
+     
 
     
 
     
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line17889">line 17889</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</dd>
-
-        
     
 
     
