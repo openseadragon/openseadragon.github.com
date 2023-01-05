@@ -843,6 +843,27 @@ document.querySelector('#toggle-overlay').addEventListener('click', function() {
                 rotationViewer.viewport.setRotation(ui.value);
             }
         });
+
+        //this is code for the next 'Overlays and events' example,
+        // adding it to a separate script tag made some browser
+        // not to fire this correctly unless dev settings were opened
+        rotationViewer.addHandler('open', () => {
+            new OpenSeadragon.MouseTracker({
+                element: document.getElementById('overlay-rotation-exact'),
+                clickHandler: e => alert('Element selected! ' + e.originalEvent.target.id),
+                contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+            });
+            new OpenSeadragon.MouseTracker({
+                element: document.getElementById('right-arrow-overlay-no-rotate'),
+                clickHandler: e => alert('Element selected! ' + e.originalEvent.target.id),
+                contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+            });
+            new OpenSeadragon.MouseTracker({
+                element: document.getElementById('overlay-rotation-bounding-box'),
+                clickHandler: e => alert('Element selected! ' + e.originalEvent.target.id),
+                contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+            });
+        });
     </script>
     </div>
 
@@ -871,6 +892,39 @@ var viewer = OpenSeadragon({
         height: 0.18,
         rotationMode: OpenSeadragon.OverlayRotationMode.BOUNDING_BOX
     }]
+});
+</pre>
+</div>
+
+
+<div class="description">
+    <h3>Overlays and events</h3>
+    <p>
+        Events fired on elements hidden inside elements that are part
+        of the viewer are managed by <code>MouseTracker</code> system.
+        Trying to use vanilla JS or other utilities such as jQuery will
+        fail.
+    </p>
+</div>
+<div class="demoarea">
+Click on any overlay in the "Rotation" example above.
+<pre>
+viewer.addHandler('open', () => {
+    new OpenSeadragon.MouseTracker({
+        element: document.getElementById('overlay-rotation-exact'),
+        clickHandler: e => alert('Element clicked! ' + e.originalEvent.target.id),
+        contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+    });
+    new OpenSeadragon.MouseTracker({
+        element: document.getElementById('right-arrow-overlay-no-rotate'),
+        clickHandler: e => alert('Element clicked! ' + e.originalEvent.target.id),
+        contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+    });
+    new OpenSeadragon.MouseTracker({
+        element: document.getElementById('overlay-rotation-bounding-box'),
+        clickHandler: e => alert('Element clicked! ' + e.originalEvent.target.id),
+        contextMenuHandler: e => alert('Context menu fired! ' + e.originalEvent.target.id),
+    });
 });
 </pre>
 </div>
