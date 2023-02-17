@@ -59,9 +59,10 @@
         <h2>example: binding custom buttons</h2>
 
 <p>
-    You can bind to an entirely custom user interface by passing the IDs of
-    the elements you want treated as buttons.  This is useful when you need
-    to fully control the look and feel of the user interface.
+    You can bind to an entirely custom user interface by specifying elements to be 
+    used as buttons. You can specify these elements by passing the elements or their 
+    IDs. This is useful when you need to fully control the look and feel of the user 
+    interface.
 </p>
 
 <div class="description">
@@ -172,6 +173,12 @@ OpenSeadragon({
     ...
 });
 </pre>
+
+<p>
+Alternatively you can use the elements themselves as options values instead 
+of their IDs. This is useful to prevent one set of buttons from controlling all
+instances when you have multiple instances of OpenSeadragon.
+</p>
 
 <p>
 The interface in this example updates the current page numbers in the label
