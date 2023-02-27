@@ -245,7 +245,7 @@ OpenSeadragon.extend(OpenSeadragon.DziTileSource.prototype, {
         },
         downloadTileAbort: function(imageJob) {
             //we can abort thanks to myFetch() implementation
-            imageJob.userData.promise.abort();
+            imageJob.userData.promise.controller.abort();
         }
     });
 
@@ -340,7 +340,7 @@ OpenSeadragon.extend(OpenSeadragon.DziTileSource.prototype, {
         },
         downloadTileAbort: function(imageJob) {
             //we can abort thanks to myFetch() implementation
-            imageJob.userData.promise.abort();
+            imageJob.userData.promise.controller.abort();
         }
     });
 
@@ -357,10 +357,10 @@ OpenSeadragon({
     </script>
 </div>
 
-<p>Notice that we do not have to re-define any of the methods dealing with
+<p>Note that we do not have to re-define any of the methods dealing with
 transparency and caching. This is because: <code>finish()</code> is called
 with an <code>Image</code> object; URL uniquely distinguishes between tiles
-with unique data; and URL contains 'jpg', a string that will make OSD realize
+with unique data; and URL contains 'jpg', a string that will make OpenSeadragon realize
 this data is not transparent (see the default <code>hasTransparency</code>
 implementation).
 </p>
@@ -436,7 +436,7 @@ OpenSeadragon({
             };
 
             let z = {a: 0, b: 0};
-            for(let i=0;i<this.maxIterations;i++){
+            for (let i=0;i < this.maxIterations; i++){
                 squareAndAddPoint(z, refPoint);
                 if(length(z)>2) return i/this.maxIterations;
             }
@@ -662,11 +662,19 @@ OpenSeadragon({
     object instead of <code>Image</code>. Also, instead of downloading we just
     generate it realtime.
 </p>
+
 <p>
-    Notice that we have to re-define methods dealing with
-    caching because we changed the data type we use within the system;
-    except for <code>getTileCacheKey()</code>: we rely on
-    the default key generation using URL. If we returned an empty string (also
+    In OpenSeadragon, cache is used unless <code>context2D</code> property of
+    <code>Tile</code> instance exists. By default, cached data can be used AS-IS.
+    But when touching the downloading logics and finishing with different data
+    than <code>Image</code> object, you have to implement also <code>*TileCache*</code>
+    methods.
+</p>
+
+<p>
+    Note that we do not have to re-define <code>getTileCacheKey()</code>: we rely on
+    the default key generation using URL. If we had returned an empty string in
+    <code>getTileUrl</code> (also
     a correct solution), we would have to override <code>getTileCacheKey()
     </code>, but since we are forced to define the url getter, we may as well
     re-use it for the cache key creation.
@@ -683,7 +691,12 @@ OpenSeadragon({
     context (canvas strategy) or image object (html div strategy). But,
     unlike the default behaviour, we can avoid the creation of
     <code>Image</code> object, since we work by default with canvas
-    and OSD is mostly used with canvas drawing strategy anyway.
+    and OpenSeadragon is mostly used with canvas drawing strategy anyway.
+</p>
+<p>
+    <b>Performance caveat:</b> <code>getTileCacheData[...]</code>
+    functions are among other things used to access the data when rendering,
+    it is a good idea to execute only optimized code and store results to return them immediately.
 </p>
 
 
