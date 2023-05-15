@@ -137,6 +137,17 @@
                 <span>Simple Image</span>
             </a></li>
         </ul>
+        <p>
+            In addition to the tile sources that are included in the core OpenSeadragon
+            code, <a href="#plugin-tilesources">plugins are available</a> that extend the default functionality. These may
+            depend on external libraries, or can't be included in the main project for
+            other reasons.
+        </p>
+        <ul>
+            <li><a href="https://pearcetm.github.io/GeoTIFFTileSource/demo.html">
+                <span>GeoTIFFTileSource - view TIFF-compatible files via geotiff.js</span>
+            </li>
+        </ul>
     </li>
 
     <li>
@@ -270,6 +281,16 @@
             <li><a href="https://github.com/openseadragon-imaging/openseadragon-viewerinputhook">OpenSeadragonViewerInputHook</a> provides hooks into an OpenSeadragon.Viewer and/or OpenSeadragon.MouseTracker for overriding/extending the default user-input event handling behavior.</li>
             <li><a href="https://github.com/recogito/openseadragon-wmts">OpenSeadragonWMTS</a> allows displaying geo-referenced maps served via the WMTS protocol.</li>
             <li><a href="https://github.com/picturae/OpenSeadragonZoomLevels">OpenSeadragonZoomLevels</a> allows restricting the image zoom to specific levels.</li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="plugin-tilesources">Tile Source Plugins</h3>
+        <p>
+            Plugin tile sources enable OpenSeadragon to be used to view image types beyond those 
+            supported by the built-in TileSource implementations.
+        </p>
+        <ul class="square-list">
+            <li><a href="https://github.com/pearcetm/GeoTIFFTileSource">GeoTIFFTileSource</a> enables direct viewing of TIFF-compatible files, including Aperio SVS and other formats, directly - no converters needed. This can be used to view local files or on web, without requiring a webserver.</li>
         </ul>
     </li>
     <li>
