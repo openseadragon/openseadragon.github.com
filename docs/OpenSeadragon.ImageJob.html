@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
-    <title>OpenSeadragon Class: Overlay</title>
+    <title>OpenSeadragon Class: ImageJob</title>
 
     <link type="text/css" rel="stylesheet" href="styles/highlight.js/default.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-openseadragon.css">
@@ -19,7 +19,7 @@
 <div id="main-container">
 <div id="main">
 
-    <h1 class="page-title">Class: Overlay</h1>
+    <h1 class="page-title">Class: ImageJob</h1>
 
     
 
@@ -31,9 +31,9 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>Overlay</h2>
+            <span class="ancestors"><a href="OpenSeadragon.html">OpenSeadragon</a>.</span>ImageJob</h2>
         
-            <div class="class-description">Provides a way to float an HTML element on top of the viewer element.</div>
+            <div class="class-description">Handles downloading of a single image.</div>
         
     
 </header>
@@ -47,11 +47,11 @@
                     
                     
                     
+                        <th>Members</th>
+                    
                     
                         <th>Methods</th>
                     
-                    
-                        <th>Types</th>
                     
                     
                 </tr>
@@ -61,34 +61,30 @@
                     
                     
                     
-                    
                         <td>
                             <ul>
+                                <li><a href="OpenSeadragon.ImageJob.html#data">data</a></li>
                             
-                                <li><a href="OpenSeadragon.Overlay.html#Overlay" class="ctor-link">&lt; constructor &gt;</a></li>
-                            
-                            
-                                
-                                    <li><a href="OpenSeadragon.Overlay.html#adjust">adjust</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Overlay.html#destroy">destroy</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Overlay.html#drawHTML">drawHTML</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Overlay.html#getBounds">getBounds</a></li>
-                                
-                                    <li><a href="OpenSeadragon.Overlay.html#update">update</a></li>
-                                
-                            
+                                <li><a href="OpenSeadragon.ImageJob.html#userData">userData</a></li>
                             </ul>
                         </td>
                     
                     
                         <td>
                             <ul>
-                                <li><a href="OpenSeadragon.Overlay.html#.OnDrawCallback">OnDrawCallback</a></li>
+                            
+                                <li><a href="OpenSeadragon.ImageJob.html#ImageJob" class="ctor-link">&lt; constructor &gt;</a></li>
+                            
+                            
+                                
+                                    <li><a href="OpenSeadragon.ImageJob.html#finish">finish</a></li>
+                                
+                                    <li><a href="OpenSeadragon.ImageJob.html#start">start</a></li>
+                                
+                            
                             </ul>
                         </td>
+                    
                     
                     
                 </tr>
@@ -106,7 +102,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Overlay"><span class="type-signature"></span>new Overlay<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ImageJob"><span class="type-signature"></span>new ImageJob<span class="signature">(options)</span><span class="type-signature"></span></h4>
 
     
 
@@ -162,7 +158,7 @@
 
             
 
-            <td class="description last">
+            <td class="description last">Options for this ImageJob.
                 <h6>Properties</h6>
                 
 
@@ -180,8 +176,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -192,91 +186,13 @@
 
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>src</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>location</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
-|
-
-<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">The
-location of the overlay on the image. If a <a href="OpenSeadragon.Point.html"><code>OpenSeadragon.Point</code></a>
-is specified, the overlay will be located at this location with respect
-to the placement option. If a <a href="OpenSeadragon.Rect.html"><code>OpenSeadragon.Rect</code></a> is specified,
-the overlay will be placed at this location with the corresponding width
-and height and placement TOP_LEFT.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>placement</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#.Placement">OpenSeadragon.Placement</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -295,27 +211,21 @@ and height and placement TOP_LEFT.</td>
             
 
             
-                <td class="default">
-                
-                    OpenSeadragon.Placement.TOP_LEFT
-                
-                </td>
-            
 
-            <td class="description last">Defines what part of the overlay should be at the specified options.location</td>
+            <td class="description last">URL of image to download.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>onDraw</code></td>
+                <td class="name"><code>tile</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Overlay.html#.OnDrawCallback">OpenSeadragon.Overlay.OnDrawCallback</a></span>
+<span class="param-type">Tile</span>
 
 
             
@@ -334,19 +244,114 @@ and height and placement TOP_LEFT.</td>
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"></td>
+            <td class="description last">Tile that belongs the data to.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>checkResize</code></td>
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">TileSource</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Image loading strategy</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loadWithAjax</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to load this image with AJAX.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ajaxHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Headers to add to the image request if using AJAX.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ajaxWithCredentials</code></td>
             
 
             <td class="type">
@@ -371,24 +376,148 @@ and height and placement TOP_LEFT.</td>
             
 
             
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
 
-            <td class="description last">Set to false to avoid to
-check the size of the overlay every time it is drawn in the directions
-which are not scaled. It will improve performances but will cause a
-misalignment if the overlay size changes.</td>
+            <td class="description last">Whether to set withCredentials on AJAX requests.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>width</code></td>
+                <td class="name"><code>crossOriginPolicy</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">CORS policy to use for downloads</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>postData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">HTTP POST data (usually but not necessarily in k=v&k2=v2... form,
+     see TileSource::getPostData) or null</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Called once image has been downloaded.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>abort</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Called when this image job is aborted.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
             
 
             <td class="type">
@@ -413,21 +542,15 @@ misalignment if the overlay size changes.</td>
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">The width of the overlay in viewport
-coordinates. If specified, the width of the overlay will be adjusted when
-the zoom changes.</td>
+            <td class="description last">The max number of milliseconds that this image job may take to complete.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>height</code></td>
+                <td class="name"><code>tries</code></td>
             
 
             <td class="type">
@@ -452,53 +575,8 @@ the zoom changes.</td>
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">The height of the overlay in viewport
-coordinates. If specified, the height of the overlay will be adjusted when
-the zoom changes.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>rotationMode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    OpenSeadragon.OverlayRotationMode.EXACT
-                
-                </td>
-            
-
-            <td class="description last">How to handle the rotation of the viewport.</td>
+            <td class="description last">Actual number of the current try.</td>
         </tr>
 
     
@@ -546,7 +624,7 @@ the zoom changes.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18995">line 18995</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18285">line 18285</a>
     </li></ul></dd>
     
 
@@ -587,6 +665,163 @@ the zoom changes.</td>
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<dt>
+<h4 class="name" id="data"><span class="type-signature"></span>data<span class="type-signature"> :Image|*</span></h4>
+
+
+</dt>
+<dd>
+
+<div class="description">
+    Data object which will contain downloaded image data.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Image</span>
+|
+
+<span class="param-type">*</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18313">line 18313</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+<h4 class="name" id="userData"><span class="type-signature"></span>userData<span class="type-signature"> :*</span></h4>
+
+
+</dt>
+<dd>
+
+<div class="description">
+    User workspace to populate with helper variables
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">*</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18320">line 18320</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</dd>
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -597,7 +832,7 @@ the zoom changes.</td>
 
     
 
-    <h4 class="name" id="adjust"><span class="type-signature"></span>adjust<span class="signature">(position, size)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="finish"><span class="type-signature"></span>finish<span class="signature">(data, request, errorMessage)</span><span class="type-signature"></span></h4>
 
     
 
@@ -605,8 +840,7 @@ the zoom changes.</td>
 <dd>
 
 <div class="description">
-    Internal function to adjust the position of an overlay
-depending on it size and placement.
+    Finish this job.
 </div>
 
 
@@ -642,13 +876,13 @@ depending on it size and placement.
 
         <tr>
             
-                <td class="name"><code>position</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+<span class="param-type">*</span>
 
 
             
@@ -658,20 +892,20 @@ depending on it size and placement.
 
             
 
-            <td class="description last"></td>
+            <td class="description last">data that has been downloaded</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>size</code></td>
+                <td class="name"><code>request</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
+<span class="param-type">XMLHttpRequest</span>
 
 
             
@@ -681,7 +915,30 @@ depending on it size and placement.
 
             
 
-            <td class="description last"></td>
+            <td class="description last">reference to the request if used</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>errorMessage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">description upon failure</td>
         </tr>
 
     
@@ -722,7 +979,7 @@ depending on it size and placement.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19095">line 19095</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18369">line 18369</a>
     </li></ul></dd>
     
 
@@ -755,218 +1012,7 @@ depending on it size and placement.
 
     
 
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19115">line 19115</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</dd>
-
-        
-            
-<dt>
-
-    
-
-    <h4 class="name" id="drawHTML"><span class="type-signature"></span>drawHTML<span class="signature">(container)</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19160">line 19160</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</dd>
-
-        
-            
-<dt>
-
-    
-
-    <h4 class="name" id="getBounds"><span class="type-signature"></span>getBounds<span class="signature">(viewport)</span><span class="type-signature"> &rarr; {<a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a>}</span></h4>
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -974,7 +1020,7 @@ depending on it size and placement.
 <dd>
 
 <div class="description">
-    Returns the current bounds of the overlay in viewport coordinates
+    Starts the image job.
 </div>
 
 
@@ -983,55 +1029,6 @@ depending on it size and placement.
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>viewport</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Viewport.html">OpenSeadragon.Viewport</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the viewport</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -1067,193 +1064,7 @@ depending on it size and placement.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19361">line 19361</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    overlay bounds
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-</dd>
-
-        
-            
-<dt>
-
-    
-
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(location, placement)</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-<div class="description">
-    Changes the overlay settings.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>location</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
-|
-
-<span class="param-type"><a href="OpenSeadragon.Rect.html">OpenSeadragon.Rect</a></span>
-|
-
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">If an object is specified, the options are the same than the constructor
-except for the element which can not be changed.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>placement</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.html#.Placement">OpenSeadragon.Placement</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19338">line 19338</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18342">line 18342</a>
     </li></ul></dd>
     
 
@@ -1283,190 +1094,6 @@ except for the element which can not be changed.</td>
         
     
 
-    
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        
-                
-<dt>
-
-    
-
-    <h4 class="name" id=".OnDrawCallback"><span class="type-signature"></span>OnDrawCallback<span class="signature">(position, size, element)</span><span class="type-signature"></span></h4>
-
-    
-
-</dt>
-<dd>
-
-<div class="description">
-    onDraw callback signature used by <a href="OpenSeadragon.Overlay.html"><code>OpenSeadragon.Overlay</code></a>.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>position</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>size</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OpenSeadragon.Point.html">OpenSeadragon.Point</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line19026">line 19026</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</dd>
-
-            
     
 
     

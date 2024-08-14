@@ -70,25 +70,33 @@ and classes are defined on or below this namespace.</div>
                             
                                 <li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li>
                             
+                                <li><a href="OpenSeadragon.CanvasDrawer.html">CanvasDrawer</a></li>
+                            
                                 <li><a href="OpenSeadragon.Control.html">Control</a></li>
                             
                                 <li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li>
                             
                                 <li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li>
                             
-                                <li><a href="OpenSeadragon.Drawer.html">Drawer</a></li>
+                                <li><a href="OpenSeadragon.DrawerBase.html">DrawerBase</a></li>
                             
                                 <li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li>
                             
                                 <li><a href="OpenSeadragon.EventSource.html">EventSource</a></li>
                             
+                                <li><a href="OpenSeadragon.HTMLDrawer.html">HTMLDrawer</a></li>
+                            
                                 <li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li>
+                            
+                                <li><a href="OpenSeadragon.ImageJob.html">ImageJob</a></li>
                             
                                 <li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li>
                             
                                 <li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li>
                             
                                 <li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li>
+                            
+                                <li><a href="OpenSeadragon.Mat3.html">Mat3</a></li>
                             
                                 <li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li>
                             
@@ -120,6 +128,8 @@ and classes are defined on or below this namespace.</div>
                             
                                 <li><a href="OpenSeadragon.Viewport.html">Viewport</a></li>
                             
+                                <li><a href="OpenSeadragon.WebGLDrawer.html">WebGLDrawer</a></li>
+                            
                                 <li><a href="OpenSeadragon.World.html">World</a></li>
                             
                                 <li><a href="OpenSeadragon.ZoomifyTileSource.html">ZoomifyTileSource</a></li>
@@ -144,8 +154,6 @@ and classes are defined on or below this namespace.</div>
                                 <li><a href="OpenSeadragon.html#.OverlayPlacement">OverlayPlacement</a></li>
                             
                                 <li><a href="OpenSeadragon.html#.OverlayRotationMode">OverlayRotationMode</a></li>
-                            
-                                <li><a href="OpenSeadragon.html#.pixelDensityRatio">pixelDensityRatio</a></li>
                             
                                 <li><a href="OpenSeadragon.html#.pixelDensityRatio">pixelDensityRatio</a></li>
                             
@@ -179,8 +187,6 @@ and classes are defined on or below this namespace.</div>
                                 
                                     <li><a href="OpenSeadragon.html#.capitalizeFirstLetter">capitalizeFirstLetter</a></li>
                                 
-                                    <li><a href="OpenSeadragon.html#.createCallback">createCallback</a></li>
-                                
                                     <li><a href="OpenSeadragon.html#.createFromDZI">createFromDZI</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#.delegate">delegate</a></li>
@@ -190,6 +196,8 @@ and classes are defined on or below this namespace.</div>
                                     <li><a href="OpenSeadragon.html#.extend">extend</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#.getCssPropertyWithVendorPrefix">getCssPropertyWithVendorPrefix</a></li>
+                                
+                                    <li><a href="OpenSeadragon.html#.getCurrentPixelDensityRatio">getCurrentPixelDensityRatio</a></li>
                                 
                                     <li><a href="OpenSeadragon.html#.getElement">getElement</a></li>
                                 
@@ -278,6 +286,8 @@ and classes are defined on or below this namespace.</div>
                     
                         <td>
                             <ul>
+                                <li><a href="OpenSeadragon.html#.DrawerOptions">DrawerOptions</a></li>
+                            
                                 <li><a href="OpenSeadragon.html#.EventHandler">EventHandler</a></li>
                             
                                 <li><a href="OpenSeadragon.html#.GestureSettings">GestureSettings</a></li>
@@ -306,7 +316,7 @@ and classes are defined on or below this namespace.</div>
 
     
     <dt class="tag-version">Version:</dt>
-    <dd class="tag-version"><ul class="dummy"><li>openseadragon 4.1.1</li></ul></dd>
+    <dd class="tag-version"><ul class="dummy"><li>openseadragon 5.0.0</li></ul></dd>
     
 
     
@@ -519,7 +529,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2665">line 2665</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2663">line 2663</a>
     </li></ul></dd>
     
 
@@ -807,7 +817,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1480">line 1480</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1525">line 1525</a>
     </li></ul></dd>
     
 
@@ -1003,7 +1013,7 @@ and classes are defined on or below this namespace.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line15692">line 15692</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line16078">line 16078</a>
     </li></ul></dd>
     
 
@@ -1246,7 +1256,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line7081">line 7081</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line7329">line 7329</a>
     </li></ul></dd>
     
 
@@ -1321,7 +1331,7 @@ The anchoring is always relative to the container.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1195">line 1195</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1229">line 1229</a>
     </li></ul></dd>
     
 
@@ -1610,7 +1620,7 @@ in full screen mode failed.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2950">line 2950</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3164">line 3164</a>
     </li></ul></dd>
     
 
@@ -1924,7 +1934,7 @@ compatibility.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18728">line 18728</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18953">line 18953</a>
     </li></ul></dd>
     
 
@@ -2097,7 +2107,7 @@ Only valid for overlays with Rect location and scalable in both directions.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18751">line 18751</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line18976">line 18976</a>
     </li></ul></dd>
     
 
@@ -2173,78 +2183,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1044">line 1044</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-</dd>
-
-        
-            
-<dt>
-<h4 class="name" id=".pixelDensityRatio"><span class="type-signature">(static) </span>pixelDensityRatio<span class="type-signature"> :Number</span></h4>
-
-
-</dt>
-<dd>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1065">line 1065</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1097">line 1097</a>
     </li></ul></dd>
     
 
@@ -2545,7 +2484,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line7516">line 7516</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line7762">line 7762</a>
     </li></ul></dd>
     
 
@@ -2718,7 +2657,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1499">line 1499</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1544">line 1544</a>
     </li></ul></dd>
     
 
@@ -2793,7 +2732,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line992">line 992</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1023">line 1023</a>
     </li></ul></dd>
     
 
@@ -2868,7 +2807,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line964">line 964</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line995">line 995</a>
     </li></ul></dd>
     
 
@@ -2943,7 +2882,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1010">line 1010</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1041">line 1041</a>
     </li></ul></dd>
     
 
@@ -3018,7 +2957,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1001">line 1001</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1032">line 1032</a>
     </li></ul></dd>
     
 
@@ -3217,7 +3156,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line817">line 817</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line848">line 848</a>
     </li></ul></dd>
     
 
@@ -3373,7 +3312,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2064">line 2064</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2109">line 2109</a>
     </li></ul></dd>
     
 
@@ -3745,7 +3684,7 @@ clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browse
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2183">line 2183</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2228">line 2228</a>
     </li></ul></dd>
     
 
@@ -3892,7 +3831,7 @@ the way up the DOM to the window object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2235">line 2235</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2280">line 2280</a>
     </li></ul></dd>
     
 
@@ -4026,7 +3965,7 @@ the way up the DOM to the window object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1683">line 1683</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1728">line 1728</a>
     </li></ul></dd>
     
 
@@ -4065,232 +4004,6 @@ the way up the DOM to the window object.
     <dd>
         
 <span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-</dd>
-
-        
-            
-<dt>
-
-    
-
-    <h4 class="name" id=".createCallback"><span class="type-signature">(static) </span>createCallback<span class="signature">(object, method, args<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-
-</dt>
-<dd>
-
-<div class="description">
-    Similar to OpenSeadragon.delegate, but it does not immediately call
-the method on the object, returning a function which can be called
-repeatedly to delegate the method. It also allows additional arguments
-to be passed during construction which will be added during each
-invocation, and each invocation can add additional arguments as well.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>method</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>args</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">any additional arguments are passed as arguments to the
- created callback</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2275">line 2275</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
 
 
     </dd>
@@ -4361,7 +4074,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2548">line 2548</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2555">line 2555</a>
     </li></ul></dd>
     
 
@@ -4518,7 +4231,7 @@ invocation, and each invocation can add additional arguments as well.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1456">line 1456</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1501">line 1501</a>
     </li></ul></dd>
     
 
@@ -4683,7 +4396,7 @@ the event, otherwise returns false.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2246">line 2246</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2291">line 2291</a>
     </li></ul></dd>
     
 
@@ -4768,7 +4481,7 @@ the event, otherwise returns false.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1087">line 1087</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1121">line 1121</a>
     </li></ul></dd>
     
 
@@ -4909,7 +4622,7 @@ the event, otherwise returns false.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1649">line 1649</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1694">line 1694</a>
     </li></ul></dd>
     
 
@@ -4949,6 +4662,110 @@ supported.
     <dd>
         
 <span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id=".getCurrentPixelDensityRatio"><span class="type-signature">(static) </span>getCurrentPixelDensityRatio<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    A ratio comparing the device screen's pixel density to the canvas's backing store pixel density,
+clamped to a minimum of 1. Defaults to 1 if canvas isn't supported by the browser.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1075">line 1075</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
 
 
     </dd>
@@ -5069,7 +4886,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1532">line 1532</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1577">line 1577</a>
     </li></ul></dd>
     
 
@@ -5228,7 +5045,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1579">line 1579</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1624">line 1624</a>
     </li></ul></dd>
     
 
@@ -5387,7 +5204,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1546">line 1546</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1591">line 1591</a>
     </li></ul></dd>
     
 
@@ -5546,7 +5363,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1616">line 1616</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1661">line 1661</a>
     </li></ul></dd>
     
 
@@ -5701,7 +5518,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1632">line 1632</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1677">line 1677</a>
     </li></ul></dd>
     
 
@@ -5865,7 +5682,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1724">line 1724</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1769">line 1769</a>
     </li></ul></dd>
     
 
@@ -5968,7 +5785,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1765">line 1765</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1810">line 1810</a>
     </li></ul></dd>
     
 
@@ -6116,7 +5933,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12315">line 12315</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12687">line 12687</a>
     </li></ul></dd>
     
 
@@ -6250,7 +6067,7 @@ supported.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2303">line 2303</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2335">line 2335</a>
     </li></ul></dd>
     
 
@@ -6410,7 +6227,7 @@ no viewer attached to the provided element, undefined is returned.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1522">line 1522</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1567">line 1567</a>
     </li></ul></dd>
     
 
@@ -6517,7 +6334,7 @@ no viewer attached to the provided element, undefined is returned.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1854">line 1854</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1899">line 1899</a>
     </li></ul></dd>
     
 
@@ -6682,7 +6499,7 @@ version.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2606">line 2606</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2602">line 2602</a>
     </li></ul></dd>
     
 
@@ -6928,7 +6745,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2088">line 2088</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2133">line 2133</a>
     </li></ul></dd>
     
 
@@ -7035,7 +6852,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line866">line 866</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line897">line 897</a>
     </li></ul></dd>
     
 
@@ -7127,7 +6944,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line935">line 935</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line966">line 966</a>
     </li></ul></dd>
     
 
@@ -7219,7 +7036,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line856">line 856</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line887">line 887</a>
     </li></ul></dd>
     
 
@@ -7311,7 +7128,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line902">line 902</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line933">line 933</a>
     </li></ul></dd>
     
 
@@ -7404,7 +7221,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line877">line 877</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line908">line 908</a>
     </li></ul></dd>
     
 
@@ -7723,7 +7540,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2474">line 2474</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2481">line 2481</a>
     </li></ul></dd>
     
 
@@ -8137,7 +7954,7 @@ Taken from jQuery 1.6.1
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2382">line 2382</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2389">line 2389</a>
     </li></ul></dd>
     
 
@@ -8308,7 +8125,7 @@ be easily centered using CSS tables
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1894">line 1894</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1939">line 1939</a>
     </li></ul></dd>
     
 
@@ -8465,7 +8282,7 @@ serves as an excellent container element.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1941">line 1941</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1986">line 1986</a>
     </li></ul></dd>
     
 
@@ -8617,7 +8434,7 @@ serves as an excellent container element.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1978">line 1978</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2023">line 2023</a>
     </li></ul></dd>
     
 
@@ -8912,7 +8729,7 @@ depending on browser support.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2153">line 2153</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2198">line 2198</a>
     </li></ul></dd>
     
 
@@ -9019,7 +8836,7 @@ depending on browser support.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1959">line 1959</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2004">line 2004</a>
     </li></ul></dd>
     
 
@@ -9153,7 +8970,7 @@ depending on browser support.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2594">line 2594</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2590">line 2590</a>
     </li></ul></dd>
     
 
@@ -9305,7 +9122,7 @@ depending on browser support.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2558">line 2558</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2565">line 2565</a>
     </li></ul></dd>
     
 
@@ -9483,7 +9300,7 @@ depending on browser support.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1710">line 1710</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1755">line 1755</a>
     </li></ul></dd>
     
 
@@ -9659,7 +9476,7 @@ a positive value (also known as Euclidean modulo).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1694">line 1694</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1739">line 1739</a>
     </li></ul></dd>
     
 
@@ -9841,7 +9658,7 @@ a positive value (also known as Euclidean modulo).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2128">line 2128</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2173">line 2173</a>
     </li></ul></dd>
     
 
@@ -10148,7 +9965,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2211">line 2211</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2256">line 2256</a>
     </li></ul></dd>
     
 
@@ -10359,7 +10176,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1994">line 1994</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2039">line 2039</a>
     </li></ul></dd>
     
 
@@ -10519,7 +10336,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2040">line 2040</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2085">line 2085</a>
     </li></ul></dd>
     
 
@@ -10656,7 +10473,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2053">line 2053</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2098">line 2098</a>
     </li></ul></dd>
     
 
@@ -10793,7 +10610,7 @@ handler.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2024">line 2024</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2069">line 2069</a>
     </li></ul></dd>
     
 
@@ -10838,12 +10655,14 @@ handler.
 Preexisting formats that are not being updated are left unchanged.
 By default, the defined formats are
 <pre><code>{
+     avif: true,
      bmp:  false,
      jpeg: true,
      jpg:  true,
      png:  true,
      tif:  false,
-     wdp:  false
+     wdp:  false,
+     webp: true
 }
 </code></pre>
 </div>
@@ -10939,7 +10758,7 @@ keys and booleans as values.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2632">line 2632</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2630">line 2630</a>
     </li></ul></dd>
     
 
@@ -10966,8 +10785,8 @@ keys and booleans as values.</td>
 
     <h5>Example</h5>
     
-    <pre class="source-code"><code>// sets webp as supported and png as unsupported
-setImageFormatsSupported({webp: true, png: false});</code></pre>
+    <pre class="source-code"><code>// sets bmp as supported and png as unsupported
+setImageFormatsSupported({bmp: true, png: false});</code></pre>
 
 
 </dd>
@@ -11030,7 +10849,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1803">line 1803</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line1848">line 1848</a>
     </li></ul></dd>
     
 
@@ -11201,7 +11020,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12347">line 12347</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line12719">line 12719</a>
     </li></ul></dd>
     
 
@@ -11347,7 +11166,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2256">line 2256</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line2301">line 2301</a>
     </li></ul></dd>
     
 
@@ -11432,7 +11251,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line889">line 889</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line920">line 920</a>
     </li></ul></dd>
     
 
@@ -11473,6 +11292,198 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
         <h3 class="subsection-title">Type Definitions</h3>
 
         
+                
+<dt>
+<h4 class="name" id=".DrawerOptions">DrawerOptions</h4>
+
+
+</dt>
+<dd>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>webgl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">options if the WebGLDrawer is used. No options are currently supported.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">options if the CanvasDrawer is used. No options are currently supported.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>html</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">options if the HTMLDrawer is used. No options are currently supported.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>custom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">options if a custom drawer is used. No options are currently supported.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line768">line 768</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</dd>
+
+            
                 
 <dt>
 
@@ -11579,7 +11590,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3097">line 3097</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3315">line 3315</a>
     </li></ul></dd>
     
 
@@ -11880,7 +11891,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line712">line 712</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line733">line 733</a>
     </li></ul></dd>
     
 
@@ -13244,7 +13255,7 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line747">line 747</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line778">line 778</a>
     </li></ul></dd>
     
 
@@ -13951,6 +13962,86 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
 
         <tr>
             
+                <td class="name"><code>drawer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">DrawerImplementation</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ['webgl', 'canvas', 'html']
+                
+                </td>
+            
+
+            <td class="description last">Which drawer to use. Valid strings are 'webgl', 'canvas', and 'html'. Valid drawer
+    implementations are constructors of classes that extend OpenSeadragon.DrawerBase.
+    An array of strings and/or constructors can be used to indicate the priority
+    of different implementations, which will be tried in order based on browser support.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>drawerOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Options to pass to the selected drawer implementation. For details
+    please see <a href="OpenSeadragon.html#.DrawerOptions"><code>OpenSeadragon.DrawerOptions</code></a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>opacity</code></td>
             
 
@@ -14096,9 +14187,9 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
                 </td>
             
 
-            <td class="description last">Image smoothing for canvas rendering (only if canvas is used). Note: Ignored
+            <td class="description last">Image smoothing for canvas rendering (only if the canvas drawer is used). Note: Ignored
     by some (especially older) browsers which do not support this canvas property.
-    This property can be changed in <code>Viewer.Drawer.setImageSmoothingEnabled</code>.</td>
+    This property can be changed in <code>Viewer.DrawerBase.setImageSmoothingEnabled</code>.</td>
         </tr>
 
     
@@ -14266,6 +14357,45 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
             
 
             <td class="description last">Initial flip state.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>overlayPreserveContentDirection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">When the viewport is flipped (by pressing 'f'), the overlay is flipped using ScaleX.
+    Normally, this setting (default true) keeps the overlay's content readable by flipping it back.
+    To make the content flip with the overlay, set overlayPreserveContentDirection to false.</td>
         </tr>
 
     
@@ -14873,6 +15003,46 @@ setImageFormatsSupported({webp: true, png: false});</code></pre>
             
 
             <td class="description last">The number of degrees to rotate right or left when the rotate buttons or keyboard shortcuts are activated.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxTilesPerFrame</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">The number of tiles loaded per frame. As the frame rate of the client's machine is usually high (e.g., 50 fps),
+    one tile per frame should be a good choice. However, for large screens or lower frame rates, the number of
+    loaded tiles per frame can be adjusted here. Reasonable values might be 2 or 3 tiles per frame.
+    (Note that the actual frame rate is given by the client's browser and machine).</td>
         </tr>
 
     
@@ -18216,7 +18386,7 @@ double-click gesture ( single click and next click to drag).  Note: If set to tr
                 </td>
             
 
-            <td class="description last">Set to false to not use an HTML canvas element for image rendering even if canvas is supported.</td>
+            <td class="description last">Deprecated. Use the `drawer` option to specify preferred renderer.</td>
         </tr>
 
     
@@ -19913,13 +20083,13 @@ double-click gesture ( single click and next click to drag).  Note: If set to tr
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="ImageJob.html">ImageJob</a></li><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.Drawer.html">Drawer</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.World.html">World</a></li><li><a href="OpenSeadragon.ZoomifyTileSource.html">ZoomifyTileSource</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:clip-change">clip-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:composite-operation-change">composite-operation-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:fully-loaded-change">fully-loaded-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:opacity-change">opacity-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:after-resize">after-resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:before-destroy">before-destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-blur">canvas-blur</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-contextmenu">canvas-contextmenu</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-focus">canvas-focus</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key">canvas-key</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key-press">canvas-key-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:destroy">destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:flip">flip</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-click">navigator-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-drag">navigator-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.CanvasDrawer.html">CanvasDrawer</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.DrawerBase.html">DrawerBase</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.HTMLDrawer.html">HTMLDrawer</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageJob.html">ImageJob</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.Mat3.html">Mat3</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.WebGLDrawer.html">WebGLDrawer</a></li><li><a href="OpenSeadragon.World.html">World</a></li><li><a href="OpenSeadragon.ZoomifyTileSource.html">ZoomifyTileSource</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:clip-change">clip-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:composite-operation-change">composite-operation-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:fully-loaded-change">fully-loaded-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:opacity-change">opacity-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:after-resize">after-resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:before-destroy">before-destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-blur">canvas-blur</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-contextmenu">canvas-contextmenu</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-focus">canvas-focus</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key">canvas-key</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key-press">canvas-key-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:destroy">destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:flip">flip</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-click">navigator-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-drag">navigator-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri May 31 2024 09:49:57 GMT-0700 (Pacific Daylight Time)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Aug 14 2024 09:39:16 GMT-0700 (Pacific Daylight Time)
 </footer>
 </div>
 
