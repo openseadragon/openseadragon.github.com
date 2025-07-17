@@ -210,6 +210,11 @@
         <td><a href="/examples/tilesource-tms/">TMS</a></td>
     </tr>
     <tr>
+        <td><a href="https://gdal.org/en/latest/programs/gdal_raster_tile.html#gdal-raster-tile">gdal raster tile</a></td>
+        <td>CLI</td>
+        <td><a href="/examples/tilesource-tms/">TMS</a></td>
+    </tr>
+    <tr>
         <td><a href="https://www.maptiler.org/">MapTiler</a></td>
         <td>desktop app for Windows, Mac, Linux</td>
         <td><a href="/examples/tilesource-tms/">TMS</a></td>
@@ -250,6 +255,31 @@
         <td><a href="https://github.com/cioran0/dzOpen">dzOpen</a></td>
         <td>Free desktop app for locally viewing DZI files for Windows. Linux soon.</td>
         <td><a href="/examples/tilesource-dzi/">DZI</a></td>
+    </tr>
+    
+    <tr>
+        <td colspan="3"><h4>Single-file Tile formats</h4> See complete <a href="https://github.com/openseadragon/openseadragon/issues/944">discussion thread</a>. Useful for faster/easier file operations and maintenance on S3/file servers FS.</td>
+    </tr>
+    <tr>
+        <td>
+            szi_explorer <a href="https://github.com/infovore/szi_explorer">repo</a> and <a href="https://szi-explorer.netlify.app">demo</a>
+        </td>
+        <td>SZI is losslessly zipped DZI container, and szi_explorer is the current OSD implementation by infovore and PolCPP. SZI can be produced with <a href="https://www.libvips.org/API/current/making-image-pyramids.html">libvips</a></td>
+        <td><a href="https://github.com/smartinmedia/SZI-Format/blob/master/SZI%20format%20description%20-%202018-11-24.pdf">SZI</a></td>
+    </tr>
+    <tr>
+        <td>
+            OpenSeaDragon <a href="https://github.com/pearcetm/GeoTIFFTileSource">GeoTIFFTileSource</a> and <a href="https://pearcetm.github.io/GeoTIFFTileSource/demo/demo.html">demo</a>
+        </td>
+        <td>Cloud Optimized Geotiff is a geospatial standard specified by OGC for massive rasters, which also works for non-geo images</td>
+        <td><a href="https://www.cogeo.org/">COG</a></td>
+    </tr>
+    <tr>
+        <td>
+            No open-source reader/writer implementation available yet
+        </td>
+        <td>Zoomable Image File format, or Zoomify Image File format</td>
+        <td><a href="https://zif.photo/">ZIF</a></td>
     </tr>
 </table>
 <br/>
