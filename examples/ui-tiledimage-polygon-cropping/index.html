@@ -62,6 +62,7 @@
     textarea {
         width: 330px;
         height: 200px;
+        font-family: monospace;
     }
 
     .box-with-title {
@@ -72,223 +73,263 @@
 
     .buttons {
         width: 215px;
+        margin-bottom: 10px;
     }
 
     *:focus {
         outline: none;
     }
+
+    .info-panel {
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background: transparent;
+    }
+
+    pre {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 3px;
+        overflow-x: auto;
+    }
+
+    .btn {
+        margin: 5px 0;
+        padding: 8px 12px;
+        cursor: pointer;
+        background: #4285f4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .button-group {
+        margin: 12px 0 3px 0;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .openseadragon {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+    }
+
+    /* Overlay marker styling */
+    .osd-point-dot {
+        width: 12px;
+        height: 12px;
+        background: #d52b2b;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 2px #000;
+        pointer-events: none;
+        position: absolute;
+    }
+
+    .osd-svg-polygon {
+        pointer-events: none;
+        position: absolute;
+        z-index: 10;
+    }
 </style>
-<h2>Example: Crop TiledImage with Polygons</h2>
 
-<p>OpenSeadragon TiledImage provides the ability to crop the image using polygons.</p>
+<h2>Polygon Cropping for TiledImages</h2>
 
-<p>
-    The feature takes an array of polygons to crop the TiledImage during draw tiles.
-    The render function will use <code>non-zero winding rule</code> to create the polygons.
-</p>
-
-<p>
-  You can use <code>OpenSeadragon.Point</code> or plain <code>xy</code> object.
-  Here is an example format of an array of polygons:
-  <pre>[
-  [{x: 197, y:172}, {x: 226, y:172}, {x: 226, y:198}, {x: 197, y:198}],
-  [{x: 328, y:200}, {x: 330, y:199}, {x: 332, y:201}, {x: 329, y:202}],
-  [{x: 321, y:201}, {x: 356, y:205}, {x: 341, y:250}]
-]</pre>
-</p>
-
-<div class="description">
-    <h3>Coordinates</h3>
-    <p>
-        The draw tiles will convert the provided polygons into the correct position in the viewport.
-        Thus the polygon points are treated as <b>Image coordinates</b> at 0 degree.
-        See <a href="/examples/viewport-coordinates/">Viewport Coordinates</a> for more detail.
-    </p>
+<div class="info-panel">
+    <p>OpenSeadragon allows precise image cropping using polygon shapes. This feature is useful for:</p>
+    <ul style="list-style-type: disc; margin-left: 20px;">
+        <li>Highlighting specific regions of interest</li>
+        <li>Creating non-rectangular image masks</li>
+        <li>Interactive annotation tools</li>
+    </ul>
+    <p><strong>Coordinate Handling:</strong> Polygon points should be provided in <strong>image coordinates</strong>
+        (original pixel dimensions). During rendering, OpenSeadragon converts these to viewport coordinates
+        automatically.</p>
+    <p>The feature takes an array of polygons to crop the TiledImage during draw tiles. The render function will use
+        non-zero winding rule to create the polygons. You can use OpenSeadragon.Point or plain xy object.</p>
+    <p>The draw tiles will convert the provided polygons into the correct position in the viewport. Thus, the polygon
+        points are treated as image coordinates at 0 degree.</p>
 </div>
+
+<h3>Implementation Guide</h3>
+
+<div>
+    <h4>Polygon Format Requirements</h4>
+    <p>Provide an array of polygons where each polygon is an array of <code>{x, y}</code> coordinate objects:</p>
+    <pre>[
+  [{x: 197, y: 172}, {x: 226, y: 172}, {x: 226, y: 198}],
+  [{x: 328, y: 280}, {x: 338, y: 199}, {x: 332, y: 201}]
+]</pre>
+    <h4>Basic Implementation</h4>
+    <pre>// Apply polygons to a TiledImage
+viewer.addHandler('open', function() {
+  const tiledImage = viewer.world.getItemAt(0);
+  tiledImage.setCroppingPolygons(yourPolygonsArray);
+});</pre>
+</div>
+
 <div class="demoarea">
     <div class="demoheading">
-        A viewer with click event to create cropping polygons. (Click to Zoom is disabled )
+        Interactive Polygon Cropping Tool
     </div>
     <div id="contentDiv" class="openseadragon"></div>
-    <div>
-      <button id='resetBtn'>Reset</button>
-      <button id='exampleBtn'>Load Example</button>
+
+    <div class="button-group">
+        <button id='resetBtn' class="btn">Reset All</button>
+        <button id='exampleBtn' class="btn">Load Example Polygons</button>
     </div>
+
     <div class='box-with-title'>
-        <div class="buttons">
-            <button id="addPointBtn">Add Points as Polygon</button>
-            <button onclick="emptyElement('polygonPointEl')">Clear</button>
+        <h4>Polygon Points</h4>
+        <div class="button-group">
+            <button id="addPointBtn" class="btn">Add Points as Polygon</button>
+            <button id="clearPointsBtn" class="btn">Clear Points</button>
         </div>
-        <textarea id="polygonPointEl"></textarea>
+        <textarea id="polygonPointEl" placeholder="Click on image to add points..."></textarea>
     </div>
+
     <div class='box-with-title'>
-        <div class="buttons">
-            <button id="cropBtn">Crop With Polygon</button>
-            <button onclick="emptyElement('previewEl')">Clear</button>
+        <h4>Current Polygons</h4>
+        <div class="button-group">
+            <button id="cropBtn" class="btn">Apply Cropping</button>
+            <button id="clearPolygonsBtn" class="btn">Clear Polygons</button>
         </div>
-        <textarea id='previewEl'></textarea>
+        <textarea id='previewEl' placeholder="Polygons will appear here..."></textarea>
     </div>
 </div>
 
-<!-- Setup Viewer -->
-<script type="text/javascript">
-  var viewer = OpenSeadragon({
-      id: "contentDiv",
-      prefixUrl:     "/openseadragon/images/",
-      tileSources:   "/example-images/highsmith/highsmith.dzi",
-      showNavigator: false,
-      gestureSettingsMouse: {
-          clickToZoom: false
-      },
-  });
-  // Global Variables
-  var previewEl = document.getElementById('previewEl');
-  var polygonPointEl = document.getElementById('polygonPointEl');
-</script>
-
-<!-- Setup Example -->
-<script>    
-    var examples = [
-      // Library of Congress
-      [ { x: 2751.28, y: 5297.41}, { x: 2766.79, y: 5297.41 }, { x: 4031.96, y: 5285.35 }, { x: 4033.68, y: 5293.96 }, 
-        { x: 4069.88, y: 5307.75 }, { x: 4061.26, y: 5404.28 }, { x: 3406.27, y: 5406 }, { x: 2773.69, y: 5407.72 } ],
-      // Left triangle
-      [ { x: 1571.28, y: 8401.91 }, { x: 1807.08, y: 7972.51 }, { x: 2355.62, y: 7972.51 } ],
-      // Right triangle
-      [ { x: 5100.79, y: 8384.53 }, { x: 4932.01, y: 7962.58 }, { x: 4388.43, y: 7965.06 } ],
-      // Center Rectangle
-      [ { x: 3214.41, y: 7766.5 }, { x: 3244.2, y: 7562.97 }, { x: 3559.42, y: 7562.97 }, { x: 3556.94, y: 7766.5 } ]
-    ];
-    // Load default examples
-    function loadExample() {
-        previewEl.value = JSON.stringify(examples);
-    }
-    loadExample();
-</script>
-<!-- Setup event handler -->
 <script>
-    // Set a given element's value to empty string
-    function emptyElement(elementId) {
-        document.getElementById(elementId).value = '';
-    }
-
-    // JSON parse a given object, then insert object assuming parsed value is array.
-    function insertObjectToElement(object, element) {
-        var parsed = []; // Default to empty array
-        try {
-            parsed = JSON.parse(element.value);
-        } catch (error) {}
-        parsed.push(object);
-        element.value = JSON.stringify(parsed)
-    }
-
-    // Add click handler to clicked point tracker
-    viewer.addHandler('canvas-click', function (event) {
-        var viewportPoint = viewer.viewport.pointFromPixel(event.position);
-        var p = viewer.viewport.viewportToImageCoordinates(viewportPoint);
-        p.x = Math.round((p.x + Number.EPSILON) * 100) / 100
-        p.y = Math.round((p.y + Number.EPSILON) * 100) / 100
-        insertObjectToElement({
-            x: p.x,
-            y: p.y
-        }, polygonPointEl);
+    // Use remote DZI image for reliability
+    var viewer = OpenSeadragon({
+        id: "contentDiv",
+        prefixUrl: "/openseadragon/images/",
+        tileSources: "https://openseadragon.github.io/example-images/highsmith/highsmith.dzi",
+        showZoomControl: true,
+        showHomeControl: true,
+        showFullPageControl: true,
+        gestureSettingsMouse: { clickToZoom: false }
     });
 
-    // Evaluate give element in JavaScript variable, default to empty array.
-    function readElementValueDefaultToEmptyArray(elementId) {
-        try {
-            var val = document.getElementById(elementId).value;
-            if (val === '') {
-                return [];
-            }
-            return eval(val); // If using JSON.parse, user must put quotes [{x: 123, y:12}]
-        } catch (e) {
-            return [];
-        }
-    }
+    const previewEl = document.getElementById('previewEl');
+    const polygonPointEl = document.getElementById('polygonPointEl');
 
-    // Insert value from given element into preview element
-    function insertValueFromElementToPreviewElement(element) {
-        try {
-            if (element.value === '') {
-                return;
-            }
-            var polygon = eval(element.value);
-            var polygonList = readElementValueDefaultToEmptyArray('previewEl');
-            polygonList.push(polygon);
-            element.value = '';
-            previewEl.value = JSON.stringify(polygonList);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // Original full example set, as in old version (restored)
+    const examples = [
+        // Library of Congress shape
+        [
+            { x: 2751.28, y: 5297.41 }, { x: 2766.79, y: 5297.41 }, { x: 4031.96, y: 5285.35 },
+            { x: 4033.68, y: 5293.96 }, { x: 4069.88, y: 5307.75 }, { x: 4061.26, y: 5404.28 },
+            { x: 3406.27, y: 5406 }, { x: 2773.69, y: 5407.72 }
+        ],
+        // Left triangle
+        [
+            { x: 1571.28, y: 8401.91 }, { x: 1807.08, y: 7972.51 }, { x: 2355.62, y: 7972.51 }
+        ],
+        // Right triangle
+        [
+            { x: 5100.79, y: 8384.53 }, { x: 4932.01, y: 7962.58 }, { x: 4388.43, y: 7965.06 }
+        ],
+        // Center Rectangle
+        [
+            { x: 3214.41, y: 7766.50 }, { x: 3244.20, y: 7562.97 }, { x: 3559.42, y: 7562.97 }, { x: 3556.94, y: 7766.50 }
+        ]
+    ];
 
-    // Add clicked points to polygon tracker variable as point objects
-    document.getElementById('addPointBtn').onclick = function () {
-        insertValueFromElementToPreviewElement(polygonPointEl);
-    };
+    let pointOverlays = [];
 
-    // Crop image with value in the preview element
-    document.getElementById('cropBtn').onclick = function () {
-        var polygonList = eval(previewEl.value);
-        var tiledImage = viewer.world.getItemAt(0);
-        tiledImage.setCroppingPolygons(polygonList);
-        viewer.forceRedraw();
-        emptyElement('previewEl');
-    };
-
-    document.getElementById('resetBtn').onclick = function () {
-        emptyElement('polygonPointEl');
-        emptyElement('previewEl');
-        var tiledImage = viewer.world.getItemAt(0);
-        tiledImage.resetCroppingPolygons();
-        viewer.forceRedraw();
-    };
-
-    document.getElementById('exampleBtn').onclick = loadExample;
-
-
-    document.getElementById('pathBtn').onclick = function () {
-        var polygonList = eval(previewEl.value);
-        var paths = polygonList.map(function (polygon) {
-            var pathStr = '';
-            polygon.forEach(function (point, index) {
-                pathStr += index === 0 ? 'M' : 'l' + point.x + ', ' + point.y;
-            });
-            return pathStr;
+    function clearPointOverlays() {
+        pointOverlays.forEach(overlay => {
+            viewer.removeOverlay(overlay);
         });
-        var tiledImage = viewer.world.getItemAt(0);
-        tiledImage.setCroppingPathData(paths);
-        viewer.forceRedraw();
+        pointOverlays = [];
     }
 
-    viewer.addHandler('add-item-failed', () => {
-        console.log('event: add-item-failed')
+    function createPointElement() {
+        const div = document.createElement('div');
+        div.style.width = '10px';
+        div.style.height = '10px';
+        div.style.backgroundColor = 'rgba(255,0,0,0.7)';
+        div.style.borderRadius = '50%';
+        div.style.marginLeft = '-5px'; // Center the dot on the click point
+        div.style.marginTop = '-5px';  // Center the dot on the click point
+        return div;
+    }
+
+    document.getElementById('clearPointsBtn').addEventListener('click', () => {
+        polygonPointEl.value = '';
+        clearPointOverlays();
     });
 
+    document.getElementById('clearPolygonsBtn').addEventListener('click', () => {
+        previewEl.value = '';
+        viewer.world.getItemAt(0)?.resetCroppingPolygons();
+        clearPointOverlays();
+    });
+
+    document.getElementById('exampleBtn').addEventListener('click', () => {
+        previewEl.value = JSON.stringify(examples, null, 2);
+    });
+
+    document.getElementById('addPointBtn').addEventListener('click', () => {
+        try {
+            const points = JSON.parse(polygonPointEl.value || '[]');
+            if (points.length >= 3) {
+                const currentPolygons = JSON.parse(previewEl.value || '[]');
+                previewEl.value = JSON.stringify([...currentPolygons, points], null, 2);
+                polygonPointEl.value = '';
+                clearPointOverlays();
+            } else {
+                alert('A polygon requires at least 3 points');
+            }
+        } catch (e) {
+            alert("Invalid format in points textarea.");
+        }
+    });
+
+    document.getElementById('cropBtn').addEventListener('click', () => {
+        try {
+            const polygons = JSON.parse(previewEl.value || '[]');
+            if (polygons.length > 0) {
+                viewer.world.getItemAt(0)?.setCroppingPolygons(polygons);
+            }
+        } catch (e) {
+            alert('Error applying polygons: ' + e);
+        }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        polygonPointEl.value = '';
+        previewEl.value = '';
+        viewer.world.getItemAt(0)?.resetCroppingPolygons();
+        clearPointOverlays();
+    });
+
+    viewer.addHandler('canvas-click', function (event) {
+        const viewportPoint = viewer.viewport.pointFromPixel(event.position);
+        const imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+        const point = {
+            x: Math.round(imagePoint.x * 100) / 100,
+            y: Math.round(imagePoint.y * 100) / 100
+        };
+        let pts = [];
+        try { pts = JSON.parse(polygonPointEl.value || '[]'); } catch (e) { }
+        polygonPointEl.value = JSON.stringify([...pts, point], null, 2);
+
+        // Visual feedback with centered dot
+        const overlayElement = createPointElement();
+        viewer.addOverlay({
+            element: overlayElement,
+            location: viewportPoint
+        });
+        pointOverlays.push(overlayElement);
+    });
 </script>
-<p>
-    Below is the relevant configuration in the example
-</p>
-<pre>var viewer = OpenSeadragon({
-  ...
-  showNavigator: false,
-  gestureSettingsMouse: { clickToZoom: false }
-  ...
-});
-
-var examples = [
-  ...
-  [ { x: 1571.28, y: 8401.91 }, { x: 1807.08, y: 7972.51 }, { x: 2355.62, y: 7972.51 } ],
-  [ { x: 5100.79, y: 8384.53 }, { x: 4932.01, y: 7962.58 }, { x: 4388.43, y: 7965.06 } ],
-  ...
-]
-
-var tiledImage = viewer.world.getItemAt(0);
-tiledImage.setCroppingPolygons(examples);
-viewer.forceRedraw();
-</pre>
-
 
         <ul class="footer">
             <li><a href='/#examples-and-features'
