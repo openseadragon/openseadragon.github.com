@@ -72,6 +72,8 @@
                                 <li><a href="OpenSeadragon.DziTileSource.html#ready">ready</a></li>
                             
                                 <li><a href="OpenSeadragon.DziTileSource.html#tileOverlap">tileOverlap</a></li>
+                            
+                                <li><a href="OpenSeadragon.DziTileSource.html#url">url</a></li>
                             </ul>
                         </td>
                     
@@ -87,15 +89,33 @@
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#addOnceHandler">addOnceHandler</a></li>
                                 
+                                    <li><a href="OpenSeadragon.DziTileSource.html#batchCompatible">batchCompatible</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#batchEnabled">batchEnabled</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#batchMaxJobs">batchMaxJobs</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#batchTimeout">batchTimeout</a></li>
+                                
                                     <li><a href="OpenSeadragon.DziTileSource.html#configure">configure</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#createTileCache">createTileCache</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#destroy">destroy</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#destroyTileCache">destroyTileCache</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#downloadTileAbort">downloadTileAbort</a></li>
                                 
+                                    <li><a href="OpenSeadragon.DziTileSource.html#downloadTileBatchAbort">downloadTileBatchAbort</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#downloadTileBatchStart">downloadTileBatchStart</a></li>
+                                
                                     <li><a href="OpenSeadragon.DziTileSource.html#downloadTileStart">downloadTileStart</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#equals">equals</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#getAwaitingHandler">getAwaitingHandler</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#getClosestLevel">getClosestLevel</a></li>
                                 
@@ -136,6 +156,8 @@
                                     <li><a href="OpenSeadragon.DziTileSource.html#numberOfHandlers">numberOfHandlers</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#raiseEvent">raiseEvent</a></li>
+                                
+                                    <li><a href="OpenSeadragon.DziTileSource.html#raiseEventAwaiting">raiseEventAwaiting</a></li>
                                 
                                     <li><a href="OpenSeadragon.DziTileSource.html#removeAllHandlers">removeAllHandlers</a></li>
                                 
@@ -503,7 +525,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14009">line 14009</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14852">line 14852</a>
     </li></ul></dd>
     
 
@@ -620,7 +642,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13123">line 13123</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13856">line 13856</a>
     </li></ul></dd>
     
 
@@ -700,7 +722,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13128">line 13128</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13861">line 13861</a>
     </li></ul></dd>
     
 
@@ -780,7 +802,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13143">line 13143</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13876">line 13876</a>
     </li></ul></dd>
     
 
@@ -860,7 +882,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13138">line 13138</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13871">line 13871</a>
     </li></ul></dd>
     
 
@@ -936,7 +958,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13148">line 13148</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13881">line 13881</a>
     </li></ul></dd>
     
 
@@ -1016,7 +1038,88 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13133">line 13133</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13866">line 13866</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+<h4 class="name" id="url"><span class="type-signature"></span>url<span class="type-signature"> :String</span></h4>
+
+
+</dt>
+<dd>
+
+<div class="description">
+    The URL of the image to be loaded. Can be undefined if the configuration happened
+via plain object or class injection
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#url">OpenSeadragon.TileSource#url</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13849">line 13849</a>
     </li></ul></dd>
     
 
@@ -1135,6 +1238,9 @@
             
                 
 <span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
+|
+
+<span class="param-type"><a href="OpenSeadragon.html#.AsyncEventHandler">OpenSeadragon.AsyncEventHandler</a></span>
 
 
             
@@ -1280,7 +1386,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3375">line 3375</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3667">line 3667</a>
     </li></ul></dd>
     
 
@@ -1426,6 +1532,9 @@ for a given event. It is not removable with removeHandler().
             
                 
 <span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
+|
+
+<span class="param-type"><a href="OpenSeadragon.html#.AsyncEventHandler">OpenSeadragon.AsyncEventHandler</a></span>
 
 
             
@@ -1613,7 +1722,7 @@ before removing it.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3352">line 3352</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3644">line 3644</a>
     </li></ul></dd>
     
 
@@ -1652,6 +1761,497 @@ before removing it.</td>
     <dd>
         
 <span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="batchCompatible"><span class="type-signature"></span>batchCompatible<span class="signature">(otherSource)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Determines if a tile request from a source (even itself!) can be batched with this source.
+By default, returns false -> in this case, each tile falls to a single bucket alone.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>otherSource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.TileSource.html">OpenSeadragon.TileSource</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#batchCompatible">OpenSeadragon.TileSource#batchCompatible</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14355">line 14355</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="batchEnabled"><span class="type-signature"></span>batchEnabled<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Determines if this tile source data can be batched.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#batchEnabled">OpenSeadragon.TileSource#batchEnabled</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14345">line 14345</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="batchMaxJobs"><span class="type-signature"></span>batchMaxJobs<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Maximum batch size. Can, for example, be derived from (average) tile size of the source.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#batchMaxJobs">OpenSeadragon.TileSource#batchMaxJobs</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14363">line 14363</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    integer, number of max jobs per batch
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="batchTimeout"><span class="type-signature"></span>batchTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    How long to wait with a batch before processing. Big timeout means larger
+batches with fewer requests, at the cost of slower loading.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#batchTimeout">OpenSeadragon.TileSource#batchTimeout</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14372">line 14372</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    milliseconds to wait for tiles to be added to the batch before processing
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
 
 
     </dd>
@@ -1819,7 +2419,7 @@ before removing it.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14103">line 14103</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14945">line 14945</a>
     </li></ul></dd>
     
 
@@ -1887,7 +2487,10 @@ before removing it.</td>
 cacheObject parameter should be used to attach the data to, there are no
 conventions on how it should be stored - all the logic is implemented within *TileCache() functions.
 
-Note that if you override any of *TileCache() functions, you should override all of them.
+Note that
+ - data is cached automatically as cacheObject.data
+ - if you override any of *TileCache() functions, you should override all of them.
+ - these functions might be called over shared cache object managed by other TileSources simultaneously.
 </div>
 
 
@@ -1929,7 +2532,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="OpenSeadragon.CacheRecord.html">OpenSeadragon.CacheRecord</a></span>
 
 
             
@@ -1975,7 +2578,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">Tile</span>
+<span class="param-type"><a href="OpenSeadragon.Tile.html">OpenSeadragon.Tile</a></span>
 
 
             
@@ -2019,6 +2622,8 @@ Note that if you override any of *TileCache() functions, you should override all
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
 
     
 
@@ -2031,7 +2636,148 @@ Note that if you override any of *TileCache() functions, you should override all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13835">line 13835</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14677">line 14677</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">(viewer)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Shall this source need to free some objects
+upon unloading, it must be done here. For example, canvas
+size must be set to 0 for safari to free.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>viewer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.Viewer.html">OpenSeadragon.Viewer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#destroy">OpenSeadragon.TileSource#destroy</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14404">line 14404</a>
     </li></ul></dd>
     
 
@@ -2074,6 +2820,9 @@ Note that if you override any of *TileCache() functions, you should override all
 <div class="description">
     Cache object destructor, unset all properties you created to allow GC collection.
 Note that if you override any of *TileCache() functions, you should override all of them.
+Note that these functions might be called over shared cache object managed by other TileSources simultaneously.
+Original cache data is cacheObject.data, but do not delete it manually! It is taken care for,
+you might break things.
 </div>
 
 
@@ -2115,7 +2864,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="OpenSeadragon.CacheRecord.html">OpenSeadragon.CacheRecord</a></span>
 
 
             
@@ -2159,6 +2908,8 @@ Note that if you override any of *TileCache() functions, you should override all
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
 
     
 
@@ -2171,7 +2922,7 @@ Note that if you override any of *TileCache() functions, you should override all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13844">line 13844</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14691">line 14691</a>
     </li></ul></dd>
     
 
@@ -2214,6 +2965,7 @@ Note that if you override any of *TileCache() functions, you should override all
 <div class="description">
     Provide means of aborting the execution.
 Note that if you override this function, you should override also downloadTileStart().
+Note that calling job.abort() would create an infinite loop!
 </div>
 
 
@@ -2255,7 +3007,7 @@ Note that if you override this function, you should override also downloadTileSt
             <td class="type">
             
                 
-<span class="param-type">ImageJob</span>
+<span class="param-type"><a href="OpenSeadragon.ImageJob.html">OpenSeadragon.ImageJob</a></span>
 
 
             
@@ -2372,7 +3124,290 @@ Note that if you override this function, you should override also downloadTileSt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13815">line 13815</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14624">line 14624</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="downloadTileBatchAbort"><span class="type-signature"></span>downloadTileBatchAbort<span class="signature">(batchJob)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Handles abortion of the fetching of multiple tiles.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>batchJob</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.BatchImageJob.html">OpenSeadragon.BatchImageJob</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#downloadTileBatchAbort">OpenSeadragon.TileSource#downloadTileBatchAbort</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14657">line 14657</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="downloadTileBatchStart"><span class="type-signature"></span>downloadTileBatchStart<span class="signature">(batchJob)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Handles the fetching of multiple tiles in a single operation.
+The TileSource is responsible for calling finish/fail on each of the individual job items
+carried by batchJob.jobs. Avoid calling finish/fail on `batchJob` itself.
+
+Note that failed batch jobs are retried in non-batched mode. You should therefore
+have a valid downloadTileStart implementation in any case.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>batchJob</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OpenSeadragon.BatchImageJob.html">OpenSeadragon.BatchImageJob</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The batch job containing .jobs array</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#downloadTileBatchStart">OpenSeadragon.TileSource#downloadTileBatchStart</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14645">line 14645</a>
     </li></ul></dd>
     
 
@@ -2413,7 +3448,9 @@ Note that if you override this function, you should override also downloadTileSt
 <dd>
 
 <div class="description">
-    Download tile data.
+    Download tile data. The context attribute is the reference to the job object itself, which is extended
+by ImageLoader.addJob(options) options object, so there are also properties like context.source (reference to self).
+
 Note that if you override this function, you should override also downloadTileAbort().
 </div>
 
@@ -2456,7 +3493,7 @@ Note that if you override this function, you should override also downloadTileAb
             <td class="type">
             
                 
-<span class="param-type">ImageJob</span>
+<span class="param-type"><a href="OpenSeadragon.ImageJob.html">OpenSeadragon.ImageJob</a></span>
 
 
             
@@ -2466,438 +3503,7 @@ Note that if you override this function, you should override also downloadTileAb
 
             
 
-            <td class="description last">job context that you have to call finish(...) on.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>src</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">URL of image to download.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>loadWithAjax</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Whether to load this image with AJAX.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ajaxHeaders</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Headers to add to the image request if using AJAX.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ajaxWithCredentials</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Whether to set withCredentials on AJAX requests.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>crossOriginPolicy</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">CORS policy to use for downloads</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>postData</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">HTTP POST data (usually but not necessarily in k=v&k2=v2... form,
-  see TileSource::getPostData) or null</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>userData</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Empty object to attach your own data and helper variables to.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>finish</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Should be called unless abort() was executed, e.g. on all occasions,
-  be it successful or unsuccessful request.
-  Usage: context.finish(data, request, errMessage). Pass the downloaded data object or null upon failure.
-  Add also reference to an ajax request if used. Provide error message in case of failure.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>abort</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Called automatically when the job times out.
-  Usage: context.abort().</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">@private - Called automatically once image has been downloaded
-  (triggered by finish).</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>timeout</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">@private - The max number of milliseconds that
-  this image job may take to complete.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>errorMsg</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">@private - The final error message, default null (set by finish).</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last">job context that you have to call finish(...) on.</td>
         </tr>
 
     
@@ -2943,7 +3549,260 @@ Note that if you override this function, you should override also downloadTileAb
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13737">line 13737</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14547">line 14547</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="equals"><span class="type-signature"></span>equals<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Equality comparator
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="OpenSeadragon.TileSource.html#equals">OpenSeadragon.TileSource#equals</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14987">line 14987</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="getAwaitingHandler"><span class="type-signature"></span>getAwaitingHandler<span class="signature">(eventName, bindTarget)</span><span class="type-signature"></span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Get a function which iterates the list of all handlers registered for a given event,
+calling the handler for each and awaiting async ones.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of event to get handlers for.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bindTarget</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Bound target to return with the promise on finish</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.EventSource.html#getAwaitingHandler">OpenSeadragon.EventSource#getAwaitingHandler</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3778">line 3778</a>
     </li></ul></dd>
     
 
@@ -3029,7 +3888,7 @@ Note that if you override this function, you should override also downloadTileAb
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13330">line 13330</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14079">line 14079</a>
     </li></ul></dd>
     
 
@@ -3190,7 +4049,7 @@ Note that if you override this function, you should override also downloadTileAb
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3456">line 3456</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3747">line 3747</a>
     </li></ul></dd>
     
 
@@ -3233,6 +4092,15 @@ Note that if you override this function, you should override also downloadTileAb
 <div class="description">
     Responsible for retrieving, and caching the
 image metadata pertinent to this TileSources implementation.
+There are three scenarios of opening a tile source: providing a parseable string, plain object, or an URL.
+This method is only called by OSD if the TileSource configuration is a non-parseable string (~url).
+
+Note: you can access the properties sent to the TileSource constructor via the options object
+directly on 'this' reference.
+
+The string can contain a hash `#` symbol, followed by
+key=value arguments. If this is the case, this method sends this
+data as a POST body.
 </div>
 
 
@@ -3330,7 +4198,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13413">line 13413</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14172">line 14172</a>
     </li></ul></dd>
     
 
@@ -3480,7 +4348,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13279">line 13279</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14028">line 14028</a>
     </li></ul></dd>
     
 
@@ -3615,7 +4483,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13305">line 13305</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14054">line 14054</a>
     </li></ul></dd>
     
 
@@ -3750,7 +4618,7 @@ image metadata pertinent to this TileSources implementation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13317">line 13317</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14066">line 14066</a>
     </li></ul></dd>
     
 
@@ -3944,7 +4812,7 @@ and propagate the changes.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13659">line 13659</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14475">line 14475</a>
     </li></ul></dd>
     
 
@@ -4120,7 +4988,7 @@ and propagate the changes.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13349">line 13349</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14098">line 14098</a>
     </li></ul></dd>
     
 
@@ -4380,7 +5248,7 @@ and propagate the changes.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13385">line 13385</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14134">line 14134</a>
     </li></ul></dd>
     
 
@@ -4437,7 +5305,7 @@ the isSource parameter.
 
     
 
-    <h4 class="name" id="getTileCacheData"><span class="type-signature"></span>getTileCacheData<span class="signature">(cacheObject)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="getTileCacheData"><span class="type-signature"></span>getTileCacheData<span class="signature">(cacheObject)</span><span class="type-signature"> &rarr; {OpenSeadragon.Promise.&lt;?>}</span></h4>
 
     
 
@@ -4445,8 +5313,8 @@ the isSource parameter.
 <dd>
 
 <div class="description">
-    Raw data getter
-Note that if you override any of *TileCache() functions, you should override all of them.
+    Raw data getter, should return anything that is compatible with the system, or undefined
+if the system can handle it.
 </div>
 
 
@@ -4488,7 +5356,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="OpenSeadragon.CacheRecord.html">OpenSeadragon.CacheRecord</a></span>
 
 
             
@@ -4532,6 +5400,8 @@ Note that if you override any of *TileCache() functions, you should override all
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
 
     
 
@@ -4544,7 +5414,7 @@ Note that if you override any of *TileCache() functions, you should override all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13855">line 13855</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14703">line 14703</a>
     </li></ul></dd>
     
 
@@ -4582,7 +5452,7 @@ Note that if you override any of *TileCache() functions, you should override all
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">OpenSeadragon.Promise.&lt;?></span>
 
 
     </dd>
@@ -4652,7 +5522,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="OpenSeadragon.CacheRecord.html">OpenSeadragon.CacheRecord</a></span>
 
 
             
@@ -4696,6 +5566,8 @@ Note that if you override any of *TileCache() functions, you should override all
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
 
     
 
@@ -4708,7 +5580,7 @@ Note that if you override any of *TileCache() functions, you should override all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13879">line 13879</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14732">line 14732</a>
     </li></ul></dd>
     
 
@@ -4775,6 +5647,7 @@ Note that if you override any of *TileCache() functions, you should override all
  - plugins might need image representation of the data
  - div HTML rendering relies on image element presence
 Note that if you override any of *TileCache() functions, you should override all of them.
+Note that these functions might be called over shared cache object managed by other TileSources simultaneously.
 </div>
 
 
@@ -4816,7 +5689,7 @@ Note that if you override any of *TileCache() functions, you should override all
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="OpenSeadragon.CacheRecord.html">OpenSeadragon.CacheRecord</a></span>
 
 
             
@@ -4860,6 +5733,8 @@ Note that if you override any of *TileCache() functions, you should override all
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
 
     
 
@@ -4872,7 +5747,7 @@ Note that if you override any of *TileCache() functions, you should override all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13867">line 13867</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14718">line 14718</a>
     </li></ul></dd>
     
 
@@ -4927,7 +5802,7 @@ Note that if you override any of *TileCache() functions, you should override all
 
     
 
-    <h4 class="name" id="getTileHashKey"><span class="type-signature"></span>getTileHashKey<span class="signature">(level, x, y, url, ajaxHeaders, postData)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getTileHashKey"><span class="type-signature"></span>getTileHashKey<span class="signature">(level, x, y, url, ajaxHeaders, postData)</span><span class="type-signature"> &rarr; (nullable) {String}</span></h4>
 
     
 
@@ -4938,9 +5813,12 @@ Note that if you override any of *TileCache() functions, you should override all
     The tile cache object is uniquely determined by this key and used to lookup
 the image data in cache: keys should be different if images are different.
 
-In case a tile has context2D property defined (TileSource.prototype.getContext2D)
-or its context2D is set manually; the cache is not used and this function
-is irrelevant.
+You can return falsey tile cache key, in which case the tile will
+be created without invoking ImageJob --- but with data=null. Then,
+you are responsible for manually creating the cache data. This is useful
+particularly if you want to use empty TiledImage with client-side derived data
+only. The default tile-cache key is then called "" - an empty string.
+
 Note: default behaviour does not take into account post data.
 </div>
 
@@ -5154,7 +6032,7 @@ Note: default behaviour does not take into account post data.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13678">line 13678</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14500">line 14500</a>
     </li></ul></dd>
     
 
@@ -5177,6 +6055,30 @@ Note: default behaviour does not take into account post data.
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    can return the cache key or null, in that case an empty cache is initialized
+  without downloading any data for internal use: user has to define the cache contents manually, via
+  the cache interface of this class.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 </dd>
@@ -5296,7 +6198,7 @@ Subclasses should override this if tileHeight can be different at different leve
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13255">line 13255</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14004">line 14004</a>
     </li></ul></dd>
     
 
@@ -5500,7 +6402,7 @@ stay unique for different tile images.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13637">line 13637</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14453">line 14453</a>
     </li></ul></dd>
     
 
@@ -5706,7 +6608,7 @@ stay unique for different tile images.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14137">line 14137</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14979">line 14979</a>
     </li></ul></dd>
     
 
@@ -5848,7 +6750,7 @@ Subclasses should override this if tileWidth can be different at different level
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13240">line 13240</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13989">line 13989</a>
     </li></ul></dd>
     
 
@@ -5881,7 +6783,7 @@ Subclasses should override this if tileWidth can be different at different level
 
     
 
-    <h4 class="name" id="hasTransparency"><span class="type-signature"></span>hasTransparency<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="hasTransparency"><span class="type-signature"></span>hasTransparency<span class="signature">(context2D, url, ajaxHeaders, post)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -5890,6 +6792,7 @@ Subclasses should override this if tileWidth can be different at different level
 
 <div class="description">
     Decide whether tiles have transparency: this is crucial for correct images blending.
+Overriden on a tile level by setting tile.hasTransparency = true;
 </div>
 
 
@@ -5898,6 +6801,104 @@ Subclasses should override this if tileWidth can be different at different level
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>context2D</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">unused, deprecated argument</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tile.getUrl() value for given tile</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ajaxHeaders</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tile.ajaxHeaders value for given tile</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>post</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tile.post value for given tile</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -5938,7 +6939,7 @@ Subclasses should override this if tileWidth can be different at different level
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13709">line 13709</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14536">line 14536</a>
     </li></ul></dd>
     
 
@@ -6099,7 +7100,7 @@ Subclasses should override this if tileWidth can be different at different level
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3427">line 3427</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3718">line 3718</a>
     </li></ul></dd>
     
 
@@ -6162,7 +7163,8 @@ Subclasses should override this if tileWidth can be different at different level
 <dd>
 
 <div class="description">
-    Trigger an event, optionally passing additional information.
+    Trigger an event, optionally passing additional information. Does not await async handlers, i.e.
+OpenSeadragon.AsyncEventHandler.
 </div>
 
 
@@ -6228,6 +7230,9 @@ Subclasses should override this if tileWidth can be different at different level
             
                 
 <span class="param-type">Object</span>
+|
+
+<span class="param-type">undefined</span>
 
 
             
@@ -6283,7 +7288,7 @@ Subclasses should override this if tileWidth can be different at different level
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3484">line 3484</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3827">line 3827</a>
     </li></ul></dd>
     
 
@@ -6338,7 +7343,266 @@ Subclasses should override this if tileWidth can be different at different level
 
     
 
-    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="raiseEventAwaiting"><span class="type-signature"></span>raiseEventAwaiting<span class="signature">(eventName, eventArgs, bindTarget<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {OpenSeadragon.Promise|undefined}</span></h4>
+
+    
+
+</dt>
+<dd>
+
+<div class="description">
+    Trigger an event, optionally passing additional information.
+This events awaits every asynchronous or promise-returning function, i.e.
+OpenSeadragon.AsyncEventHandler.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Name of event to register.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eventArgs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Event-specific data.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bindTarget</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">?</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Promise-resolved value on the event finish</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="OpenSeadragon.EventSource.html#raiseEventAwaiting">OpenSeadragon.EventSource#raiseEventAwaiting</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3852">line 3852</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - Promise resolved upon the event completion.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">OpenSeadragon.Promise</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</dd>
+
+        
+            
+<dt>
+
+    
+
+    <h4 class="name" id="removeAllHandlers"><span class="type-signature"></span>removeAllHandlers<span class="signature">(eventName<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -6371,6 +7635,8 @@ event handlers for every event type are removed.
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -6395,6 +7661,16 @@ event handlers for every event type are removed.
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -6445,7 +7721,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3441">line 3441</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3732">line 3732</a>
     </li></ul></dd>
     
 
@@ -6552,6 +7828,9 @@ event handlers for every event type are removed.
             
                 
 <span class="param-type"><a href="OpenSeadragon.html#.EventHandler">OpenSeadragon.EventHandler</a></span>
+|
+
+<span class="param-type"><a href="OpenSeadragon.html#.AsyncEventHandler">OpenSeadragon.AsyncEventHandler</a></span>
 
 
             
@@ -6607,7 +7886,7 @@ event handlers for every event type are removed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3405">line 3405</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line3697">line 3697</a>
     </li></ul></dd>
     
 
@@ -6749,7 +8028,7 @@ memoized getLevelScale and maxLevel should be changed accordingly.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line13270">line 13270</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14019">line 14019</a>
     </li></ul></dd>
     
 
@@ -6782,7 +8061,7 @@ memoized getLevelScale and maxLevel should be changed accordingly.
 
     
 
-    <h4 class="name" id="supports"><span class="type-signature"></span>supports<span class="signature">(data, optional)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="supports"><span class="type-signature"></span>supports<span class="signature">(data, url<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -6815,6 +8094,8 @@ this tile source.
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -6843,6 +8124,14 @@ this tile source.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -6853,7 +8142,7 @@ this tile source.
 
         <tr>
             
-                <td class="name"><code>optional</code></td>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -6866,10 +8155,20 @@ this tile source.
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">url</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -6915,7 +8214,7 @@ this tile source.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14078">line 14078</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14920">line 14920</a>
     </li></ul></dd>
     
 
@@ -7096,7 +8395,7 @@ this tile source.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14148">line 14148</a>
+        <a href="openseadragon.js.html">openseadragon.js</a>, <a href="openseadragon.js.html#line14998">line 14998</a>
     </li></ul></dd>
     
 
@@ -7139,13 +8438,13 @@ this tile source.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.CanvasDrawer.html">CanvasDrawer</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.DrawerBase.html">DrawerBase</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.HTMLDrawer.html">HTMLDrawer</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.ImageJob.html">ImageJob</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.Mat3.html">Mat3</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.WebGLDrawer.html">WebGLDrawer</a></li><li><a href="OpenSeadragon.World.html">World</a></li><li><a href="OpenSeadragon.ZoomifyTileSource.html">ZoomifyTileSource</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:clip-change">clip-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:composite-operation-change">composite-operation-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:fully-loaded-change">fully-loaded-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:opacity-change">opacity-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:after-resize">after-resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:before-destroy">before-destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-blur">canvas-blur</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-contextmenu">canvas-contextmenu</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-focus">canvas-focus</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key">canvas-key</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key-press">canvas-key-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:destroy">destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:flip">flip</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-click">navigator-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-drag">navigator-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-unloaded">tile-unloaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#configure">configure</a></li><li><a href="global.html#getImageInfo">getImageInfo</a></li><li><a href="global.html#getLevelScale">getLevelScale</a></li><li><a href="global.html#getMetadataUrl">getMetadataUrl</a></li><li><a href="global.html#getNumTiles">getNumTiles</a></li><li><a href="global.html#getTileUrl">getTileUrl</a></li><li><a href="global.html#guessType">guessType</a></li><li><a href="global.html#parseMetadata">parseMetadata</a></li><li><a href="global.html#supports">supports</a></li></ul><h3>Namespaces</h3><ul><li><a href="OpenSeadragon.html">OpenSeadragon</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-OpenSeadragon-OpenSeadragon.PriorityQueue.html">PriorityQueue</a></li><li><a href="OpenSeadragon.BatchImageJob.html">BatchImageJob</a></li><li><a href="OpenSeadragon.Button.html">Button</a></li><li><a href="OpenSeadragon.ButtonGroup.html">ButtonGroup</a></li><li><a href="OpenSeadragon.CacheRecord.html">CacheRecord</a></li><li><a href="OpenSeadragon.CanvasDrawer.html">CanvasDrawer</a></li><li><a href="OpenSeadragon.Control.html">Control</a></li><li><a href="OpenSeadragon.ControlDock.html">ControlDock</a></li><li><a href="OpenSeadragon.DataTypeConverter.html">DataTypeConverter</a></li><li><a href="OpenSeadragon.DisplayRect.html">DisplayRect</a></li><li><a href="OpenSeadragon.DrawerBase.html">DrawerBase</a></li><li><a href="OpenSeadragon.DziTileSource.html">DziTileSource</a></li><li><a href="OpenSeadragon.EventSource.html">EventSource</a></li><li><a href="OpenSeadragon.HTMLDrawer.html">HTMLDrawer</a></li><li><a href="OpenSeadragon.IIIFTileSource.html">IIIFTileSource</a></li><li><a href="OpenSeadragon.IIPTileSource.html">IIPTileSource</a></li><li><a href="OpenSeadragon.ImageJob.html">ImageJob</a></li><li><a href="OpenSeadragon.ImageLoader.html">ImageLoader</a></li><li><a href="OpenSeadragon.ImageTileSource.html">ImageTileSource</a></li><li><a href="OpenSeadragon.IrisTileSource.html">IrisTileSource</a></li><li><a href="OpenSeadragon.LegacyTileSource.html">LegacyTileSource</a></li><li><a href="OpenSeadragon.Mat3.html">Mat3</a></li><li><a href="OpenSeadragon.MouseTracker.html">MouseTracker</a></li><li><a href="OpenSeadragon.MouseTracker.GesturePointList.html">GesturePointList</a></li><li><a href="OpenSeadragon.Navigator.html">Navigator</a></li><li><a href="OpenSeadragon.OsmTileSource.html">OsmTileSource</a></li><li><a href="OpenSeadragon.Overlay.html">Overlay</a></li><li><a href="OpenSeadragon.Point.html">Point</a></li><li><a href="OpenSeadragon.PriorityQueue.html">PriorityQueue</a></li><li><a href="OpenSeadragon.Rect.html">Rect</a></li><li><a href="OpenSeadragon.ReferenceStrip.html">ReferenceStrip</a></li><li><a href="OpenSeadragon.Spring.html">Spring</a></li><li><a href="OpenSeadragon.Tile.html">Tile</a></li><li><a href="OpenSeadragon.TileCache.html">TileCache</a></li><li><a href="OpenSeadragon.TiledImage.html">TiledImage</a></li><li><a href="OpenSeadragon.TileSource.html">TileSource</a></li><li><a href="OpenSeadragon.TmsTileSource.html">TmsTileSource</a></li><li><a href="OpenSeadragon.Viewer.html">Viewer</a></li><li><a href="OpenSeadragon.Viewport.html">Viewport</a></li><li><a href="OpenSeadragon.WebGLDrawer.html">WebGLDrawer</a></li><li><a href="OpenSeadragon.World.html">World</a></li><li><a href="OpenSeadragon.ZoomifyTileSource.html">ZoomifyTileSource</a></li><li><a href="WebglContextManager.html">WebglContextManager</a></li></ul><h3>Events</h3><h4>OpenSeadragon.Button</h4><ul><li><a href="OpenSeadragon.Button.html#.event:blur">blur</a></li><li><a href="OpenSeadragon.Button.html#.event:click">click</a></li><li><a href="OpenSeadragon.Button.html#.event:enter">enter</a></li><li><a href="OpenSeadragon.Button.html#.event:exit">exit</a></li><li><a href="OpenSeadragon.Button.html#.event:focus">focus</a></li><li><a href="OpenSeadragon.Button.html#.event:press">press</a></li><li><a href="OpenSeadragon.Button.html#.event:release">release</a></li></ul><h4>OpenSeadragon.TiledImage</h4><ul><li><a href="OpenSeadragon.TiledImage.html#.event:bounds-change">bounds-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:clip-change">clip-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:composite-operation-change">composite-operation-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:fully-loaded-change">fully-loaded-change</a></li><li><a href="OpenSeadragon.TiledImage.html#.event:opacity-change">opacity-change</a></li></ul><h4>OpenSeadragon.TileSource</h4><ul><li><a href="OpenSeadragon.TileSource.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.TileSource.html#.event:ready">ready</a></li></ul><h4>OpenSeadragon.Viewer</h4><ul><li><a href="OpenSeadragon.Viewer.html#.event:add-item-failed">add-item-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:add-overlay">add-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:after-resize">after-resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation">animation</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-finish">animation-finish</a></li><li><a href="OpenSeadragon.Viewer.html#.event:animation-start">animation-start</a></li><li><a href="OpenSeadragon.Viewer.html#.event:before-destroy">before-destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-blur">canvas-blur</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-click">canvas-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-contextmenu">canvas-contextmenu</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-double-click">canvas-double-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag">canvas-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-drag-end">canvas-drag-end</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-enter">canvas-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-exit">canvas-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-focus">canvas-focus</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key">canvas-key</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-key-press">canvas-key-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-press">canvas-nonprimary-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-nonprimary-release">canvas-nonprimary-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-pinch">canvas-pinch</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-press">canvas-press</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-release">canvas-release</a></li><li><a href="OpenSeadragon.Viewer.html#.event:canvas-scroll">canvas-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:clear-overlay">clear-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:close">close</a></li><li><a href="OpenSeadragon.Viewer.html#.event:constrain">constrain</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-enter">container-enter</a></li><li><a href="OpenSeadragon.Viewer.html#.event:container-exit">container-exit</a></li><li><a href="OpenSeadragon.Viewer.html#.event:controls-enabled">controls-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:destroy">destroy</a></li><li><a href="OpenSeadragon.Viewer.html#.event:drawer-error">drawer-error</a></li><li><a href="OpenSeadragon.Viewer.html#.event:flip">flip</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-page">full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:full-screen">full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:fully-loaded-change">fully-loaded-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:home">home</a></li><li><a href="OpenSeadragon.Viewer.html#.event:job-queue-full">job-queue-full</a></li><li><a href="OpenSeadragon.Viewer.html#.event:keyboard-enabled">keyboard-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:mouse-enabled">mouse-enabled</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-click">navigator-click</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-drag">navigator-drag</a></li><li><a href="OpenSeadragon.Viewer.html#.event:navigator-scroll">navigator-scroll</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open">open</a></li><li><a href="OpenSeadragon.Viewer.html#.event:open-failed">open-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:page">page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pan">pan</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-page">pre-full-page</a></li><li><a href="OpenSeadragon.Viewer.html#.event:pre-full-screen">pre-full-screen</a></li><li><a href="OpenSeadragon.Viewer.html#.event:remove-overlay">remove-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:reset-size">reset-size</a></li><li><a href="OpenSeadragon.Viewer.html#.event:resize">resize</a></li><li><a href="OpenSeadragon.Viewer.html#.event:rotate">rotate</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawing">tile-drawing</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-drawn">tile-drawn</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-invalidated">tile-invalidated</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-load-failed">tile-load-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:tile-loaded">tile-loaded</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-level">update-level</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-overlay">update-overlay</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-tile">update-tile</a></li><li><a href="OpenSeadragon.Viewer.html#.event:update-viewport">update-viewport</a></li><li><a href="OpenSeadragon.Viewer.html#.event:viewport-change">viewport-change</a></li><li><a href="OpenSeadragon.Viewer.html#.event:visible">visible</a></li><li><a href="OpenSeadragon.Viewer.html#.event:webgl-context-recovered">webgl-context-recovered</a></li><li><a href="OpenSeadragon.Viewer.html#.event:webgl-context-recovery-failed">webgl-context-recovery-failed</a></li><li><a href="OpenSeadragon.Viewer.html#.event:zoom">zoom</a></li></ul><h4>OpenSeadragon.World</h4><ul><li><a href="OpenSeadragon.World.html#.event:add-item">add-item</a></li><li><a href="OpenSeadragon.World.html#.event:item-index-change">item-index-change</a></li><li><a href="OpenSeadragon.World.html#.event:metrics-change">metrics-change</a></li><li><a href="OpenSeadragon.World.html#.event:remove-item">remove-item</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Jan 29 2026 10:06:48 GMT-0800 (Pacific Standard Time)
+    OpenSeadragon documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Feb 18 2026 10:29:41 GMT-0800 (Pacific Standard Time)
 </footer>
 </div>
 

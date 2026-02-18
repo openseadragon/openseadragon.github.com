@@ -21,15 +21,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v5.0.1/openseadragon-bin-5.0.1.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v5.0.1/openseadragon-bin-5.0.1.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                5.0.1
+                6.0.0
             </span>
             <span class="tagline">
             </span>
@@ -110,15 +110,33 @@
         protocol.)</em> Each supported protocol aims to allow configuration
         via XMLHTTPRequest, JSONP, as well as direct inline configuration.
         </p>
+
+        <h4>Generic Tile Sources:</h4>
         <ul>
+            <li><a href='/examples/tilesource-image/'>
+                <span>Simple Image</span>
+            </a></li>
             <li><a href='/examples/tilesource-legacy/'>
                 <span>Legacy Image Pyramids</span>
             </a></li>
-            <li><a href='/examples/tilesource-iiif/'>
+            <li><a href='/examples/tilesource-custom/'>
+                <span>Custom Tile Sources</span>
+            </a></li>
+
+           </ul>
+            <h4>Image APIs:</h4>
+            <ul>
+            <li><a href='/examples/tilesource-dzi/'>
+                <span>DZI (Deep Zoom)</span>
+            </a></li>
+             <li><a href='/examples/tilesource-iiif/'>
                 <span>IIIF (International Image Interoperability Framework)</span>
             </a></li>
-            <li><a href='/examples/tilesource-dzi/'>
-                <span>DZI (Deep Zoom Images)</span>
+            <li><a href='/examples/tilesource-iip/'>
+                <span>IIP (Internet Imaging Protocol)</span>
+            </a></li>
+            <li><a href='/examples/tilesource-iris/'>
+                <span>Iris</span>
             </a></li>
             <li><a href='/examples/tilesource-osm/'>
                 <span>OSM (Open Street Maps)</span>
@@ -129,14 +147,17 @@
             <li><a href='/examples/tilesource-zoomify/'>
                 <span>Zoomify</span>
             </a></li>
+            <li><a href='/examples/tilesource-image/'>
+                <span>Simple Image</span>
+            </a></li>
+            <!-- <li><a href='/examples/tilesource-zoomit/'>
+               <span>Pulling from Zoom.it</span>
+           </a></li> -->
             <li><a href='/examples/tilesource-custom/'>
                 <span>Custom Tile Sources</span>
             </a></li>
-            <!-- <li><a href='/examples/tilesource-zoomit/'>
-                <span>Pulling from Zoom.it</span>
-            </a></li> -->
-            <li><a href='/examples/tilesource-image/'>
-                <span>Simple Image</span>
+            <li><a href='/examples/tilesource-custom-advanced/'>
+                <span>Custom Tile Sources — Controlling Data Source</span>
             </a></li>
         </ul>
         <p>
@@ -216,15 +237,36 @@
             </a></li>
         </ul>
     </li>
-    
+
     <li>
-        <h3>Advanced data model in OpenSeadragon with custom TileSource</h3>
+        <h3 id="data-modification-pipeline">Data Management and Rendering</h3>
         <p>
-            From custom caching to client-side generated image data.
+            From custom data through modification & plugin interaction to client-side generated image data.
         </p>
         <ul>
-            <li><a href='/examples/advanced-data-model/'>
-                <span>Advanced data model with TileSource</span>
+            <li><a href='/examples/data-modifications/'>
+                <span>Data Modification Pipeline</span>
+            </a></li>
+            <li><a href='/examples/data-types/'>
+                <span>Data Type Concept in OpenSeadragon</span>
+            </a></li>
+            <li><a href='/examples/drawer-design/'>
+                <span>Designing Custom Drawers (Advanced)</span>
+            </a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h3>Migration Guide</h3>
+        <p>
+            Version migration hints.
+        </p>
+        <ul>
+            <li><a href='/examples/migration-v6/'>
+                <span>Migration From v5 to v6</span>
+            </a></li>
+            <li><a href='/examples/migration-v5/'>
+                <span>Migration From v4 (and below) to v5</span>
             </a></li>
         </ul>
     </li>
@@ -256,7 +298,10 @@
 
 
 <h2 id='plugins'>Plugins</h2>
-<p>Plugins can be used to enhance OpenSeadragon. The following plugins are currently available:</p>
+<p>
+Plugins can be used to enhance OpenSeadragon. The following plugins are currently available. Note that
+some rendering-oriented plugins might be only compatible up until v4—see the migration guide.
+</p>
 <ul>
     <li>
         <h3>Code Plugins</h3>
@@ -273,6 +318,7 @@
             <li><a href="https://github.com/altert/OpenseadragonFabricjsOverlay">OpenSeadragonFabricjsOverlay</a> allows you to add Fabric.js canvas overlay that pans and zooms with OpenSeadragon viewer.</li>
             <li><a href="https://github.com/rssaini01/openseadragon-filters">OpenSeadragonFilters</a> is a modern, TypeScript-based plugin that adds real-time, WebGL-accelerated image filtering to OpenSeadragon with full type safety. <b>[Compatible with v5+]</b></li>
             <li><a href="https://github.com/usnistgov/OpenSeadragonFiltering">OpenSeadragonFiltering</a> allows you to add image filters in OpenSeadragon. <b>[Not compatible with v5+]</b></li>
+            <li><a href="https://github.com/rationai/OpenSeadragonFiltering">OpenSeadragonFiltering</a> allows you to add image filters in OpenSeadragon. Not performance-optimal, a better choice is for example the flex-renderer (see below).</li>
             <li><a href="https://github.com/thejohnhoffer/viaWebGL">OpenSeadragonGL</a> allows you to run WebGL shaders on all tiles in OpenSeadragon.</li>
             <li><a href="https://github.com/picturae/OpenSeadragonGuides">OpenSeadragonGuides</a> allows you to add horizontal and vertical guidelines to the Openseadragon viewer.</li>
             <li><a href="https://github.com/antonioxdias/OpenSeadragonHTMLelements">OpenSeadragonHTMLelements</a> allows you to add HTML elements that pan, zoom, rotate and flip with the Openseadragon viewer.</li>
@@ -298,13 +344,21 @@
         </ul>
     </li>
     <li>
-        <h3 id="plugin-tilesources">Tile Source Plugins</h3>
+        <h3 id="plugin-tilesources">Drawer & Tile Source Plugins</h3>
         <p>
-            Plugin tile sources enable OpenSeadragon to be used to view image types beyond those 
-            supported by the built-in TileSource implementations.
+            Plugin tile sources enable OpenSeadragon to be used to view image types beyond those
+            supported by the built-in TileSource implementations. Drawer plugins enable viewing custom data items
+            or render custom data visualizations.
         </p>
         <ul class="square-list">
             <li><a href="https://github.com/pearcetm/GeoTIFFTileSource">GeoTIFFTileSource</a> enables direct viewing of TIFF-compatible files, including Aperio SVS and other formats, directly - no converters needed. This can be used to view local files or on web, without requiring a webserver.</li>
+            <li><a href="https://github.com/openseadragon/flex-render">Flex Renderer</a> enables direct on-gpu data visualizations by offering a custom shader API. Supported are also UI controls, so users can directly manipulate what they can see.
+                A more performant alternative to the <code>OpenSeadragonFiltering</code> plugin. Last but not least, a <b>vector</b> data rendering is supported introduced in two new tile sources:
+                <ul>
+                    <li><code>MVTTileSource</code> for rendering  Map Vector Tiles (MVT),</li>
+                    <li><code>FabricTileSource</code> for rendering simple untiled vector objects in fabricjs-compatible format.</li>
+                </ul>
+            </li>
             <li><a href="https://github.com/sundogbio/szi-tile-source">SZITileSource</a> enables viewing of SZI files - essentially, DZI (Deep Zoom Images) bundled as a single, uncompressed zipfile. Works with local files, files hosted via webservers, or files on S3-compatible object stores (subject to meeting the documented requirements).</li>
         </ul>
     </li>
@@ -314,6 +368,14 @@
             <li><a href="https://github.com/Benomrans/openseadragon-icons">Flat Blue Icons</a> (<a href="https://cdn.jsdelivr.net/gh/Benomrans/openseadragon-icons@main/images/">CDN</a>)</li>
             <li><a href="https://gitlab.com/tombrossman/openseadragon-svg-icons/">SVG Flat Icons</a></li>
             <li><a href="https://github.com/peterthomet/openseadragon-flat-toolbar-icons">Thin Flat Icons</a></li>
+        </ul>
+    </li>
+    <li>
+        <h3>Plugins compatible up to v5</h3>
+        <p>These plugins are only compatible up to OpenSeadragon 5, using canvas drawer only. There are usually better alternatives available in the lists above.</p>
+        <ul class="square-list">
+            <li><a href="https://github.com/usnistgov/OpenSeadragonFiltering">OpenSeadragonFiltering</a> allows you to add image filters in OpenSeadragon.</li>
+            <li><a href="https://github.com/thejohnhoffer/viaWebGL">OpenSeadragonGL</a> allows you to run WebGL shaders on all tiles in OpenSeadragon.</li>
         </ul>
     </li>
 </ul>
@@ -342,13 +404,13 @@
 <a name="installing"></a>
 <h2 id='download'>Download &amp; Install</h2>
 <p>
-  You can get OpenSeadragon 5.0.1 through any of these venues:
+  You can get OpenSeadragon 6.0.0 through any of these venues:
 </p>
 <ul class="square-list">
   <li>
     <strong>Download:</strong>
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v5.0.1/openseadragon-bin-5.0.1.zip">zip</a> or
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v5.0.1/openseadragon-bin-5.0.1.tar.gz">tar.gz</a>
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">zip</a> or
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">tar.gz</a>
   </li>
   <li>
     <strong>Bower:</strong> <tt>bower install openseadragon</tt>
@@ -357,10 +419,10 @@
     <strong>npm:</strong> <tt>npm install openseadragon</tt> (<a href="https://www.npmjs.com/package/openseadragon">info</a>)
   </li>
   <li>
-    <strong>jsDelivr (CDN):</strong> <a href="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/openseadragon.min.js">code</a> and <a href="https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/">images</a>
+    <strong>jsDelivr (CDN):</strong> <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.0/build/openseadragon/openseadragon.min.js">code</a> and <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.0/build/openseadragon/images/">images</a>
   </li>
   <li>
-    <strong>CDNJS (CDN):</strong> <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.1/openseadragon.min.js">code</a> and <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.1/images/">images</a> (<a href="https://cdnjs.com/libraries/openseadragon">info</a>)
+    <strong>CDNJS (CDN):</strong> <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.0.0/openseadragon.min.js">code</a> and <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.0.0/images/">images</a> (<a href="https://cdnjs.com/libraries/openseadragon">info</a>)
   </li>
 </ul>
 <p>
@@ -372,7 +434,7 @@
 <p>
     Older releases and source archives are
     <a href="https://github.com/openseadragon/openseadragon/releases">
-    available on GitHub</a>. The last version to support IE11 is 4.1.0. The last version to support IE8-10 is 2.4.2. Otherwise, we generally support the active versions of the major browsers. 
+    available on GitHub</a>. The last version to support IE11 is 4.1.0. The last version to support IE8-10 is 2.4.2. Otherwise, we generally support the active versions of the major browsers.
 </p>
 
 <ul>

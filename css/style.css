@@ -228,3 +228,23 @@ ol.for-examples li {
     margin-top: 25px;
     text-align: right;
 }
+
+div.openseadragon > div.caption {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    color: white;
+    padding: 0.5em;
+    background: black;
+    opacity: 0.6;
+    z-index: 1;
+    width: auto;
+    margin: 0.5em;
+    border-radius: 0.3em;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.8);
+    font-size: 70%;
+    transition: opacity 0.5s ease-in-out;
+}
+div.openseadragon > div.caption a { color: white; }
+div.openseadragon > div.caption a:visited { color: white; }
+div.openseadragon > div.caption:hover { opacity: 0.9; }
