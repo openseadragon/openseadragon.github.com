@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>IIP Tile Source | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <style type="text/css">
+  div.openseadragon { position: relative; }
+</style>
+
+<h2>
+    example: internet imaging procotol support
+</h2>
+<p>
+    The <a href="https://en.wikipedia.org/wiki/Internet_Imaging_Protocol">Internet Imaging Protocol (IIP)</a> is an API designed for efficient access to multi-resolution images over the internet. The query-string based API is flexible and extensible and allows various forms of image processing to be carried out server-side. The API was originally written by Hewlett Packard, Live Picture, Inc., and the Eastman Kodak Company for the (now defunct) <a href="https://web.archive.org/web/20121101123737/http://www.i3a.org/technologies/digitalimaging/iip/">International Imaging Industry Association (I3A)</a>. The last I3A-published version of the IIP specification was <a href="https://iipimage.sourceforge.io/IIPv105.pdf">version 1.05</a>, while information on the latest specification can be found on the <a href="https://iipimage.sourceforge.io/documentation/protocol">IIPImage API documentation page</a>.
+</p>
+
+<p>
+    OpenSeadragon supports the IIP API through a XMLHTTPRequest request. The IIP tile source accepts the following parameters:
+    <ul>
+        <li><b>iipsrv</b>: Host server path (ex: <code>"https://host/fcgi-bin/iipsrv.fcgi"</code> or <code>"/fcgi-bin/iipsrv.fcgi"</code> etc). Note that the host server will need to configure <a href="http://www.w3.org/TR/cors/">cross-origin resource</a> sharing if OpenSeadragon is hosted on a different domain</li>
+        <li><b>image</b>: Image path and name on server (ex: <code>"image.tif"</code>)</li>
+        <li><b>format</b> (optional): Tile output format (ex: <code>"jpg", "webp", "png", "avif"</code>. default: <code>"jpg"</code>)</li>
+        <li><b>transform</b> (optional): Object containing image processing transforms (supported transforms: <code>"stack", "quality", "contrast", "color",  "invert", "colormap,", "gamma", "minmax", "twist", "hillshade"</code>. See <a href="https://iipimage.sourceforge.io/documentation/protocol">API documentation</a> for how to use)</li>
+    </ul>
+</p>
+
+<p>
+    OpenSeadragon supports the IIP API from version 6.0.0 onwards.
+</p>
+
+<div class="description">
+    <h3>Basic Usage</h3>
+    <p>
+        A basic IIP tile source requires just 2 parameters: the API host end-point <code>iipsrv</code> and the image name <code>image</code>.
+    </p>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Basic Example
+    </div>
+    <div id="basic-example" class="openseadragon">
+        <div class="caption"><b><a href="https://collections.louvre.fr/ark:/53355/cl010060753">La Vierge au Diadème Bleu</a><br/><i>Raphael / Giovanni Penni</i></b><br/>Musée du Louvre<br/>Copyright &copy; 2024 C2RMF</div>
+        <script type="text/javascript">
+            OpenSeadragon({
+                id:              "basic-example",
+                prefixUrl:       "/openseadragon/images/",
+                drawer:          "canvas",
+                showNavigator:   true,
+                visibilityRatio: 0.9,
+                tileSources:   {
+                    iipsrv: "https://merovingio.c2rmf.cnrs.fr/fcgi-bin/iipsrv.fcgi",
+                    image: "HD7.tif"
+                }
+            });
+        </script>
+        <noscript>
+            <p>OpenSeadragon is not available unless JavaScript is enabled.</p>
+            <img src='/example-images/highsmith/01967v.jpg'
+                 height='600'/>
+        </noscript>
+    </div>
+
+    <p>
+        Configuration is carried out via the <code>tileSources</code> option. The <code>iipsrv</code> parameter defines the API end-point and the <code>image</code> parameter defines the image file path and name on the host server.
+    </p>
+<pre>
+OpenSeadragon({
+  id:            "openseadragon-div",
+  tileSources:   {
+                   iipsrv: "/fcgi-bin/iipsrv.fcgi",
+                   image: "test.tif"
+                 }
+});</pre>
+</div>
+
+
+<div class="description">
+    <h3>Advanced Usage</h3>
+    <p>
+         In this advanced example, the tile format is explicitly requested as well as a transform consisting of a contrast enhancement with a color twist to perform channel recombination.
+    </p>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Advanced Example
+    </div>
+    <div id="advanced-example" class="openseadragon">
+         <div class="caption">96999 x 45667 pixel OME-TIFF<br/><i>Paul Felts</i><br/><a href="https://downloads.openmicroscopy.org/images/SVS/">OME-TIFF image repository</a><br/>(Creative Commons 4.0)</div>
+        <script type="text/javascript">
+            OpenSeadragon({
+                id:              "advanced-example",
+                prefixUrl:       "/openseadragon/images/",
+                drawer:          "canvas",
+                visibilityRatio: 0.9,
+                showNavigator:   true,
+                tileSources:   {
+                    iipsrv: "https://merovingio.c2rmf.cnrs.fr/fcgi-bin/iipsrv.fcgi",
+                    image:  "77917.ome.tif",
+                    format: "jpg",
+                    transform:  {
+                        contrast: 1.5,
+                        twist: "[0,0,1;0,1,0;0.9,0,0.1]"
+                    }
+                }
+            });
+        </script>
+        <noscript>
+            <p>OpenSeadragon is not available unless JavaScript is enabled.</p>
+            <img src='/example-images/highsmith/01967v.jpg'
+                 height='600'/>
+        </noscript>
+    </div>
+</div>
+
+   <p>
+        Configuration is done via the <code>tileSources</code> option. The <code>iipsrv</code> parameter defines the API end-point and the <code>image</code> parameter defines the image file path and name on the host server. In this example, a JPEG tile format is explicitly requested (<code>format: "jpg"</code>) and a transform is applied consisting of a contrast enhancement where each pixel value is multiplied by 1.5 (<code>contrast: 1.5</code>) together with a color twist which swaps the output red with the blue channel and renders the final blue channel as the sum of 0.9 multiplied by the original red + 0.1 multiplied by the original blue (<code>twist: "[0,0,1; 0,1,0; 0.9,0,0.1]"</code>).
+    </p>
+<pre>
+OpenSeadragon({
+  id:            "openseadragon-div",
+  showNavigator: true,
+  tileSources:   {
+                    iipsrv: "https://your.host/fcgi-bin/iipsrv.fcgi",
+                    image: "images/test.tif",
+                    format: "jpg",
+                    transform: {
+                      contrast: 1.5,
+                      twist: "[0,0,1; 0,1,0; 0.9,0,0.1]"
+                    }
+                }
+});</pre>
+</div>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Data Modification Pipeline | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Data Modification Pipeline</h2>
+
+<p>
+    Any plugin that modifies viewer data should use the <code>tile-invalidated</code>
+    event, which ensures data is updated in a consistent manner. Optionally,
+    instead of modifying the data, you can <a href="https://github.com/openseadragon/flex-render">design a custom renderer</a> - often a more
+    powerful, performant, but also more complex solution. In this article, we will
+    explore the easier option—modifying the data per tile.
+</p>
+<p>
+    The usage is simple: you request an invalidation once you reason it is needed
+    to update the data, using
+</p><p>
+    <code>viewer.requestInvalidate()</code>
+</p><p>
+    and provide a handler for the data update
+</p><p>
+    <code>viewer.addHandler('tile-invalidated', async e => {...})</code>
+</p>
+<p>
+    The invalidation event request <code>requestInvalidate(restoreTiles)</code> takes one optional
+    argument <code>restoreTiles</code> (default <code>true</code>), which controls whether
+    tile data will be reset in the event or not. If tile data is not reset, invalidation will
+    continue from the previous state - this way, we can accumulate modifications, computing changes
+    incrementally.
+</p>
+
+
+<div class="description">
+    <h3>Simple Plugin Example</h3>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Example: data modification plugin
+    </div>
+    <div id="example-simple" class="openseadragon">
+    </div>
+    <p>The invalidation routine is applied also when new data arrives. Therefore, we do not need
+    to call <code>viewer.requestInvalidate()</code> since we are not doing any updates.
+    Simple <code>getData()</code> and <code>setData()</code> on the event object is enough here.
+    </p>
+    <pre>
+const viewer = OpenSeadragon({
+    id:            "example-simple",
+    prefixUrl:     "/openseadragon/images/",
+    navigatorSizeRatio: 0.25,
+    tileSources:   "/example-images/highsmith/highsmith.dzi",
+});
+viewer.addHandler('tile-invalidated', async e => {
+    // Get the canvas and context
+    const ctx = await e.getData('context2d');
+    const canvas = ctx.canvas;
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const width = canvas.width;
+    const height = canvas.height;
+    </pre>
+    <button style="margin-left: 55px" onclick="const el=document.getElementById('edge-detection');el.style.display='block';this.style.display='none';">... more ...</button>
+    <pre id="edge-detection" style="display: none">
+    function toGrayscale(data) {
+        const grayData = new Uint8ClampedArray(data.length / 4);
+        for (let i = 0; i < data.length; i += 4) {
+            const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            grayData[i / 4] = avg;
+        }
+        return grayData;
+    }
+
+    function sobelEdgeDetection(grayData, width, height) {
+        const sobelX = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]];
+        const sobelY = [[-1, -2, -1], [ 0, 0, 0], [ 1, 2, 1]];
+
+        const gradient = new Uint8ClampedArray(grayData.length);
+
+        for (let y = 1; y < height - 1; y++) {
+            for (let x = 1; x < width - 1; x++) {
+                let gx = 0, gy = 0;
+
+                // Apply Sobel kernels
+                for (let ky = -1; ky <= 1; ky++) {
+                    for (let kx = -1; kx <= 1; kx++) {
+                        const pixelVal = grayData[(y + ky) * width + (x + kx)];
+                        gx += pixelVal * sobelX[ky + 1][kx + 1];
+                        gy += pixelVal * sobelY[ky + 1][kx + 1];
+                    }
+                }
+
+                // Calculate gradient magnitude
+                const magnitude = Math.sqrt(gx * gx + gy * gy);
+                gradient[y * width + x] = magnitude > 255 ? 255 : magnitude;
+            }
+        }
+        return gradient;
+    }
+
+    function drawEdges(ctx, gradient, width, height) {
+        const outputImage = ctx.createImageData(width, height);
+        for (let i = 0; i < gradient.length; i++) {
+            const value = gradient[i];
+            outputImage.data[i * 4] = value;
+            outputImage.data[i * 4 + 1] = value;
+            outputImage.data[i * 4 + 2] = value;
+            outputImage.data[i * 4 + 3] = 255;
+        }
+        ctx.putImageData(outputImage, 0, 0);
+    }
+    </pre>
+    <pre>
+    const grayData = toGrayscale(imageData.data);
+    const edges = sobelEdgeDetection(grayData, width, height);
+    drawEdges(ctx, edges, width, height);
+    await e.setData(ctx, "context2d");
+});
+    </pre>
+    <script>
+        const viewer = OpenSeadragon({
+            id:            "example-simple",
+            prefixUrl:     "/openseadragon/images/",
+            navigatorSizeRatio: 0.25,
+            tileSources:   "/example-images/highsmith/highsmith.dzi",
+        });
+        viewer.addHandler('tile-invalidated', async e => {
+            // Get the canvas and context
+            const ctx = await e.getData('context2d');
+            const canvas = ctx.canvas;
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const width = canvas.width;
+            const height = canvas.height;
+
+            function toGrayscale(data) {
+                const grayData = new Uint8ClampedArray(data.length / 4);
+                for (let i = 0; i < data.length; i += 4) {
+                    const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                    grayData[i / 4] = avg;
+                }
+                return grayData;
+            }
+
+            function sobelEdgeDetection(grayData, width, height) {
+                const sobelX = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]];
+                const sobelY = [[-1, -2, -1], [ 0, 0, 0], [ 1, 2, 1]];
+
+                const gradient = new Uint8ClampedArray(grayData.length);
+
+                for (let y = 1; y < height - 1; y++) {
+                    for (let x = 1; x < width - 1; x++) {
+                        let gx = 0, gy = 0;
+
+                        // Apply Sobel kernels
+                        for (let ky = -1; ky <= 1; ky++) {
+                            for (let kx = -1; kx <= 1; kx++) {
+                                const pixelVal = grayData[(y + ky) * width + (x + kx)];
+                                gx += pixelVal * sobelX[ky + 1][kx + 1];
+                                gy += pixelVal * sobelY[ky + 1][kx + 1];
+                            }
+                        }
+
+                        // Calculate gradient magnitude
+                        const magnitude = Math.sqrt(gx * gx + gy * gy);
+                        gradient[y * width + x] = magnitude > 255 ? 255 : magnitude;
+                    }
+                }
+                return gradient;
+            }
+
+            function drawEdges(ctx, gradient, width, height) {
+                const outputImage = ctx.createImageData(width, height);
+                for (let i = 0; i < gradient.length; i++) {
+                    const value = gradient[i];
+                    outputImage.data[i * 4] = value;
+                    outputImage.data[i * 4 + 1] = value;
+                    outputImage.data[i * 4 + 2] = value;
+                    outputImage.data[i * 4 + 3] = 255;
+                }
+                ctx.putImageData(outputImage, 0, 0);
+            }
+
+            const grayData = toGrayscale(imageData.data);
+            const edges = sobelEdgeDetection(grayData, width, height);
+            drawEdges(ctx, edges, width, height);
+            await e.setData(ctx, "context2d");
+        });
+    </script>
+</div>
+
+<div class="description">
+    <h3>Invalidation Broadcasting</h3>
+</div>
+<p>
+    By default, invalidation events are broadcasted to all <a href="/docs/OpenSeadragon.Viewer.html">viewers</a>
+    in the parent viewer. You can change this behavior by setting a drawer option <code>broadCastTileInvalidation</code> to <code>false</code>.
+    This will then force you to call invalidation on each viewer separately—for example, to the base <code>viewer</code>
+    and also <code>viewer.navigator</code> instances, which are both <code>Viewer</code> subclasses. Another
+    sub-viewers example includes reference strips.
+</p>
+
+
+<div class="description">
+    <h3>Plugin Priorities</h3>
+</div>
+<p>
+    If you develop a plugin, you should make the order of your event handlers configurable, so that
+    users can control when your plugin is applied.
+</p>
+<pre>
+const eventOrderPriority = options.eventOrderPriority;
+viewer.addHandler('tile-invalidated', async e => {
+    ... do something ...
+}, null, eventOrderPriority);
+</pre>
+<p>
+    This way, your plugin gets applied based on
+    <code>eventOrderPriority</code> and thus users can control
+    which plugin gets applied first. See <a href="/docs/OpenSeadragon.EventSource.html">handler priority argument</a>.
+</p>
+
+
+<div class="description">
+    <h3>Selecting the Base Data</h3>
+</div>
+<p>
+    Your plugin can request whether to start from the original data or whether to update the current viewport
+    state. Using <code>viewer.requestInvalidate(false)</code> makes your code receive the data on the viewport,
+    so that you can <i>stack</i> changes. You can also request a data reset at any point in the event routine
+    using <code>resetData()</code>:
+</p>
+<pre>
+viewer.addHandler('tile-invalidated', async e => {
+    e.resetData(); //throw away any possible previous changes
+    const freshData = await e.getData('image');
+    ... etc ...
+}, null, eventOrderPriority);
+</pre>
+<p>
+    But beware of data consistency; see section below.
+</p>
+
+<div class="description">
+    <h3>Outdated Events</h3>
+</div>
+<p>
+    It might happen that you request invalidation while a different event
+    is running. You can tell simply by using:
+</p>
+<pre>
+await viewer.requestInvalidate();  // await finishing
+</pre>
+<p>
+    So if you have e.g. a range slider for user-controlled input,
+    you might trigger too many updates at once. You can exit outdated
+    (no longer valid) processes by checking <code>e.outdated()</code>
+    flag.
+</p>
+<pre>
+viewer.addHandler('tile-invalidated', async e => {
+    ... some expensive computation ...
+    if (e.outdated()) return;
+    ... etc ...
+}, null, eventOrderPriority);
+</pre>
+<p>
+    Note though, with <code>requestInvalidate(false)</code> some tiles
+    might finish before you realize the current data is no longer needed,
+    and the viewport might show inconsistent state.
+</p>
+<p>
+    Removal of <code>if (e.outdated()) return;</code> <b>will not help!</b>
+    The viewer also considers output of such events pointless and throws away
+    any results. This scenario is not yet well-supported, and you must ensure
+    no overlapping events are triggered in this specific case.
+</p>
+<p>
+    A good idea is to collect invalidation calls and truly call
+    <code>requestInvalidate()</code> only once, for example when you know
+    the previous update was finished.
+</p>
+
+
+<div class="description">
+    <h3>Practical considerations</h3>
+</div>
+<p>
+    With knowledge of what drawers are being used you can optimize
+    your events. <code>getData()</code> might force unnecessary
+    processing, <code>setData()</code> might force system to do
+    additional type conversions. A good idea is to work with the <code>context2d</code>
+    type, which is flexible enough for processing, but also provides
+    image data through a <code>canvas</code> reference, directly usable in
+    most drawers.
+</p>
+
+
+<div class="description">
+    <h2>In Depth</h2>
+    <p>Understanding the invalidation routine.</p>
+</div>
+
+<p>
+    The update routine keeps a working cache bound to the event. This cache is not
+    part of the system; it is a copy of data from the tile.
+    Once the data is ready, we atomically swap the data under the renderer, and the
+    new data gets displayed. Therefore, when you finish there is one last
+    step in the event where we ask the underlying drawer what type it requires
+    (<code>getRequiredDataFormats()</code>) and potentially convert the data.
+</p>
+<p>
+    Some drawers might not be compatible with the type directly, but want to keep
+    it nevertheless. The WebGL renderer uses an <i>internal</i> cache that
+    keeps reference to the uploaded texture, but the cache from outside
+    looks like a context2d or image cache (but with a weird type name).
+    This way we keep a reference to the data shown on screen both on CPU and GPU,
+    and support conversion  back to, for example, a canvas context 2D object.
+</p>
+<p>
+    While you can add custom data to the tile using cache-related methods (get/set/create),
+    it is probably not a good idea. Cache invalidation runs on <b>every data-unique tile</b>,
+    both in the viewer and navigator. It might not be executed though on <i>every tile</i>.
+</p>
+<div class="description">
+    <h3>Are all tiles updated?</h3>
+</div>
+<p>
+    No. But all data items are—eventually. To speed things up, only tiles that need to be
+    updated are truly updated. The rest is kept in 'not-ready' state until we realize we need
+    them. You can look at it as if we were re-downloading the tile again, but this time,
+    the data waits for us on the localhost.
+
+    Also, tile equality is decided using <b>getTileCacheKey()</b>. If this item returns an equal
+    value for two tiles, invalidation is executed only on one of the two, and references
+    to the data are later updated on both.
+</p>
+<p>
+    So if you have the <i>same data but want to apply different processing</i> (e.g. vignetting),
+    you must also make sure these tiles have different (original) cache keys. This will force
+    you to download the same data several times. However, this scenario is not expected
+    to be frequent, and thus it is not optionally supported.
+</p>
+
+
+<div class="description">
+    <h3>Invalidation in Drawers</h3>
+</div>
+<p>
+    If you happen to attempt implementing drawer logic, you will usually provide
+    custom data converters for the target type you require for rendering.
+</p>
+<p>
+    If you need the system to re-convert every data item (e.g. you upload
+    textures as WebGL renderer and parameters have changed such as texture wrap
+    or filter), you can also use <code>this.viewer.requestInvalidate()</code>.
+    Note though, that you should also change your type name, since the system
+    might not do anything if it realizes there is no data to update and types are
+    fitting.
+</p>
+<p>
+    So you should change your type names and update the return value of
+    <code>getRequiredDataFormats()</code>. Furthermore, you should
+    keep for the time of being old types in <code>getSupportedDataFormats()</code>,
+    and optionally remove them once processing done:
+</p>
+<pre>
+    ...
+    const newFormats = this.generateNewTypeNamesAndImplementConverterAndDestructorLogic();
+    this._supportedFormats.push(...newFormats);  // variable returned by getSupportedDataFormats
+    this._requiredFormats = newFormats;          // variable returned by getRequiredDataFormats
+    await this.viewer.requestInvalidate();       // forces re-execution since type has changed
+    // optionally throw away old type names after invalidation:
+    // this._supportedFormats = newFormats;
+    ...
+</pre>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

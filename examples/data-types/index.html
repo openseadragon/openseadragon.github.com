@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Data Types in OpenSeadragon | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Data Type Concept in OpenSeadragon</h2>
+
+<p>
+    Data types define how OpenSeadragon knows how to handle interaction between modular parts of its
+    architecture. There are multiple <code>TileSource</code>s that can insert into the system any data such
+    as zip archives, strings, XML nodes... On the other side stands <code>Drawer</code>s that require
+    the data in formats they can work with - <code>CanvasDrawer</code> with <code>Canvas</code> or <code>Image</code>
+    objects, <code>WebGLDrawer</code> with GPU textures. To add insult to the injury, there can be multiple plugins that interact in the system, and
+    convert the data to yet another format.
+</p>
+<p>
+    For all this to work, OpenSeadragon must provide each component with data type it needs, and
+    reason about the cheapest conversion cost between formats. It must also support asynchronous processing,
+    because not every conversion can be done directly (see <code>image.onload</code>).
+</p>
+
+<div class="description">
+    <h3>Supported Types and Naming Conventions</h3>
+</div>
+<p>
+    The type syntax should follow JavaScript naming style,
+    <code>lowerCamelCase</code>. Types should be as <b>tightly</b> descriptive, as possible.
+    Example:
+</p>
+<p>
+    If you provide a type <code>string</code> to the system with your image URI, you have basically
+    broken the whole logic. OpenSeadragon does not know that your string is actually URI, and does not
+    know what to do with your data to convert it, for example, to an Image.
+</p>
+<p>
+    Seems simple? Well, <b>URI</b> is too generic - it can be any resource specification, not just
+    an internet resource location. But if we use <b>URL</b> instead, we are still not guaranteed that
+    OpenSeadragon will handle our data correctly - it can point to a text, a binary, a HTML page...
+</p>
+<p>
+    Therefore, always think of a name for your type that encapsulates all its behavior to avoid
+    collisions with other types (WebGL <code>canvas</code> vs Context2D <code>canvas</code>).
+    OpenSeadragon supports the following types out of the box:
+</p>
+    <ul style="list-style-type: disc">
+    <li>
+        <code>image</code>: a data item is <code>Image</code> object as we know it from DOM,
+    </li>
+    <li>
+        <code>context2d</code>: a <code>CanvasRenderingContext2D</code> object,
+    </li>
+    <li>
+        <code>rasterBlob</code>: a <code>Blob</code> object containing raster image data,
+    </li>
+    <li>
+        <code>imageBitmap</code>: an <code>ImageBitmap</code> object with workers used for image decoding.
+    </li>
+</ul>
+<p>
+There are methods <code>OpenSeadragon.converter.learn()</code> and <code>OpenSeadragon.converter.learnDestroy()</code>
+you can use to add custom types to the system.
+</p>
+
+
+<div class="description">
+    <h3>Conversion of Data</h3>
+</div>
+<p>
+    Adding support for a custom data type in the system is not complicated. You can use both
+    synchronous and asynchronous logic. In order for your data to be fully compatible with the system,
+    a type should define three converters: a converter to some other existing type,
+    copy-converter (will be explained later), and optionally also a converter from an existing type to our own
+    type (going back, not necessarily from the same type).
+</p>
+
+<p>
+    If you are familiar with mathematical graphs, you can imagine converters like directional edges
+    between nodes (types), with edge costs (conversion costs).
+</p>
+<p>
+    See the following pseudocode on how to work with converters:
+</p>
+
+<pre>
+OpenSeadragon.converter.learn("typeA", "typeB", (tile, data) => {
+    //data comes as type A, provide type B
+    return data.asTypeB();
+}, 1, 1);
+
+// or asynchronous:
+OpenSeadragon.converter.learn("typeA", "typeB", async (tile, data) => {
+    const data = await data.asTypeBAsync();
+    return data;  // yes, we could just return data.asAsync(..), but we want
+                  // to explicitly show await usage
+}, 1, 1);
+
+// or promise version:
+OpenSeadragon.converter.learn("typeA", "typeB", (tile, data) => {
+    //data comes as type A, provide type B
+    return new Promise(resolve => {
+        data.convertToTypeBWithCallBack(() => resolve());
+    });
+}, 1, 1);
+</pre>
+
+<div class="description">
+    <h3>Destructors</h3>
+</div>
+<p>
+    If you work with a data objects that should be freed, you should provide a destructor
+    for the type as well. OpenSeadragon will call it for you once the data is not needed,
+    ensuring low memory footprint on the session. The following code is taken directly from
+    OpenSeadragon, where canvas objects are freed to avoid issues with Apple devices.
+    This feature is also especially useful with WebGL textures.
+</p>
+
+<pre>
+OpenSeadragon.converter.learnDestroy("context2d", ctx => {
+    ctx.canvas.width = 0;
+    ctx.canvas.height = 0;
+});
+</pre>
+
+<div class="description">
+    <h3>Optimizing Data Transfer</h3>
+    <p>
+        For performant code, provide converters for multiple built-in data types,
+        and set accurate conversion cost estimation.
+    </p>
+</div>
+<p>
+    So far we avoided the mysterious <code>1, 1</code> parameters at the end of the
+    converter. These are conversion cost evaluators. OpenSeadragon will use these
+    to find the cheapest conversion path should there be available multiple options.
+</p>
+<p>
+    The arguments estimate conversion cost using power argument (first) and multiplier argument (second):
+</p>
+<ul>
+    <li>
+        If you do a linear pass over the pixels, you set values <code>1, 1</code> because
+        if there are <code>n</code> pixels, the cost is <code>1 * n<sup>1</sup></code>
+    </li>
+    <li>
+        If you need to look for each pixels on all the other pixels, i.e. O(n<sup>2</sup>),
+        you set arguments as <code>2, 1</code>.
+    </li>
+    <li>
+        You can use power argument <code>0</code> for instant computations, or use <code>Math.log</code>,
+        <code>Math.sqrt</code> for more accurate estimations depending on your knowledge.
+    </li>
+</ul>
+
+<div class="description">
+    <h3>Providing 'Copy Constructors'</h3>
+    <p>
+        For data to be use-able in the system, a <b>copy</b> logic need to be defined, too.
+    </p>
+</div>
+<p>
+    Copy constructors are needed once you start adjusting OpenSeadragon behavior, for example
+    with plugins. With vanilla rendering, they are typically not necessary. A copy constructor
+    <b>either must return a full object copy, or return immutable reference</b>. If you fail
+    to keep this rule, you can experience artifacts on the screen.
+</p>
+<pre>
+// copy constructor is just conversion to itself
+OpenSeadragon.converter.learn("same", "same", (tile, data) => {
+    return data.clone();
+}, 1, 1);
+</pre>
+
+<div class="description">
+    <h3>Example Custom TileSource</h3>
+    <p>Here, we download a plaintext, and render it on each tile repeatedly with different background.</p>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Example: adding support for custom type
+    </div>
+    <div id="example-custom-tilesource-advanced" class="openseadragon">
+    </div>
+    <p>
+        If you need to work with a data type not on the list, you must
+        specify a conversion to <b>at least one</b> of the built-in types.
+        These conversions are <b>directional</b>, meaning if you provide
+        a conversion from <code>MyAwesomeType</code> to <code>image</code> only,
+        you can download the data as <code>myAwesomeType</code>, but you cannot
+        for example request OpenSeadragon to give you <code>myAwesomeType</code>
+        object within <a href="/examples/data-modifications/"><i>Tile data invalidation routine</i></a>.
+    </p>
+    <pre>
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+OpenSeadragon.converter.learn("myAwesomeType", "myAwesomeType", (tile, text) => {
+    return text;
+}, 0, 1);
+
+// We don't provide converter context2d -> myAwesomeType, since we won't be needing it
+OpenSeadragon.converter.learn("myAwesomeType", "context2d", (tile, text) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = tile.sourceBounds.width;
+    canvas.height = tile.sourceBounds.height;
+    const context = canvas.getContext('2d');
+
+    const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, getRandomColor());
+    gradient.addColorStop(1, getRandomColor());
+
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    context.font = 'bold 30px Arial';
+    context.fillStyle = '#FFFFFF';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+    return context;
+}, 1, Math.sqrt(2)); // sometimes it is hard to estimate the cost, let just say
+// the cost is sure greater than n, at least by factor of sqrt(2) - text render
+
+OpenSeadragon({
+    id:            "example-custom-tilesource-advanced",
+    prefixUrl:     "/openseadragon/images/",
+    navigatorSizeRatio: 0.25,
+    wrapHorizontal:     true,
+    loadTilesWithAjax:  true, // no effect
+    tileSources:   {
+        height: 1024,
+        width:  1024,
+        tileSize: 256,
+        minLevel: 9,
+        getTileUrl: function(level, x, y) {
+            return `${level}/${x}-${y}`;
+        },
+        downloadTileStart: function(imageJob) {
+            imageJob.finish("すごい！", null, "myAwesomeType");
+        },
+        downloadTileAbort: function(context) {
+            //pass
+        },
+    }
+});
+    </pre>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        OpenSeadragon.converter.learn("myAwesomeType", "myAwesomeType", (tile, text) => {
+            return text;
+        }, 0, 1);
+
+        // We don't provide converter context2d -> myAwesomeType, since we won't be needing it
+        OpenSeadragon.converter.learn("myAwesomeType", "context2d", (tile, text) => {
+            const canvas = document.createElement('canvas');
+            canvas.width = tile.sourceBounds.width;
+            canvas.height = tile.sourceBounds.height;
+            const context = canvas.getContext('2d');
+
+            const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, getRandomColor());
+            gradient.addColorStop(1, getRandomColor());
+
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.font = 'bold 30px Arial';
+            context.fillStyle = '#FFFFFF';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+            return context;
+        }, 1, Math.sqrt(2)); // sometimes it is hard to estimate the cost, let's just say
+        // the cost is sure greater than n, at least by factor of sqrt(2) - text render
+
+        OpenSeadragon({
+            id:            "example-custom-tilesource-advanced",
+            prefixUrl:     "/openseadragon/images/",
+            navigatorSizeRatio: 0.25,
+            wrapHorizontal:     true,
+            loadTilesWithAjax:  true, // no effect
+            tileSources:   {
+                height: 1024,
+                width:  1024,
+                tileSize: 256,
+                minLevel: 9,
+                getTileUrl: function(level, x, y) {
+                    return `${level}/${x}-${y}`;
+                },
+                downloadTileStart: function(imageJob) {
+                    imageJob.finish("すごい！", null, "myAwesomeType");
+                },
+                downloadTileAbort: function(context) {
+                    //pass
+                },
+            }
+        });
+    </script>
+</div>
+
+<div class="description">
+    <h3>Removing Async Support</h3>
+</div>
+<p>
+    <a href="/docs/OpenSeadragon.html#.Options">OpenSeadragon viewer options</a> also have
+    <code>supportsAsync: false</code> option that can remove asynchronous execution. OpenSeadragon
+    methods then ensure any API call executes synchronously.
+
+    However, if you need to disable asynchronous behavior, you have to make sure there is no asynchronous function
+    used anywhere. That means any <code>raiseEventAwaiting</code> handles must not be async functions, and
+    all data type conversion logic must be synchronous too. OpenSeadragon on its own does not add asynchronous logic;
+    the only exception is conversion to <code>image</code> type. This one specific scenario is watched for and if
+    the system tries to convert data to <code>image</code>, it will notify you in the console.
+</p>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

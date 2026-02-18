@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Migration notes from v5 to v6 | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Migration From v5 to v6</h2>
+
+<p>
+Version 6 brings a major change of how data is handled to OpenSeadragon. In general, the v6 changes
+(as drastic as they might seem) bring back system-wide data compatibility and address issues introduced in v5. You
+should familiarize yourself with the <a href="/#data-modification-pipeline">new system</a> of data handling.
+
+Below is a list of things that the new system deprecates:
+</p>
+<ul style="list-style-type: disc">
+    <li>
+        tiles can only contain cache objects, <code>Tile</code> data properties like <code>image</code>,
+        <code>getImage</code>, <code>getCanvasContext</code>, <code>context2D</code>, <code>cacheImageRecord</code>,
+        are deprecated and might not even work as expected
+    </li>
+    <li>
+        tiles do not care what is the underlying drawer, properties like
+        <code>element</code>, <code>style</code>, <code>context2D</code> are deprecated; you can use <code>tile-invalidated</code>
+        event to access these inside the cache item when <code>HTMLDrawer</code> is being used
+    </li>
+    <li>
+        <code>tile-drawing</code> event is deprecated, since data modification logic can
+        perform asynchronous operations, and this event was performed synchronously just before drawing
+        a particular element
+    </li>
+    <li>
+        <code>TileSource</code>-driven data management is deprecated (like <code>createTileCache</code>), since not the tile source, but the
+        core system decides how, when and what to do with the data; if you've overridden <code>downloadTileStart</code>
+        you need to newly provide what <i>type</i> of the data you submit to the system
+    </li>
+</ul>
+
+<p>
+Example usage of new way of data modification:
+</p>
+<pre>
+viewer.addHandler('tile-invalidated', async e => {
+    const data = await e.getData('context2d');
+    if (e.outdated()) return;
+    e.setData(myValue, 'context2d');
+});
+
+viewer.requestInvalidate().then(() => console.log("Viewport updated!"));
+</pre>
+<p>
+    Cool, right?
+</p>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

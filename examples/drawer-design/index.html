@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Designing Drawers (Advanced) | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Designing a Custom Drawer</h2>
+
+<p>
+    Drawers drive how OpenSeadragon renders on the viewport. Making a custom drawer is no
+    simple task and takes enormous effort, time and OpenSeadragon API knowledge.
+    Think twice whether you really <i>need</i> to develop one. A good idea
+    is to start from an existing implementation, if the answer was 'yes'.
+</p>
+
+<div class="description">
+    <h3>New Drawers and How to Use Them</h3>
+</div>
+
+<p>
+    By registering a <code>DrawerBase</code> instance on the OSD namespace, you register a drawer of type <code>getType()</code>,
+    which can be used like so:
+</p>
+
+<pre>
+    const viewer = OpenSeadragon(
+        ...
+        drawer: 'my-awesome-drawer',
+        drawerOptions: {
+            'my-awesome-drawer': {
+                myCustomFlag: true
+            }
+        }
+    );
+</pre>
+<p>
+    Using options object is optional.
+</p>
+
+
+<div class="description">
+    <h3>Drawer Must Do's</h3>
+</div>
+<p>Now to the API implementation: comments in the code show how to use different parts of the API.
+Note that <code>defaultOptions</code> define default values for our custom options.
+Already existing, pre-defined options are from the <code>DrawerBase</code> class and will be explained later.
+</p>
+<pre>
+OpenSeadragon.MyAwesomeDrawer = class MyAwesomeDrawer extends DrawerBase {
+    constructor(options) {
+        super(options);
+
+        // here, you can use custom options, prefer usage of this.options (already
+        // extended with defaults)
+        console.log(this.options.myCustomFlag);
+    }
+
+    /**
+     * These options are at your disposal. You can define
+     * new parameters the users can later override using the viewer options - `drawerOptions`.
+     */
+    get defaultOptions() {
+        return {
+            // Configure defaults
+            myCustomFlag: false,
+            // Inherited:
+            usePrivateCache: false,
+            preloadCache: true,
+            // ... see the OpenSeadragon.BaseDrawerOptions type
+        };
+    }
+
+    getType() {
+        return 'my-awesome-drawer';
+    }
+
+    /**
+     * Retrieve data types
+     * @abstract
+     * @return {string[]}
+     */
+    getSupportedDataFormats() {
+        // Return an array of strings, types of data supported by the drawer. See data types
+        // tutorial if you don't know what we are talking about.
+        return ["A", "B"];  // Note. The data formats must be defined and valid!
+                            // This is just for the sake of the example.
+    }
+
+    /**
+     * Retrieve required data formats the data must be converted to.
+     * This list MUST BE A VALID SUBSET OF getSupportedDataFormats()
+     * @abstract
+     * @return {string[]}
+     */
+    getRequiredDataFormats() {
+        // We can return a subset of supported formats, to force the system to convert preferably
+        // to this subset. supported can be ["A", "B"], and required ["B"]. The system will use A
+        // or B when available, but upon data invalidation routine, the target format to finish
+        // with will be B. You can for example call manually invalidation routine, and after
+        // finish deprecate support for type 'A' (remove from getSupportedDataFormats output).
+        return this.getSupportedDataFormats();
+    }
+
+    /**
+     * @abstract
+     * @returns {Boolean} Whether the drawer implementation is supported by the browser. Must be
+     * overridden by extending classes.
+     */
+    static isSupported() {
+        return true;  // check whether your libs / apis are supported by the current user's browser
+    }
+
+    /**
+     * @abstract
+     * @returns {Element} the element to draw into
+     * @private
+     */
+    _createDrawingElement() {
+        // Most animation graphics on web is done through canvas. But you can return anything, as
+        // long as you can use it to render. This element will be accessible through ' this.canvas '
+        // property. But it does not have to be a canvas, for example HTML drawer that positions
+        // image objects by css returns 'div'.
+        return document.createElement('canvas');
+    }
+
+    /**
+     * @abstract
+     * @param {Array} tiledImages - An array of TiledImages that are ready to be drawn.
+     * @private
+     */
+    draw(tiledImages) {
+        // TODO: use tiled image array to draw all tiles
+    }
+
+    /**
+     * @abstract
+     * @returns {Boolean} True if rotation is supported.
+     */
+    canRotate() {
+        return false; // let's say we don't implement rotation
+    }
+
+    /**
+     * @abstract
+     * @param {Boolean} [imageSmoothingEnabled] - Whether or not the image is
+     * drawn smoothly on the canvas; see imageSmoothingEnabled in
+     * {@link OpenSeadragon.Options} for more explanation.
+     */
+    setImageSmoothingEnabled(imageSmoothingEnabled) {
+        // TODO: switch between enabled (e.g. image data INTERPOLATION via linear or a
+        // higher order function) and disabled - 'nearest' interpolation on the zooming
+    }
+
+    /**
+     * @abstract
+     */
+    destroy() {
+        super.destroy();   // like in C++, do not forget to call super destructor
+        // This will free data on the canvas:
+        this.canvas.width = 0;
+        this.canvas.height = 0;
+    }
+
+    ...
+
+}
+</pre>
+
+The actual drawing logic implementation looks something like this:
+
+
+<pre>
+    draw(tiledImages) {
+        for (let tiledImage of tiledImages) {
+            let tilesToDraw = tiledImage.getTilesToDraw();
+            if (tilesToDraw.length === 0 || tiledImage.getOpacity() === 0) {
+                return;
+            }
+
+            // Here, you might need to respect all the properties tiledImage and tiles have
+            // (opacity, position, rotation if supported, etc...)
+
+            for (let tile of tilesToDraw) {
+                // Draw each tile. Do remember though, that tiles might overlap. See image below.
+                const data = this.getDataToDraw(tile);
+                if (!data) {
+                    // If data not available, do nothing for the tile. It is probably a system bug
+                    // or bad API usage, and the developer should already be notified elsewhere.
+                    return;
+                }
+
+                // Now use the tile data. This data is guaranteed to be (from our example) of type 'A' or 'B'.
+            }
+        }
+    }
+</pre>
+<p>The tiles you are trying to render for a single tiled image might look like this:</p>
+<img src="/images/grid.png" style="width: 100%; max-width: 450px; margin: 0 auto; display: block">
+<p>Somewhere, only level three is available, elsewhere higher resolution can already be available.
+You must use the painter's algorithm here, preferring the higher resolution data.</p>
+<p>Handy feature might be <code>this.id</code> value which can be used for unique identifiers
+for the drawing API (e.g. WebGL, WebGPU APIs).</p>
+
+
+<div class="description">
+    <h3>Using Internal Cache</h3>
+</div>
+<p>Some APIs like WebGL need different formats of data than those available in the OSD data types. For example,
+WebGL wants a GLuint reference to the uploaded texture on a GPU, and the <i>model</i> tile positions for the vertex
+shader. Or, a reference to the <i>underlying CPU data</i> in case the data is tainted and we want to internally fallback
+to a different renderer. The reference is usually necessary just because we want to allow conversion back to other
+formats to allow third-party plugins to do their magic. We need to keep the type-conversion graph strongly connected.
+</p>
+<p>All this is quite hard to fit inside data processing pipeline, while having the flexibility available a drawer needs.
+This is the time for <b>internal cache</b>. It needs to be properly configured for the usage:</p>
+<pre>
+    // These options are the default drawer options, used when user does not
+    // override them in drawerOptions:
+    get defaultOptions() {
+        return {
+            // When enabled, the internal cache API **MUST** be implemented
+            usePrivateCache: true,
+            // Support for async if true
+            preloadCache: true,
+            // these are the two main options, for other see the OpenSeadragon.BaseDrawerOptions type
+        };
+    }
+</pre>
+<p>The internal cache API looks simply like this:</p>
+<pre>
+    /**
+     * If options.usePrivateCache is true, this method MUST RETURN the private cache content
+     * @param {OpenSeadragon.CacheRecord} cache
+     * @param {OpenSeadragon.Tile} tile
+     * @return any
+     */
+    internalCacheCreate(cache, tile) {
+        return { data: "this data will be available when rendering the tile" };
+    }
+
+    /**
+     * It is possible to perform any necessary cleanup on internal cache, necessary if you
+     * need to clean up some memory (e.g. destroy canvas by setting with & height to 0).
+     * @param {*} data object returned by internalCacheCreate(...)
+     */
+    internalCacheFree(data) {
+        // nothing to be done, strings do not need to be freed
+    }
+</pre>
+<p>
+And the output value will be available in the drawing routine, i.e. <code>this.getDataToDraw(tile);</code>
+returns <code>{ data: "this data will be available when rendering the tile" }</code>.
+</p>
+    <p>Based on the <code>preloadCache</code> option, the conversion happens either immediately upon data invalidation routine
+    or after <code>tile-loaded</code> event (when <code>true</code>), or just before rendering (otherwise). That means
+    <code>internalCacheCreate</code> method cannot be asynchronous if <code>preloadCache</code> is disabled, since it needs to deliver data
+    for the rendering immediatelly.
+</p>
+<p>
+    If you need to re-validate all internal caches and re-initialize them, simply call <code>this.setInternalCacheNeedsRefresh()</code>.
+    The effect will be immediate for <code>preloadCache == false</code>. You can otherwise request an invalidation event if you need
+    the change to be applied as soon as possible, but immediate change is not guaranteed (and probably will not happen).
+</p>
+<p>Finally, you should also ensure the data is properly freed:</p>
+<pre>
+    destroy() {
+        super.destroy();  // like in C++, do not forget to call super destructor
+        ... do necessary cleanup ...
+
+        // important if internal cache used!
+        this.destroyInternalCache();
+    }
+</pre>
+<p>and potentially, prevent users from overriding the cache configuration:</p>
+<pre>
+    constructor(options) {
+        // Force cache configuration:
+        super({...options, ...{usePrivateCache: true, preloadCache: true}});
+    }
+</pre>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

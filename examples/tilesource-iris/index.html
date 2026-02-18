@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Iris Tile Source | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.0/openseadragon-bin-6.0.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.0.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>
+    Example: Iris TileSource Support
+</h2>
+<p>
+    The <strong>IrisTileSource</strong> is an OpenSeadragon tilesource implementation for viewing images served by an Iris-compatible tile server. It is designed to efficiently display large, high-resolution images, with digital pathology as the primary use case.
+</p>
+<p>
+    The Iris API provides endpoints for retrieving image metadata and individual image tiles. OpenSeadragon's IrisTileSource fetches the metadata to determine the image's dimensions, available zoom levels, and tile layout, then requests tiles as needed while you pan and zoom.
+</p>
+
+<div class="description">
+    <h3>IrisTileSource Configuration</h3>
+    <p>
+        To use the IrisTileSource, specify the <code>type</code> as <code>iris</code> and provide the <code>serverUrl</code> (the base URL of your Iris server) and <code>slideId</code> (the image identifier).
+    </p>
+</div>
+<div class="demoarea">
+  <div class="demoheading">
+      Example Inline Configuration for Iris TileSource
+  </div>
+  <div id="example-custom-tilesource" 
+       class="openseadragon" >
+  </div>
+  <p>
+      Below is a minimal inline configuration which pulls tiles from an Iris-compatible tile server using the IrisTileSource. The <code>type</code>, <code>serverUrl</code>, and <code>slideId</code> are required to specify the image source.
+  </p>
+  <pre>OpenSeadragon({
+    id:                 "example-custom-tilesource",
+    prefixUrl:          "/openseadragon/images/",
+    navigatorSizeRatio: 0.25,
+    wrapHorizontal:     true,
+    tileSources:   {
+        type:              "iris",
+        serverUrl:         "https://examples.restful.irisdigitalpathology.org",
+        slideId:           "cervix_2x_jpeg",
+        crossOriginPolicy: "Anonymous"
+    }
+});
+  </pre>
+  <script>
+    OpenSeadragon({
+        id: "example-custom-tilesource",
+        prefixUrl: "/openseadragon/images/",
+        navigatorSizeRatio: 0.25,
+        wrapHorizontal: true,
+        tileSources: {
+            type: "iris",
+            serverUrl: "https://examples.restful.irisdigitalpathology.org",
+            slideId: "cervix_2x_jpeg",
+            crossOriginPolicy: "Anonymous"
+        }
+    });
+  </script>
+</div>
+
+<div class="description">
+    <h3>Iris API Information</h3>
+    <p>
+        For more information about the Iris API and its endpoints, please see the <a href="https://github.com/ryanlandvater/Iris-RESTful-Server?tab=readme-ov-file#api-explained" target="_blank">Iris API documentation</a>.
+    </p>
+</div>
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
