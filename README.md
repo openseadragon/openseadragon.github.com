@@ -1,4 +1,4 @@
-# Built Website for OpenSeadragon
+# Built Website for OpenSeadragon - not to be edited!
 
 ## This repository is auto generated; do not modify manually! To contribute to the website, use the https://github.com/openseadragon/site-build/ repository!
 
