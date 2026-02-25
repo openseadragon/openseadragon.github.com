@@ -294,7 +294,8 @@ OpenSeadragon({
         tileSize: 256,
         minLevel: 9,
         getTileUrl: function(level, x, y) {
-            return `${level}/${x}-${y}`;
+            // providing unique tile url means no collision with other sources
+            return `myAwesomeType::${level}/${x}-${y}`;
         },
         downloadTileStart: function(imageJob) {
             imageJob.finish("すごい！", null, "myAwesomeType");
@@ -355,7 +356,7 @@ OpenSeadragon({
                 tileSize: 256,
                 minLevel: 9,
                 getTileUrl: function(level, x, y) {
-                    return `${level}/${x}-${y}`;
+                    return `myAwesomeType::${level}/${x}-${y}`;
                 },
                 downloadTileStart: function(imageJob) {
                     imageJob.finish("すごい！", null, "myAwesomeType");

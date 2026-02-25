@@ -231,11 +231,11 @@ OpenSeadragon.extend(OpenSeadragon.DziTileSource.prototype, {
             // sure imageJob.finish() gets executed!
             context.image.onerror = context.image.onabort = function() {
                 // as a fallback compatibility, you can provide error message
-                // instead of type upon failure
+                // instead of type upon failure, or you can return custom data with custom type (e.g. canvas with context2d)
                 imageJob.finish(null, context.promise, "Failed to parse tile data as an Image");
             };
             context.image.onload = function() {
-                imageJob.finish(context.image, context.promise, "context2d");
+                imageJob.finish(context.image, context.promise, "image");
             };
 
             function createErrorImageURL(e) {
@@ -327,7 +327,8 @@ OpenSeadragon.extend(OpenSeadragon.DziTileSource.prototype, {
             // in all scenarios, unless abort() is called, make
             // sure imageJob.finish() gets executed!
             context.image.onerror = context.image.onabort = function() {
-                // as a fallback compatibility, you can provide error message instead of type upon failure
+                // as a fallback compatibility, you can provide error message
+                // instead of type upon failure, or you can return custom data with custom type (e.g. canvas with context2d)
                 imageJob.finish(null, context.promise, "Failed to parse tile data as an Image");
             };
             context.image.onload = function() {

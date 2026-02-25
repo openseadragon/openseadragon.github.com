@@ -96,10 +96,11 @@ Example usage of new way of data modification:
 <pre>
 viewer.addHandler('tile-invalidated', async e => {
     const data = await e.getData('context2d');
-    if (e.outdated()) return;
-    e.setData(myValue, 'context2d');
+    // maybe do some expensive computation here
+    if (e.outdated()) return; // maybe check if the event is still valid
+    // maybe do some more expensive computation here
+    await e.setData(myValue, 'context2d');
 });
-
 viewer.requestInvalidate().then(() => console.log("Viewport updated!"));
 </pre>
 <p>
