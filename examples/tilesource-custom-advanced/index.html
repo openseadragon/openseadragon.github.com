@@ -811,20 +811,108 @@ OpenSeadragon.MyCustomTileSource = class MyCustomTileSource extends OpenSeadrago
         });
     }
 
+    getTileUrl( level, x, y ) {
+        // By default, when you have just a tile URL, you can override how the tile url is created.
+        // This is the simplest but also most limited way to do it. The response data MUST be an image
+        // a browser can read.
+        return super.getTileUrl( level, x, y );
+    }
+
+    getTilePostData( level, x, y ) {
+        // If you need to send something via POST, you can override this method. Similar to getTileUrl,
+        // this is a simple utility for you if you need to add POST data atop tile URL, but don't want to
+        // do anything more advanced. Often, you need to then override getTileHashKey - see description below.
+        return super.getTilePostData( level, x, y );
+    }
+
+    getTileHashKey(level, x, y, url, ajaxHeaders, postData) {
+        // By default, the tile url serves as a hash key. Here you can override how a unique hash key is created.
+        // Hash key is crucial to uniquely distinguish tiles with the same data - such tiles then SHARE the data.
+        // You might override this method if, for example, you fetch tiles with parameters in POST, and need
+        // to adjust key to be unique based on some POST payload.
+        return super.getTileHashKey(level, x, y, url, ajaxHeaders, postData);
+    }
+
+    downloadTileStart( context ) {
+        // Here you can completely override how the tile is downloaded. OSD supports some configurations
+        // like `ajaxHeaders`, `postData`, `loadWithAjax`, `timeout` ... that come from the original OSD configuration.
+        // When you just override the methods above, and keep default download logic, it is an easy way of getting the
+        // tile data + general controls. Sometimes, that's not enough. When you need to do advanced things,
+        // especially working with custom data types, you can override this method. That means if you
+        // don't respect some of the context properties (e.g., `postData`), the features will not work - and
+        // that might be completely fine if your tile source does not use POST.
+
+        // Since we still have to implement getTileUrl, we usually use it to just create a meaningful tile cache key
+        // and create the real url to fetch the tile from here instead. Note that the cache key must be system-wide
+        // unique, so instead of doing `${level}/${x}-${y}`, it's better to use something like
+        // `my-source-unique-id::${level}/${x}-${y}-possibly-more-unique-data-per-source` so that even if somebody
+        // loads your tile source twice, they will not share the same tiles - of course, unless your tile source
+        // ALWAYS returns the same data for the same tile, like our fractal example above. Beware though that even a
+        // fractal might deliver different data per same tile coordinates, if, for example, the whole width/height differs.
+
+        super.downloadTileStart( context );
+    }
+
+    downloadTileAbort( context ) {
+        // You should provide a way of aborting the job.
+        super.downloadTileAbort( context );
+    }
+
     // Below are more advanced configurations you can make. You can compute explicitly your pyramid
     // level scales and tile sizes, and return them in these getters based on the level index.
+    // Not ALL of available methods are available (`tileExists` and more - check the TileSource API docs).
 
-    getLevelScale: function( level ) {
+    equals(otherSource) {
+        // are tile sources equal? when we remove and add the same tile source, can we keep the already loaded data in memory?
+        return super.equals(otherSource);
+    }
+
+    batchEnabled() {
+        // is batch processing enabled?
+        return super.batchEnabled();
+    }
+
+    batchCompatible(otherSource) {
+        // can two tiled images be fetched in parallel?
+        return super.batchCompatible(otherSource);
+    }
+
+    batchMaxJobs() {
+        // how many items can be fetched in parallel at most?
+        return super.batchMaxJobs();
+    }
+
+    batchTimeout() {
+        // how long we can wait for jobs to be collected within a batch before executing it?
+        return super.batchTimeout();
+    }
+
+    downloadTileBatchStart(batchJob) {
+        // If your server supports BATCH fetching, fetch multiple tiles at once!
+        // Fallback default implementation: process individually.
+        for (let i = 0; i < batchJob.jobs.length; i++) {
+            this.downloadTileStart(batchJob.jobs[i]);
+        }
+    }
+
+    downloadTileBatchAbort(batchJob) {
+        // Provide a way to abort your batch job.
+        for (let i = 0; i < batchJob.jobs.length; i++) {
+            this.downloadTileAbort(batchJob.jobs[i]);
+        }
+    }
+
+    getLevelScale( level ) {
         // here you can define custom scale per level - any scale, not only powers of 2!
         return super.getLevelScale( level );
     }
 
-    getTileWidth: function( level ) {
+    getTileWidth( level ) {
         // here you can define custom tile dimension per level!
         return super.getTileWidth( level );
     }
 
-    getTileHeight: function( level ) {
+    getTileHeight( level ) {
         // here you can define custom tile dimension per level!
         return super.getTileHeight( level );
     }
