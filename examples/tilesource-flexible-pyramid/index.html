@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80JNSCRENY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-80JNSCRENY');
+    </script>
+    <!-- End Google tag -->
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>Flexible Pyramids and Rendering Controls | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                6.1.0
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#learning-course'
+                    >Learning Course</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>Flexible Pyramids and Rendering Controls</h2>
+
+<p>
+    Many rendering systems like OpenSeadragon usually force powers-of-two pyramids,
+    sometimes even with square tiles. Each level is two times bigger/smaller than the
+    previous/next, and tiles are 256 or 521-pixel sized squares. While this is
+    simple to reason about, it poses a significant limitation. Real-world data often does not
+    follow this assumption: servers may expose
+    arbitrary scales, scientific formats may use custom level layouts or remove
+    certain levels to optimize storage, and synthetic sources may want a single
+    very large tile at the top of the pyramid.
+</p>
+
+<p>
+    OpenSeadragon respects whatever
+    <code>getLevelScale</code>, <code>getTileWidth</code> and
+    <code>getTileHeight</code> return on a per-level basis. This page covers
+    how to take advantage of that, and documents the rendering knobs
+    (<code>immediateRender</code>,
+    <code>minPixelRatio</code>, and the new
+    <code>discardLevelsBelowDownsampleRatio</code>) that decide which levels
+    OpenSeadragon actually fetches and how it transitions between them.
+</p>
+
+<p>
+    If you are new to writing custom tile sources, please first read the
+    <a href="/examples/tilesource-custom/">custom tile source</a> and
+    <a href="/examples/tilesource-custom-advanced/">advanced custom tile
+    source</a> chapters. The page below assumes you are already familiar
+    with the <code>TileSource</code> class.
+</p>
+
+<div class="description">
+    <h3>Level Convention</h3>
+    <p>
+        OpenSeadragon treats <b>level&nbsp;0 as the smallest resolution</b>
+        and <code>maxLevel</code> as the highest native resolution. This is
+        the opposite of the convention used by some scientific imaging
+        libraries (OpenSlide, libvips, etc.) where index 0 is the native
+        resolution. When you port a pyramid from those systems, remember to
+        flip the level index — or override <code>getLevelScale</code> so
+        that scale 1.0 lands on the highest level and smaller scales on the
+        lower levels.
+    </p>
+</div>
+
+<div class="description">
+    <h3>Custom Per-Level Scales and Tile Sizes</h3>
+</div>
+<p>
+    For an irregular pyramid you typically override three methods on
+    your <code>TileSource</code>:
+</p>
+<ul style="list-style-type: disc">
+    <li>
+        <code>getLevelScale(level)</code> — return the scale of a level
+        relative to the native (max) resolution. The default returns
+        <code>1 / 2^(maxLevel - level)</code>; override it for arbitrary
+        scales (e.g. <code>0.005, 0.02, 0.06, 0.15, 0.35, 0.7, 1.0</code>).
+    </li>
+    <li>
+        <code>getTileWidth(level)</code> /
+        <code>getTileHeight(level)</code> — return the tile dimensions for
+        a given level. They can differ between levels and need not be square.
+        Make sure both methods return the value <i>you</i> want; the default
+        falls back to <code>_tileWidth</code>/<code>_tileHeight</code>
+        members initialized from <code>tileSize</code> or
+        <code>tileWidth</code>/<code>tileHeight</code> options.
+    </li>
+    <li>
+        <code>getNumTiles(level)</code> — only override if your tile grid
+        is not derivable from <code>scale * imageDimensions / tileSize</code>;
+        for most use cases the default does the right thing.
+    </li>
+</ul>
+<p>
+    The standard properties (<code>width</code>, <code>height</code>,
+    <code>minLevel</code>, <code>maxLevel</code>) describe the native
+    resolution and the inclusive level range; everything else is computed
+    from the methods above.
+</p>
+
+<div class="demoarea">
+    <div class="demoheading">
+        Example: irregular pyramid with custom scales and tile sizes
+    </div>
+    <div id="example-flexible-pyramid" class="openseadragon"></div>
+    <p>
+        The viewer above is fed by a synthetic <code>TileSource</code> that
+        renders each tile with a coloured gradient and prints the level,
+        coordinates, scale and tile size onto it. The pyramid uses
+        non-power-of-two scales and a different tile size on every level.
+        Zoom in and out to see how OpenSeadragon picks levels.
+    </p>
+    <pre>
+class FlexiblePyramidSource extends OpenSeadragon.TileSource {
+    constructor(options) {
+        const minLevel = options.minLevel != null ? options.minLevel : 0;
+        const maxLevel = options.maxLevel != null
+            ? options.maxLevel
+            : (options.levelScales ? options.levelScales.length - 1 : 0);
+
+        super(Object.assign({}, options, { minLevel, maxLevel }));
+
+        this.width  = options.width;
+        this.height = options.height;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.levelScales    = options.levelScales    || [];
+        this.levelTileSizes = options.levelTileSizes || [];
+    }
+
+    // Arbitrary per-level scale relative to the full-resolution image.
+    getLevelScale(level) {
+        if (this.levelScales[level] != null) {
+            return this.levelScales[level];
+        }
+        return 1 / Math.pow(2, this.maxLevel - level);
+    }
+
+    // Tile size can vary level by level.
+    getTileWidth(level) {
+        return this.levelTileSizes[level] != null
+            ? this.levelTileSizes[level]
+            : 256;
+    }
+    getTileHeight(level) {
+        return this.getTileWidth(level);
+    }
+
+    // The URL doubles as a per-tile cache key for our synthetic data.
+    getTileUrl(level, x, y) {
+        return `flexible-pyramid::${level}/${x}-${y}`;
+    }
+
+    // Render the tile directly as a context2d — no network involved.
+    downloadTileStart(context) {
+        const { level, x, y } = context.tile;
+        const tileSize = this.getTileWidth(level);
+        const size = this.getTileBounds(level, x, y, true);
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width  = Math.max(1, Math.floor(size.width));
+        canvas.height = Math.max(1, Math.floor(size.height));
+
+        const hue = (level * 47) % 360;
+        const grd = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grd.addColorStop(0, `hsl(${hue}, 70%, 80%)`);
+        grd.addColorStop(1, `hsl(${(hue + 60) % 360}, 70%, 55%)`);
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(0.5, 0.5, canvas.width - 1, canvas.height - 1);
+
+        ctx.fillStyle = '#111';
+        ctx.font = Math.max(12, tileSize / 14) + 'px sans-serif';
+        let row = 1;
+        const line = () => 8 + (tileSize / 12) * row++;
+        ctx.fillText(`level ${level}`,                        8, line());
+        ctx.fillText(`tile ${x},${y}`,                        8, line());
+        ctx.fillText(`scale ${this.getLevelScale(level).toFixed(4)}`, 8, line());
+        ctx.fillText(`tileSize ${tileSize}px`,                8, line());
+
+        context.finish(ctx, null, 'context2d');
+    }
+
+    downloadTileAbort() { /* synthetic — nothing to abort */ }
+}
+
+OpenSeadragon({
+    id: 'example-flexible-pyramid',
+    prefixUrl: '/openseadragon/images/',
+    showNavigator: true,
+    blendTime: 0.2,
+    minZoomImageRatio: 0.5,
+    tileSources: new FlexiblePyramidSource({
+        width:  8192,
+        height: 8192,
+        minLevel: 0,
+        maxLevel: 6,
+        // Non-power-of-two scales — fully respected by the level picker.
+        levelScales:    [0.01, 0.04, 0.10, 0.25, 0.50, 0.80, 1.00],
+        // Tile size differs per level on purpose.
+        levelTileSizes: [128,  256,  256,  512,  512,  1024, 1024]
+    })
+});
+    </pre>
+    <script>
+class FlexiblePyramidSource extends OpenSeadragon.TileSource {
+    constructor(options) {
+        const minLevel = options.minLevel != null ? options.minLevel : 0;
+        const maxLevel = options.maxLevel != null
+            ? options.maxLevel
+            : (options.levelScales ? options.levelScales.length - 1 : 0);
+
+        super(Object.assign({}, options, { minLevel: minLevel, maxLevel: maxLevel }));
+
+        this.width  = options.width;
+        this.height = options.height;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.levelScales    = options.levelScales    || [];
+        this.levelTileSizes = options.levelTileSizes || [];
+    }
+
+    getLevelScale(level) {
+        if (this.levelScales[level] != null) {
+            return this.levelScales[level];
+        }
+        return 1 / Math.pow(2, this.maxLevel - level);
+    }
+
+    getTileWidth(level) {
+        return this.levelTileSizes[level] != null
+            ? this.levelTileSizes[level]
+            : 256;
+    }
+    getTileHeight(level) {
+        return this.getTileWidth(level);
+    }
+
+    getTileUrl(level, x, y) {
+        return 'flexible-pyramid::' + level + '/' + x + '-' + y;
+    }
+
+    downloadTileStart(context) {
+        var tile = context.tile;
+        var level = tile.level, x = tile.x, y = tile.y;
+        var tileSize = this.getTileWidth(level);
+        var size = this.getTileBounds(level, x, y, true);
+
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width  = Math.max(1, Math.floor(size.width));
+        canvas.height = Math.max(1, Math.floor(size.height));
+
+        var hue = (level * 47) % 360;
+        var grd = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grd.addColorStop(0, 'hsl(' + hue + ', 70%, 80%)');
+        grd.addColorStop(1, 'hsl(' + ((hue + 60) % 360) + ', 70%, 55%)');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(0.5, 0.5, canvas.width - 1, canvas.height - 1);
+
+        ctx.fillStyle = '#111';
+        ctx.font = Math.max(12, tileSize / 14) + 'px sans-serif';
+        var row = 1;
+        var line = function() { return 8 + (tileSize / 12) * row++; };
+        ctx.fillText('level ' + level,                          8, line());
+        ctx.fillText('tile ' + x + ',' + y,                     8, line());
+        ctx.fillText('scale ' + this.getLevelScale(level).toFixed(4), 8, line());
+        ctx.fillText('tileSize ' + tileSize + 'px',             8, line());
+
+        context.finish(ctx, null, 'context2d');
+    }
+
+    downloadTileAbort() { /* synthetic — nothing to abort */ }
+}
+
+OpenSeadragon({
+    id: 'example-flexible-pyramid',
+    prefixUrl: '/openseadragon/images/',
+    showNavigator: true,
+    blendTime: 0.2,
+    minZoomImageRatio: 0.5,
+    tileSources: new FlexiblePyramidSource({
+        width:  8192,
+        height: 8192,
+        minLevel: 0,
+        maxLevel: 6,
+        levelScales:    [0.01, 0.04, 0.10, 0.25, 0.50, 0.80, 1.00],
+        levelTileSizes: [128,  256,  256,  512,  512,  1024, 1024]
+    })
+});
+    </script>
+</div>
+
+<p>
+    A few subtleties worth knowing:
+</p>
+<ul style="list-style-type: disc">
+    <li>
+        <b>Memoization</b>. The default <code>getLevelScale</code> caches
+        its results by replacing itself with a closure over a precomputed
+        table. If you provide your own <code>getLevelScale</code> on the
+        prototype or instance, the default memoization simply does not run.
+        You do not need to call <code>super</code> — your override
+        completely replaces the base behaviour.
+    </li>
+    <li>
+        <b>Level picking uses an eligible range, not a single nearest level</b>.
+        For the current zoom, the renderer considers the interval of levels
+        that can contribute useful detail, applies <code>minPixelRatio</code>
+        when deciding how far down the pyramid it may go, and may draw or
+        blend multiple levels until the viewport is fully covered. This works
+        for irregular pyramid shapes as well as power-of-two pyramids, and is
+        what makes the custom-scale demo above feel correct as you zoom.
+    </li>
+    <li>
+        <b>A single-tile cutoff level can act as a fallback</b>. OpenSeadragon
+        identifies the highest level that fits in a single tile. If that
+        level has been loaded, it can be used as a fallback while zooming
+        out, but it is not guaranteed to remain loaded or to always prevent
+        an empty viewport on a sparse pyramid.
+    </li>
+</ul>
+
+
+<div class="description">
+    <h3>Rendering Controls</h3>
+    <p>
+        Several viewer (and per-<code>TiledImage</code>) options govern how
+        OpenSeadragon decides which levels to fetch and how it transitions
+        between them. They all become more visible on irregular pyramids,
+        which is why this page groups them together.
+    </p>
+</div>
+
+<h4><code>immediateRender</code> <small>(default: <code>false</code>)</small></h4>
+<p>
+    By default, OpenSeadragon walks up the pyramid from a low resolution
+    (the biggest single tile that covers the whole image) to the closest level,
+    producing the familiar blurry-to-sharp progression. Setting immediateRender: true
+    skips that progression and renders the <code>minPixelRatio</code> matching level directly.
+    This avoids transient lower-resolution frames at the cost of a visible "patchwork"
+    effect as the tiles come in. This can be worthwhile on mobile devices to reduce data transfer.
+</p>
+
+<h4><code>minPixelRatio</code> <small>(default: <code>0.5</code>)</small></h4>
+<p>
+    Sets the lowest acceptable pixel ratio (rendered pixels per source
+    pixel) for a level to be considered "good enough". The default
+    <code>0.5</code> means OpenSeadragon will pre-fetch one level above the
+    target so that zooming in reveals already-loaded sharper data.
+</p>
+<ul style="list-style-type: disc">
+    <li>Raise to <code>1.0</code> to fetch roughly at the screen pixel ratio
+        and reduce bandwidth.</li>
+    <li>Raise to <code>1.5</code>+ for low-bandwidth or mobile use; you may
+        see slightly upsampled content during fast zoom but far fewer tile
+        requests.</li>
+    <li>When lower-resolution levels are already loaded (especially
+        single-tile fallback levels), OpenSeadragon can use them
+        temporarily while sharper tiles are still loading.</li>
+</ul>
+
+<h4><code>discardLevelsBelowDownsampleRatio</code> <small>(default: <code>1</code>)</small></h4>
+<p>
+    Lets you skip pyramid levels whose downsample gap to the previously
+    accepted level is below the given ratio. Concretely, with a power-of-two
+    pyramid (each level twice as detailed as the next), setting
+    <code>discardLevelsBelowDownsampleRatio: 4</code> makes the viewer use
+    every other level — i.e. levels spaced by a 4× downsample factor.
+    For irregular pyramids this is useful when you want to hide near-duplicate
+    levels: e.g. if a server provides scales <code>0.1, 0.12, 0.5, 1.0</code>,
+    a ratio of <code>2</code> will collapse the <code>0.1/0.12</code> pair
+    down to a single chosen level.
+</p>
+<ul style="list-style-type: disc">
+    <li>
+        Set globally on the viewer:
+        <pre>OpenSeadragon({ /* ... */ discardLevelsBelowDownsampleRatio: 2 });</pre>
+    </li>
+    <li>
+        Or per <code>TileSource</code> — just expose
+        <code>discardLevelsBelowDownsampleRatio</code> on the source
+        instance and OpenSeadragon will copy it onto the
+        <code>TiledImage</code> at construction. This lets a tile source
+        that knows it ships near-duplicate levels enforce a sensible
+        default for itself.
+    </li>
+    <li>
+        Values below <code>1</code> are invalid — they would mean "keep
+        levels that are <i>more</i> similar than the same one", which is
+        not meaningful — and will be replaced with the default after a
+        warning.
+    </li>
+    <li>
+        <code>maxLevel</code> is always preserved so the highest detail
+        remains reachable.
+    </li>
+</ul>
+
+<div class="demoarea">
+    <div class="demoheading">
+        Example: skipping near-duplicate levels with discardLevelsBelowDownsampleRatio
+    </div>
+    <p>
+        Use the buttons to rebuild the viewer with different discard ratios.
+        The pyramid below has 8 power-of-two levels; each tile prints its
+        level, so you can see at a glance which levels actually get fetched
+        as you zoom. With ratio <code>1</code> (default) every level is
+        eligible; with <code>4</code> the viewer uses every other level;
+        with <code>16</code> only every fourth.
+    </p>
+    <div style="margin: 6px 0;">
+        <button id="dlbdr-1">discardLevelsBelowDownsampleRatio = 1</button>
+        <button id="dlbdr-4">= 4</button>
+        <button id="dlbdr-16">= 16</button>
+        <label style="margin-left: 12px;">
+            <input type="checkbox" id="dlbdr-immediate"> immediateRender
+        </label>
+        <label style="margin-left: 12px;">
+            minPixelRatio
+            <input type="number" id="dlbdr-mpr" value="0.5" step="0.1"
+                   style="width: 70px;">
+        </label>
+    </div>
+    <div id="example-discard-levels" class="openseadragon"></div>
+    <pre>
+function makePyramid(numLevels, tileSize) {
+    const scales = [];
+    const tileSizes = [];
+    const max = numLevels - 1;
+    for (let l = 0; l &lt;= max; l++) {
+        scales.push(1 / Math.pow(2, max - l));
+        tileSizes.push(tileSize);
+    }
+    return { scales, tileSizes };
+}
+
+function buildViewer(opts) {
+    const { scales, tileSizes } = makePyramid(8, 256);
+    return OpenSeadragon({
+        id: 'example-discard-levels',
+        prefixUrl: '/openseadragon/images/',
+        showNavigator: false,
+        blendTime: 0.1,
+        immediateRender: !!opts.immediateRender,
+        minPixelRatio: opts.minPixelRatio,
+        discardLevelsBelowDownsampleRatio: opts.discardRatio,
+        tileSources: new FlexiblePyramidSource({
+            width: 4096, height: 4096,
+            minLevel: 0, maxLevel: 7,
+            levelScales: scales,
+            levelTileSizes: tileSizes
+        })
+    });
+}
+    </pre>
+    <script>
+(function () {
+    var current = null;
+    function rebuild() {
+        if (current) { current.destroy(); }
+
+        var numLevels = 8;
+        var max = numLevels - 1;
+        var scales = [], tileSizes = [];
+        for (var l = 0; l <= max; l++) {
+            scales.push(1 / Math.pow(2, max - l));
+            tileSizes.push(256);
+        }
+
+        const minPixelRatio = parseFloat(document.getElementById('dlbdr-mpr').value);
+        current = OpenSeadragon({
+            id: 'example-discard-levels',
+            prefixUrl: '/openseadragon/images/',
+            showNavigator: false,
+            blendTime: 0.1,
+            immediateRender: document.getElementById('dlbdr-immediate').checked,
+            minPixelRatio: isNaN(minPixelRatio) ? 0.5 : minPixelRatio,
+            discardLevelsBelowDownsampleRatio: rebuild.ratio,
+            tileSources: new FlexiblePyramidSource({
+                width: 4096, height: 4096,
+                minLevel: 0, maxLevel: 7,
+                levelScales: scales,
+                levelTileSizes: tileSizes
+            })
+        });
+    }
+    rebuild.ratio = 1;
+
+    document.getElementById('dlbdr-1').addEventListener('click', function() {
+        rebuild.ratio = 1; rebuild();
+    });
+    document.getElementById('dlbdr-4').addEventListener('click', function() {
+        rebuild.ratio = 4; rebuild();
+    });
+    document.getElementById('dlbdr-16').addEventListener('click', function() {
+        rebuild.ratio = 16; rebuild();
+    });
+    document.getElementById('dlbdr-immediate').addEventListener('change', rebuild);
+    document.getElementById('dlbdr-mpr').addEventListener('change', rebuild);
+
+    rebuild();
+})();
+    </script>
+</div>
+
+<div class="description">
+    <h3>Putting It Together</h3>
+</div>
+<p>
+    A practical recipe for a custom pyramid that performs well across
+    devices:
+</p>
+<ul style="list-style-type: disc">
+    <li>
+        Implement <code>getLevelScale</code>, <code>getTileWidth</code>,
+        <code>getTileHeight</code> to describe the pyramid faithfully —
+        do not lie about scales just to make the picker happy.
+    </li>
+    <li>
+        If your source ships near-duplicate levels (common with IIIF
+        servers exposing many fixed sizes), set
+        <code>discardLevelsBelowDownsampleRatio</code> on the source so
+        consumers do not have to know the quirk.
+    </li>
+    <li>
+        For low-bandwidth deployments, set
+        <code>immediateRender: true</code> and raise
+        <code>minPixelRatio</code> to <code>1.0</code> (or a touch above)
+        — fewer requests, no intermediate-quality renders.
+    </li>
+    <li>
+        For desktop with fast networks, the defaults
+        (<code>immediateRender: false</code>,
+        <code>minPixelRatio: 0.5</code>) give the smoothest user experience.
+    </li>
+</ul>
+
+<p>
+    For full API details, see the documentation pages for
+    <a href="/docs/OpenSeadragon.TileSource.html"
+    target="_blank"><code>OpenSeadragon.TileSource</code></a>,
+    <a href="/docs/OpenSeadragon.TiledImage.html"
+    target="_blank"><code>OpenSeadragon.TiledImage</code></a>, and the
+    <a href="/docs/OpenSeadragon.html#.Options"
+    target="_blank">global viewer options</a>.
+</p>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

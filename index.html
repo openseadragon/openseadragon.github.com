@@ -31,15 +31,15 @@
        alt="Fork me on GitHub" /></a>
     <div id="container">
         <div class="download">
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.2/openseadragon-bin-6.0.2.zip">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.zip">
                 <img border="0" width="90" src="/images/zip.png"></a>
-            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.2/openseadragon-bin-6.0.2.tar.gz">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.tar.gz">
                 <img border="0" width="90" src="/images/tar.png"></a>
         </div>
         <img class="logo" src="/images/logo.png">
         <h1>
             <a href="/">OpenSeadragon</a><span class="version">
-                6.0.2
+                6.1.0
             </span>
             <span class="tagline">
             </span>
@@ -163,12 +163,6 @@
             <!-- <li><a href='/examples/tilesource-zoomit/'>
                <span>Pulling from Zoom.it</span>
            </a></li> -->
-            <li><a href='/examples/tilesource-custom/'>
-                <span>Custom Tile Sources</span>
-            </a></li>
-            <li><a href='/examples/tilesource-custom-advanced/'>
-                <span>Custom Tile Sources — Controlling Data Source</span>
-            </a></li>
         </ul>
         <p>
             In addition to the tile sources that are included in the core OpenSeadragon
@@ -192,6 +186,34 @@
                     SZITileSource - view SZI images (DZI images bundled as single files)
                 </a>
             </li>
+            <li>
+                <a href="https://github.com/openseadragon/flex-render">
+                    Flex Render Drawer contains vector rendering:
+                </a>
+                <ul>
+                    <li>
+                        MVTTileSource - tiles from Mapbox Vector Tiles
+                    </li>
+                    <li>
+                        GeoJSONTileSource - in-memory constructed pyramid from GeoJSON geometry
+                    </li>
+                    <li>
+                        FabricTileSource - single-tile pseudo pyramid rendering fabric.js geometry
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h4>Image APIs — Developer Understanding</h4>
+        <ul>
+            <li><a href='/examples/tilesource-custom/'>
+                <span>Custom Tile Sources</span>
+            </a></li>
+            <li><a href='/examples/tilesource-custom-advanced/'>
+                <span>Custom Tile Sources — Controlling Data Source</span>
+            </a></li>
+            <li><a href='/examples/tilesource-flexible-pyramid/'>
+                <span>Custom Tile Sources — Pyramid Layouts and Viewer-wide Rendering Knobs</span>
+            </a></li>
         </ul>
     </li>
 
@@ -420,13 +442,13 @@ some rendering-oriented plugins might be only compatible up until v4—see the m
 <a name="installing"></a>
 <h2 id='download'>Download &amp; Install</h2>
 <p>
-  You can get OpenSeadragon 6.0.2 through any of these venues:
+  You can get OpenSeadragon 6.1.0 through any of these venues:
 </p>
 <ul class="square-list">
   <li>
     <strong>Download:</strong>
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.2/openseadragon-bin-6.0.2.zip">zip</a> or
-    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.0.2/openseadragon-bin-6.0.2.tar.gz">tar.gz</a>
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.zip">zip</a> or
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v6.1.0/openseadragon-bin-6.1.0.tar.gz">tar.gz</a>
   </li>
   <li>
     <strong>Bower:</strong> <tt>bower install openseadragon</tt>
@@ -435,10 +457,10 @@ some rendering-oriented plugins might be only compatible up until v4—see the m
     <strong>npm:</strong> <tt>npm install openseadragon</tt> (<a href="https://www.npmjs.com/package/openseadragon">info</a>)
   </li>
   <li>
-    <strong>jsDelivr (CDN):</strong> <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.0.2/build/openseadragon/openseadragon.min.js">code</a> and <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.0.2/build/openseadragon/images/">images</a>
+    <strong>jsDelivr (CDN):</strong> <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.1.0/build/openseadragon/openseadragon.min.js">code</a> and <a href="https://cdn.jsdelivr.net/npm/openseadragon@6.1.0/build/openseadragon/images/">images</a>
   </li>
   <!-- Currently not working. See https://github.com/openseadragon/openseadragon/issues/2885 <li>
-    <strong>CDNJS (CDN):</strong> <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.0.2/openseadragon.min.js">code</a> and <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.0.2/images/">images</a> (<a href="https://cdnjs.com/libraries/openseadragon">info</a>)
+    <strong>CDNJS (CDN):</strong> <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.1.0/openseadragon.min.js">code</a> and <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/6.1.0/images/">images</a> (<a href="https://cdnjs.com/libraries/openseadragon">info</a>)
   </li> -->
 </ul>
 <p>
